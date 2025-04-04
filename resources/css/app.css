@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-family: 'Poppins', sans-serif;
+    }
+}
+
+@layer components {
+    .container-outer {
+        @apply container mx-auto px-4 py-8 md:py-10;
+    }
+
+    .section-heading {
+        @apply text-3xl md:text-4xl font-extrabold text-mustBlue;
+    }
+
+    .section-heading-white {
+        @apply text-3xl md:text-4xl font-extrabold text-gray-200 ;
+    }
+
+    /* page heading */
+    .header {
+        @apply relative w-full h-60 md:h-80 bg-cover bg-center;
+    }
+    .header-bg {
+        @apply absolute inset-0 bg-mustBlue bg-opacity-20 flex flex-col gap-4 items-center justify-center;
+    }
+
+    .header-title {
+        @apply text-white text-2xl md:text-3xl lg:text-4xl font-bold;
+    }
+
+    .in-active-header-link {
+        @apply text-gray-100 md:text-lg font-semibold hover:text-mustGreen;
+    }
+
+    .active-header-link {
+        @apply text-mustGreen md:text-lg font-semibold;
+    }
+
+    .course-title {
+        @apply text-lg md:text-xl text-mustBlue hover:text-mustGreen mb-2;
+    }
+
+    .learn-more {
+        @apply flex space-x-2 items-center text-mustGreen hover:text-green-500 cursor-pointer;
+    }
+
+    .text-input {
+        @apply w-full pl-10 pr-4 py-1 border-mustGreen focus:outline-none rounded-md
+        focus:ring-0 focus:ring-mustGreen focus:border-mustGreen
+        text-mustBlue text-sm placeholder-gray-400 placeholder:text-sm;
+    }
+
+    /* button */
+    .btn-primary {
+        @apply bg-mustGreen hover:bg-green-700 text-white px-4 py-1 rounded-lg font-semibold transition duration-300 mb-1;
+    }
+
+    .btn-primary-big{
+        @apply px-4 py-2 bg-mustGreen text-gray-100 font-medium rounded-md hover:bg-green-600 transition duration-300;
+    }
+
+    .btn-secondary {
+        @apply bg-gray-300 text-gray-500 hover:text-gray-700 font-medium rounded-md hover:bg-gray-400 px-4 py-1;
+    }
+
+    /* Home page */
+    .counter-card-container {
+        @apply bg-white bg-opacity-40 shadow-md rounded-lg p-6 flex flex-col items-center cursor-pointer transition-transform duration-300 hover:scale-105;
+    }
+
+    .counter-counter {
+        @apply text-4xl font-bold text-mustBlue;
+    }
+
+    .counter-label {
+        @apply text-gray-400 font-medium;
+    }
+
+    /* Backend */
+    .input {
+        @apply placeholder:text-gray-300 placeholder:italic block mt-1 w-full py-1 rounded-md border-gray-300  text-gray-600 shadow-sm focus:ring-green-600 focus:border-green-100;
+    }
+
+    .label {
+        @apply block text-sm font-medium text-gray-700;
+    }
+
+    .page-heading {
+        @apply text-lg md:text-2xl font-bold text-mustBlue mb-3;
+    }
+
+    .image-preview{
+        @apply h-[140px] w-[140px] rounded-full object-cover;
+    }
+
+    .page-content-container {
+        @apply p-4 md:p-6 rounded-lg shadow bg-white max-w-7xl mx-auto;
+    }
+
+}

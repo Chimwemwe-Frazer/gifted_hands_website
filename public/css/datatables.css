@@ -1,0 +1,175 @@
+/*Overrides for Tailwind CSS */
+
+/*Form fields*/
+.dataTables_wrapper select,
+.dataTables_wrapper .dataTables_filter input {
+    color: #4a5568;
+    /*text-gray-700*/
+    padding-left: 1rem;
+    /*pl-4*/
+    padding-right: 1rem;
+    /*pl-4*/
+    padding-top: .3rem;
+    /*pl-2*/
+    padding-bottom: .3rem;
+    /*pl-2*/
+    line-height: 1.25;
+    /*leading-tight*/
+    border-width: 1px;
+    /*border-2*/
+    border-radius: .25rem;
+    border-color: #edf2f7;
+    /*border-gray-200*/
+    background-color: #edf2f7;
+    /*bg-gray-200*/
+}
+
+/*Row Hover*/
+table.dataTable.hover tbody tr:hover,
+table.dataTable.display tbody tr:hover {
+    background-color: #ebf4ff;
+    /*bg-indigo-100*/
+}
+
+/*Pagination Buttons*/
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    font-weight: 700;
+    /*font-bold*/
+    border-radius: .25rem;
+    /*rounded*/
+    border: 1px solid transparent;
+    /*border border-transparent*/
+}
+
+/*Pagination Buttons - Current selected */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    color: #fff !important;
+    /*text-white*/
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+    /*shadow*/
+    font-weight: 700;
+    /*font-bold*/
+    border-radius: .25rem;
+    /*rounded*/
+    background: #55B166 !important;
+    /*bg-indigo-500*/
+    border: 1px solid transparent;
+    /*border border-transparent*/
+}
+
+/*Pagination Buttons - Hover */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    color: #fff !important;
+    /*text-white*/
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+    /*shadow*/
+    font-weight: 700;
+    /*font-bold*/
+    border-radius: .25rem;
+    /*rounded*/
+    background: #55B166 !important;
+    /*bg-indigo-500*/
+    border: 1px solid transparent;
+    /*border border-transparent*/
+}
+
+/*Add padding to bottom border */
+table.dataTable.no-footer {
+    border-bottom: 1px solid #e2e8f0;
+    /*border-b-1 border-gray-300*/
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+}
+
+/*Change colour of responsive icon*/
+table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
+table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
+    background-color: #55B166 !important;
+    /*bg-indigo-500*/
+}
+
+/* Pagination Container */
+.dataTables_wrapper .dataTables_paginate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+}
+
+/* Pagination Buttons */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background-color: #55B166; /* Custom Gold Color */
+    color: white !important;
+    border-radius: 6px;
+    padding: 1px 6px;
+    margin: 3px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Pagination Hover Effect */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: #55B166 !important;
+    color: white !important;
+}
+
+/* Current Page */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background-color: #55B166 !important;
+    /* font-weight: bold; */
+}
+
+/* Disabled Buttons */
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+    background-color: #e4e4e4 !important;
+    color: #777 !important;
+    cursor: not-allowed;
+}
+
+/* Default state */
+.dataTables_filter input {
+    border: 1px solid #e2e8f0; /* Light gray border */
+    padding: 0.3rem 1rem;
+    border-radius: 0.375rem;
+    color: #4a5568;
+}
+
+/* Focus state */
+.dataTables_filter input:focus {
+    border-color: #55B166; /* Tomato red color */
+    box-shadow: 0 0 5px rgba(44, 155, 40, 0.5); /* Slight glow effect */
+}
+
+/* Style the dataTables_length container */
+.dataTables_length {
+    margin-bottom: 1rem;  /* Add some space below the dropdown */
+    display: flex;
+    align-items: center;  /* Vertically align the elements */
+    justify-content: flex-start;  /* Align to the left, or center if needed */
+}
+
+/* Style the dropdown button */
+.dataTables_length select {
+    border-radius: 0.375rem;     /* Rounded corners */
+    padding: 0.3rem 1.8rem;       /* Padding inside the select box */
+    font-size: 1rem;             /* Font size */
+    color: #4a5568;              /* Text color */
+    cursor: pointer;            /* Pointer cursor on hover */
+}
+
+/* Style the dropdown when it is focused */
+.dataTables_length select:focus {
+    border-color: #55B166;      /* Change the border color to green when focused */
+    outline: none;              /* Remove the outline */
+    box-shadow: 0 0 5px rgba(74, 201, 87, 0.5); /* Optional: add a glow effect */
+}
+
+/* Optional: Change the label next to the select dropdown */
+.dataTables_length label {
+    font-size: 1rem;
+    margin-right: 0.5rem; /* Add space between the label and the dropdown */
+    color: #4a5568;  /* Label text color */
+}
+
+
+
+
