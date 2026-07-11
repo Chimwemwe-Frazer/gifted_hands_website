@@ -17,10 +17,6 @@ class RolesAndPermissionsSeeder extends Seeder
         $admin = Role::firstOrCreate(['name' => 'Admin']);
 
         $permissions = [
-            'add patient',
-            'list patients',
-            'update patient',
-            'delete patient',
             'add service',
             'list services',
             'update service',

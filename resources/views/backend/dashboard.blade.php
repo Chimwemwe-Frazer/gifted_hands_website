@@ -9,8 +9,8 @@
         <div class="bg-white shadow rounded-lg">
             <div class="flex items-center justify-between p-4 md:p-6">
                 <div class="space-y-1">
-                    <div class="text-4xl md:text-5xl font-bold text-mustBlue">{{ $patientsCount }}</div>
-                    <span class="text-gray-600 text-lg">Patients</span>
+                    <div class="text-4xl md:text-5xl font-bold text-mustBlue">{{ $newAppointmentRequestsCount }}</div>
+                    <span class="text-gray-600 text-lg">New Requests</span>
                 </div>
                 <div class="bg-mustGreen opacity-80 rounded-full p-3 flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -26,7 +26,7 @@
             <div class="flex items-center justify-between p-4 md:p-6">
                 <div class="space-y-1">
                     <div class="text-4xl md:text-5xl font-bold text-mustBlue">{{ $appointmentsTodayCount }}</div>
-                    <span class="text-gray-600 text-lg">Today's Visits</span>
+                    <span class="text-gray-600 text-lg">Today</span>
                 </div>
                 <div class="bg-mustGreen opacity-80 rounded-full p-3 flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -73,9 +73,9 @@
 
     <div class="page-content-container mt-4">
         <div class="flex items-center justify-between mb-3">
-            <h2 class="page-heading mb-0">Upcoming Appointments</h2>
+            <h2 class="page-heading mb-0">Appointment Requests</h2>
             @can('add appointment')
-                <a href="{{ route('admin.appointments.create') }}" class="btn-primary">Schedule</a>
+                <a href="{{ route('admin.appointments.create') }}" class="btn-primary">Add Request</a>
             @endcan
         </div>
 
@@ -83,8 +83,9 @@
             <table class="min-w-full text-sm">
                 <thead class="bg-gray-50 text-gray-700">
                     <tr>
-                        <th class="text-left px-4 py-3">Time</th>
-                        <th class="text-left px-4 py-3">Patient</th>
+                        <th class="text-left px-4 py-3">Requested Time</th>
+                        <th class="text-left px-4 py-3">Name</th>
+                        <th class="text-left px-4 py-3">Contact</th>
                         <th class="text-left px-4 py-3">Service</th>
                         <th class="text-left px-4 py-3">Practitioner</th>
                         <th class="text-left px-4 py-3">Status</th>
@@ -93,15 +94,16 @@
                 <tbody>
                     @forelse ($upcomingAppointments as $appointment)
                         <tr class="border-b hover:bg-gray-50">
-                            <td class="px-4 py-3">{{ $appointment->appointment_at->format('M d, Y H:i') }}</td>
-                            <td class="px-4 py-3 font-semibold">{{ $appointment->patient->full_name }}</td>
+                            <td class="px-4 py-3">{{ $appointment->appointment_at?->format('M d, Y H:i') ?? 'Flexible' }}</td>
+                            <td class="px-4 py-3 font-semibold">{{ $appointment->client_name }}</td>
+                            <td class="px-4 py-3">{{ $appointment->client_phone }}</td>
                             <td class="px-4 py-3">{{ $appointment->service->name }}</td>
                             <td class="px-4 py-3">{{ $appointment->practitioner?->name ?? 'Unassigned' }}</td>
                             <td class="px-4 py-3">{{ $appointment->status }}</td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="px-4 py-6 text-center text-gray-500">No upcoming appointments.</td>
+                            <td colspan="6" class="px-4 py-6 text-center text-gray-500">No appointment requests yet.</td>
                         </tr>
                     @endforelse
                 </tbody>

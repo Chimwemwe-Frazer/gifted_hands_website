@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
-use App\Models\Patient;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -26,7 +25,7 @@ class AppointmentsController extends Controller implements HasMiddleware
 
     public function index(): View
     {
-        $appointments = Appointment::with(['patient', 'service', 'practitioner'])
+        $appointments = Appointment::with(['service', 'practitioner'])
             ->orderByDesc('appointment_at')
             ->get();
 
@@ -47,7 +46,7 @@ class AppointmentsController extends Controller implements HasMiddleware
 
     public function show(Appointment $appointment): View
     {
-        $appointment->load(['patient', 'service', 'practitioner']);
+        $appointment->load(['service', 'practitioner']);
 
         return view('backend.appointments.show', compact('appointment'));
     }
@@ -74,20 +73,21 @@ class AppointmentsController extends Controller implements HasMiddleware
     private function formData(): array
     {
         return [
-            'patients' => Patient::where('status', 'Active')->orderBy('first_name')->get(),
             'services' => Service::where('status', 'Active')->orderBy('name')->get(),
             'practitioners' => User::orderBy('name')->get(),
-            'statuses' => ['Scheduled', 'Checked In', 'Completed', 'Cancelled'],
+            'statuses' => ['New request', 'Contacted', 'Confirmed', 'Completed', 'Cancelled'],
         ];
     }
 
     private function validatedData(Request $request): array
     {
         return $request->validate([
-            'patient_id' => ['required', 'exists:patients,id'],
+            'client_name' => ['required', 'string', 'max:255'],
+            'client_phone' => ['required', 'string', 'max:50'],
+            'client_email' => ['nullable', 'email', 'max:255'],
             'service_id' => ['required', 'exists:services,id'],
             'practitioner_id' => ['nullable', 'exists:users,id'],
-            'appointment_at' => ['required', 'date'],
+            'appointment_at' => ['nullable', 'date'],
             'status' => ['required', 'string', 'max:50'],
             'reason' => ['nullable', 'string', 'max:255'],
             'notes' => ['nullable', 'string'],

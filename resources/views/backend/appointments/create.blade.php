@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title')
-    {{ isset($appointment) ? 'Edit Appointment' : 'Schedule Appointment' }}
+    {{ isset($appointment) ? 'Edit Appointment Request' : 'Add Appointment Request' }}
 @endsection
 
 @section('content')
     <div class="flex items-center justify-between">
-        <h1 class="page-heading">{{ isset($appointment) ? 'Edit Appointment' : 'Schedule Appointment' }}</h1>
+        <h1 class="page-heading">{{ isset($appointment) ? 'Edit Appointment Request' : 'Add Appointment Request' }}</h1>
         <a href="{{ route('admin.appointments.index') }}" class="text-mustGreen">Back</a>
     </div>
 
@@ -20,16 +20,19 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="space-y-2">
-                    <label class="label">Patient <span class="text-red-500">*</span></label>
-                    <select name="patient_id" class="input" required>
-                        <option value="">Select Patient</option>
-                        @foreach ($patients as $patient)
-                            <option value="{{ $patient->id }}" @selected((int) old('patient_id', $appointment->patient_id ?? 0) === $patient->id)>
-                                {{ $patient->patient_number }} - {{ $patient->full_name }}
-                            </option>
-                        @endforeach
-                    </select>
-                    <span class="text-red-500">{{ $errors->first('patient_id') }}</span>
+                    <label class="label">Name <span class="text-red-500">*</span></label>
+                    <input name="client_name" class="input" required value="{{ old('client_name', $appointment->client_name ?? '') }}">
+                    <span class="text-red-500">{{ $errors->first('client_name') }}</span>
+                </div>
+                <div class="space-y-2">
+                    <label class="label">Phone <span class="text-red-500">*</span></label>
+                    <input name="client_phone" class="input" required value="{{ old('client_phone', $appointment->client_phone ?? '') }}">
+                    <span class="text-red-500">{{ $errors->first('client_phone') }}</span>
+                </div>
+                <div class="space-y-2">
+                    <label class="label">Email</label>
+                    <input type="email" name="client_email" class="input" value="{{ old('client_email', $appointment->client_email ?? '') }}">
+                    <span class="text-red-500">{{ $errors->first('client_email') }}</span>
                 </div>
                 <div class="space-y-2">
                     <label class="label">Service <span class="text-red-500">*</span></label>
@@ -56,9 +59,9 @@
                     <span class="text-red-500">{{ $errors->first('practitioner_id') }}</span>
                 </div>
                 <div class="space-y-2">
-                    <label class="label">Date and Time <span class="text-red-500">*</span></label>
-                    <input type="datetime-local" name="appointment_at" class="input" required
-                        value="{{ old('appointment_at', isset($appointment) ? $appointment->appointment_at->format('Y-m-d\TH:i') : '') }}">
+                    <label class="label">Preferred Date and Time</label>
+                    <input type="datetime-local" name="appointment_at" class="input"
+                        value="{{ old('appointment_at', isset($appointment) && $appointment->appointment_at ? $appointment->appointment_at->format('Y-m-d\TH:i') : '') }}">
                     <span class="text-red-500">{{ $errors->first('appointment_at') }}</span>
                 </div>
                 <div class="space-y-2">
@@ -71,7 +74,7 @@
                     <span class="text-red-500">{{ $errors->first('status') }}</span>
                 </div>
                 <div class="space-y-2">
-                    <label class="label">Reason</label>
+                    <label class="label">Reason or Message</label>
                     <input name="reason" class="input" value="{{ old('reason', $appointment->reason ?? '') }}">
                     <span class="text-red-500">{{ $errors->first('reason') }}</span>
                 </div>
@@ -83,7 +86,7 @@
             </div>
 
             <div class="flex justify-end mt-4">
-                <button type="submit" class="btn-primary">{{ isset($appointment) ? 'Update' : 'Schedule' }}</button>
+                <button type="submit" class="btn-primary">{{ isset($appointment) ? 'Update' : 'Save Request' }}</button>
             </div>
         </form>
     </div>

@@ -42,7 +42,7 @@ class ServicesController extends Controller implements HasMiddleware
 
     public function show(Service $service): View
     {
-        $service->load('appointments.patient');
+        $service->load('appointments');
 
         return view('backend.services.show', compact('service'));
     }

@@ -13,12 +13,20 @@
     <div class="page-content-container">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
             <div>
-                <p class="font-semibold text-gray-700">Date and Time</p>
-                <p>{{ $appointment->appointment_at->format('M d, Y H:i') }}</p>
+                <p class="font-semibold text-gray-700">Preferred Date and Time</p>
+                <p>{{ $appointment->appointment_at?->format('M d, Y H:i') ?? 'Flexible' }}</p>
             </div>
             <div>
-                <p class="font-semibold text-gray-700">Patient</p>
-                <p>{{ $appointment->patient->full_name }}</p>
+                <p class="font-semibold text-gray-700">Name</p>
+                <p>{{ $appointment->client_name }}</p>
+            </div>
+            <div>
+                <p class="font-semibold text-gray-700">Phone</p>
+                <p>{{ $appointment->client_phone }}</p>
+            </div>
+            <div>
+                <p class="font-semibold text-gray-700">Email</p>
+                <p>{{ $appointment->client_email ?? 'N/A' }}</p>
             </div>
             <div>
                 <p class="font-semibold text-gray-700">Service</p>

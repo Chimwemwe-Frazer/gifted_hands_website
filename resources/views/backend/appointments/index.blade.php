@@ -8,7 +8,7 @@
     <div class="flex items-center justify-between">
         <h1 class="page-heading">Appointments</h1>
         @can('add appointment')
-            <a href="{{ route('admin.appointments.create') }}" class="btn-primary">Schedule Appointment</a>
+            <a href="{{ route('admin.appointments.create') }}" class="btn-primary">Add Request</a>
         @endcan
     </div>
 
@@ -16,8 +16,9 @@
         <table class="min-w-full text-sm">
             <thead class="bg-gray-50 text-gray-700">
                 <tr>
-                    <th class="text-left px-4 py-3">Date</th>
-                    <th class="text-left px-4 py-3">Patient</th>
+                    <th class="text-left px-4 py-3">Requested Date</th>
+                    <th class="text-left px-4 py-3">Name</th>
+                    <th class="text-left px-4 py-3">Phone</th>
                     <th class="text-left px-4 py-3">Service</th>
                     <th class="text-left px-4 py-3">Practitioner</th>
                     <th class="text-left px-4 py-3">Status</th>
@@ -27,8 +28,9 @@
             <tbody>
                 @forelse ($appointments as $appointment)
                     <tr class="border-b hover:bg-gray-50">
-                        <td class="px-4 py-3">{{ $appointment->appointment_at->format('M d, Y H:i') }}</td>
-                        <td class="px-4 py-3 font-semibold">{{ $appointment->patient->full_name }}</td>
+                        <td class="px-4 py-3">{{ $appointment->appointment_at?->format('M d, Y H:i') ?? 'Flexible' }}</td>
+                        <td class="px-4 py-3 font-semibold">{{ $appointment->client_name }}</td>
+                        <td class="px-4 py-3">{{ $appointment->client_phone }}</td>
                         <td class="px-4 py-3">{{ $appointment->service->name }}</td>
                         <td class="px-4 py-3">{{ $appointment->practitioner?->name ?? 'Unassigned' }}</td>
                         <td class="px-4 py-3">{{ $appointment->status }}</td>
@@ -50,7 +52,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6" class="px-4 py-6 text-center text-gray-500">No appointments scheduled yet.</td>
+                        <td colspan="7" class="px-4 py-6 text-center text-gray-500">No appointment requests yet.</td>
                     </tr>
                 @endforelse
             </tbody>

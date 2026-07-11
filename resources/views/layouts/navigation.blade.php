@@ -11,20 +11,6 @@
         </a>
     </li>
 
-    @can('list patients')
-        <li>
-            <a href="{{ route('admin.patients.index') }}"
-                class="flex items-center py-2 rounded-md px-3 space-x-3 {{ Str::startsWith(Route::currentRouteName(), 'admin.patients') ? ' bg-mustGreen ' : 'hover:bg-gray-400' }}">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                </svg>
-                <span>Patients</span>
-            </a>
-        </li>
-    @endcan
-
     @can('list appointments')
         <li>
             <a href="{{ route('admin.appointments.index') }}"
