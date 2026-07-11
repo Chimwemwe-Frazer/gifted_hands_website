@@ -43,6 +43,17 @@
                     <a href="#book-appointment" class="rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-green-700">Request appointment</a>
                     <a href="#services" class="rounded-md border border-white/60 px-5 py-3 font-semibold text-white hover:bg-white hover:text-mustBlue">View services</a>
                 </div>
+                <div class="mt-8 grid max-w-2xl gap-3 sm:grid-cols-3">
+                    <div class="rounded-md border border-white/25 bg-white/15 px-4 py-3 text-sm font-semibold text-white shadow-sm backdrop-blur">
+                        Open 24/7
+                    </div>
+                    <div class="rounded-md border border-white/25 bg-white/15 px-4 py-3 text-sm font-semibold text-white shadow-sm backdrop-blur">
+                        Ambulance Available
+                    </div>
+                    <div class="rounded-md border border-white/25 bg-white/15 px-4 py-3 text-sm font-semibold text-white shadow-sm backdrop-blur">
+                        Experienced Medical Team
+                    </div>
+                </div>
             </div>
         </div>
     </header>
