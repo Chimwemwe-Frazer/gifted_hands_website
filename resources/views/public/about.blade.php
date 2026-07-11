@@ -24,7 +24,7 @@
                 <a href="{{ route('about') }}" class="text-mustGreen">About Us</a>
                 <a href="{{ route('services') }}" class="hover:text-mustGreen">Services</a>
                 <a href="{{ route('doctors') }}" class="hover:text-mustGreen">Doctors</a>
-                <a href="{{ route('home') }}#book-appointment" class="hover:text-mustGreen">Book Appointment</a>
+                <a href="{{ route('home') }}#book-appointment" class="hover:text-mustGreen">Clinic Schedule</a>
                 <a href="{{ route('home') }}#announcements" class="hover:text-mustGreen">Announcements</a>
                 <a href="{{ route('gallery') }}" class="hover:text-mustGreen">Gallery</a>
                 <a href="{{ route('faqs') }}" class="hover:text-mustGreen">FAQs</a>
