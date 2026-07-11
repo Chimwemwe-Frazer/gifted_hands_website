@@ -22,12 +22,12 @@
             <div class="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm font-semibold">
                 <a href="{{ route('home') }}" class="hover:text-mustGreen">Home</a>
                 <a href="{{ route('about') }}" class="text-mustGreen">About Us</a>
-                <a href="{{ route('home') }}#services" class="hover:text-mustGreen">Services</a>
-                <a href="{{ route('home') }}#doctors" class="hover:text-mustGreen">Doctors</a>
+                <a href="{{ route('services') }}" class="hover:text-mustGreen">Services</a>
+                <a href="{{ route('doctors') }}" class="hover:text-mustGreen">Doctors</a>
                 <a href="{{ route('home') }}#book-appointment" class="hover:text-mustGreen">Book Appointment</a>
                 <a href="{{ route('home') }}#announcements" class="hover:text-mustGreen">Announcements</a>
-                <a href="{{ route('home') }}#gallery" class="hover:text-mustGreen">Gallery</a>
-                <a href="{{ route('home') }}#faqs" class="hover:text-mustGreen">FAQs</a>
+                <a href="{{ route('gallery') }}" class="hover:text-mustGreen">Gallery</a>
+                <a href="{{ route('faqs') }}" class="hover:text-mustGreen">FAQs</a>
                 <a href="{{ route('home') }}#contact-us" class="hover:text-mustGreen">Contact Us</a>
             </div>
         </nav>

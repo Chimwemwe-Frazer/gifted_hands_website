@@ -22,12 +22,12 @@
             <div class="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm font-semibold">
                 <a href="{{ route('home') }}" class="hover:text-mustGreen">Home</a>
                 <a href="{{ route('about') }}" class="hover:text-mustGreen">About Us</a>
-                <a href="#services" class="hover:text-mustGreen">Services</a>
-                <a href="#doctors" class="hover:text-mustGreen">Doctors</a>
+                <a href="{{ route('services') }}" class="hover:text-mustGreen">Services</a>
+                <a href="{{ route('doctors') }}" class="hover:text-mustGreen">Doctors</a>
                 <a href="#book-appointment" class="hover:text-mustGreen">Book Appointment</a>
                 <a href="#announcements" class="hover:text-mustGreen">Announcements</a>
-                <a href="#gallery" class="hover:text-mustGreen">Gallery</a>
-                <a href="#faqs" class="hover:text-mustGreen">FAQs</a>
+                <a href="{{ route('gallery') }}" class="hover:text-mustGreen">Gallery</a>
+                <a href="{{ route('faqs') }}" class="hover:text-mustGreen">FAQs</a>
                 <a href="#contact-us" class="hover:text-mustGreen">Contact Us</a>
             </div>
         </nav>
@@ -41,7 +41,7 @@
                 </p>
                 <div class="mt-8 flex flex-wrap gap-3">
                     <a href="#book-appointment" class="rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-green-700">Request appointment</a>
-                    <a href="#services" class="rounded-md border border-white/60 px-5 py-3 font-semibold text-white hover:bg-white hover:text-mustBlue">View services</a>
+                    <a href="{{ route('services') }}" class="rounded-md border border-white/60 px-5 py-3 font-semibold text-white hover:bg-white hover:text-mustBlue">View services</a>
                 </div>
                 <div class="mt-8 flex max-w-2xl flex-col gap-3 border-l-4 border-mustGreen pl-5 text-sm font-semibold text-gray-100 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
                     <span>Open 24/7</span>
@@ -127,9 +127,14 @@
         </section>
 
         <section id="services" class="mx-auto max-w-7xl px-4 py-16">
-            <div class="max-w-3xl">
-                <h2 class="section-heading">Clinic Services</h2>
-                <p class="mt-4 text-gray-600">Explore the core healthcare services available at the clinic for individuals, women, children, and families.</p>
+            <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+                <div class="max-w-3xl">
+                    <h2 class="section-heading">Clinic Services</h2>
+                    <p class="mt-4 text-gray-600">Explore the core healthcare services available at the clinic for individuals, women, children, and families.</p>
+                </div>
+                <a href="{{ route('services') }}" class="inline-flex items-center text-sm font-semibold text-mustGreen hover:text-green-700">
+                    View More <span class="ml-2">&rarr;</span>
+                </a>
             </div>
 
             <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -189,9 +194,14 @@
         </section>
 
         <section id="doctors" class="mx-auto max-w-7xl px-4 py-16">
-            <div class="max-w-3xl">
-                <h2 class="section-heading">Doctors</h2>
-                <p class="mt-4 text-gray-600">Meet the experienced medical professionals supporting patient-centered care at the clinic.</p>
+            <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+                <div class="max-w-3xl">
+                    <h2 class="section-heading">Doctors</h2>
+                    <p class="mt-4 text-gray-600">Meet the experienced medical professionals supporting patient-centered care at the clinic.</p>
+                </div>
+                <a href="{{ route('doctors') }}" class="inline-flex items-center text-sm font-semibold text-mustGreen hover:text-green-700">
+                    View More <span class="ml-2">&rarr;</span>
+                </a>
             </div>
 
             <div class="mt-8 grid gap-5 md:grid-cols-3">
@@ -300,22 +310,41 @@
         </section>
 
         <section id="gallery" class="mx-auto max-w-7xl px-4 py-16">
-            <div class="max-w-3xl">
-                <h2 class="section-heading">Gallery</h2>
-                <p class="mt-4 text-gray-600">A place to show clinic rooms, reception areas, equipment, and team moments for visitor confidence.</p>
+            <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+                <div class="max-w-3xl">
+                    <h2 class="section-heading">Gallery</h2>
+                    <p class="mt-4 text-gray-600">A place to show clinic rooms, reception areas, equipment, and team moments for visitor confidence.</p>
+                </div>
+                <a href="{{ route('gallery') }}" class="inline-flex items-center text-sm font-semibold text-mustGreen hover:text-green-700">
+                    View More <span class="ml-2">&rarr;</span>
+                </a>
             </div>
             <div class="mt-8 grid gap-4 md:grid-cols-3">
-                <div class="h-48 rounded-lg bg-gray-100"></div>
-                <div class="h-48 rounded-lg bg-gray-100"></div>
-                <div class="h-48 rounded-lg bg-gray-100"></div>
+                <figure class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                    <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic reception area" class="h-48 w-full object-cover">
+                    <figcaption class="p-4 text-sm font-semibold text-mustBlue">Reception Area</figcaption>
+                </figure>
+                <figure class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                    <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic consultation room" class="h-48 w-full object-cover">
+                    <figcaption class="p-4 text-sm font-semibold text-mustBlue">Consultation Room</figcaption>
+                </figure>
+                <figure class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                    <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic laboratory services" class="h-48 w-full object-cover">
+                    <figcaption class="p-4 text-sm font-semibold text-mustBlue">Laboratory</figcaption>
+                </figure>
             </div>
         </section>
 
         <section id="faqs" class="bg-gray-50">
             <div class="mx-auto max-w-7xl px-4 py-16">
-                <div class="max-w-3xl">
-                    <h2 class="section-heading">FAQs</h2>
-                    <p class="mt-4 text-gray-600">Answers to common visitor questions before they book or visit.</p>
+                <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+                    <div class="max-w-3xl">
+                        <h2 class="section-heading">FAQs</h2>
+                        <p class="mt-4 text-gray-600">Answers to common visitor questions before they book or visit.</p>
+                    </div>
+                    <a href="{{ route('faqs') }}" class="inline-flex items-center text-sm font-semibold text-mustGreen hover:text-green-700">
+                        View More <span class="ml-2">&rarr;</span>
+                    </a>
                 </div>
                 <div class="mt-8 grid gap-4 md:grid-cols-2">
                     <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
