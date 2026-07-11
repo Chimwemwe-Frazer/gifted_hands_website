@@ -21,7 +21,7 @@
             </a>
             <div class="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm font-semibold">
                 <a href="{{ route('home') }}" class="hover:text-mustGreen">Home</a>
-                <a href="#about-us" class="hover:text-mustGreen">About Us</a>
+                <a href="{{ route('about') }}" class="hover:text-mustGreen">About Us</a>
                 <a href="#services" class="hover:text-mustGreen">Services</a>
                 <a href="#doctors" class="hover:text-mustGreen">Doctors</a>
                 <a href="#book-appointment" class="hover:text-mustGreen">Book Appointment</a>
@@ -65,6 +65,9 @@
                     <p class="text-lg leading-9 text-gray-700">
                         For many years, we have proudly served our community with professional, patient-centered healthcare. Our experienced doctors and dedicated medical team provide a comprehensive range of quality healthcare services designed to meet the diverse needs of individuals and families.
                     </p>
+                    <a href="{{ route('about') }}" class="mt-6 inline-flex rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-green-700">
+                        Read More
+                    </a>
                 </div>
             </div>
         </section>

@@ -12,6 +12,7 @@ use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', PublicSiteController::class)->name('home');
+Route::view('/about-us', 'public.about')->name('about');
 Route::post('/appointments/request', PublicAppointmentController::class)->name('appointments.request');
 
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
