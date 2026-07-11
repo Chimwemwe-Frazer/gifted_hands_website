@@ -44,6 +44,10 @@
         @apply text-mustGreen md:text-lg font-semibold;
     }
 
+    .record-title {
+        @apply text-lg md:text-xl text-mustBlue hover:text-mustGreen mb-2;
+    }
+
     .course-title {
         @apply text-lg md:text-xl text-mustBlue hover:text-mustGreen mb-2;
     }

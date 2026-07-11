@@ -14,7 +14,7 @@
         @foreach ($roles as $role)
             <div class="bg-white rounded-lg overflow-hidden">
                 <div class="p-4">
-                    <a href="{{ route('admin.roles.show', $role->id) }}" class="course-title">
+                    <a href="{{ route('admin.roles.show', $role->id) }}" class="record-title">
                         {{ $role->name }}
                     </a>
 
@@ -210,4 +210,3 @@
         </div>
     </x-modal>
 @endsection
-

@@ -11,6 +11,48 @@
         </a>
     </li>
 
+    @can('list patients')
+        <li>
+            <a href="{{ route('admin.patients.index') }}"
+                class="flex items-center py-2 rounded-md px-3 space-x-3 {{ Str::startsWith(Route::currentRouteName(), 'admin.patients') ? ' bg-mustGreen ' : 'hover:bg-gray-400' }}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+                <span>Patients</span>
+            </a>
+        </li>
+    @endcan
+
+    @can('list appointments')
+        <li>
+            <a href="{{ route('admin.appointments.index') }}"
+                class="flex items-center py-2 rounded-md px-3 space-x-3 {{ Str::startsWith(Route::currentRouteName(), 'admin.appointments') ? ' bg-mustGreen ' : 'hover:bg-gray-400' }}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M6.75 3v2.25M17.25 3v2.25M3.75 8.25h16.5M4.5 6.75h15A1.5 1.5 0 0 1 21 8.25v10.5A2.25 2.25 0 0 1 18.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+                </svg>
+                <span>Appointments</span>
+            </a>
+        </li>
+    @endcan
+
+    @can('list services')
+        <li>
+            <a href="{{ route('admin.services.index') }}"
+                class="flex items-center py-2 rounded-md px-3 space-x-3 {{ Str::startsWith(Route::currentRouteName(), 'admin.services') ? ' bg-mustGreen ' : 'hover:bg-gray-400' }}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <span>Services</span>
+            </a>
+        </li>
+    @endcan
+
     @can('list users')
         <li x-data="{ open: false }">
             <button @click="open = !open" @click.away="open = false"

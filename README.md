@@ -1,107 +1,94 @@
-# Must Systems Laravel Starter Kit
+# Gifted Hands Clinic Management System
 
-A modern Laravel starter kit featuring Tailwind CSS and Alpine.js, providing a solid foundation for your next Laravel project with pre-built authentication and authorization.
+A Laravel clinic administration system built from the Must Systems starter kit. It keeps the starter kit's authentication, dashboard shell, Tailwind CSS styling, Alpine.js interactions, and role-based authorization, then adds clinic-focused records for patients, services, and appointments.
 
 ## Features
 
-- ✨ Modern Dashboard Layout
-- 🔐 Complete Authentication System
-- 🛡️ Role-Based Authorization
-- 🎨 Tailwind CSS for Styling
-- 🔄 Alpine.js for Frontend Interactivity
-- 📱 Responsive Design
-- 📊 Ready-to-use Dashboard Components
+- Secure login and password management
+- Admin dashboard with clinic activity counts
+- Role-based authorization with Spatie permissions
+- Patient registration and medical notes
+- Clinic service catalogue
+- Appointment scheduling with practitioner assignment
+- User, role, and permission administration
+- Responsive Blade dashboard styled with Tailwind CSS
 
 ## Requirements
 
-- PHP >= 8.1
+- PHP >= 8.2
 - Composer
-- Node.js & npm
+- Node.js and npm
 - MySQL/MariaDB
 
 ## Installation
 
-1. Clone the repository:
-```bash
-git clone [repository-url]
-cd must-systems-starter-kit-blade
-```
+1. Install PHP dependencies:
 
-2. Install PHP dependencies:
 ```bash
 composer install
 ```
 
-3. Install Node.js dependencies:
+2. Install Node.js dependencies:
+
 ```bash
 npm install
 ```
 
-4. Copy environment file and configure:
+3. Copy the environment file and configure database credentials:
+
 ```bash
 cp .env.example .env
 ```
-Edit the `.env` file with your database credentials.
 
-5. Generate application key:
+4. Generate the application key:
+
 ```bash
 php artisan key:generate
 ```
 
-6. Run database migrations and seed:
+5. Run migrations and seed the default admin permissions:
+
 ```bash
 php artisan migrate --seed
 ```
 
-7. Run laravel and node.js:
+6. Start the Laravel server, queue listener, logs, and Vite:
+
 ```bash
 composer run dev
 ```
 
+## Default Login
+
+- Email: promisemphoola2@gmail.com
+- Password: 1234567890
+
+## Main Admin Modules
+
+- Dashboard: clinic counts and upcoming appointments
+- Patients: demographic details, contacts, emergency contact, notes, status
+- Services: service name, description, duration, fee, status
+- Appointments: patient, service, practitioner, date/time, status, reason, notes
+- Access Control: users, roles, and permissions
+
+## Useful Commands
+
+```bash
+php artisan serve
+php artisan migrate
+php artisan migrate:fresh --seed
+npm run dev
+npm run build
+```
 
 ## Project Structure
 
+```text
+app/                 Core application models, controllers, and providers
+config/              Laravel and package configuration
+database/            Migrations, factories, and seeders
+public/              Public assets
+resources/           Blade views, CSS, and JavaScript
+routes/              Route definitions
+tests/               Automated tests
 ```
-├── app/                 # Core application files
-├── config/             # Configuration files
-├── database/           # Database migrations and seeds
-├── public/             # Public assets
-├── resources/          # Views, CSS, and JavaScript
-├── routes/             # Route definitions
-└── tests/              # Test files
-```
-
-## Usage
-
-1. Access the application at `http://localhost:8000`
-2. Default login credentials:
-   - Email: promisemphoola2@gmail.com
-   - Password: 1234567890
-
-## Available Commands
-
-- `php artisan serve` - Start the development server
-- `php artisan migrate` - Run database migrations
-- `php artisan migrate:fresh` - Reset and re-run migrations
-- `npm run dev` - Watch assets during development
-- `npm run build` - Build assets for production
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a new Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-For support, please open an issue in the GitHub repository.
-
----
-
-Built with ❤️ by Must Systems Developers

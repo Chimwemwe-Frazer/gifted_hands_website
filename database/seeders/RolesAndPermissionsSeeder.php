@@ -14,27 +14,45 @@ class RolesAndPermissionsSeeder extends Seeder
      */
     public function run(): void
     {
-        $admin = Role::create(['name' => 'Admin']);
+        $admin = Role::firstOrCreate(['name' => 'Admin']);
 
-        Permission::create(['name' => 'add user']);
-        Permission::create(['name' => 'list users']);
-        Permission::create(['name' => 'update user']);
-        Permission::create(['name' => 'delete user']);
-        Permission::create(['name' => 'suspend user']);
+        $permissions = [
+            'add patient',
+            'list patients',
+            'update patient',
+            'delete patient',
+            'add service',
+            'list services',
+            'update service',
+            'delete service',
+            'add appointment',
+            'list appointments',
+            'update appointment',
+            'delete appointment',
+            'add user',
+            'list users',
+            'update user',
+            'delete user',
+            'suspend user',
+            'add role',
+            'list roles',
+            'update role',
+            'delete role',
+            'add user permissions',
+            'update user role',
+            'update settings',
+        ];
 
-        Permission::create(['name' => 'add role']);
-        Permission::create(['name' => 'list roles']);
-        Permission::create(['name' => 'update role']);
-        Permission::create(['name' => 'delete role']);
-
-        Permission::create(['name' => 'add user permissions']);
-        Permission::create(['name' => 'update user role']);
-
-        Permission::create(['name' => 'update settings']);
+        foreach ($permissions as $permission) {
+            Permission::firstOrCreate(['name' => $permission]);
+        }
 
         $admin->givePermissionTo(Permission::all());
 
-        $user = User::find(1);
-        $user->assignRole('Admin');
+        $user = User::where('email', 'promisemphoola2@gmail.com')->first();
+
+        if ($user) {
+            $user->assignRole('Admin');
+        }
     }
 }
