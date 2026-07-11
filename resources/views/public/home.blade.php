@@ -13,8 +13,8 @@
 </head>
 
 <body class="bg-white text-gray-800">
-    <header class="relative min-h-[92vh] bg-cover bg-center" style="background-image: linear-gradient(rgba(16, 39, 74, .72), rgba(16, 39, 74, .45)), url('{{ asset('imgs/optimixed.jpg') }}');">
-        <nav class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 text-white lg:flex-row lg:items-center lg:justify-between">
+    <header class="relative min-h-[92vh] bg-cover bg-center pt-28" style="background-image: linear-gradient(rgba(16, 39, 74, .72), rgba(16, 39, 74, .45)), url('{{ asset('imgs/optimixed.jpg') }}');">
+        <nav class="fixed inset-x-0 top-0 z-50 flex flex-col gap-4 bg-mustBlue/95 px-4 py-4 text-white shadow-lg backdrop-blur lg:flex-row lg:items-center lg:justify-between">
             <a href="{{ route('home') }}" class="flex items-center gap-3">
                 <img src="{{ asset('imgs/logo/logo-white.png') }}" alt="{{ config('app.name') }}" class="h-12 w-12 object-contain">
                 <span class="text-lg font-semibold">{{ config('app.name', 'Gifted Hands Private Clinic') }}</span>
@@ -32,7 +32,7 @@
             </div>
         </nav>
 
-        <div class="mx-auto flex max-w-7xl flex-col justify-center px-4 pb-20 pt-20 text-white md:pt-28">
+        <div class="mx-auto flex max-w-7xl flex-col justify-center px-4 pb-20 pt-10 text-white md:pt-16">
             <div class="max-w-3xl">
                 <p class="mb-4 text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">Private clinic care</p>
                 <h1 class="text-4xl font-extrabold leading-tight md:text-6xl">{{ config('app.name', 'Gifted Hands Private Clinic') }}</h1>
