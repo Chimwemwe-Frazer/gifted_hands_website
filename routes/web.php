@@ -15,6 +15,7 @@ Route::get('/', PublicSiteController::class)->name('home');
 Route::view('/about-us', 'public.about')->name('about');
 Route::view('/services', 'public.services')->name('services');
 Route::view('/doctors', 'public.doctors')->name('doctors');
+Route::view('/clinic-schedule', 'public.schedule')->name('schedule');
 Route::view('/gallery', 'public.gallery')->name('gallery');
 Route::view('/faqs', 'public.faqs')->name('faqs');
 Route::post('/appointments/request', PublicAppointmentController::class)->name('appointments.request');
