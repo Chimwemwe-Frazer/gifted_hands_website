@@ -26,7 +26,7 @@
                 <a href="{{ route('home') }}#announcements" class="hover:text-mustGreen">Announcements</a>
                 <a href="{{ route('gallery') }}" class="text-mustGreen">Gallery</a>
                 <a href="{{ route('faqs') }}" class="hover:text-mustGreen">FAQs</a>
-                <a href="{{ route('home') }}#contact-us" class="hover:text-mustGreen">Contact Us</a>
+                <a href="{{ route('contact') }}" class="hover:text-mustGreen">Contact Us</a>
             </div>
         </nav>
         <div class="mx-auto max-w-7xl px-4 py-16">

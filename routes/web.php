@@ -18,6 +18,7 @@ Route::view('/doctors', 'public.doctors')->name('doctors');
 Route::view('/clinic-schedule', 'public.schedule')->name('schedule');
 Route::view('/gallery', 'public.gallery')->name('gallery');
 Route::view('/faqs', 'public.faqs')->name('faqs');
+Route::view('/contact-us', 'public.contact')->name('contact');
 Route::post('/appointments/request', PublicAppointmentController::class)->name('appointments.request');
 
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {

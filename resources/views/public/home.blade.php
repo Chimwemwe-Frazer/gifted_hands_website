@@ -28,7 +28,7 @@
                 <a href="#announcements" class="hover:text-mustGreen">Announcements</a>
                 <a href="{{ route('gallery') }}" class="hover:text-mustGreen">Gallery</a>
                 <a href="{{ route('faqs') }}" class="hover:text-mustGreen">FAQs</a>
-                <a href="#contact-us" class="hover:text-mustGreen">Contact Us</a>
+                <a href="{{ route('contact') }}" class="hover:text-mustGreen">Contact Us</a>
             </div>
         </nav>
 
@@ -359,26 +359,6 @@
             </div>
         </section>
 
-        <section id="contact-us" class="mx-auto max-w-7xl px-4 py-16">
-            <div class="max-w-3xl">
-                <h2 class="section-heading">Contact Us</h2>
-                <p class="mt-4 text-gray-600">Reach the clinic directly for directions, service availability, and appointment confirmation.</p>
-            </div>
-            <div class="mt-8 grid gap-4 md:grid-cols-3">
-                <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
-                    <h3 class="font-bold text-mustBlue">Phone</h3>
-                    <p class="mt-2 text-sm text-gray-600">Add clinic phone number</p>
-                </div>
-                <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
-                    <h3 class="font-bold text-mustBlue">Email</h3>
-                    <p class="mt-2 text-sm text-gray-600">Add clinic email address</p>
-                </div>
-                <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
-                    <h3 class="font-bold text-mustBlue">Location</h3>
-                    <p class="mt-2 text-sm text-gray-600">Add clinic physical address</p>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer class="bg-mustBlue px-4 py-8 text-white">
