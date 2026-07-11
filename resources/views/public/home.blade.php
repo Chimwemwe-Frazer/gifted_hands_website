@@ -65,8 +65,8 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(24, '/7')" x-text="value">24/7</p>
-                        <p class="mt-3 text-base font-medium text-gray-200 md:text-lg">Emergency Support</p>
+                        <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(5, '+')" x-text="value">5+</p>
+                        <p class="mt-3 text-base font-medium text-gray-200 md:text-lg">Years of Experience</p>
                     </div>
                 </article>
 
