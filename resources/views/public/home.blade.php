@@ -191,20 +191,35 @@
         <section id="doctors" class="mx-auto max-w-7xl px-4 py-16">
             <div class="max-w-3xl">
                 <h2 class="section-heading">Doctors</h2>
-                <p class="mt-4 text-gray-600">Meet the clinic team and available practitioners. Add doctor profiles from the admin content area as the clinic grows.</p>
+                <p class="mt-4 text-gray-600">Meet the experienced medical professionals supporting patient-centered care at the clinic.</p>
             </div>
-            <div class="mt-8 grid gap-4 md:grid-cols-3">
-                <article class="rounded-lg border border-gray-200 p-5 shadow-sm">
-                    <h3 class="font-bold text-mustBlue">Clinic Doctor</h3>
-                    <p class="mt-2 text-sm leading-6 text-gray-600">General consultation and outpatient care.</p>
+
+            <div class="mt-8 grid gap-5 md:grid-cols-3">
+                <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                    <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Dr. Mercy Banda" class="h-64 w-full object-cover">
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-mustBlue">Dr. Mercy Banda</h3>
+                        <p class="mt-1 text-sm font-semibold text-orange-500">General Practitioner</p>
+                        <p class="mt-3 text-sm leading-6 text-gray-600">MBBS, Diploma in Family Medicine</p>
+                    </div>
                 </article>
-                <article class="rounded-lg border border-gray-200 p-5 shadow-sm">
-                    <h3 class="font-bold text-mustBlue">Visiting Specialist</h3>
-                    <p class="mt-2 text-sm leading-6 text-gray-600">Specialist availability can be announced to visitors here.</p>
+
+                <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                    <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Dr. Thoko Phiri" class="h-64 w-full object-cover">
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-mustBlue">Dr. Thoko Phiri</h3>
+                        <p class="mt-1 text-sm font-semibold text-orange-500">Obstetrics &amp; Gynaecology</p>
+                        <p class="mt-3 text-sm leading-6 text-gray-600">MBBS, MMED Obstetrics &amp; Gynaecology</p>
+                    </div>
                 </article>
-                <article class="rounded-lg border border-gray-200 p-5 shadow-sm">
-                    <h3 class="font-bold text-mustBlue">Nursing Team</h3>
-                    <p class="mt-2 text-sm leading-6 text-gray-600">Support for appointments, vitals, and patient guidance.</p>
+
+                <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                    <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Dr. Daniel Kamanga" class="h-64 w-full object-cover">
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold text-mustBlue">Dr. Daniel Kamanga</h3>
+                        <p class="mt-1 text-sm font-semibold text-orange-500">Physiotherapy &amp; Rehabilitation</p>
+                        <p class="mt-3 text-sm leading-6 text-gray-600">BSc Physiotherapy, Certified Rehabilitation Specialist</p>
+                    </div>
                 </article>
             </div>
         </section>
