@@ -55,6 +55,20 @@
     </header>
 
     <main>
+        <section id="about-us" class="bg-white">
+            <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+                <div>
+                    <p class="text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">About the clinic</p>
+                    <h2 class="section-heading mt-3">About Us</h2>
+                </div>
+                <div class="border-l-4 border-mustGreen pl-6">
+                    <p class="text-lg leading-9 text-gray-700">
+                        For many years, we have proudly served our community with professional, patient-centered healthcare. Our experienced doctors and dedicated medical team provide a comprehensive range of quality healthcare services designed to meet the diverse needs of individuals and families.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <section class="bg-white pt-10">
             <div class="bg-mustBlue">
                 <div class="mx-auto grid max-w-[96rem] gap-8 px-4 py-14 text-white sm:grid-cols-2 lg:grid-cols-4">
@@ -136,7 +150,7 @@
             </div>
         </section>
 
-        <section id="about-us" class="bg-gray-50">
+        <section id="why-visit-us" class="bg-gray-50">
             <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 md:grid-cols-3">
                 <div>
                     <h2 class="section-heading">About Us</h2>
