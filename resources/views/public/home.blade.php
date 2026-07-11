@@ -14,16 +14,21 @@
 
 <body class="bg-white text-gray-800">
     <header class="relative min-h-[92vh] bg-cover bg-center" style="background-image: linear-gradient(rgba(16, 39, 74, .72), rgba(16, 39, 74, .45)), url('{{ asset('imgs/optimixed.jpg') }}');">
-        <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 text-white">
+        <nav class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 text-white lg:flex-row lg:items-center lg:justify-between">
             <a href="{{ route('home') }}" class="flex items-center gap-3">
                 <img src="{{ asset('imgs/logo/logo-white.png') }}" alt="{{ config('app.name') }}" class="h-12 w-12 object-contain">
                 <span class="text-lg font-semibold">{{ config('app.name', 'Gifted Hands Private Clinic') }}</span>
             </a>
-            <div class="hidden items-center gap-6 text-sm font-semibold md:flex">
+            <div class="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm font-semibold">
+                <a href="{{ route('home') }}" class="hover:text-mustGreen">Home</a>
+                <a href="#about-us" class="hover:text-mustGreen">About Us</a>
                 <a href="#services" class="hover:text-mustGreen">Services</a>
-                <a href="#about" class="hover:text-mustGreen">About</a>
-                <a href="#appointment" class="hover:text-mustGreen">Appointments</a>
-                <a href="{{ route('login') }}" class="rounded-md border border-white/50 px-3 py-2 hover:bg-white hover:text-mustBlue">Staff login</a>
+                <a href="#doctors" class="hover:text-mustGreen">Doctors</a>
+                <a href="#book-appointment" class="hover:text-mustGreen">Book Appointment</a>
+                <a href="#announcements" class="hover:text-mustGreen">Announcements</a>
+                <a href="#gallery" class="hover:text-mustGreen">Gallery</a>
+                <a href="#faqs" class="hover:text-mustGreen">FAQs</a>
+                <a href="#contact-us" class="hover:text-mustGreen">Contact Us</a>
             </div>
         </nav>
 
@@ -35,7 +40,7 @@
                     Professional outpatient care, health consultations, and appointment-based clinical services delivered with privacy, respect, and timely attention.
                 </p>
                 <div class="mt-8 flex flex-wrap gap-3">
-                    <a href="#appointment" class="rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-green-700">Request appointment</a>
+                    <a href="#book-appointment" class="rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-green-700">Request appointment</a>
                     <a href="#services" class="rounded-md border border-white/60 px-5 py-3 font-semibold text-white hover:bg-white hover:text-mustBlue">View services</a>
                 </div>
             </div>
@@ -70,10 +75,11 @@
             </div>
         </section>
 
-        <section id="about" class="bg-gray-50">
+        <section id="about-us" class="bg-gray-50">
             <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 md:grid-cols-3">
                 <div>
-                    <h2 class="section-heading">Why Visit Us</h2>
+                    <h2 class="section-heading">About Us</h2>
+                    <p class="mt-4 text-gray-600">A private clinic focused on accessible, respectful outpatient care and clear communication with every visitor.</p>
                 </div>
                 <div class="md:col-span-2 grid gap-4 sm:grid-cols-3">
                     <div>
@@ -95,7 +101,28 @@
             </div>
         </section>
 
-        <section id="appointment" class="mx-auto grid max-w-7xl gap-8 px-4 py-16 lg:grid-cols-[.85fr_1.15fr]">
+        <section id="doctors" class="mx-auto max-w-7xl px-4 py-16">
+            <div class="max-w-3xl">
+                <h2 class="section-heading">Doctors</h2>
+                <p class="mt-4 text-gray-600">Meet the clinic team and available practitioners. Add doctor profiles from the admin content area as the clinic grows.</p>
+            </div>
+            <div class="mt-8 grid gap-4 md:grid-cols-3">
+                <article class="rounded-lg border border-gray-200 p-5 shadow-sm">
+                    <h3 class="font-bold text-mustBlue">Clinic Doctor</h3>
+                    <p class="mt-2 text-sm leading-6 text-gray-600">General consultation and outpatient care.</p>
+                </article>
+                <article class="rounded-lg border border-gray-200 p-5 shadow-sm">
+                    <h3 class="font-bold text-mustBlue">Visiting Specialist</h3>
+                    <p class="mt-2 text-sm leading-6 text-gray-600">Specialist availability can be announced to visitors here.</p>
+                </article>
+                <article class="rounded-lg border border-gray-200 p-5 shadow-sm">
+                    <h3 class="font-bold text-mustBlue">Nursing Team</h3>
+                    <p class="mt-2 text-sm leading-6 text-gray-600">Support for appointments, vitals, and patient guidance.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="book-appointment" class="mx-auto grid max-w-7xl gap-8 px-4 py-16 lg:grid-cols-[.85fr_1.15fr]">
             <div>
                 <h2 class="section-heading">Request An Appointment</h2>
                 <p class="mt-4 leading-7 text-gray-600">
@@ -155,6 +182,71 @@
 
                 <button type="submit" class="mt-5 rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-green-700">Send request</button>
             </form>
+        </section>
+
+        <section id="announcements" class="bg-gray-50">
+            <div class="mx-auto max-w-7xl px-4 py-16">
+                <div class="max-w-3xl">
+                    <h2 class="section-heading">Announcements</h2>
+                    <p class="mt-4 text-gray-600">Share clinic updates, visiting doctor schedules, holiday hours, and public health notices.</p>
+                </div>
+                <div class="mt-8 rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+                    <h3 class="font-bold text-mustBlue">No announcements yet</h3>
+                    <p class="mt-2 text-sm leading-6 text-gray-600">New announcements will appear here when published by the clinic team.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="mx-auto max-w-7xl px-4 py-16">
+            <div class="max-w-3xl">
+                <h2 class="section-heading">Gallery</h2>
+                <p class="mt-4 text-gray-600">A place to show clinic rooms, reception areas, equipment, and team moments for visitor confidence.</p>
+            </div>
+            <div class="mt-8 grid gap-4 md:grid-cols-3">
+                <div class="h-48 rounded-lg bg-gray-100"></div>
+                <div class="h-48 rounded-lg bg-gray-100"></div>
+                <div class="h-48 rounded-lg bg-gray-100"></div>
+            </div>
+        </section>
+
+        <section id="faqs" class="bg-gray-50">
+            <div class="mx-auto max-w-7xl px-4 py-16">
+                <div class="max-w-3xl">
+                    <h2 class="section-heading">FAQs</h2>
+                    <p class="mt-4 text-gray-600">Answers to common visitor questions before they book or visit.</p>
+                </div>
+                <div class="mt-8 grid gap-4 md:grid-cols-2">
+                    <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+                        <h3 class="font-bold text-mustBlue">Do I need an appointment?</h3>
+                        <p class="mt-2 text-sm leading-6 text-gray-600">Appointments are recommended so the clinic can confirm availability before you visit.</p>
+                    </article>
+                    <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+                        <h3 class="font-bold text-mustBlue">Can I request a specific service?</h3>
+                        <p class="mt-2 text-sm leading-6 text-gray-600">Yes. Select a service in the booking form and the appointments officer will follow up.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-us" class="mx-auto max-w-7xl px-4 py-16">
+            <div class="max-w-3xl">
+                <h2 class="section-heading">Contact Us</h2>
+                <p class="mt-4 text-gray-600">Reach the clinic directly for directions, service availability, and appointment confirmation.</p>
+            </div>
+            <div class="mt-8 grid gap-4 md:grid-cols-3">
+                <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
+                    <h3 class="font-bold text-mustBlue">Phone</h3>
+                    <p class="mt-2 text-sm text-gray-600">Add clinic phone number</p>
+                </div>
+                <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
+                    <h3 class="font-bold text-mustBlue">Email</h3>
+                    <p class="mt-2 text-sm text-gray-600">Add clinic email address</p>
+                </div>
+                <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
+                    <h3 class="font-bold text-mustBlue">Location</h3>
+                    <p class="mt-2 text-sm text-gray-600">Add clinic physical address</p>
+                </div>
+            </div>
         </section>
     </main>
 
