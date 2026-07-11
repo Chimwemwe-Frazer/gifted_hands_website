@@ -188,32 +188,6 @@
             </div>
         </section>
 
-        <section id="why-visit-us" class="bg-gray-50">
-            <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 md:grid-cols-3">
-                <div>
-                    <h2 class="section-heading">About Us</h2>
-                    <p class="mt-4 text-gray-600">A private clinic focused on accessible, respectful outpatient care and clear communication with every visitor.</p>
-                </div>
-                <div class="md:col-span-2 grid gap-4 sm:grid-cols-3">
-                    <div>
-                        <p class="text-3xl font-extrabold text-mustGreen">01</p>
-                        <h3 class="mt-2 font-bold text-mustBlue">Private care</h3>
-                        <p class="mt-2 text-sm leading-6 text-gray-600">Respectful consultations in a professional clinic setting.</p>
-                    </div>
-                    <div>
-                        <p class="text-3xl font-extrabold text-mustGreen">02</p>
-                        <h3 class="mt-2 font-bold text-mustBlue">Clear services</h3>
-                        <p class="mt-2 text-sm leading-6 text-gray-600">Public content can be updated by staff as services change.</p>
-                    </div>
-                    <div>
-                        <p class="text-3xl font-extrabold text-mustGreen">03</p>
-                        <h3 class="mt-2 font-bold text-mustBlue">Appointment support</h3>
-                        <p class="mt-2 text-sm leading-6 text-gray-600">Requests go to the clinic team for follow-up and confirmation.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="doctors" class="mx-auto max-w-7xl px-4 py-16">
             <div class="max-w-3xl">
                 <h2 class="section-heading">Doctors</h2>
