@@ -129,27 +129,62 @@
         <section id="services" class="mx-auto max-w-7xl px-4 py-16">
             <div class="max-w-3xl">
                 <h2 class="section-heading">Clinic Services</h2>
-                <p class="mt-4 text-gray-600">The clinic website is focused on helping visitors understand what care is available and how to request an appointment.</p>
+                <p class="mt-4 text-gray-600">Explore the core healthcare services available at the clinic for individuals, women, children, and families.</p>
             </div>
 
-            <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                @forelse ($services as $service)
-                    <article class="rounded-lg border border-gray-200 p-5 shadow-sm">
-                        <h3 class="text-lg font-bold text-mustBlue">{{ $service->name }}</h3>
-                        <p class="mt-3 text-sm leading-6 text-gray-600">{{ $service->description ?: 'Contact the clinic for details about this service.' }}</p>
-                        <div class="mt-4 flex items-center justify-between text-sm text-gray-500">
-                            <span>{{ $service->duration_minutes }} minutes</span>
-                            @if ((float) $service->fee > 0)
-                                <span class="font-semibold text-mustBlue">MWK {{ number_format((float) $service->fee, 2) }}</span>
-                            @endif
-                        </div>
-                    </article>
-                @empty
-                    <article class="rounded-lg border border-gray-200 p-5 shadow-sm">
-                        <h3 class="text-lg font-bold text-mustBlue">General Consultation</h3>
-                        <p class="mt-3 text-sm leading-6 text-gray-600">Contact the clinic to ask about available services and appointment times.</p>
-                    </article>
-                @endforelse
+            <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-orange-500/10 text-orange-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v8m-4-4h8m3.75 0A7.75 7.75 0 1 1 4.25 12a7.75 7.75 0 0 1 15.5 0Z" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-lg font-bold text-mustBlue">General Consultation</h3>
+                    <p class="mt-3 text-sm leading-6 text-gray-600">Receive comprehensive medical assessments and expert diagnosis for a wide range of health concerns from our experienced healthcare professionals.</p>
+                </article>
+
+                <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-orange-500/10 text-orange-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s7-4.35 7-11.25A4.75 4.75 0 0 0 10.5 6.8 4.75 4.75 0 0 0 2 9.75C2 16.65 9 21 9 21h3Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.5v5m-2.5-2.5h5" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-lg font-bold text-mustBlue">Obstetrics &amp; Gynaecology</h3>
+                    <p class="mt-3 text-sm leading-6 text-gray-600">Compassionate healthcare for women, including pregnancy care, reproductive health, family planning, and routine gynaecological services.</p>
+                </article>
+
+                <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-orange-500/10 text-orange-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 7.5a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM5.25 20.25a6.75 6.75 0 0 1 13.5 0" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 4.5h3m-1.5-1.5v3" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-lg font-bold text-mustBlue">Under-5 Clinic</h3>
+                    <p class="mt-3 text-sm leading-6 text-gray-600">Dedicated healthcare services for infants and young children, including growth monitoring, immunizations, and routine child wellness check-ups.</p>
+                </article>
+
+                <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-orange-500/10 text-orange-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25 12 3.75l4.5 4.5M12 4.5V15m-5.25 5.25h10.5M8.25 15.75c-1.5.75-2.25 1.5-2.25 2.25 0 1.25 2.7 2.25 6 2.25s6-1 6-2.25c0-.75-.75-1.5-2.25-2.25" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-lg font-bold text-mustBlue">Physiotherapy</h3>
+                    <p class="mt-3 text-sm leading-6 text-gray-600">Restore mobility, reduce pain, and improve physical function through personalized rehabilitation and physiotherapy treatment plans.</p>
+                </article>
+
+                <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md md:col-span-2 lg:col-span-1">
+                    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-orange-500/10 text-orange-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 3.75v5.1L5.4 17.1A2.25 2.25 0 0 0 7.32 20.5h9.36a2.25 2.25 0 0 0 1.92-3.4l-5.1-8.25v-5.1" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 3.75h6M8.25 15.75h7.5" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-lg font-bold text-mustBlue">Laboratory Services</h3>
+                    <p class="mt-3 text-sm leading-6 text-gray-600">Reliable laboratory testing and diagnostic services that support accurate diagnosis and effective treatment for better patient care.</p>
+                </article>
             </div>
         </section>
 
