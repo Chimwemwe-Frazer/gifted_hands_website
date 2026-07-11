@@ -55,55 +55,57 @@
     </header>
 
     <main>
-        <section class="bg-mustBlue">
-            <div class="mx-auto grid max-w-7xl gap-6 px-4 py-10 text-white sm:grid-cols-2 lg:grid-cols-4">
-                <article class="flex items-center gap-4">
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-orange-500/15 text-orange-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+        <section class="bg-white pt-10">
+            <div class="bg-mustBlue">
+                <div class="mx-auto grid max-w-[96rem] gap-8 px-4 py-14 text-white sm:grid-cols-2 lg:grid-cols-4">
+                <article class="flex flex-col items-center justify-center gap-5 text-center">
+                    <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-orange-500/15 text-orange-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-11 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2m5-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
                     </div>
                     <div>
-                        <p class="text-3xl font-extrabold leading-none" x-data="countUp(24, '/7')" x-text="value">24/7</p>
-                        <p class="mt-2 text-sm font-semibold text-gray-200">Emergency Support</p>
+                        <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(24, '/7')" x-text="value">24/7</p>
+                        <p class="mt-3 text-base font-medium text-gray-200 md:text-lg">Emergency Support</p>
                     </div>
                 </article>
 
-                <article class="flex items-center gap-4">
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-orange-500/15 text-orange-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <article class="flex flex-col items-center justify-center gap-5 text-center">
+                    <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-orange-500/15 text-orange-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-11 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M12 3.75 4.5 7.5v5.25c0 4.5 3.15 7.35 7.5 8.25 4.35-.9 7.5-3.75 7.5-8.25V7.5L12 3.75Z" />
                         </svg>
                     </div>
                     <div>
-                        <p class="text-3xl font-extrabold leading-none" x-data="countUp(10, '+')" x-text="value">10+</p>
-                        <p class="mt-2 text-sm font-semibold text-gray-200">Core Services</p>
+                        <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(10, '+')" x-text="value">10+</p>
+                        <p class="mt-3 text-base font-medium text-gray-200 md:text-lg">Core Services</p>
                     </div>
                 </article>
 
-                <article class="flex items-center gap-4">
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-orange-500/15 text-orange-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <article class="flex flex-col items-center justify-center gap-5 text-center">
+                    <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-orange-500/15 text-orange-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-11 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6.75a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.25a7.5 7.5 0 0 1 15 0M18 10.5h3m-1.5-1.5v3" />
                         </svg>
                     </div>
                     <div>
-                        <p class="text-3xl font-extrabold leading-none" x-data="countUp(15, '+')" x-text="value">15+</p>
-                        <p class="mt-2 text-sm font-semibold text-gray-200">Medical Staff</p>
+                        <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(15, '+')" x-text="value">15+</p>
+                        <p class="mt-3 text-base font-medium text-gray-200 md:text-lg">Medical Staff</p>
                     </div>
                 </article>
 
-                <article class="flex items-center gap-4">
-                    <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-orange-500/15 text-orange-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <article class="flex flex-col items-center justify-center gap-5 text-center">
+                    <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-orange-500/15 text-orange-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-11 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9-3.75h-9m11.25-9H5.25A2.25 2.25 0 0 0 3 8.25v9A2.25 2.25 0 0 0 5.25 19.5h13.5A2.25 2.25 0 0 0 21 17.25v-9A2.25 2.25 0 0 0 18.75 6ZM8.25 3.75v4.5m7.5-4.5v4.5" />
                         </svg>
                     </div>
                     <div>
-                        <p class="text-3xl font-extrabold leading-none" x-data="countUp(1000, '+')" x-text="value">1,000+</p>
-                        <p class="mt-2 text-sm font-semibold text-gray-200">Appointments Served</p>
+                        <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(1000, '+')" x-text="value">1,000+</p>
+                        <p class="mt-3 text-base font-medium text-gray-200 md:text-lg">Appointments Served</p>
                     </div>
                 </article>
+                </div>
             </div>
         </section>
 
