@@ -23,7 +23,7 @@
                 <a href="{{ route('services') }}" class="hover:text-mustGreen">Services</a>
                 <a href="{{ route('doctors') }}" class="hover:text-mustGreen">Doctors</a>
                 <a href="{{ route('schedule') }}" class="hover:text-mustGreen">Clinic Schedule</a>
-                <a href="{{ route('home') }}#announcements" class="hover:text-mustGreen">Announcements</a>
+                <a href="{{ route('announcements') }}" class="hover:text-mustGreen">Announcements</a>
                 <a href="{{ route('gallery') }}" class="hover:text-mustGreen">Gallery</a>
                 <a href="{{ route('faqs') }}" class="hover:text-mustGreen">FAQs</a>
                 <a href="{{ route('contact') }}" class="text-mustGreen">Contact Us</a>

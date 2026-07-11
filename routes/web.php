@@ -4,6 +4,7 @@ use App\Http\Controllers\AppointmentsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicAppointmentController;
+use App\Http\Controllers\PublicAnnouncementSubscriptionController;
 use App\Http\Controllers\PublicSiteController;
 use App\Http\Controllers\RolesAndPermissionsController;
 use App\Http\Controllers\ServicesController;
@@ -16,10 +17,12 @@ Route::view('/about-us', 'public.about')->name('about');
 Route::view('/services', 'public.services')->name('services');
 Route::view('/doctors', 'public.doctors')->name('doctors');
 Route::view('/clinic-schedule', 'public.schedule')->name('schedule');
+Route::view('/announcements', 'public.announcements')->name('announcements');
 Route::view('/gallery', 'public.gallery')->name('gallery');
 Route::view('/faqs', 'public.faqs')->name('faqs');
 Route::view('/contact-us', 'public.contact')->name('contact');
 Route::post('/appointments/request', PublicAppointmentController::class)->name('appointments.request');
+Route::post('/announcements/subscribe', PublicAnnouncementSubscriptionController::class)->name('announcements.subscribe');
 
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');

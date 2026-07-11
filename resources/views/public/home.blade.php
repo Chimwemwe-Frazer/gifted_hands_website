@@ -25,7 +25,7 @@
                 <a href="{{ route('services') }}" class="hover:text-mustGreen">Services</a>
                 <a href="{{ route('doctors') }}" class="hover:text-mustGreen">Doctors</a>
                 <a href="{{ route('schedule') }}" class="hover:text-mustGreen">Clinic Schedule</a>
-                <a href="#announcements" class="hover:text-mustGreen">Announcements</a>
+                <a href="{{ route('announcements') }}" class="hover:text-mustGreen">Announcements</a>
                 <a href="{{ route('gallery') }}" class="hover:text-mustGreen">Gallery</a>
                 <a href="{{ route('faqs') }}" class="hover:text-mustGreen">FAQs</a>
                 <a href="{{ route('contact') }}" class="hover:text-mustGreen">Contact Us</a>
@@ -298,13 +298,31 @@
 
         <section id="announcements" class="bg-gray-50">
             <div class="mx-auto max-w-7xl px-4 py-16">
-                <div class="max-w-3xl">
-                    <h2 class="section-heading">Announcements</h2>
-                    <p class="mt-4 text-gray-600">Share clinic updates, visiting doctor schedules, holiday hours, and public health notices.</p>
+                <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+                    <div class="max-w-3xl">
+                        <h2 class="section-heading">Announcements</h2>
+                        <p class="mt-4 text-gray-600">Latest clinic updates, service notices, and important visitor information.</p>
+                    </div>
+                    <a href="{{ route('announcements') }}" class="inline-flex items-center text-sm font-semibold text-mustGreen hover:text-green-700">
+                        View More <span class="ml-2">&rarr;</span>
+                    </a>
                 </div>
-                <div class="mt-8 rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-                    <h3 class="font-bold text-mustBlue">No announcements yet</h3>
-                    <p class="mt-2 text-sm leading-6 text-gray-600">New announcements will appear here when published by the clinic team.</p>
+                <div class="mt-8 grid gap-4 md:grid-cols-3">
+                    <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+                        <p class="text-xs font-semibold uppercase tracking-[.16em] text-orange-500">Clinic hours</p>
+                        <h3 class="mt-3 font-bold text-mustBlue">Weekend Schedule Update</h3>
+                        <p class="mt-2 text-sm leading-6 text-gray-600">Saturday services are available from 08:00 AM to 01:00 PM. Please call ahead for availability.</p>
+                    </article>
+                    <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+                        <p class="text-xs font-semibold uppercase tracking-[.16em] text-orange-500">Services</p>
+                        <h3 class="mt-3 font-bold text-mustBlue">Laboratory Services Available</h3>
+                        <p class="mt-2 text-sm leading-6 text-gray-600">Reliable diagnostic and laboratory testing services are available during normal clinic hours.</p>
+                    </article>
+                    <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+                        <p class="text-xs font-semibold uppercase tracking-[.16em] text-orange-500">Appointments</p>
+                        <h3 class="mt-3 font-bold text-mustBlue">Book Before Your Visit</h3>
+                        <p class="mt-2 text-sm leading-6 text-gray-600">Visitors are encouraged to request appointments in advance so the team can confirm service availability.</p>
+                    </article>
                 </div>
             </div>
         </section>
