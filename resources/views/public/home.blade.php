@@ -241,9 +241,9 @@
                     This form is for appointment coordination only. It collects contact details so the appointments officer can respond; it is not a patient records system.
                 </p>
                 <div class="mt-6 space-y-2 text-sm text-gray-700">
-                    <p><strong class="text-mustBlue">Phone:</strong> Add clinic phone number</p>
-                    <p><strong class="text-mustBlue">Email:</strong> Add clinic email address</p>
-                    <p><strong class="text-mustBlue">Location:</strong> Add clinic physical address</p>
+                    <p><strong class="text-mustBlue">Phone:</strong> <a href="tel:+265995767137" class="hover:text-mustGreen">+265 995 76 71 37</a></p>
+                    <p><strong class="text-mustBlue">Email:</strong> <a href="mailto:giftedhandspvtclinic@gmail.com" class="hover:text-mustGreen">giftedhandspvtclinic@gmail.com</a></p>
+                    <p><strong class="text-mustBlue">Location:</strong> Barron Avenue, Lilongwe, Malawi</p>
                 </div>
             </div>
 

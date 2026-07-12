@@ -41,15 +41,15 @@
         <section class="space-y-4">
             <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
                 <h2 class="font-bold text-mustBlue">Phone</h2>
-                <p class="mt-2 text-sm text-gray-600">Add clinic phone number</p>
+                <p class="mt-2 text-sm text-gray-600"><a href="tel:+265995767137" class="hover:text-mustGreen">+265 995 76 71 37</a></p>
             </div>
             <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
                 <h2 class="font-bold text-mustBlue">Email</h2>
-                <p class="mt-2 text-sm text-gray-600">Add clinic email address</p>
+                <p class="mt-2 text-sm text-gray-600"><a href="mailto:giftedhandspvtclinic@gmail.com" class="hover:text-mustGreen">giftedhandspvtclinic@gmail.com</a></p>
             </div>
             <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
                 <h2 class="font-bold text-mustBlue">Location</h2>
-                <p class="mt-2 text-sm text-gray-600">Add clinic physical address</p>
+                <p class="mt-2 text-sm text-gray-600">Barron Avenue, Lilongwe, Malawi</p>
             </div>
         </section>
 
