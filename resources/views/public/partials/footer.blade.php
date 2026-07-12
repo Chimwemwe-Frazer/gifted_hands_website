@@ -65,3 +65,14 @@
         </div>
     </div>
 </footer>
+
+<button
+    type="button"
+    aria-label="Back to top"
+    onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full border-4 border-mustGreen bg-mustBlue text-mustGreen shadow-lg transition hover:bg-mustOrangeDark hover:text-white focus:outline-none focus:ring-4 focus:ring-mustGreen/35"
+>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+</button>

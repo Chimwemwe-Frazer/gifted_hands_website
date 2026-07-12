@@ -11,8 +11,8 @@
 </head>
 
 <body class="bg-white text-gray-800">
-    <header class="bg-mustBlue pt-28 text-white">
-        <nav class="fixed inset-x-0 top-0 z-50 flex flex-col gap-4 bg-mustBlue/95 px-4 py-4 text-white shadow-lg backdrop-blur lg:flex-row lg:items-center lg:justify-between">
+    <header class="bg-mustBlue text-white">
+        <nav class="relative z-50 flex flex-col gap-4 bg-mustBlue/95 px-4 py-4 text-white shadow-lg backdrop-blur lg:flex-row lg:items-center lg:justify-between">
             <a href="{{ route('home') }}" class="flex items-center gap-3">
                 <img src="{{ asset('imgs/logo/gifted-hands-logo.png') }}" alt="{{ config('app.name') }}" class="h-12 w-12 object-contain">
                 <span class="text-lg font-semibold">{{ config('app.name', 'Gifted Hands Private Clinic') }}</span>

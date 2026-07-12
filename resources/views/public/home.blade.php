@@ -13,8 +13,8 @@
 </head>
 
 <body class="bg-white text-gray-800">
-    <header class="relative min-h-[92vh] bg-cover bg-center pt-28" style="background-image: linear-gradient(rgba(16, 39, 74, .72), rgba(16, 39, 74, .45)), url('{{ asset('imgs/optimixed.jpg') }}');">
-        <nav class="fixed inset-x-0 top-0 z-50 flex flex-col gap-4 bg-mustBlue/95 px-4 py-4 text-white shadow-lg backdrop-blur lg:flex-row lg:items-center lg:justify-between">
+    <header class="relative min-h-[92vh] bg-cover bg-center" style="background-image: linear-gradient(rgba(16, 39, 74, .72), rgba(16, 39, 74, .45)), url('{{ asset('imgs/optimixed.jpg') }}');">
+        <nav class="relative z-50 flex flex-col gap-4 bg-mustBlue/95 px-4 py-4 text-white shadow-lg backdrop-blur lg:flex-row lg:items-center lg:justify-between">
             <a href="{{ route('home') }}" class="flex items-center gap-3">
                 <img src="{{ asset('imgs/logo/gifted-hands-logo.png') }}" alt="{{ config('app.name') }}" class="h-12 w-12 object-contain">
                 <span class="text-lg font-semibold">{{ config('app.name', 'Gifted Hands Private Clinic') }}</span>
