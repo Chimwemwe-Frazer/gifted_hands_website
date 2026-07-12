@@ -11,7 +11,7 @@ export default {
     theme: {
         extend: {
             colors: {
-                mustBlue: "#34388F",
+                mustBlue: "#005A92",
                 mustRed: "#E62E2D",
                 mustGreen: "#F1842F",
                 mustOrangeDark: "#D86F22",

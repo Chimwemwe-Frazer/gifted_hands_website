@@ -36,9 +36,9 @@
                         <td class="px-4 py-3">{{ $appointment->status }}</td>
                         <td class="px-4 py-3">
                             <div class="flex justify-end gap-3">
-                                <a href="{{ route('admin.appointments.show', $appointment) }}" class="text-blue-500 hover:text-blue-700">View</a>
+                                <a href="{{ route('admin.appointments.show', $appointment) }}" class="text-mustBlue hover:text-mustBlue">View</a>
                                 @can('update appointment')
-                                    <a href="{{ route('admin.appointments.edit', $appointment) }}" class="text-blue-500 hover:text-blue-700">Edit</a>
+                                    <a href="{{ route('admin.appointments.edit', $appointment) }}" class="text-mustBlue hover:text-mustBlue">Edit</a>
                                 @endcan
                                 @can('delete appointment')
                                     <form action="{{ route('admin.appointments.destroy', $appointment) }}" method="POST">

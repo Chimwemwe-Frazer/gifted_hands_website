@@ -33,7 +33,7 @@
                 </div>
                 <div class="flex gap-3 justify-end mt-4">
                     @can('update service')
-                        <a href="{{ route('admin.services.edit', $service) }}" class="text-blue-500 hover:text-blue-700">Edit</a>
+                        <a href="{{ route('admin.services.edit', $service) }}" class="text-mustBlue hover:text-mustBlue">Edit</a>
                     @endcan
                     @can('delete service')
                         <form action="{{ route('admin.services.destroy', $service) }}" method="POST">

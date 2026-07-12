@@ -111,8 +111,8 @@
 
     <template x-if="results.posts?.length">
         <div class="mt-4 max-h-[250px] overflow-y-auto border-b border-gray-300 pb-3">
-            <p class="text-gray-500 text-xs uppercase font-semibold tracking-wide border-l-4 border-blue-500 pl-2">
-                <svg class="w-4 h-4 inline-block text-blue-500 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none"
+            <p class="text-gray-500 text-xs uppercase font-semibold tracking-wide border-l-4 border-mustBlue pl-2">
+                <svg class="w-4 h-4 inline-block text-mustBlue mr-1" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 5H5m14 6H5m14 6H5" />
                 </svg>

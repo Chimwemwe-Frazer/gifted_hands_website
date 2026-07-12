@@ -47,7 +47,7 @@
                         </p>
                         <div class="flex gap-3">
                             <a href="{{ route('admin.roles.show', $role->id) }}"
-                                class="text-blue-500 hover:text-blue-700 transition duration-300">
+                                class="text-mustBlue hover:text-mustBlue transition duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -58,7 +58,7 @@
                             </a>
                             <a href="#"
                                 @click.prevent="$dispatch('open-edit-role', { id: {{ $role->id }}, name: '{{ $role->name }}', permissions: {{ json_encode($role->permissions->pluck('name')) }} })"
-                                class="text-blue-500 hover:text-blue-700 transition duration-300">
+                                class="text-mustBlue hover:text-mustBlue transition duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
                                     <path stroke-linecap="round" stroke-linejoin="round"
