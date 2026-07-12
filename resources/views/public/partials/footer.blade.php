@@ -72,15 +72,34 @@
     x-cloak
     x-data="{
         visible: false,
+        active: false,
+        inFooter: false,
         hero: null,
+        footer: null,
+        idleTimer: null,
         update() {
             this.hero = this.hero || document.querySelector('body > header');
+            this.footer = this.footer || document.querySelector('footer');
             const heroBottom = this.hero ? this.hero.getBoundingClientRect().bottom + window.scrollY : 260;
-            this.visible = window.scrollY > Math.max(heroBottom - 24, 180);
+            const beyondHero = window.scrollY > Math.max(heroBottom - 24, 180);
+            const footerRect = this.footer ? this.footer.getBoundingClientRect() : null;
+            this.inFooter = footerRect ? footerRect.top < window.innerHeight - 24 && footerRect.bottom > 24 : false;
+            this.visible = this.active && beyondHero;
+        },
+        wake() {
+            this.active = true;
+            this.update();
+            clearTimeout(this.idleTimer);
+            this.idleTimer = setTimeout(() => {
+                this.active = false;
+                this.update();
+            }, 1400);
         },
         init() {
             this.update();
-            window.addEventListener('scroll', () => this.update(), { passive: true });
+            window.addEventListener('scroll', () => this.wake(), { passive: true });
+            window.addEventListener('wheel', () => this.wake(), { passive: true });
+            window.addEventListener('touchmove', () => this.wake(), { passive: true });
             window.addEventListener('resize', () => this.update());
         }
     }"
@@ -92,9 +111,8 @@
     x-transition:leave-start="translate-y-0 scale-100 opacity-100"
     x-transition:leave-end="translate-y-3 scale-90 opacity-0"
     onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-    class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-mustBlue text-mustGreen shadow-xl shadow-mustBlue/30 transition hover:-translate-y-1 hover:bg-mustBlue hover:text-mustOrangeDark focus:outline-none focus:ring-4 focus:ring-mustGreen/35"
+    :class="inFooter ? 'bg-white/80 text-mustGreen shadow-white/20' : 'bg-mustBlue text-mustGreen shadow-mustBlue/30'"
+    class="fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-full shadow-xl transition hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-mustGreen/35"
 >
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.8">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
-    </svg>
+    <span class="-mt-1 text-3xl font-semibold leading-none">&uarr;</span>
 </button>
