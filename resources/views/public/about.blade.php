@@ -164,14 +164,17 @@
 
                 <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
                     @foreach ([
-                        ['Consultation Rooms', 'Private spaces for assessment, diagnosis, counselling, and follow-up care.'],
-                        ['Laboratory', 'A dedicated area for diagnostic testing and sample handling.'],
-                        ['Under-5 Area', 'Child-focused care space for growth monitoring, wellness checks, and immunization support.'],
-                        ['Physiotherapy Space', 'Room for rehabilitation, mobility support, and guided recovery sessions.'],
-                    ] as [$title, $description])
-                        <article class="rounded-lg border border-white/15 bg-white/10 p-5">
-                            <h3 class="text-lg font-bold">{{ $title }}</h3>
-                            <p class="mt-3 text-sm leading-7 text-gray-200">{{ $description }}</p>
+                        ['Consultation Rooms', 'Private spaces for assessment, diagnosis, counselling, and follow-up care.', 'imgs/facilities/consultation-room.png'],
+                        ['Laboratory', 'A dedicated area for diagnostic testing and sample handling.', 'imgs/facilities/laboratory.png'],
+                        ['Under-5 Area', 'Child-focused care space for growth monitoring, wellness checks, and immunization support.', 'imgs/facilities/under-5-area.png'],
+                        ['Physiotherapy Space', 'Room for rehabilitation, mobility support, and guided recovery sessions.', 'imgs/facilities/physiotherapy-space.png'],
+                    ] as [$title, $description, $image])
+                        <article class="overflow-hidden rounded-lg border border-white/15 bg-white/10">
+                            <img src="{{ asset($image) }}" alt="{{ $title }}" class="h-44 w-full object-cover">
+                            <div class="p-5">
+                                <h3 class="text-lg font-bold">{{ $title }}</h3>
+                                <p class="mt-3 text-sm leading-7 text-gray-200">{{ $description }}</p>
+                            </div>
                         </article>
                     @endforeach
                 </div>
