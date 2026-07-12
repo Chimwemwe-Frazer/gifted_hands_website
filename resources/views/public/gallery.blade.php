@@ -45,6 +45,7 @@
             @endforeach
         </div>
     </main>
+    @include('public.partials.footer')
 </body>
 
 </html>

@@ -78,6 +78,7 @@
             </form>
         </section>
     </main>
+    @include('public.partials.footer')
 </body>
 
 </html>

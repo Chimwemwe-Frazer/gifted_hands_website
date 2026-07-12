@@ -76,6 +76,7 @@
             </form>
         </aside>
     </main>
+    @include('public.partials.footer')
 </body>
 
 </html>

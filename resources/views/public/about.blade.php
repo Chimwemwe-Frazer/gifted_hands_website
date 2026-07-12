@@ -66,12 +66,7 @@
         </section>
     </main>
 
-    <footer class="bg-mustBlue px-4 py-8 text-white">
-        <div class="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm md:flex-row">
-            <p>&copy; {{ date('Y') }} {{ config('app.name', 'Gifted Hands Private Clinic') }}. All rights reserved.</p>
-            <a href="{{ route('login') }}" class="text-gray-300 hover:text-white">Staff login</a>
-        </div>
-    </footer>
+    @include('public.partials.footer')
 </body>
 
 </html>
