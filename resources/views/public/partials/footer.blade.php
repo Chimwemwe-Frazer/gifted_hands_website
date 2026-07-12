@@ -69,10 +69,32 @@
 <button
     type="button"
     aria-label="Back to top"
+    x-cloak
+    x-data="{
+        visible: false,
+        hero: null,
+        update() {
+            this.hero = this.hero || document.querySelector('body > header');
+            const heroBottom = this.hero ? this.hero.getBoundingClientRect().bottom + window.scrollY : 260;
+            this.visible = window.scrollY > Math.max(heroBottom - 24, 180);
+        },
+        init() {
+            this.update();
+            window.addEventListener('scroll', () => this.update(), { passive: true });
+            window.addEventListener('resize', () => this.update());
+        }
+    }"
+    x-show="visible"
+    x-transition:enter="transition ease-out duration-200"
+    x-transition:enter-start="translate-y-3 scale-90 opacity-0"
+    x-transition:enter-end="translate-y-0 scale-100 opacity-100"
+    x-transition:leave="transition ease-in duration-150"
+    x-transition:leave-start="translate-y-0 scale-100 opacity-100"
+    x-transition:leave-end="translate-y-3 scale-90 opacity-0"
     onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-    class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full border-4 border-mustGreen bg-mustBlue text-mustGreen shadow-lg transition hover:bg-mustOrangeDark hover:text-white focus:outline-none focus:ring-4 focus:ring-mustGreen/35"
+    class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-mustBlue text-mustGreen shadow-xl shadow-mustBlue/30 transition hover:-translate-y-1 hover:bg-mustBlue hover:text-mustOrangeDark focus:outline-none focus:ring-4 focus:ring-mustGreen/35"
 >
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.8">
         <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
     </svg>
 </button>

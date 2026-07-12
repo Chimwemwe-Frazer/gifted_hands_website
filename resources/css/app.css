@@ -9,6 +9,10 @@
     html {
         font-family: 'Poppins', sans-serif;
     }
+
+    [x-cloak] {
+        display: none !important;
+    }
 }
 
 @layer components {
