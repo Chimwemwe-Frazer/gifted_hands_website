@@ -74,6 +74,7 @@
         visible: false,
         active: false,
         inFooter: false,
+        hovering: false,
         hero: null,
         footer: null,
         idleTimer: null,
@@ -84,16 +85,28 @@
             const beyondHero = window.scrollY > Math.max(heroBottom - 24, 180);
             const footerRect = this.footer ? this.footer.getBoundingClientRect() : null;
             this.inFooter = footerRect ? footerRect.top < window.innerHeight - 24 && footerRect.bottom > 24 : false;
-            this.visible = this.active && beyondHero;
+            this.visible = (this.active || this.hovering) && beyondHero;
         },
         wake() {
             this.active = true;
             this.update();
             clearTimeout(this.idleTimer);
             this.idleTimer = setTimeout(() => {
+                if (this.hovering) {
+                    return;
+                }
                 this.active = false;
                 this.update();
-            }, 1400);
+            }, 5000);
+        },
+        hold() {
+            this.hovering = true;
+            clearTimeout(this.idleTimer);
+            this.update();
+        },
+        release() {
+            this.hovering = false;
+            this.wake();
         },
         init() {
             this.update();
@@ -110,6 +123,8 @@
     x-transition:leave="transition ease-in duration-150"
     x-transition:leave-start="translate-y-0 scale-100 opacity-100"
     x-transition:leave-end="translate-y-3 scale-90 opacity-0"
+    @mouseenter="hold()"
+    @mouseleave="release()"
     onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
     :class="inFooter ? 'bg-white/80 text-mustGreen shadow-white/20' : 'bg-mustBlue text-mustGreen shadow-mustBlue/30'"
     class="fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-full shadow-xl transition hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-mustGreen/35"
