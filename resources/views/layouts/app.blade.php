@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title') | {{ config('app.name') }}</title>
 
-    <link rel="icon" href="{{ asset('imgs/logo/logo-white.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('imgs/logo/gifted-hands-logo.png') }}" type="image/png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @yield('styles')
@@ -43,7 +43,7 @@
             }">
 
             <a href="/" class="py-2 px-4  font-bold text-lg  flex items-center">
-                <img src="{{ asset('imgs/logo/logo-white.png') }}" alt="Logo" class="w-[37.5px]">
+                <img src="{{ asset('imgs/logo/gifted-hands-logo.png') }}" alt="Logo" class="w-[37.5px]">
                 <span class="ml-2 text-gray-100">{{ config('app.name') }}</span>
             </a>
             @include('layouts.navigation')

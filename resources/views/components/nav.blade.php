@@ -6,7 +6,7 @@
     <div class="relative container mx-auto px-4 flex justify-between items-center h-20 z-10">
         <!-- Logo -->
         <a href="{{ url('/') }}" class="flex items-center space-x-3">
-            <img src="{{ asset('imgs/logo/adda.png') }}" alt="Logo" class="h-12 md:h-16">
+            <img src="{{ asset('imgs/logo/gifted-hands-logo.png') }}" alt="Logo" class="h-12 md:h-16 object-contain">
         </a>
 
         <!-- Desktop Menu -->

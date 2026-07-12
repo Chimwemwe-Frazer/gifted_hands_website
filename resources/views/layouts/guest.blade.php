@@ -8,7 +8,7 @@
 
     <title>@yield('title') | MUST</title>
 
-    <link rel="icon" href="{{ asset('imgs/logo/logo-white.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('imgs/logo/gifted-hands-logo.png') }}" type="image/png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Fonts -->
@@ -22,7 +22,7 @@
 
         <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden rounded-lg">
             <div class=" justify-center items-center flex flex-col py-4 space-y-4 opacity-90">
-                <img src="{{ asset('imgs/logo/must-logo-black.png') }}" alt="" class="w-16 h-16 mx-auto">
+                <img src="{{ asset('imgs/logo/gifted-hands-logo.png') }}" alt="" class="w-16 h-16 mx-auto">
                 <h1 class="text-2xl md:text-3xl text-gray-500 opacity-90">{{ config('app.name') }}</h1>
             </div>
 

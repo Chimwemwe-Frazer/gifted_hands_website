@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Announcements | {{ config('app.name', 'Gifted Hands Private Clinic') }}</title>
-    <link rel="icon" href="{{ asset('imgs/logo/logo-white.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('imgs/logo/gifted-hands-logo.png') }}" type="image/png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -14,7 +14,7 @@
     <header class="bg-mustBlue pt-28 text-white">
         <nav class="fixed inset-x-0 top-0 z-50 flex flex-col gap-4 bg-mustBlue/95 px-4 py-4 text-white shadow-lg backdrop-blur lg:flex-row lg:items-center lg:justify-between">
             <a href="{{ route('home') }}" class="flex items-center gap-3">
-                <img src="{{ asset('imgs/logo/logo-white.png') }}" alt="{{ config('app.name') }}" class="h-12 w-12 object-contain">
+                <img src="{{ asset('imgs/logo/gifted-hands-logo.png') }}" alt="{{ config('app.name') }}" class="h-12 w-12 object-contain">
                 <span class="text-lg font-semibold">{{ config('app.name', 'Gifted Hands Private Clinic') }}</span>
             </a>
             <div class="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm font-semibold">
