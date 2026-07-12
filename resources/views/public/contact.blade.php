@@ -37,45 +37,70 @@
         </div>
     </header>
 
-    <main class="mx-auto grid max-w-7xl gap-8 px-4 py-16 lg:grid-cols-[0.8fr_1.2fr]">
-        <section class="space-y-4">
-            <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
-                <h2 class="font-bold text-mustBlue">Phone</h2>
-                <p class="mt-2 text-sm text-gray-600"><a href="tel:+265995767137" class="hover:text-mustGreen">+265 995 76 71 37</a></p>
-            </div>
-            <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
-                <h2 class="font-bold text-mustBlue">Email</h2>
-                <p class="mt-2 text-sm text-gray-600"><a href="mailto:giftedhandspvtclinic@gmail.com" class="hover:text-mustGreen">giftedhandspvtclinic@gmail.com</a></p>
-            </div>
-            <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
-                <h2 class="font-bold text-mustBlue">Location</h2>
-                <p class="mt-2 text-sm text-gray-600">Barron Avenue, Lilongwe, Malawi</p>
-            </div>
-        </section>
+    <main class="mx-auto max-w-7xl px-4 py-16">
+        <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+            <section class="space-y-4">
+                <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
+                    <h2 class="font-bold text-mustBlue">Phone</h2>
+                    <p class="mt-2 text-sm text-gray-600"><a href="tel:+265995767137" class="hover:text-mustGreen">+265 995 76 71 37</a></p>
+                </div>
+                <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
+                    <h2 class="font-bold text-mustBlue">Email</h2>
+                    <p class="mt-2 text-sm text-gray-600"><a href="mailto:giftedhandspvtclinic@gmail.com" class="hover:text-mustGreen">giftedhandspvtclinic@gmail.com</a></p>
+                </div>
+                <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
+                    <h2 class="font-bold text-mustBlue">Location</h2>
+                    <p class="mt-2 text-sm text-gray-600">Barron Avenue, Lilongwe, Malawi</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Gifted%20Hands%20Private%20Clinic%20Barron%20Avenue%20Lilongwe%20Malawi" target="_blank" rel="noopener" class="mt-4 inline-flex rounded-md bg-mustGreen px-4 py-2 text-sm font-semibold text-white hover:bg-green-700">
+                        Open in Google Maps
+                    </a>
+                </div>
+            </section>
 
-        <section class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 class="text-2xl font-bold text-mustBlue">Send An Enquiry</h2>
-            <form class="mt-6 grid gap-4 md:grid-cols-2">
+            <section class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <h2 class="text-2xl font-bold text-mustBlue">Send An Enquiry</h2>
+                <form class="mt-6 grid gap-4 md:grid-cols-2">
+                    <div>
+                        <label class="label">Name</label>
+                        <input class="input" type="text">
+                    </div>
+                    <div>
+                        <label class="label">Phone</label>
+                        <input class="input" type="text">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="label">Email</label>
+                        <input class="input" type="email">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="label">Message</label>
+                        <textarea class="input" rows="5"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <button type="button" class="rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-green-700">Submit Enquiry</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <section class="mt-8 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+            <div class="flex flex-col justify-between gap-4 p-6 md:flex-row md:items-center">
                 <div>
-                    <label class="label">Name</label>
-                    <input class="input" type="text">
+                    <p class="text-sm font-semibold uppercase tracking-[.16em] text-mustGreen">Directions</p>
+                    <h2 class="mt-2 text-2xl font-bold text-mustBlue">Find Gifted Hands Private Clinic</h2>
+                    <p class="mt-2 text-sm leading-7 text-gray-600">Use the map below to find the clinic around Barron Avenue, Lilongwe.</p>
                 </div>
-                <div>
-                    <label class="label">Phone</label>
-                    <input class="input" type="text">
-                </div>
-                <div class="md:col-span-2">
-                    <label class="label">Email</label>
-                    <input class="input" type="email">
-                </div>
-                <div class="md:col-span-2">
-                    <label class="label">Message</label>
-                    <textarea class="input" rows="5"></textarea>
-                </div>
-                <div class="md:col-span-2">
-                    <button type="button" class="rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-green-700">Submit Enquiry</button>
-                </div>
-            </form>
+                <a href="https://www.google.com/maps/search/?api=1&query=Gifted%20Hands%20Private%20Clinic%20Barron%20Avenue%20Lilongwe%20Malawi" target="_blank" rel="noopener" class="inline-flex rounded-md border border-mustBlue px-4 py-2 text-sm font-semibold text-mustBlue hover:bg-mustBlue hover:text-white">
+                    Get Directions
+                </a>
+            </div>
+            <iframe
+                title="Google map showing Gifted Hands Private Clinic on Barron Avenue in Lilongwe"
+                src="https://www.google.com/maps?q=Gifted%20Hands%20Private%20Clinic%20Barron%20Avenue%20Lilongwe%20Malawi&output=embed"
+                class="h-80 w-full border-0 md:h-96"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
     </main>
     @include('public.partials.footer')
