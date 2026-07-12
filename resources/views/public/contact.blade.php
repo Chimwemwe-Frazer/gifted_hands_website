@@ -51,7 +51,7 @@
                 <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
                     <h2 class="font-bold text-mustBlue">Location</h2>
                     <p class="mt-2 text-sm text-gray-600">Barron Avenue, Lilongwe, Malawi</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Gifted%20Hands%20Private%20Clinic%20Barron%20Avenue%20Lilongwe%20Malawi" target="_blank" rel="noopener" class="mt-4 inline-flex rounded-md bg-mustGreen px-4 py-2 text-sm font-semibold text-white hover:bg-green-700">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Gifted%20Hands%20Private%20Clinic%20Barron%20Avenue%20Lilongwe%20Malawi" target="_blank" rel="noopener" class="mt-4 inline-flex rounded-md bg-mustGreen px-4 py-2 text-sm font-semibold text-white hover:bg-mustOrangeDark">
                         Open in Google Maps
                     </a>
                 </div>
@@ -77,7 +77,7 @@
                         <textarea class="input" rows="5"></textarea>
                     </div>
                     <div class="md:col-span-2">
-                        <button type="button" class="rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-green-700">Submit Enquiry</button>
+                        <button type="button" class="rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">Submit Enquiry</button>
                     </div>
                 </form>
             </section>

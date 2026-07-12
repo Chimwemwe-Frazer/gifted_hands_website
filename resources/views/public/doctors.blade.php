@@ -81,7 +81,7 @@
                     <img src="{{ asset($doctor['image']) }}" alt="{{ $doctor['name'] }}" class="h-80 w-full object-cover object-top">
                     <div class="p-6">
                         <h2 class="text-xl font-bold text-mustBlue">{{ $doctor['name'] }}</h2>
-                        <p class="mt-1 text-sm font-semibold text-orange-500">{{ $doctor['specialization'] }}</p>
+                        <p class="mt-1 text-sm font-semibold text-mustGreen">{{ $doctor['specialization'] }}</p>
                         <p class="mt-3 text-sm leading-7 text-gray-600">{{ $doctor['qualification'] }}</p>
                         <p class="mt-3 text-sm leading-7 text-gray-600">{{ $doctor['bio'] }}</p>
 

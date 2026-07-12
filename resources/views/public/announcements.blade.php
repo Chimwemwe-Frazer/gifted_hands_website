@@ -49,7 +49,7 @@
                     ['Women\'s Health', 'Obstetrics & Gynaecology Care', 'Pregnancy care, reproductive health, and family planning support are available at the clinic.'],
                 ] as [$category, $title, $body])
                     <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-                        <p class="text-xs font-semibold uppercase tracking-[.16em] text-orange-500">{{ $category }}</p>
+                        <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $category }}</p>
                         <h3 class="mt-3 text-xl font-bold text-mustBlue">{{ $title }}</h3>
                         <p class="mt-2 text-sm leading-7 text-gray-600">{{ $body }}</p>
                     </article>
@@ -72,7 +72,7 @@
                     <input type="email" name="email" required value="{{ old('email') }}" class="mt-2 block w-full rounded-md border-white/20 bg-white px-3 py-2 text-gray-800 shadow-sm focus:border-mustGreen focus:ring-mustGreen">
                     <span class="mt-1 block text-sm text-red-200">{{ $errors->first('email') }}</span>
                 </div>
-                <button type="submit" class="rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-green-700">Subscribe</button>
+                <button type="submit" class="rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">Subscribe</button>
             </form>
         </aside>
     </main>

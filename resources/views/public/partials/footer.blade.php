@@ -8,7 +8,7 @@
             <p class="mt-4 max-w-sm text-sm leading-7 text-gray-200">
                 Professional, patient-centered private healthcare for individuals and families in Lilongwe.
             </p>
-            <a href="{{ route('home') }}#book-appointment" class="mt-6 inline-flex rounded-md bg-mustGreen px-5 py-3 text-sm font-semibold text-white hover:bg-green-700">
+            <a href="{{ route('home') }}#book-appointment" class="mt-6 inline-flex rounded-md bg-mustGreen px-5 py-3 text-sm font-semibold text-white hover:bg-mustOrangeDark">
                 Request Appointment
             </a>
         </div>

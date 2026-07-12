@@ -79,17 +79,17 @@
 
                 <div class="grid gap-4 sm:grid-cols-3">
                     <div class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-                        <p class="text-sm font-semibold uppercase tracking-[.16em] text-orange-500">Opened</p>
+                        <p class="text-sm font-semibold uppercase tracking-[.16em] text-mustGreen">Opened</p>
                         <p class="mt-3 text-lg font-bold text-mustBlue">Add founding year</p>
                         <p class="mt-2 text-sm leading-6 text-gray-600">Placeholder for the year the clinic officially opened.</p>
                     </div>
                     <div class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-                        <p class="text-sm font-semibold uppercase tracking-[.16em] text-orange-500">Purpose</p>
+                        <p class="text-sm font-semibold uppercase tracking-[.16em] text-mustGreen">Purpose</p>
                         <p class="mt-3 text-lg font-bold text-mustBlue">Accessible private care</p>
                         <p class="mt-2 text-sm leading-6 text-gray-600">Built to support clear, compassionate, and timely healthcare.</p>
                     </div>
                     <div class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-                        <p class="text-sm font-semibold uppercase tracking-[.16em] text-orange-500">Community</p>
+                        <p class="text-sm font-semibold uppercase tracking-[.16em] text-mustGreen">Community</p>
                         <p class="mt-3 text-lg font-bold text-mustBlue">Lilongwe families</p>
                         <p class="mt-2 text-sm leading-6 text-gray-600">Serving patients and households around Barron Avenue and greater Lilongwe.</p>
                     </div>
@@ -105,7 +105,7 @@
                     <p class="mt-4 leading-8 text-gray-600">
                         Patients visit the clinic for attentive service, practical guidance, and healthcare support that is close to home.
                     </p>
-                    <a href="{{ route('home') }}#book-appointment" class="mt-6 inline-flex rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-green-700">
+                    <a href="{{ route('home') }}#book-appointment" class="mt-6 inline-flex rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">
                         Request Appointment
                     </a>
                 </div>

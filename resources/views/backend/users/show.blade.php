@@ -48,7 +48,7 @@
                 </svg>
 
                 <span class="text-gray-900 font-medium">
-                    <span class="{{ $user->status == 'Active' ? 'text-green-600' : 'text-red-600' }}">{{ $user->status }}</span> Status
+                    <span class="{{ $user->status == 'Active' ? 'text-mustGreen' : 'text-red-600' }}">{{ $user->status }}</span> Status
                 </span>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     @csrf
                     <button type="submit"
                         class="px-4 py-2 rounded-md text-white font-medium transition duration-300 delete_item
-                        {{ $user->status == 'Active' ? 'bg-red-600 hover:bg-red-700' : 'bg-mustBlue hover:bg-green-700' }}">
+                        {{ $user->status == 'Active' ? 'bg-red-600 hover:bg-red-700' : 'bg-mustBlue hover:bg-mustOrangeDark' }}">
                         {{ $user->status == 'Active' ? 'Deactivate' : 'Activate' }}
                     </button>
                 </form>
@@ -103,7 +103,7 @@
         <div class="bg-white p-6 rounded-lg shadow-lg ">
             <div class="flex items-center justify-between">
                 <h3 class="text-lg font-semibold text-mustBlue">Change User Role</h3>
-                <svg xmlns="http://www.w3.org/2000/svg" @click.prevent="$dispatch('close-modal', 'roleModal')" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 cursor-pointer text-gray-500 hover:text-green-600">
+                <svg xmlns="http://www.w3.org/2000/svg" @click.prevent="$dispatch('close-modal', 'roleModal')" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 cursor-pointer text-gray-500 hover:text-mustGreen">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />>
                 </svg>
             </div>
@@ -131,7 +131,7 @@
         <div x-data="{ search: '' }" class="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl">
             <div class="flex items-center justify-between">
                 <h3 class="text-lg font-semibold text-mustBlue">Change User Permissions</h3>
-                <svg xmlns="http://www.w3.org/2000/svg" @click.prevent="$dispatch('close-modal', 'permissionModal')" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 cursor-pointer text-gray-500 hover:text-green-600">
+                <svg xmlns="http://www.w3.org/2000/svg" @click.prevent="$dispatch('close-modal', 'permissionModal')" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 cursor-pointer text-gray-500 hover:text-mustGreen">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />>
                 </svg>
             </div>
@@ -157,7 +157,7 @@
                             x-show="search === '' || '{{ strtolower($permission) }}'.includes(search.toLowerCase())"
                         >
                             <input type="checkbox" name="permissions[]" value="{{ $permission }}"
-                                class="rounded border-green-600 appearance-none checked:bg-green-600 checked:border-green-600 focus:ring-green-400"
+                                class="rounded border-mustGreen appearance-none checked:bg-mustGreen checked:border-mustGreen focus:ring-mustGreen"
                                 {{ $user_permissions->contains($permission) ? 'checked' : '' }}>
                             <span class="text-gray-500">{{ $permission }}</span>
                         </label>

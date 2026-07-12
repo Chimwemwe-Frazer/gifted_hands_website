@@ -53,7 +53,7 @@
     }
 
     .learn-more {
-        @apply flex space-x-2 items-center text-mustGreen hover:text-green-500 cursor-pointer;
+        @apply flex space-x-2 items-center text-mustGreen hover:text-mustGreen cursor-pointer;
     }
 
     .text-input {
@@ -64,11 +64,11 @@
 
     /* button */
     .btn-primary {
-        @apply bg-mustGreen hover:bg-green-700 text-white px-4 py-1 rounded-lg font-semibold transition duration-300 mb-1;
+        @apply bg-mustGreen hover:bg-mustOrangeDark text-white px-4 py-1 rounded-lg font-semibold transition duration-300 mb-1;
     }
 
     .btn-primary-big{
-        @apply px-4 py-2 bg-mustGreen text-gray-100 font-medium rounded-md hover:bg-green-600 transition duration-300;
+        @apply px-4 py-2 bg-mustGreen text-gray-100 font-medium rounded-md hover:bg-mustOrangeDark transition duration-300;
     }
 
     .btn-secondary {
@@ -90,7 +90,7 @@
 
     /* Backend */
     .input {
-        @apply placeholder:text-gray-300 placeholder:italic block mt-1 w-full py-1 rounded-md border-gray-300  text-gray-600 shadow-sm focus:ring-green-600 focus:border-green-100;
+        @apply placeholder:text-gray-300 placeholder:italic block mt-1 w-full py-1 rounded-md border-gray-300  text-gray-600 shadow-sm focus:ring-mustGreen focus:border-mustGreen;
     }
 
     .label {

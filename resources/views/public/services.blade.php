@@ -102,7 +102,7 @@
 
                             <div class="mt-6 grid gap-5 md:grid-cols-2">
                                 <div>
-                                    <h3 class="text-sm font-bold uppercase tracking-[.14em] text-orange-500">What is included</h3>
+                                    <h3 class="text-sm font-bold uppercase tracking-[.14em] text-mustGreen">What is included</h3>
                                     <ul class="mt-3 space-y-2 text-sm leading-6 text-gray-600">
                                         @foreach ($service['includes'] as $item)
                                             <li class="flex gap-2"><span class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-mustGreen"></span><span>{{ $item }}</span></li>
@@ -111,7 +111,7 @@
                                 </div>
 
                                 <div>
-                                    <h3 class="text-sm font-bold uppercase tracking-[.14em] text-orange-500">Needs treated</h3>
+                                    <h3 class="text-sm font-bold uppercase tracking-[.14em] text-mustGreen">Needs treated</h3>
                                     <p class="mt-3 text-sm leading-7 text-gray-600">{{ $service['needs'][0] }}</p>
                                 </div>
                             </div>
@@ -132,7 +132,7 @@
                                 </div>
                             </div>
 
-                            <a href="{{ route('home') }}#book-appointment" class="mt-6 inline-flex rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-green-700">
+                            <a href="{{ route('home') }}#book-appointment" class="mt-6 inline-flex rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">
                                 Request appointment for this service
                             </a>
                         </div>

@@ -122,7 +122,7 @@
                 <h3 class="text-lg font-semibold text-mustBlue">Edit Role</h3>
                 <svg xmlns="http://www.w3.org/2000/svg" @click.prevent="close()" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor"
-                    class="size-5 cursor-pointer text-gray-500 hover:text-green-600">
+                    class="size-5 cursor-pointer text-gray-500 hover:text-mustGreen">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </div>
@@ -147,7 +147,7 @@
                                 x-show="search === '' || '{{ strtolower($permission) }}'.includes(search.toLowerCase())">
                                 <input type="checkbox" name="permissions[]" value="{{ $permission }}"
                                     x-bind:checked="rolePermissions.includes('{{ $permission }}')"
-                                    class="rounded border-green-600 appearance-none checked:bg-green-600 checked:border-green-600 focus:ring-green-400">
+                                    class="rounded border-mustGreen appearance-none checked:bg-mustGreen checked:border-mustGreen focus:ring-mustGreen">
                                 <span class="text-gray-500">{{ $permission }}</span>
                             </label>
                         @endforeach
@@ -168,7 +168,7 @@
                 <h3 class="text-lg font-semibold text-mustBlue">Add New Role</h3>
                 <svg xmlns="http://www.w3.org/2000/svg" @click.prevent="$dispatch('close-modal', 'addRoleModal')"
                     fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                    class="size-5 cursor-pointer text-gray-500 hover:text-green-600">
+                    class="size-5 cursor-pointer text-gray-500 hover:text-mustGreen">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </div>
@@ -193,7 +193,7 @@
                             <label class="flex items-center space-x-2 p-2 rounded-md cursor-pointer hover:bg-gray-100"
                                 x-show="search === '' || '{{ strtolower($permission) }}'.includes(search.toLowerCase())">
                                 <input type="checkbox" name="permissions[]" value="{{ $permission }}"
-                                    class="rounded border-green-600 appearance-none checked:bg-green-600 checked:border-green-600 focus:ring-green-400">
+                                    class="rounded border-mustGreen appearance-none checked:bg-mustGreen checked:border-mustGreen focus:ring-mustGreen">
                                 <span class="text-gray-500">{{ $permission }}</span>
                             </label>
                         @endforeach

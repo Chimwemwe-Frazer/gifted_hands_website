@@ -12,13 +12,13 @@
         <!-- Desktop Menu -->
         <div class="hidden md:flex md:space-x-4 lg:space-x-8">
             <a href="{{ url('/') }}"
-                class="{{ request()->is('/') ? 'text-green-600' : 'text-gray-200 hover:text-green-600' }}">Home</a>
+                class="{{ request()->is('/') ? 'text-mustGreen' : 'text-gray-200 hover:text-mustGreen' }}">Home</a>
             <a href="{{ url('/courses') }}"
-                class="text-gray-200 hover:text-green-600 {{ Str::startsWith(Route::currentRouteName(), 'front.courses') ? 'text-green-600' : '' }}">Courses</a>
+                class="text-gray-200 hover:text-mustGreen {{ Str::startsWith(Route::currentRouteName(), 'front.courses') ? 'text-mustGreen' : '' }}">Courses</a>
 
             <!-- Mega Menu: Departments -->
             <div class="relative" @mouseenter="dropdownOpen = 'departments'" @mouseleave="dropdownOpen = null">
-                <button class=" hover:text-green-600 flex items-center {{ Str::startsWith(Route::currentRouteName(), 'front.department.show') ? 'text-green-600' : 'text-gray-200' }}">
+                <button class=" hover:text-mustGreen flex items-center {{ Str::startsWith(Route::currentRouteName(), 'front.department.show') ? 'text-mustGreen' : 'text-gray-200' }}">
                     Units
                     <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -36,7 +36,7 @@
                                     {!! Str::limit($department->description, 50, '...') !!}
                                 </p>
                                 <a href="{{ route('front.department.show', $department->slug) }}"
-                                    class="text-green-600 hover:text-green-800 text-sm font-semibold">Learn More
+                                    class="text-mustGreen hover:text-mustOrangeDark text-sm font-semibold">Learn More
                                     →</a>
                             </div>
                         @endforeach
@@ -47,20 +47,20 @@
                 </div>
             </div>
             <a href="{{ url('/staff') }}"
-                class="{{ Str::startsWith(Route::currentRouteName(), 'front.staff') ? 'text-green-600' : 'text-gray-200 hover:text-green-600' }}">Staff</a>
+                class="{{ Str::startsWith(Route::currentRouteName(), 'front.staff') ? 'text-mustGreen' : 'text-gray-200 hover:text-mustGreen' }}">Staff</a>
 
             <a href="{{ url('/news') }}"
-                class="text-gray-200 hover:text-green-600 {{ Str::startsWith(Route::currentRouteName(), 'front.news') ? 'text-green-600' : '' }}">News
+                class="text-gray-200 hover:text-mustGreen {{ Str::startsWith(Route::currentRouteName(), 'front.news') ? 'text-mustGreen' : '' }}">News
                 & Events</a>
             <a href="{{ url('/about') }}"
-                class="{{ Str::startsWith(Route::currentRouteName(), 'front.about') ? 'text-green-600' : 'text-gray-200 hover:text-green-600' }}">About</a>
+                class="{{ Str::startsWith(Route::currentRouteName(), 'front.about') ? 'text-mustGreen' : 'text-gray-200 hover:text-mustGreen' }}">About</a>
 
         </div>
 
         <div class="flex items-center space-x-4">
             <!-- Search Icon -->
             <button x-on:click.prevent="$dispatch('open-modal', 'searchModal')"
-                class="text-gray-200 hover:text-green-600 focus:no-outline hidden md:block">
+                class="text-gray-200 hover:text-mustGreen focus:no-outline hidden md:block">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -76,7 +76,7 @@
 
         <div class="flex items-center space-x-4 md:hidden">
             <button x-on:click.prevent="$dispatch('open-modal', 'searchModal')"
-                class="text-gray-200 hover:text-green-600 focus:no-outline md:hidden">
+                class="text-gray-200 hover:text-mustGreen focus:no-outline md:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -84,7 +84,7 @@
                 </svg>
             </button>
             <!-- Mobile Menu Button -->
-            <button @click="open = !open" class=" text-gray-200 hover:text-green-600">
+            <button @click="open = !open" class=" text-gray-200 hover:text-mustGreen">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
                     </path>
@@ -103,14 +103,14 @@
     <div x-cloak x-show="open" x-transition @click.away="open = false"
         class="md:hidden bg-white border-t w-full fixed top-16 left-0 shadow-lg z-50">
         <div class="px-6 py-4 space-y-2">
-            <a href="{{ url('/') }}" class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded {{ request()->is('/') ? 'text-green-600' : '' }}">Home</a>
+            <a href="{{ url('/') }}" class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded {{ request()->is('/') ? 'text-mustGreen' : '' }}">Home</a>
             <a href="{{ url('/courses') }}"
-                class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded {{ Str::startsWith(Route::currentRouteName(), 'front.courses') ? 'text-green-600' : '' }}">Courses</a>
+                class="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded {{ Str::startsWith(Route::currentRouteName(), 'front.courses') ? 'text-mustGreen' : '' }}">Courses</a>
 
             <!-- Departments Dropdown -->
             <div x-data="{ open: false }">
                 <button @click="open = !open"
-                    class="flex justify-between items-center w-full text-gray-700 hover:bg-gray-100 px-4 py-2 {{ Str::startsWith(Route::currentRouteName(), 'front.department') ? 'text-green-600' : 'text-gray-200' }}">
+                    class="flex justify-between items-center w-full text-gray-700 hover:bg-gray-100 px-4 py-2 {{ Str::startsWith(Route::currentRouteName(), 'front.department') ? 'text-mustGreen' : 'text-gray-200' }}">
                     Units
                     <svg :class="{ 'rotate-180': open }" class="w-4 h-4 transition-transform transform" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
@@ -126,13 +126,13 @@
                 </div>
             </div>
 
-            <a href="{{ url('/staff') }}" class="block text-gray-700 hover:bg-gray-100 px-4 py-2 {{ Str::startsWith(Route::currentRouteName(), 'front.staff') ? 'text-green-600' : 'text-gray-200' }}">Staff</a>
-            <a href="{{ url('/news') }}" class="block text-gray-700 hover:bg-gray-100 px-4 py-2 {{ Str::startsWith(Route::currentRouteName(), 'front.news') ? 'text-green-600' : 'text-gray-200' }}">News & Events</a>
-            <a href="{{ url('/about') }}" class="block text-gray-700 hover:bg-gray-100 px-4 py-2 {{ Str::startsWith(Route::currentRouteName(), 'front.about') ? 'text-green-600' : 'text-gray-200' }}">About</a>
+            <a href="{{ url('/staff') }}" class="block text-gray-700 hover:bg-gray-100 px-4 py-2 {{ Str::startsWith(Route::currentRouteName(), 'front.staff') ? 'text-mustGreen' : 'text-gray-200' }}">Staff</a>
+            <a href="{{ url('/news') }}" class="block text-gray-700 hover:bg-gray-100 px-4 py-2 {{ Str::startsWith(Route::currentRouteName(), 'front.news') ? 'text-mustGreen' : 'text-gray-200' }}">News & Events</a>
+            <a href="{{ url('/about') }}" class="block text-gray-700 hover:bg-gray-100 px-4 py-2 {{ Str::startsWith(Route::currentRouteName(), 'front.about') ? 'text-mustGreen' : 'text-gray-200' }}">About</a>
 
             <!-- Apply Now Button -->
             <a href="{{ url('/apply') }}"
-                class="block bg-green-600 text-white text-center font-semibold px-4 py-3 rounded">Apply Now</a>
+                class="block bg-mustGreen text-white text-center font-semibold px-4 py-3 rounded">Apply Now</a>
         </div>
     </div>
 

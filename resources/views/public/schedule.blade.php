@@ -40,7 +40,7 @@
     <main class="bg-gray-50">
         <div class="mx-auto max-w-7xl px-4 py-16">
             <div class="mb-8 rounded-lg border border-mustBlue/15 bg-white p-6 shadow-sm">
-                <p class="text-sm font-semibold uppercase tracking-[.18em] text-orange-500">Notice</p>
+                <p class="text-sm font-semibold uppercase tracking-[.18em] text-mustGreen">Notice</p>
                 <h2 class="mt-2 text-2xl font-bold text-mustBlue md:text-3xl">Our valued clients, clinics will be as follows</h2>
                 <p class="mt-3 max-w-3xl text-sm leading-7 text-gray-600">
                     The timetable below reflects the clinic schedule displayed in the latest Gifted Hands Private Clinic notice.
@@ -98,12 +98,12 @@
                                 <div class="mt-3 space-y-3">
                                     @foreach ($schedule['clinics'] as $clinic)
                                         <div class="grid gap-2 md:grid-cols-[1fr_auto] md:items-start">
-                                            <p class="text-lg font-semibold text-orange-500">{{ $clinic['name'] }}</p>
+                                            <p class="text-lg font-semibold text-mustGreen">{{ $clinic['name'] }}</p>
 
                                             @if (count($clinic['times']) > 0)
                                                 <div class="grid gap-1 text-left md:min-w-48 md:text-right">
                                                     @foreach ($clinic['times'] as $time)
-                                                        <span class="font-bold text-orange-600">{{ $time }} hrs</span>
+                                                        <span class="font-bold text-mustGreen">{{ $time }} hrs</span>
                                                     @endforeach
                                                 </div>
                                             @endif
@@ -114,8 +114,8 @@
                         @endforeach
                     </div>
 
-                    <div class="mt-6 rounded-lg bg-orange-50 px-5 py-4 text-center">
-                        <p class="text-xl font-extrabold uppercase tracking-wide text-orange-500">Physiotherapy on booking</p>
+                    <div class="mt-6 rounded-lg bg-mustGreen/10 px-5 py-4 text-center">
+                        <p class="text-xl font-extrabold uppercase tracking-wide text-mustGreen">Physiotherapy on booking</p>
                     </div>
 
                     <div class="mt-4 rounded-lg bg-mustBlue px-5 py-4 text-center text-white">
@@ -131,7 +131,7 @@
                             <p><strong class="text-white">Sunday:</strong> Emergency and special bookings only.</p>
                             <p><strong class="text-white">Physiotherapy:</strong> Available on booking.</p>
                         </div>
-                        <a href="{{ route('home') }}#book-appointment" class="mt-6 inline-flex rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-green-700">
+                        <a href="{{ route('home') }}#book-appointment" class="mt-6 inline-flex rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">
                             Request Appointment
                         </a>
                     </section>

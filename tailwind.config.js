@@ -11,9 +11,10 @@ export default {
     theme: {
         extend: {
             colors: {
-                mustBlue: "#10274A",
+                mustBlue: "#34388F",
                 mustRed: "#E62E2D",
-                mustGreen: "#55B166",
+                mustGreen: "#F1842F",
+                mustOrangeDark: "#D86F22",
             },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],

@@ -41,7 +41,7 @@
         <div class="flex justify-between items-center py-4">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox"
-                    class="rounded  border-gray-300  text-green-600 shadow-sm focus:ring-green-500  " name="remember">
+                    class="rounded  border-gray-300  text-mustGreen shadow-sm focus:ring-mustGreen  " name="remember">
                 <span class="ms-2 text-sm text-gray-600 ">{{ __('Remember me') }}</span>
             </label>
 
