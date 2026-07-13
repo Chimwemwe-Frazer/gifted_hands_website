@@ -42,7 +42,7 @@
     </header>
 
     <main>
-        <section id="about-us" class="bg-white">
+        <section id="about-us" class="bg-white" style="background-color: #fff;">
             <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
                 <div>
                     <p class="text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">About the clinic</p>
@@ -119,7 +119,7 @@
                     <h2 class="section-heading">Clinic Services</h2>
                     <p class="mt-4 text-gray-600">Explore the core healthcare services available at the clinic for individuals, women, children, and families.</p>
                 </div>
-                <a href="{{ route('services') }}" class="inline-flex items-center text-sm font-semibold text-mustGreen hover:text-mustOrangeDark">
+                <a href="{{ route('services') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
                     View More <span class="ml-2">&rarr;</span>
                 </a>
             </div>
@@ -186,7 +186,7 @@
                     <h2 class="section-heading">Doctors</h2>
                     <p class="mt-4 text-gray-600">Meet the experienced medical professionals supporting patient-centered care at the clinic.</p>
                 </div>
-                <a href="{{ route('doctors') }}" class="inline-flex items-center text-sm font-semibold text-mustGreen hover:text-mustOrangeDark">
+                <a href="{{ route('doctors') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
                     View More <span class="ml-2">&rarr;</span>
                 </a>
             </div>
@@ -290,7 +290,7 @@
                         <h2 class="section-heading">Announcements</h2>
                         <p class="mt-4 text-gray-600">Latest clinic updates, service notices, and important visitor information.</p>
                     </div>
-                    <a href="{{ route('announcements') }}" class="inline-flex items-center text-sm font-semibold text-mustGreen hover:text-mustOrangeDark">
+                    <a href="{{ route('announcements') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
                         View More <span class="ml-2">&rarr;</span>
                     </a>
                 </div>
@@ -320,7 +320,7 @@
                     <h2 class="section-heading">Gallery</h2>
                     <p class="mt-4 text-gray-600">A place to show clinic rooms, reception areas, equipment, and team moments for visitor confidence.</p>
                 </div>
-                <a href="{{ route('gallery') }}" class="inline-flex items-center text-sm font-semibold text-mustGreen hover:text-mustOrangeDark">
+                <a href="{{ route('gallery') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
                     View More <span class="ml-2">&rarr;</span>
                 </a>
             </div>
@@ -347,7 +347,7 @@
                         <h2 class="section-heading">FAQs</h2>
                         <p class="mt-4 text-gray-600">Answers to common visitor questions before they book or visit.</p>
                     </div>
-                    <a href="{{ route('faqs') }}" class="inline-flex items-center text-sm font-semibold text-mustGreen hover:text-mustOrangeDark">
+                    <a href="{{ route('faqs') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
                         View More <span class="ml-2">&rarr;</span>
                     </a>
                 </div>
