@@ -12,27 +12,11 @@
 
 <body class="bg-white text-gray-800">
     <header class="bg-mustBlue text-white">
-        <nav class="relative z-50 flex flex-col gap-4 bg-mustBlue/95 px-4 py-4 text-white shadow-lg backdrop-blur lg:flex-row lg:items-center lg:justify-between">
-            <a href="{{ route('home') }}" class="flex items-center gap-3">
-                <img src="{{ asset('imgs/logo/gifted-hands-logo.png') }}" alt="{{ config('app.name') }}" class="h-12 w-12 object-contain">
-                <span class="text-lg font-semibold">{{ config('app.name', 'Gifted Hands Private Clinic') }}</span>
-            </a>
-            <div class="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm font-semibold">
-                <a href="{{ route('home') }}" class="hover:text-mustGreen">Home</a>
-                <a href="{{ route('about') }}" class="hover:text-mustGreen">About Us</a>
-                <a href="{{ route('services') }}" class="hover:text-mustGreen">Services</a>
-                <a href="{{ route('doctors') }}" class="hover:text-mustGreen">Doctors</a>
-                <a href="{{ route('schedule') }}" class="hover:text-mustGreen">Clinic Schedule</a>
-                <a href="{{ route('announcements') }}" class="hover:text-mustGreen">Announcements</a>
-                <a href="{{ route('gallery') }}" class="hover:text-mustGreen">Gallery</a>
-                <a href="{{ route('faqs') }}" class="hover:text-mustGreen">FAQs</a>
-                <a href="{{ route('contact') }}" class="text-mustGreen">Contact Us</a>
-            </div>
-        </nav>
+        @include('public.partials.nav')
 
         <div class="mx-auto max-w-7xl px-4 py-16">
             <p class="text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">Get in touch</p>
-            <h1 class="mt-3 text-4xl font-bold leading-tight md:text-5xl">Contact Us</h1>
+            <h1 class="mt-3 text-4xl font-medium leading-tight md:text-5xl">Contact Us</h1>
             <p class="mt-4 max-w-2xl text-gray-200">Reach the clinic directly for directions, service availability, appointment coordination, and general enquiries.</p>
         </div>
     </header>
@@ -51,7 +35,7 @@
                 <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
                     <h2 class="font-bold text-mustBlue">Location</h2>
                     <p class="mt-2 text-sm text-gray-600">Barron Avenue, Lilongwe, Malawi</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Gifted%20Hands%20Private%20Clinic%20Barron%20Avenue%20Lilongwe%20Malawi" target="_blank" rel="noopener" class="mt-4 inline-flex rounded-md bg-mustGreen px-4 py-2 text-sm font-semibold text-white hover:bg-mustOrangeDark">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Gifted%20Hands%20Private%20Clinic%20Barron%20Avenue%20Lilongwe%20Malawi" target="_blank" rel="noopener" class="mt-4 inline-flex rounded-full bg-mustGreen px-4 py-2 text-sm font-semibold text-white hover:bg-mustOrangeDark">
                         Open in Google Maps
                     </a>
                 </div>
@@ -77,7 +61,7 @@
                         <textarea class="input" rows="5"></textarea>
                     </div>
                     <div class="md:col-span-2">
-                        <button type="button" class="rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">Submit Enquiry</button>
+                        <button type="button" class="rounded-full bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">Submit Enquiry</button>
                     </div>
                 </form>
             </section>
@@ -90,7 +74,7 @@
                     <h2 class="mt-2 text-2xl font-bold text-mustBlue">Find Gifted Hands Private Clinic</h2>
                     <p class="mt-2 text-sm leading-7 text-gray-600">Use the map below to find the clinic around Barron Avenue, Lilongwe.</p>
                 </div>
-                <a href="https://www.google.com/maps/search/?api=1&query=Gifted%20Hands%20Private%20Clinic%20Barron%20Avenue%20Lilongwe%20Malawi" target="_blank" rel="noopener" class="inline-flex rounded-md border border-mustBlue px-4 py-2 text-sm font-semibold text-mustBlue hover:bg-mustBlue hover:text-white">
+                <a href="https://www.google.com/maps/search/?api=1&query=Gifted%20Hands%20Private%20Clinic%20Barron%20Avenue%20Lilongwe%20Malawi" target="_blank" rel="noopener" class="inline-flex rounded-full border border-mustBlue px-4 py-2 text-sm font-semibold text-mustBlue hover:bg-mustBlue hover:text-white">
                     Get Directions
                 </a>
             </div>

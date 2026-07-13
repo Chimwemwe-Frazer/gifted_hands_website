@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css');
 
 @tailwind base;
@@ -21,11 +21,35 @@
     }
 
     .section-heading {
-        @apply text-3xl md:text-4xl font-extrabold text-mustBlue;
+        @apply text-3xl md:text-4xl font-semibold text-mustBlue;
     }
 
     .section-heading-white {
-        @apply text-3xl md:text-4xl font-extrabold text-gray-200 ;
+        @apply text-3xl md:text-4xl font-semibold text-gray-200 ;
+    }
+
+    .public-nav-shell {
+        @apply mx-auto flex w-full max-w-7xl items-center justify-between gap-5 rounded-full bg-white px-4 py-3 text-black shadow-sm md:px-5;
+    }
+
+    .public-nav-links {
+        @apply flex flex-wrap items-center justify-end gap-x-5 gap-y-3 text-xs font-medium text-black sm:text-sm;
+    }
+
+    .public-nav-links a {
+        @apply text-black transition hover:text-mustGreen;
+    }
+
+    .public-nav-links a.active {
+        @apply text-mustGreen;
+    }
+
+    .public-nav-action {
+        @apply rounded-full border border-gray-200 bg-white px-5 py-2 text-xs font-semibold shadow-sm hover:border-mustGreen sm:text-sm;
+    }
+
+    .clinic-button {
+        @apply inline-flex items-center justify-center rounded-full px-5 py-3 font-semibold transition;
     }
 
     /* page heading */
@@ -68,15 +92,15 @@
 
     /* button */
     .btn-primary {
-        @apply bg-mustGreen hover:bg-mustOrangeDark text-white px-4 py-1 rounded-lg font-semibold transition duration-300 mb-1;
+        @apply bg-mustGreen hover:bg-mustOrangeDark text-white px-4 py-1 rounded-full font-semibold transition duration-300 mb-1;
     }
 
     .btn-primary-big{
-        @apply px-4 py-2 bg-mustGreen text-gray-100 font-medium rounded-md hover:bg-mustOrangeDark transition duration-300;
+        @apply px-4 py-2 bg-mustGreen text-gray-100 font-medium rounded-full hover:bg-mustOrangeDark transition duration-300;
     }
 
     .btn-secondary {
-        @apply bg-gray-300 text-gray-500 hover:text-gray-700 font-medium rounded-md hover:bg-gray-400 px-4 py-1;
+        @apply bg-gray-300 text-gray-500 hover:text-gray-700 font-medium rounded-full hover:bg-gray-400 px-4 py-1;
     }
 
     /* Home page */

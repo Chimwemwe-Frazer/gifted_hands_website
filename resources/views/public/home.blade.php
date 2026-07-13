@@ -14,34 +14,18 @@
 
 <body class="bg-white text-gray-800">
     <header class="relative min-h-[92vh] bg-cover bg-center" style="background-image: linear-gradient(rgba(16, 39, 74, .72), rgba(16, 39, 74, .45)), url('{{ asset('imgs/optimixed.jpg') }}');">
-        <nav class="relative z-50 flex flex-col gap-4 bg-mustBlue/95 px-4 py-4 text-white shadow-lg backdrop-blur lg:flex-row lg:items-center lg:justify-between">
-            <a href="{{ route('home') }}" class="flex items-center gap-3">
-                <img src="{{ asset('imgs/logo/gifted-hands-logo.png') }}" alt="{{ config('app.name') }}" class="h-12 w-12 object-contain">
-                <span class="text-lg font-semibold">{{ config('app.name', 'Gifted Hands Private Clinic') }}</span>
-            </a>
-            <div class="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm font-semibold">
-                <a href="{{ route('home') }}" class="hover:text-mustGreen">Home</a>
-                <a href="{{ route('about') }}" class="hover:text-mustGreen">About Us</a>
-                <a href="{{ route('services') }}" class="hover:text-mustGreen">Services</a>
-                <a href="{{ route('doctors') }}" class="hover:text-mustGreen">Doctors</a>
-                <a href="{{ route('schedule') }}" class="hover:text-mustGreen">Clinic Schedule</a>
-                <a href="{{ route('announcements') }}" class="hover:text-mustGreen">Announcements</a>
-                <a href="{{ route('gallery') }}" class="hover:text-mustGreen">Gallery</a>
-                <a href="{{ route('faqs') }}" class="hover:text-mustGreen">FAQs</a>
-                <a href="{{ route('contact') }}" class="hover:text-mustGreen">Contact Us</a>
-            </div>
-        </nav>
+        @include('public.partials.nav')
 
         <div class="mx-auto flex max-w-7xl flex-col justify-center px-4 pb-20 pt-10 text-white md:pt-16">
             <div class="max-w-3xl">
                 <p class="mb-4 text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">Private clinic care</p>
-                <h1 class="text-4xl font-extrabold leading-tight md:text-6xl">{{ config('app.name', 'Gifted Hands Private Clinic') }}</h1>
+                <h1 class="text-4xl font-medium leading-tight md:text-6xl">{{ config('app.name', 'Gifted Hands Private Clinic') }}</h1>
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-gray-100">
                     Professional outpatient care, health consultations, and appointment-based clinical services delivered with privacy, respect, and timely attention.
                 </p>
                 <div class="mt-8 flex flex-wrap gap-3">
-                    <a href="#book-appointment" class="rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">Request appointment</a>
-                    <a href="{{ route('services') }}" class="rounded-md border border-white/60 px-5 py-3 font-semibold text-white hover:bg-white hover:text-mustBlue">View services</a>
+                    <a href="#book-appointment" class="rounded-full bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">Request appointment</a>
+                    <a href="{{ route('services') }}" class="rounded-full border border-white/60 px-5 py-3 font-semibold text-white hover:bg-white hover:text-mustBlue">View services</a>
                 </div>
                 <div class="mt-8 flex max-w-2xl flex-col gap-3 border-l-4 border-mustGreen pl-5 text-sm font-semibold text-gray-100 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
                     <span>Open 24/7</span>
@@ -65,7 +49,7 @@
                     <p class="text-lg leading-9 text-gray-700">
                         For many years, we have proudly served our community with professional, patient-centered healthcare. Our experienced doctors and dedicated medical team provide a comprehensive range of quality healthcare services designed to meet the diverse needs of individuals and families.
                     </p>
-                    <a href="{{ route('about') }}" class="mt-6 inline-flex rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">
+                    <a href="{{ route('about') }}" class="mt-6 inline-flex rounded-full bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">
                         Read More
                     </a>
                 </div>
@@ -292,7 +276,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="mt-5 rounded-md bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">Send request</button>
+                <button type="submit" class="mt-5 rounded-full bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">Send request</button>
             </form>
         </section>
 
