@@ -13,7 +13,7 @@
 </head>
 
 <body class="bg-white text-gray-800">
-    <header class="relative min-h-[92vh] bg-cover bg-center" style="background-image: linear-gradient(rgba(16, 39, 74, .72), rgba(16, 39, 74, .45)), url('{{ asset('imgs/optimixed.jpg') }}');">
+    <header class="relative min-h-[92vh] bg-no-repeat" style="background-image: linear-gradient(90deg, rgba(0, 90, 146, .92) 0%, rgba(0, 90, 146, .76) 34%, rgba(0, 67, 111, .28) 56%, rgba(0, 58, 97, 0) 78%), url('{{ asset('imgs/Health workers in beautiful scrubs.png') }}'); background-size: 100% 100%, auto 88%; background-position: center, right bottom;">
         @include('public.partials.nav')
 
         <div class="mx-auto flex max-w-7xl flex-col justify-center px-4 pb-20 pt-10 text-white md:pt-16">
