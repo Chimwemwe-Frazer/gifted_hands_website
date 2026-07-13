@@ -126,7 +126,7 @@
         inset: 0 auto 0 0;
         width: 44%;
         background: rgb(0, 90, 146);
-        border-radius: 0 36% 36% 0 / 0 100% 100% 0;
+        border-radius: 0 50% 50% 0 / 0 100% 100% 0;
         z-index: 0;
     }
 
@@ -159,7 +159,7 @@
 
         .home-hero::before {
             width: 42%;
-            border-radius: 0 34% 34% 0 / 0 100% 100% 0;
+            border-radius: 0 52% 52% 0 / 0 100% 100% 0;
         }
 
         .home-hero::after {
