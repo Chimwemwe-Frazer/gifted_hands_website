@@ -13,10 +13,10 @@
 </head>
 
 <body class="bg-white text-gray-800">
-    <header class="relative min-h-[92vh] bg-no-repeat" style="background-image: linear-gradient(90deg, rgba(0, 90, 146, .92) 0%, rgba(0, 90, 146, .76) 34%, rgba(0, 67, 111, .28) 56%, rgba(0, 58, 97, 0) 78%), url('{{ asset('imgs/Health workers in beautiful scrubs.png') }}'); background-size: 100% 100%, auto 88%; background-position: center, right bottom;">
+    <header class="home-hero" style="--hero-image: url('{{ asset('imgs/hero section image.png') }}');">
         @include('public.partials.nav')
 
-        <div class="mx-auto flex max-w-7xl flex-col justify-center px-4 pb-20 pt-10 text-white md:pt-16">
+        <div class="relative z-10 mx-auto flex max-w-7xl flex-col justify-center px-4 pb-20 pt-10 text-white md:pt-16">
             <div class="max-w-3xl">
                 <p class="mb-4 text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">Private clinic care</p>
                 <h1 class="text-4xl font-medium leading-tight md:text-6xl">{{ config('app.name', 'Gifted Hands Private Clinic') }}</h1>
