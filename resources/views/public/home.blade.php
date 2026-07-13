@@ -20,14 +20,14 @@
             <div class="max-w-3xl">
                 <p class="mb-4 text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">Private clinic care</p>
                 <h1 class="text-4xl font-medium leading-tight md:text-6xl">{{ config('app.name', 'Gifted Hands Private Clinic') }}</h1>
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-gray-100">
+                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/70">
                     Professional outpatient care, health consultations, and appointment-based clinical services delivered with privacy, respect, and timely attention.
                 </p>
                 <div class="mt-8 flex flex-wrap gap-3">
                     <a href="#book-appointment" class="rounded-full bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">Request appointment</a>
                     <a href="{{ route('services') }}" class="rounded-full border border-white/60 px-5 py-3 font-semibold text-white hover:bg-white hover:text-mustBlue">View services</a>
                 </div>
-                <div class="mt-8 flex max-w-2xl flex-col gap-3 border-l-4 border-mustGreen pl-5 text-sm font-semibold text-gray-100 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
+                <div class="mt-8 flex max-w-2xl flex-col gap-3 border-l-4 border-mustGreen pl-5 text-sm font-semibold text-white/65 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
                     <span>Open 24/7</span>
                     <span class="hidden h-4 w-px bg-white/35 sm:block"></span>
                     <span>Ambulance Available</span>
