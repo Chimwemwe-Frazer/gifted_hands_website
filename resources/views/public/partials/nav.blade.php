@@ -1,7 +1,7 @@
 <nav class="relative z-50 px-4 pt-5">
     <div class="public-nav-shell">
         <a href="{{ route('home') }}" class="flex shrink-0 items-center" aria-label="{{ config('app.name', 'Gifted Hands Private Clinic') }}">
-            <img src="{{ asset('imgs/logo/gifted-hands-logo.png') }}" alt="{{ config('app.name') }}" class="h-10 w-10 object-contain md:h-12 md:w-12">
+            <img src="{{ asset('imgs/logo/gifted-hands-logo-transparent.png') }}" alt="{{ config('app.name') }}" class="h-16 w-16 object-contain md:h-20 md:w-20">
         </a>
 
         <div class="public-nav-links">
