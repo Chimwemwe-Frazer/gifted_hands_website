@@ -30,6 +30,7 @@
 
     .public-nav-shell {
         @apply mx-auto flex w-full max-w-7xl items-center justify-between gap-5 rounded-full bg-white py-1 text-black shadow-sm;
+        background-color: #fff;
         padding-left: 20px;
         padding-right: 19px;
     }
@@ -42,19 +43,19 @@
     }
 
     .public-nav-links {
-        @apply flex flex-wrap items-center justify-end gap-x-5 gap-y-3 text-xs font-medium text-black sm:text-sm;
+        @apply flex flex-wrap items-center justify-end gap-x-5 gap-y-3 font-medium text-black;
     }
 
-    .public-nav-links a {
-        @apply text-black transition hover:text-mustGreen;
+    .public-nav-links a:not(.public-nav-action) {
+        @apply text-[13px] text-black/80 transition hover:text-mustGreen sm:text-[15px];
     }
 
-    .public-nav-links a.active {
+    .public-nav-links a:not(.public-nav-action).active {
         @apply text-mustGreen;
     }
 
     .public-nav-action {
-        @apply rounded-full border border-gray-200 bg-white px-5 py-2 text-xs font-semibold shadow-sm hover:border-mustGreen sm:text-sm;
+        @apply rounded-full border border-gray-200 bg-white px-5 py-2 text-xs font-semibold text-black/80 shadow-sm hover:border-mustGreen hover:text-mustOrangeDark sm:text-sm;
     }
 
     .clinic-button {
