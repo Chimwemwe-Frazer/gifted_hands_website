@@ -29,13 +29,15 @@
     }
 
     .public-nav-shell {
-        @apply mx-auto flex w-full max-w-7xl items-center justify-between gap-5 rounded-full bg-white py-1 pr-4 text-black shadow-sm md:pr-5;
-        padding-left: 1.625rem;
+        @apply mx-auto flex w-full max-w-7xl items-center justify-between gap-5 rounded-full bg-white py-1 text-black shadow-sm;
+        padding-left: 20px;
+        padding-right: 19px;
     }
 
     @screen md {
         .public-nav-shell {
-            padding-left: 2.125rem;
+            padding-left: 28px;
+            padding-right: 23px;
         }
     }
 
