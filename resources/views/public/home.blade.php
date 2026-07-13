@@ -19,7 +19,7 @@
         <div class="relative z-10 mx-auto flex max-w-7xl flex-col justify-center px-4 pb-20 pt-10 text-white md:pt-16">
             <div class="max-w-3xl">
                 <p class="mb-4 text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">Private clinic care</p>
-                <h1 class="text-4xl font-medium leading-tight md:text-6xl">
+                <h1 class="text-4xl font-medium leading-tight text-white md:text-6xl">
                     Gifted Hands <span class="text-mustOrange">Private</span><br>
                     Clinic
                 </h1>
