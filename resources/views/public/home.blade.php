@@ -19,7 +19,10 @@
         <div class="relative z-10 mx-auto flex max-w-7xl flex-col justify-center px-4 pb-20 pt-10 text-white md:pt-16">
             <div class="max-w-3xl">
                 <p class="mb-4 text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">Private clinic care</p>
-                <h1 class="text-4xl font-medium leading-tight md:text-6xl">{{ config('app.name', 'Gifted Hands Private Clinic') }}</h1>
+                <h1 class="text-4xl font-medium leading-tight md:text-6xl">
+                    Gifted Hands <span class="text-mustOrange">Private</span><br>
+                    Clinic
+                </h1>
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-white/70">
                     Professional outpatient care, health consultations, and appointment-based clinical services delivered with privacy, respect, and timely attention.
                 </p>
