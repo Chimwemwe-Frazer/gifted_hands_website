@@ -1,8 +1,8 @@
 <footer class="bg-mustBlue text-white">
     <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-2 lg:grid-cols-[1.25fr_0.8fr_0.9fr_1.05fr]">
         <div>
-            <a href="{{ route('home') }}" class="flex items-center gap-3">
-                <img src="{{ asset('imgs/logo/gifted-hands-logo.png') }}" alt="{{ config('app.name') }}" class="h-14 w-14 object-contain">
+            <a href="{{ route('home') }}" class="flex items-center gap-4">
+                <img src="{{ asset('imgs/logo/gifted-hands-logo-footer.png') }}" alt="{{ config('app.name') }}" class="h-20 w-20 object-contain drop-shadow-md md:h-24 md:w-24">
                 <span class="text-lg font-semibold">{{ config('app.name', 'Gifted Hands Private Clinic') }}</span>
             </a>
             <p class="mt-4 max-w-sm text-sm leading-7 text-gray-200">
