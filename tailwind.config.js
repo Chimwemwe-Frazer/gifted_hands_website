@@ -13,6 +13,7 @@ export default {
             colors: {
                 mustBlue: "#005A92",
                 mustRed: "#E62E2D",
+                mustOrange: "#F1842F",
                 mustGreen: "#F1842F",
                 mustOrangeDark: "#D86F22",
             },
