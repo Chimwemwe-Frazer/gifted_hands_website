@@ -69,7 +69,7 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(6, '+')" x-text="value">6+</p>
+                        <p class="mb-1 text-4xl font-bold leading-none opacity-75 md:text-5xl" x-data="countUp(6, '+')" x-text="value">6+</p>
                         <p class="mt-3 text-base font-medium text-gray-600 md:text-lg">Years of Experience</p>
                     </div>
                 </article>
@@ -81,7 +81,7 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(10, '+')" x-text="value">10+</p>
+                        <p class="mb-1 text-4xl font-bold leading-none opacity-75 md:text-5xl" x-data="countUp(10, '+')" x-text="value">10+</p>
                         <p class="mt-3 text-base font-medium text-gray-600 md:text-lg">Core Services</p>
                     </div>
                 </article>
@@ -93,7 +93,7 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(15, '+')" x-text="value">15+</p>
+                        <p class="mb-1 text-4xl font-bold leading-none opacity-75 md:text-5xl" x-data="countUp(15, '+')" x-text="value">15+</p>
                         <p class="mt-3 text-base font-medium text-gray-600 md:text-lg">Medical Staff</p>
                     </div>
                 </article>
@@ -105,7 +105,7 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(1000, '+')" x-text="value">1,000+</p>
+                        <p class="mb-1 text-4xl font-bold leading-none opacity-75 md:text-5xl" x-data="countUp(1000, '+')" x-text="value">1,000+</p>
                         <p class="mt-3 text-base font-medium text-gray-600 md:text-lg">Appointments Served</p>
                     </div>
                 </article>
