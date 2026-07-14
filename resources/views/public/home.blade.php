@@ -60,8 +60,8 @@
         </section>
 
         <section class="bg-white pt-10">
-            <div class="bg-mustBlue">
-                <div class="mx-auto grid max-w-[96rem] gap-8 px-4 py-14 text-white sm:grid-cols-2 lg:grid-cols-4">
+            <div class="bg-[#EFEFEF]">
+                <div class="mx-auto grid max-w-[96rem] gap-8 px-4 py-14 text-mustBlue sm:grid-cols-2 lg:grid-cols-4">
                 <article class="flex flex-col items-center justify-center gap-5 text-center">
                     <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-mustGreen/15 text-mustGreen">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-11 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
@@ -69,8 +69,8 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(5, '+')" x-text="value">5+</p>
-                        <p class="mt-3 text-base font-medium text-gray-200 md:text-lg">Years of Experience</p>
+                        <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(6, '+')" x-text="value">6+</p>
+                        <p class="mt-3 text-base font-medium text-gray-600 md:text-lg">Years of Experience</p>
                     </div>
                 </article>
 
@@ -82,7 +82,7 @@
                     </div>
                     <div>
                         <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(10, '+')" x-text="value">10+</p>
-                        <p class="mt-3 text-base font-medium text-gray-200 md:text-lg">Core Services</p>
+                        <p class="mt-3 text-base font-medium text-gray-600 md:text-lg">Core Services</p>
                     </div>
                 </article>
 
@@ -94,7 +94,7 @@
                     </div>
                     <div>
                         <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(15, '+')" x-text="value">15+</p>
-                        <p class="mt-3 text-base font-medium text-gray-200 md:text-lg">Medical Staff</p>
+                        <p class="mt-3 text-base font-medium text-gray-600 md:text-lg">Medical Staff</p>
                     </div>
                 </article>
 
@@ -106,7 +106,7 @@
                     </div>
                     <div>
                         <p class="text-4xl font-bold leading-none md:text-5xl" x-data="countUp(1000, '+')" x-text="value">1,000+</p>
-                        <p class="mt-3 text-base font-medium text-gray-200 md:text-lg">Appointments Served</p>
+                        <p class="mt-3 text-base font-medium text-gray-600 md:text-lg">Appointments Served</p>
                     </div>
                 </article>
                 </div>
