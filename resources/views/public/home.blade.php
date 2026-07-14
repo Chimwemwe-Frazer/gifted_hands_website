@@ -8,7 +8,7 @@
 
     <title>{{ config('app.name', 'Gifted Hands Private Clinic') }}</title>
 
-    <link rel="icon" href="{{ asset('imgs/logo/gifted-hands-logo.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('imgs/logo/gifted-hands-logo-favicon.png') }}" type="image/png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
