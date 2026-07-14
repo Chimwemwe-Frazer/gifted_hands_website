@@ -42,7 +42,7 @@
     </header>
 
     <main>
-        <section id="about-us" class="bg-white" style="background-color: #fff;">
+        <section id="about-us" class="bg-white" style="background-color: #FFFFFF;">
             <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
                 <div>
                     <p class="text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">About the clinic</p>
