@@ -21,7 +21,7 @@
         </div>
     </header>
 
-    <main class="bg-gray-50">
+    <main class="bg-[#EFEFEF]">
         <div class="mx-auto max-w-7xl px-4 py-16">
             <div class="mb-8 rounded-lg border border-mustBlue/15 bg-white p-6 shadow-sm">
                 <p class="text-sm font-semibold uppercase tracking-[.18em] text-mustGreen">Notice</p>

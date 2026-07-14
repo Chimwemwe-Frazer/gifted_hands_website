@@ -38,7 +38,7 @@
                 </p>
             </div>
 
-            <aside class="rounded-lg border border-gray-200 bg-gray-50 p-6">
+            <aside class="rounded-lg border border-gray-200 bg-[#EFEFEF] p-6">
                 <h2 class="text-xl font-bold text-mustBlue">At A Glance</h2>
                 <div class="mt-5 space-y-4 text-sm leading-6 text-gray-600">
                     <p><strong class="text-mustBlue">Located in:</strong> Barron Avenue, Lilongwe, Malawi.</p>
@@ -48,7 +48,7 @@
             </aside>
         </section>
 
-        <section class="bg-gray-50 px-4 py-16">
+        <section class="bg-[#EFEFEF] px-4 py-16">
             <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                 <div>
                     <p class="text-sm font-semibold uppercase tracking-[.18em] text-mustGreen">Our story</p>
@@ -110,7 +110,7 @@
             </div>
         </section>
 
-        <section class="bg-gray-50 px-4 py-16">
+        <section class="bg-[#EFEFEF] px-4 py-16">
             <div class="mx-auto max-w-7xl">
                 <div class="max-w-3xl">
                     <p class="text-sm font-semibold uppercase tracking-[.18em] text-mustGreen">How we care</p>

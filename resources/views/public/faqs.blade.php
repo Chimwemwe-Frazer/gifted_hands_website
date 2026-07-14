@@ -21,7 +21,7 @@
         </div>
     </header>
 
-    <main class="bg-gray-50">
+    <main class="bg-[#EFEFEF]">
         <div class="mx-auto max-w-4xl px-4 py-16">
             <div class="space-y-4">
             @foreach ([
