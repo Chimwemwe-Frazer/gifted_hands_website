@@ -283,7 +283,7 @@
             </form>
         </section>
 
-        <section id="announcements" class="bg-gray-50">
+        <section id="announcements" class="bg-[#EFEFEF]">
             <div class="mx-auto max-w-7xl px-4 py-16">
                 <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
                     <div class="max-w-3xl">
@@ -340,7 +340,7 @@
             </div>
         </section>
 
-        <section id="faqs" class="bg-gray-50">
+        <section id="faqs" class="bg-[#EFEFEF]">
             <div class="mx-auto max-w-7xl px-4 py-16">
                 <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
                     <div class="max-w-3xl">
