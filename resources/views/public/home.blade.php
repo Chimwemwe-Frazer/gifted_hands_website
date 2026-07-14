@@ -13,7 +13,23 @@
 </head>
 
 <body class="bg-white text-gray-800">
-    <header class="home-hero" style="--hero-image: url('{{ asset('imgs/hero section image.png') }}');">
+    @php
+        $heroSlides = [
+            ['image' => 'imgs/hero section image.png'],
+        ];
+
+        if (file_exists(public_path('imgs/stethoscope.jpg'))) {
+            $heroSlides[] = ['image' => 'imgs/stethoscope.jpg'];
+        }
+    @endphp
+
+    <header class="home-hero">
+        <div class="home-hero-slides {{ count($heroSlides) > 1 ? 'home-hero-slides--cycle' : '' }}" aria-hidden="true">
+            @foreach ($heroSlides as $slide)
+                <span class="home-hero-slide" style="--hero-slide-image: url('{{ asset($slide['image']) }}');"></span>
+            @endforeach
+        </div>
+
         @include('public.partials.nav')
 
         <div class="relative z-10 mx-auto flex max-w-7xl flex-col justify-center px-4 pb-20 pt-10 text-white md:pt-16">
