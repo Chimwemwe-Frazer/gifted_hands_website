@@ -225,7 +225,7 @@
             </div>
         </section>
 
-        <section id="book-appointment" class="bg-[#EFEFEF]">
+        <section id="book-appointment" class="bg-white" style="background-color: #FFFFFF;">
             <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 lg:grid-cols-[.85fr_1.15fr]">
                 <div>
                     <h2 class="section-heading">Request An Appointment</h2>
@@ -289,7 +289,7 @@
             </div>
         </section>
 
-        <section id="announcements" class="bg-[#EFEFEF]">
+        <section id="announcements" class="bg-white" style="background-color: #FFFFFF;">
             <div class="mx-auto max-w-7xl px-4 py-16">
                 <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
                     <div class="max-w-3xl">
