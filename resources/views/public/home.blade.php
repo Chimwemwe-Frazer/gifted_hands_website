@@ -113,27 +113,28 @@
             </div>
         </section>
 
-        <section id="services" class="mx-auto max-w-7xl px-4 py-16">
-            <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-                <div class="max-w-3xl">
-                    <h2 class="section-heading">Clinic Services</h2>
-                    <p class="mt-4 text-gray-600">Explore the core healthcare services available at the clinic for individuals, women, children, and families.</p>
-                </div>
-                <a href="{{ route('services') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
-                    View More <span class="ml-2">&rarr;</span>
-                </a>
-            </div>
-
-            <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-mustGreen/10 text-mustGreen">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v8m-4-4h8m3.75 0A7.75 7.75 0 1 1 4.25 12a7.75 7.75 0 0 1 15.5 0Z" />
-                        </svg>
+        <section id="services" class="bg-[#EFEFEF]">
+            <div class="mx-auto max-w-7xl px-4 py-16">
+                <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+                    <div class="max-w-3xl">
+                        <h2 class="section-heading">Clinic Services</h2>
+                        <p class="mt-4 text-gray-600">Explore the core healthcare services available at the clinic for individuals, women, children, and families.</p>
                     </div>
-                    <h3 class="mt-5 text-lg font-bold text-mustBlue">General Consultation</h3>
-                    <p class="mt-3 text-sm leading-6 text-gray-600">Receive comprehensive medical assessments and expert diagnosis for a wide range of health concerns from our experienced healthcare professionals.</p>
-                </article>
+                    <a href="{{ route('services') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
+                        View More <span class="ml-2">&rarr;</span>
+                    </a>
+                </div>
+
+                <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                    <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                        <div class="flex h-14 w-14 items-center justify-center rounded-full bg-mustGreen/10 text-mustGreen">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v8m-4-4h8m3.75 0A7.75 7.75 0 1 1 4.25 12a7.75 7.75 0 0 1 15.5 0Z" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-5 text-lg font-bold text-mustBlue">General Consultation</h3>
+                        <p class="mt-3 text-sm leading-6 text-gray-600">Receive comprehensive medical assessments and expert diagnosis for a wide range of health concerns from our experienced healthcare professionals.</p>
+                    </article>
 
                 <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <div class="flex h-14 w-14 items-center justify-center rounded-full bg-mustGreen/10 text-mustGreen">
@@ -177,29 +178,31 @@
                     <h3 class="mt-5 text-lg font-bold text-mustBlue">Laboratory Services</h3>
                     <p class="mt-3 text-sm leading-6 text-gray-600">Reliable laboratory testing and diagnostic services that support accurate diagnosis and effective treatment for better patient care.</p>
                 </article>
+                </div>
             </div>
         </section>
 
-        <section id="doctors" class="mx-auto max-w-7xl px-4 py-16">
-            <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-                <div class="max-w-3xl">
-                    <h2 class="section-heading">Doctors</h2>
-                    <p class="mt-4 text-gray-600">Meet the experienced medical professionals supporting patient-centered care at the clinic.</p>
-                </div>
-                <a href="{{ route('doctors') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
-                    View More <span class="ml-2">&rarr;</span>
-                </a>
-            </div>
-
-            <div class="mt-8 grid gap-5 md:grid-cols-3">
-                <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Dr. Mercy Banda" class="h-64 w-full object-cover">
-                    <div class="p-5">
-                        <h3 class="text-lg font-bold text-mustBlue">Dr. Mercy Banda</h3>
-                        <p class="mt-1 text-sm font-semibold text-mustGreen">General Practitioner</p>
-                        <p class="mt-3 text-sm leading-6 text-gray-600">MBBS, Diploma in Family Medicine</p>
+        <section id="doctors" class="bg-[#EFEFEF]">
+            <div class="mx-auto max-w-7xl px-4 py-16">
+                <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+                    <div class="max-w-3xl">
+                        <h2 class="section-heading">Doctors</h2>
+                        <p class="mt-4 text-gray-600">Meet the experienced medical professionals supporting patient-centered care at the clinic.</p>
                     </div>
-                </article>
+                    <a href="{{ route('doctors') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
+                        View More <span class="ml-2">&rarr;</span>
+                    </a>
+                </div>
+
+                <div class="mt-8 grid gap-5 md:grid-cols-3">
+                    <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                        <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Dr. Mercy Banda" class="h-64 w-full object-cover">
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-mustBlue">Dr. Mercy Banda</h3>
+                            <p class="mt-1 text-sm font-semibold text-mustGreen">General Practitioner</p>
+                            <p class="mt-3 text-sm leading-6 text-gray-600">MBBS, Diploma in Family Medicine</p>
+                        </div>
+                    </article>
 
                 <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
                     <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Dr. Thoko Phiri" class="h-64 w-full object-cover">
@@ -218,23 +221,25 @@
                         <p class="mt-3 text-sm leading-6 text-gray-600">BSc Physiotherapy, Certified Rehabilitation Specialist</p>
                     </div>
                 </article>
+                </div>
             </div>
         </section>
 
-        <section id="book-appointment" class="mx-auto grid max-w-7xl gap-8 px-4 py-16 lg:grid-cols-[.85fr_1.15fr]">
-            <div>
-                <h2 class="section-heading">Request An Appointment</h2>
-                <p class="mt-4 leading-7 text-gray-600">
-                    This form is for appointment coordination only. It collects contact details so the appointments officer can respond; it is not a patient records system.
-                </p>
-                <div class="mt-6 space-y-2 text-sm text-gray-700">
-                    <p><strong class="text-mustBlue">Phone:</strong> <a href="tel:+265995767137" class="hover:text-mustGreen">+265 995 76 71 37</a></p>
-                    <p><strong class="text-mustBlue">Email:</strong> <a href="mailto:giftedhandspvtclinic@gmail.com" class="hover:text-mustGreen">giftedhandspvtclinic@gmail.com</a></p>
-                    <p><strong class="text-mustBlue">Location:</strong> Barron Avenue, Lilongwe, Malawi</p>
+        <section id="book-appointment" class="bg-[#EFEFEF]">
+            <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 lg:grid-cols-[.85fr_1.15fr]">
+                <div>
+                    <h2 class="section-heading">Request An Appointment</h2>
+                    <p class="mt-4 leading-7 text-gray-600">
+                        This form is for appointment coordination only. It collects contact details so the appointments officer can respond; it is not a patient records system.
+                    </p>
+                    <div class="mt-6 space-y-2 text-sm text-gray-700">
+                        <p><strong class="text-mustBlue">Phone:</strong> <a href="tel:+265995767137" class="hover:text-mustGreen">+265 995 76 71 37</a></p>
+                        <p><strong class="text-mustBlue">Email:</strong> <a href="mailto:giftedhandspvtclinic@gmail.com" class="hover:text-mustGreen">giftedhandspvtclinic@gmail.com</a></p>
+                        <p><strong class="text-mustBlue">Location:</strong> Barron Avenue, Lilongwe, Malawi</p>
+                    </div>
                 </div>
-            </div>
 
-            <form action="{{ route('appointments.request') }}" method="POST" class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <form action="{{ route('appointments.request') }}" method="POST" class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
                 @csrf
 
                 @if (session('success'))
@@ -280,7 +285,8 @@
                 </div>
 
                 <button type="submit" class="mt-5 rounded-full bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">Send request</button>
-            </form>
+                </form>
+            </div>
         </section>
 
         <section id="announcements" class="bg-[#EFEFEF]">
@@ -314,29 +320,32 @@
             </div>
         </section>
 
-        <section id="gallery" class="mx-auto max-w-7xl px-4 py-16">
-            <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-                <div class="max-w-3xl">
-                    <h2 class="section-heading">Gallery</h2>
-                    <p class="mt-4 text-gray-600">A place to show clinic rooms, reception areas, equipment, and team moments for visitor confidence.</p>
+        <section id="gallery" class="bg-[#EFEFEF]">
+            <div class="mx-auto max-w-7xl px-4 py-16">
+                <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+                    <div class="max-w-3xl">
+                        <h2 class="section-heading">Gallery</h2>
+                        <p class="mt-4 text-gray-600">A place to show clinic rooms, reception areas, equipment, and team moments for visitor confidence.</p>
+                    </div>
+                    <a href="{{ route('gallery') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
+                        View More <span class="ml-2">&rarr;</span>
+                    </a>
                 </div>
-                <a href="{{ route('gallery') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
-                    View More <span class="ml-2">&rarr;</span>
-                </a>
-            </div>
-            <div class="mt-8 grid gap-4 md:grid-cols-3">
-                <figure class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic reception area" class="h-48 w-full object-cover">
-                    <figcaption class="p-4 text-sm font-semibold text-mustBlue">Reception Area</figcaption>
-                </figure>
-                <figure class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic consultation room" class="h-48 w-full object-cover">
-                    <figcaption class="p-4 text-sm font-semibold text-mustBlue">Consultation Room</figcaption>
-                </figure>
-                <figure class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic laboratory services" class="h-48 w-full object-cover">
-                    <figcaption class="p-4 text-sm font-semibold text-mustBlue">Laboratory</figcaption>
-                </figure>
+
+                <div class="mt-8 grid gap-4 md:grid-cols-3">
+                    <figure class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                        <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic reception area" class="h-48 w-full object-cover">
+                        <figcaption class="p-4 text-sm font-semibold text-mustBlue">Reception Area</figcaption>
+                    </figure>
+                    <figure class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                        <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic consultation room" class="h-48 w-full object-cover">
+                        <figcaption class="p-4 text-sm font-semibold text-mustBlue">Consultation Room</figcaption>
+                    </figure>
+                    <figure class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                        <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic laboratory services" class="h-48 w-full object-cover">
+                        <figcaption class="p-4 text-sm font-semibold text-mustBlue">Laboratory</figcaption>
+                    </figure>
+                </div>
             </div>
         </section>
 
