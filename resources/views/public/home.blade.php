@@ -60,7 +60,7 @@
         </section>
 
         <section class="bg-white pt-10">
-            <div class="bg-[#EFEFEF]">
+            <div class="bg-white" style="background-color: #FFFFFF;">
                 <div class="mx-auto grid max-w-[96rem] gap-8 px-4 py-14 text-mustBlue sm:grid-cols-2 lg:grid-cols-4">
                 <article class="flex flex-col items-center justify-center gap-5 text-center">
                     <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-mustGreen/15 text-mustGreen">
