@@ -137,12 +137,12 @@
             </div>
         </section>
 
-        <section class="mb-8 bg-mustBlue py-16 text-white">
+        <section class="mb-8 bg-white py-16">
             <div class="mx-auto max-w-7xl px-4">
                 <div class="max-w-3xl">
                     <p class="text-sm font-semibold uppercase tracking-[.18em] text-mustGreen">Our facility</p>
-                    <h2 class="mt-3 text-3xl font-bold">Facility Highlights</h2>
-                    <p class="mt-4 leading-8 text-gray-200">
+                    <h2 class="mt-3 text-3xl font-bold text-mustBlue">Facility Highlights</h2>
+                    <p class="mt-4 leading-8 text-gray-600">
                         The clinic is organized to support essential outpatient care, family health services, diagnostics, and rehabilitation. Specific room photos and equipment details can be added as they become available.
                     </p>
                 </div>
@@ -154,11 +154,11 @@
                         ['Under-5 Area', 'Child-focused care space for growth monitoring, wellness checks, and immunization support.', 'imgs/facilities/under-5-area.png'],
                         ['Physiotherapy Space', 'Room for rehabilitation, mobility support, and guided recovery sessions.', 'imgs/facilities/physiotherapy-space.png'],
                     ] as [$title, $description, $image])
-                        <article class="overflow-hidden rounded-lg border border-white/15 bg-white/10">
+                        <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
                             <img src="{{ asset($image) }}" alt="{{ $title }}" class="h-44 w-full object-cover">
                             <div class="p-5">
-                                <h3 class="text-lg font-bold">{{ $title }}</h3>
-                                <p class="mt-3 text-sm leading-7 text-gray-200">{{ $description }}</p>
+                                <h3 class="text-lg font-bold text-mustBlue">{{ $title }}</h3>
+                                <p class="mt-3 text-sm leading-7 text-gray-600">{{ $description }}</p>
                             </div>
                         </article>
                     @endforeach
