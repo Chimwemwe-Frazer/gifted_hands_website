@@ -21,10 +21,14 @@
         if (file_exists(public_path('imgs/stethoscope.jpg'))) {
             $heroSlides[] = ['image' => 'imgs/stethoscope.jpg'];
         }
+
+        if (file_exists(public_path('imgs/Medicine.jpg'))) {
+            $heroSlides[] = ['image' => 'imgs/Medicine.jpg'];
+        }
     @endphp
 
     <header class="home-hero">
-        <div class="home-hero-slides {{ count($heroSlides) > 1 ? 'home-hero-slides--cycle' : '' }}" aria-hidden="true">
+        <div class="home-hero-slides home-hero-slides--count-{{ count($heroSlides) }} {{ count($heroSlides) > 1 ? 'home-hero-slides--cycle' : '' }}" aria-hidden="true">
             @foreach ($heroSlides as $slide)
                 <span class="home-hero-slide" style="--hero-slide-image: url('{{ asset($slide['image']) }}');"></span>
             @endforeach
