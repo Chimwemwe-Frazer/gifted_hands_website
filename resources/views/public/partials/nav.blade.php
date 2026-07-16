@@ -2,8 +2,8 @@
     $tabletNavPage = request()->routeIs('schedule', 'announcements', 'faqs') ? 1 : 0;
 @endphp
 
-<nav class="relative z-50 px-4 pt-5" x-data="{ page: {{ $tabletNavPage }} }">
-    <div class="public-nav-shell">
+<nav class="relative z-50 px-4 pt-5" x-data="{ page: {{ $tabletNavPage }}, mobileOpen: false }" @keydown.escape.window="mobileOpen = false">
+    <div class="public-nav-shell" @if (request()->routeIs('home')) @click.outside="mobileOpen = false" @endif>
         <a href="{{ route('home') }}" class="flex shrink-0 items-center" aria-label="{{ config('app.name', 'Gifted Hands Private Clinic') }}">
             <img src="{{ asset('imgs/logo/gifted-hands-logo-nav.png') }}" alt="{{ config('app.name') }}" class="h-[60px] w-[60px] object-contain md:h-[68px] md:w-[68px]">
         </a>
@@ -45,5 +45,48 @@
 
             <a href="{{ route('contact') }}" class="public-nav-action public-nav-action--pager {{ request()->routeIs('contact') ? 'active' : '' }}">Contact Us</a>
         </div>
+
+        @if (request()->routeIs('home'))
+            <button
+                type="button"
+                class="public-nav-mobile-toggle"
+                aria-label="Toggle primary navigation"
+                aria-controls="home-mobile-navigation"
+                :aria-expanded="mobileOpen.toString()"
+                @click="mobileOpen = ! mobileOpen"
+            >
+                <svg x-show="! mobileOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+                <svg x-show="mobileOpen" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6 6 18" />
+                </svg>
+            </button>
+
+            <div
+                id="home-mobile-navigation"
+                class="public-nav-mobile-panel"
+                role="navigation"
+                aria-label="Mobile primary navigation"
+                x-show="mobileOpen"
+                x-cloak
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="-translate-y-2 opacity-0"
+                x-transition:enter-end="translate-y-0 opacity-100"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="translate-y-0 opacity-100"
+                x-transition:leave-end="-translate-y-2 opacity-0"
+            >
+                <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}" @click="mobileOpen = false">Home</a>
+                <a href="{{ route('about') }}" @click="mobileOpen = false">About Us</a>
+                <a href="{{ route('services') }}" @click="mobileOpen = false">Services</a>
+                <a href="{{ route('doctors') }}" @click="mobileOpen = false">Doctors</a>
+                <a href="{{ route('schedule') }}" @click="mobileOpen = false">Clinic Schedule</a>
+                <a href="{{ route('announcements') }}" @click="mobileOpen = false">Announcements</a>
+                <a href="{{ route('gallery') }}" @click="mobileOpen = false">Gallery</a>
+                <a href="{{ route('faqs') }}" @click="mobileOpen = false">FAQs</a>
+                <a href="{{ route('contact') }}" class="public-nav-mobile-action" @click="mobileOpen = false">Contact Us</a>
+            </div>
+        @endif
     </div>
 </nav>

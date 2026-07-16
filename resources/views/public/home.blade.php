@@ -12,7 +12,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-white text-gray-800">
+<body class="home-page bg-white text-gray-800">
     @php
         $heroSlides = [
             ['image' => 'imgs/hero section image.png'],
@@ -36,21 +36,21 @@
 
         @include('public.partials.nav')
 
-        <div class="relative z-10 mx-auto flex max-w-7xl flex-col justify-center px-4 pb-20 pt-10 text-white md:pt-16">
+        <div class="relative z-10 mx-auto flex max-w-7xl flex-col justify-center px-4 pb-14 pt-8 text-white sm:pb-20 sm:pt-10 md:pt-16">
             <div class="max-w-3xl md:max-w-[31rem] lg:max-w-3xl">
-                <p class="mb-4 text-sm font-semibold tracking-[.12em] text-mustOrange">Our confidence is our capability</p>
-                <h1 class="text-4xl font-medium leading-tight text-white md:text-5xl lg:text-6xl">
+                <p class="mb-3 text-xs font-semibold tracking-[.1em] text-mustOrange sm:mb-4 sm:text-sm sm:tracking-[.12em]">Our confidence is our capability</p>
+                <h1 class="text-[2rem] font-medium leading-[1.15] text-white sm:text-4xl sm:leading-tight md:text-5xl lg:text-6xl">
                     Gifted Hands <span class="text-mustOrange">Pvt</span><br>
                     Clinic
                 </h1>
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/70 md:max-w-[23rem] lg:max-w-[25rem] xl:max-w-[29rem]">
+                <p class="mt-5 max-w-2xl text-base leading-7 text-white/75 sm:mt-6 sm:text-lg sm:leading-8 md:max-w-[23rem] lg:max-w-[25rem] xl:max-w-[29rem]">
                     Professional outpatient care, health consultations, and appointment-based clinical services <span class="block xl:inline">delivered with privacy, respect, and timely attention.</span>
                 </p>
-                <div class="mt-8 flex flex-wrap gap-3">
-                    <a href="#book-appointment" class="rounded-full bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">Request appointment</a>
-                    <a href="{{ route('services') }}" class="rounded-full border border-white/60 px-5 py-3 font-semibold text-white hover:bg-white hover:text-mustBlue">View services</a>
+                <div class="mt-7 grid gap-3 sm:mt-8 sm:flex sm:flex-wrap">
+                    <a href="#book-appointment" class="inline-flex justify-center rounded-full bg-mustGreen px-5 py-3 text-center font-semibold text-white hover:bg-mustOrangeDark">Request appointment</a>
+                    <a href="{{ route('services') }}" class="inline-flex justify-center rounded-full border border-white/60 px-5 py-3 text-center font-semibold text-white hover:bg-white hover:text-mustBlue">View services</a>
                 </div>
-                <div class="mt-8 flex max-w-2xl flex-col gap-3 border-l-4 border-mustGreen pl-5 text-sm font-semibold text-white/65 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
+                <div class="mt-7 flex max-w-2xl flex-col gap-2 border-l-4 border-mustGreen pl-4 text-xs font-semibold leading-5 text-white/70 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3 sm:gap-x-6 sm:pl-5 sm:text-sm">
                     <span>Open 24/7</span>
                     <span class="hidden h-4 w-px bg-white/35 sm:block"></span>
                     <span>Ambulance Available</span>
@@ -63,13 +63,13 @@
 
     <main>
         <section id="about-us" class="bg-white" style="background-color: #FFFFFF;">
-            <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <div class="mx-auto grid max-w-7xl gap-7 px-4 py-12 md:gap-8 md:py-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
                 <div>
                     <p class="text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">About the clinic</p>
                     <h2 class="section-heading mt-3">About Us</h2>
                 </div>
-                <div class="border-l-4 border-mustGreen pl-6">
-                    <p class="text-lg leading-9 text-gray-700">
+                <div class="border-l-4 border-mustGreen pl-4 sm:pl-6">
+                    <p class="text-base leading-7 text-gray-700 md:text-lg md:leading-9">
                         For many years, we have proudly served our community with professional, patient-centered healthcare. Our experienced doctors and dedicated medical team provide a comprehensive range of quality healthcare services designed to meet the diverse needs of individuals and families.
                     </p>
                     <a href="{{ route('about') }}" class="mt-6 inline-flex rounded-full bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">
@@ -81,52 +81,52 @@
 
         <section class="bg-white pt-4">
             <div class="bg-white/20">
-                <div class="mx-auto grid max-w-[96rem] gap-8 px-4 py-14 text-mustBlue sm:grid-cols-2 lg:grid-cols-4">
-                <article class="flex flex-col items-center justify-center gap-5 text-center">
-                    <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-mustGreen/15 text-mustGreen">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-11 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <div class="mx-auto grid max-w-[96rem] grid-cols-2 gap-8 px-4 py-12 text-mustBlue sm:py-14 lg:grid-cols-4">
+                <article class="flex flex-col items-center justify-center gap-3 text-center sm:gap-5">
+                    <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-mustGreen/15 text-mustGreen sm:h-20 sm:w-20">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 sm:h-11 sm:w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2m5-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
                     </div>
                     <div>
-                        <p class="mb-1 text-4xl font-bold leading-none opacity-75 md:text-5xl" x-data="countUp(6, '+')" x-text="value">6+</p>
-                        <p class="mt-3 text-base font-medium text-gray-600 md:text-lg">Years of Experience</p>
+                        <p class="mb-1 text-3xl font-bold leading-none opacity-75 sm:text-4xl md:text-5xl" x-data="countUp(6, '+')" x-text="value">6+</p>
+                        <p class="mt-2 text-sm font-medium text-gray-600 sm:mt-3 sm:text-base md:text-lg">Years of Experience</p>
                     </div>
                 </article>
 
-                <article class="flex flex-col items-center justify-center gap-5 text-center">
-                    <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-mustGreen/15 text-mustGreen">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-11 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <article class="flex flex-col items-center justify-center gap-3 text-center sm:gap-5">
+                    <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-mustGreen/15 text-mustGreen sm:h-20 sm:w-20">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 sm:h-11 sm:w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M12 3.75 4.5 7.5v5.25c0 4.5 3.15 7.35 7.5 8.25 4.35-.9 7.5-3.75 7.5-8.25V7.5L12 3.75Z" />
                         </svg>
                     </div>
                     <div>
-                        <p class="mb-1 text-4xl font-bold leading-none opacity-75 md:text-5xl" x-data="countUp(10, '+')" x-text="value">10+</p>
-                        <p class="mt-3 text-base font-medium text-gray-600 md:text-lg">Core Services</p>
+                        <p class="mb-1 text-3xl font-bold leading-none opacity-75 sm:text-4xl md:text-5xl" x-data="countUp(10, '+')" x-text="value">10+</p>
+                        <p class="mt-2 text-sm font-medium text-gray-600 sm:mt-3 sm:text-base md:text-lg">Core Services</p>
                     </div>
                 </article>
 
-                <article class="flex flex-col items-center justify-center gap-5 text-center">
-                    <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-mustGreen/15 text-mustGreen">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-11 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <article class="flex flex-col items-center justify-center gap-3 text-center sm:gap-5">
+                    <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-mustGreen/15 text-mustGreen sm:h-20 sm:w-20">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 sm:h-11 sm:w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6.75a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.25a7.5 7.5 0 0 1 15 0M18 10.5h3m-1.5-1.5v3" />
                         </svg>
                     </div>
                     <div>
-                        <p class="mb-1 text-4xl font-bold leading-none opacity-75 md:text-5xl" x-data="countUp(15, '+')" x-text="value">15+</p>
-                        <p class="mt-3 text-base font-medium text-gray-600 md:text-lg">Medical Staff</p>
+                        <p class="mb-1 text-3xl font-bold leading-none opacity-75 sm:text-4xl md:text-5xl" x-data="countUp(15, '+')" x-text="value">15+</p>
+                        <p class="mt-2 text-sm font-medium text-gray-600 sm:mt-3 sm:text-base md:text-lg">Medical Staff</p>
                     </div>
                 </article>
 
-                <article class="flex flex-col items-center justify-center gap-5 text-center">
-                    <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-mustGreen/15 text-mustGreen">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-11 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <article class="flex flex-col items-center justify-center gap-3 text-center sm:gap-5">
+                    <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-mustGreen/15 text-mustGreen sm:h-20 sm:w-20">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 sm:h-11 sm:w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9-3.75h-9m11.25-9H5.25A2.25 2.25 0 0 0 3 8.25v9A2.25 2.25 0 0 0 5.25 19.5h13.5A2.25 2.25 0 0 0 21 17.25v-9A2.25 2.25 0 0 0 18.75 6ZM8.25 3.75v4.5m7.5-4.5v4.5" />
                         </svg>
                     </div>
                     <div>
-                        <p class="mb-1 text-4xl font-bold leading-none opacity-75 md:text-5xl" x-data="countUp(1000, '+')" x-text="value">1,000+</p>
-                        <p class="mt-3 text-base font-medium text-gray-600 md:text-lg">Appointments Served</p>
+                        <p class="mb-1 text-3xl font-bold leading-none opacity-75 sm:text-4xl md:text-5xl" x-data="countUp(1000, '+')" x-text="value">1,000+</p>
+                        <p class="mt-2 text-sm font-medium text-gray-600 sm:mt-3 sm:text-base md:text-lg">Appointments Served</p>
                     </div>
                 </article>
                 </div>
@@ -134,19 +134,19 @@
         </section>
 
         <section id="services" class="bg-[#EFEFEF]">
-            <div class="mx-auto max-w-7xl px-4 py-16">
+            <div class="mx-auto max-w-7xl px-4 py-12 md:py-16">
                 <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end md:gap-8 lg:gap-10">
                     <div class="max-w-3xl md:max-w-[32rem] lg:max-w-3xl">
                         <h2 class="section-heading">Clinic Services</h2>
                         <p class="mt-4 text-gray-600">Explore the core healthcare services available at the clinic for individuals, women, children, and families.</p>
                     </div>
-                    <a href="{{ route('services') }}" class="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
+                    <a href="{{ route('services') }}" class="inline-flex shrink-0 items-center self-start whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white md:self-auto">
                         View More <span class="ml-2">&rarr;</span>
                     </a>
                 </div>
 
                 <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                    <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                    <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:p-6">
                         <div class="flex h-14 w-14 items-center justify-center rounded-full bg-mustGreen/10 text-mustGreen">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v8m-4-4h8m3.75 0A7.75 7.75 0 1 1 4.25 12a7.75 7.75 0 0 1 15.5 0Z" />
@@ -156,7 +156,7 @@
                         <p class="mt-3 text-sm leading-6 text-gray-600">Receive comprehensive medical assessments and expert diagnosis for a wide range of health concerns from our experienced healthcare professionals.</p>
                     </article>
 
-                <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:p-6">
                     <div class="flex h-14 w-14 items-center justify-center rounded-full bg-mustGreen/10 text-mustGreen">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s7-4.35 7-11.25A4.75 4.75 0 0 0 10.5 6.8 4.75 4.75 0 0 0 2 9.75C2 16.65 9 21 9 21h3Z" />
@@ -167,7 +167,7 @@
                     <p class="mt-3 text-sm leading-6 text-gray-600">Compassionate healthcare for women, including pregnancy care, reproductive health, family planning, and routine gynaecological services.</p>
                 </article>
 
-                <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:p-6">
                     <div class="flex h-14 w-14 items-center justify-center rounded-full bg-mustGreen/10 text-mustGreen">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 7.5a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM5.25 20.25a6.75 6.75 0 0 1 13.5 0" />
@@ -178,7 +178,7 @@
                     <p class="mt-3 text-sm leading-6 text-gray-600">Dedicated healthcare services for infants and young children, including growth monitoring, immunizations, and routine child wellness check-ups.</p>
                 </article>
 
-                <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:p-6">
                     <div class="flex h-14 w-14 items-center justify-center rounded-full bg-mustGreen/10 text-mustGreen">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25 12 3.75l4.5 4.5M12 4.5V15m-5.25 5.25h10.5M8.25 15.75c-1.5.75-2.25 1.5-2.25 2.25 0 1.25 2.7 2.25 6 2.25s6-1 6-2.25c0-.75-.75-1.5-2.25-2.25" />
@@ -188,7 +188,7 @@
                     <p class="mt-3 text-sm leading-6 text-gray-600">Restore mobility, reduce pain, and improve physical function through personalized rehabilitation and physiotherapy treatment plans.</p>
                 </article>
 
-                <article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md md:col-span-2 lg:col-span-1">
+                <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:p-6 md:col-span-2 lg:col-span-1">
                     <div class="flex h-14 w-14 items-center justify-center rounded-full bg-mustGreen/10 text-mustGreen">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 3.75v5.1L5.4 17.1A2.25 2.25 0 0 0 7.32 20.5h9.36a2.25 2.25 0 0 0 1.92-3.4l-5.1-8.25v-5.1" />
@@ -203,20 +203,20 @@
         </section>
 
         <section id="doctors" class="bg-[#EFEFEF]">
-            <div class="mx-auto max-w-7xl px-4 py-16">
+            <div class="mx-auto max-w-7xl px-4 py-12 md:py-16">
                 <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end md:gap-8 lg:gap-10">
                     <div class="max-w-3xl md:max-w-[32rem] lg:max-w-3xl">
                         <h2 class="section-heading">Doctors</h2>
                         <p class="mt-4 text-gray-600">Meet the experienced medical professionals supporting patient-centered care at the clinic.</p>
                     </div>
-                    <a href="{{ route('doctors') }}" class="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
+                    <a href="{{ route('doctors') }}" class="inline-flex shrink-0 items-center self-start whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white md:self-auto">
                         View More <span class="ml-2">&rarr;</span>
                     </a>
                 </div>
 
                 <div class="mt-8 grid gap-5 md:grid-cols-3">
                     <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                        <img src="{{ asset('imgs/doctors/mercy-banda.png') }}" alt="Dr. Mercy Banda" class="h-64 w-full object-cover object-[50%_22%]">
+                        <img src="{{ asset('imgs/doctors/mercy-banda.png') }}" alt="Dr. Mercy Banda" class="h-56 w-full object-cover object-[50%_22%] sm:h-64">
                         <div class="p-5">
                             <h3 class="text-lg font-bold text-mustBlue">Dr. Mercy Banda</h3>
                             <p class="mt-1 text-sm font-semibold text-mustGreen">General Practitioner</p>
@@ -225,7 +225,7 @@
                     </article>
 
                 <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <img src="{{ asset('imgs/doctors/thoko-phiri.png') }}" alt="Dr. Thoko Phiri" class="h-64 w-full object-cover object-[50%_22%]">
+                    <img src="{{ asset('imgs/doctors/thoko-phiri.png') }}" alt="Dr. Thoko Phiri" class="h-56 w-full object-cover object-[50%_22%] sm:h-64">
                     <div class="p-5">
                         <h3 class="text-lg font-bold text-mustBlue">Dr. Thoko Phiri</h3>
                         <p class="mt-1 text-sm font-semibold text-mustGreen">Obstetrics &amp; Gynaecology</p>
@@ -234,7 +234,7 @@
                 </article>
 
                 <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <img src="{{ asset('imgs/doctors/daniel-kamanga.png') }}" alt="Dr. Daniel Kamanga" class="h-64 w-full object-cover object-[50%_22%]">
+                    <img src="{{ asset('imgs/doctors/daniel-kamanga.png') }}" alt="Dr. Daniel Kamanga" class="h-56 w-full object-cover object-[50%_22%] sm:h-64">
                     <div class="p-5">
                         <h3 class="text-lg font-bold text-mustBlue">Dr. Daniel Kamanga</h3>
                         <p class="mt-1 text-sm font-semibold text-mustGreen">Physiotherapy &amp; Rehabilitation</p>
@@ -246,7 +246,7 @@
         </section>
 
         <section id="book-appointment" class="bg-white" style="background-color: #FFFFFF;">
-            <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 lg:grid-cols-[.85fr_1.15fr]">
+            <div class="mx-auto grid max-w-7xl gap-8 px-4 py-12 md:py-16 lg:grid-cols-[.85fr_1.15fr]">
                 <div>
                     <h2 class="section-heading">Request An Appointment</h2>
                     <p class="mt-4 leading-7 text-gray-600">
@@ -254,12 +254,12 @@
                     </p>
                     <div class="mt-6 space-y-2 text-sm text-gray-700">
                         <p><strong class="text-mustBlue">Phone:</strong> <a href="tel:+265995767137" class="hover:text-mustGreen">+265 995 76 71 37</a></p>
-                        <p><strong class="text-mustBlue">Email:</strong> <a href="mailto:giftedhandspvtclinic@gmail.com" class="hover:text-mustGreen">giftedhandspvtclinic@gmail.com</a></p>
+                        <p><strong class="text-mustBlue">Email:</strong> <a href="mailto:giftedhandspvtclinic@gmail.com" class="break-words hover:text-mustGreen">giftedhandspvtclinic@gmail.com</a></p>
                         <p><strong class="text-mustBlue">Location:</strong> Barron Avenue, Lilongwe, Malawi</p>
                     </div>
                 </div>
 
-                <form action="{{ route('appointments.request') }}" method="POST" class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                <form action="{{ route('appointments.request') }}" method="POST" class="min-w-0 rounded-lg border border-gray-200 bg-white p-4 shadow-sm sm:p-6">
                 @csrf
 
                 @if (session('success'))
@@ -304,19 +304,19 @@
                     </div>
                 </div>
 
-                <button type="submit" class="mt-5 rounded-full bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">Send request</button>
+                <button type="submit" class="mt-5 w-full rounded-full bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark sm:w-auto">Send request</button>
                 </form>
             </div>
         </section>
 
         <section id="announcements" class="bg-white" style="background-color: #FFFFFF;">
-            <div class="mx-auto max-w-7xl px-4 py-16">
+            <div class="mx-auto max-w-7xl px-4 py-12 md:py-16">
                 <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end md:gap-8 lg:gap-10">
                     <div class="max-w-3xl md:max-w-[32rem] lg:max-w-3xl">
                         <h2 class="section-heading">Announcements</h2>
                         <p class="mt-4 text-gray-600">Latest clinic updates, service notices, and important visitor information.</p>
                     </div>
-                    <a href="{{ route('announcements') }}" class="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
+                    <a href="{{ route('announcements') }}" class="inline-flex shrink-0 items-center self-start whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white md:self-auto">
                         View More <span class="ml-2">&rarr;</span>
                     </a>
                 </div>
@@ -341,13 +341,13 @@
         </section>
 
         <section id="gallery" class="bg-[#EFEFEF]">
-            <div class="mx-auto max-w-7xl px-4 py-16">
+            <div class="mx-auto max-w-7xl px-4 py-12 md:py-16">
                 <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end md:gap-8 lg:gap-10">
                     <div class="max-w-3xl md:max-w-[32rem] lg:max-w-3xl">
                         <h2 class="section-heading">Gallery</h2>
                         <p class="mt-4 text-gray-600">A place to show clinic rooms, reception areas, equipment, and team moments for visitor confidence.</p>
                     </div>
-                    <a href="{{ route('gallery') }}" class="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
+                    <a href="{{ route('gallery') }}" class="inline-flex shrink-0 items-center self-start whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white md:self-auto">
                         View More <span class="ml-2">&rarr;</span>
                     </a>
                 </div>
@@ -370,13 +370,13 @@
         </section>
 
         <section id="faqs" class="bg-[#EFEFEF]">
-            <div class="mx-auto max-w-7xl px-4 py-16">
+            <div class="mx-auto max-w-7xl px-4 py-12 md:py-16">
                 <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end md:gap-8 lg:gap-10">
                     <div class="max-w-3xl md:max-w-[32rem] lg:max-w-3xl">
                         <h2 class="section-heading">FAQs</h2>
                         <p class="mt-4 text-gray-600">Answers to common visitor questions before they book or visit.</p>
                     </div>
-                    <a href="{{ route('faqs') }}" class="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
+                    <a href="{{ route('faqs') }}" class="inline-flex shrink-0 items-center self-start whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white md:self-auto">
                         View More <span class="ml-2">&rarr;</span>
                     </a>
                 </div>
