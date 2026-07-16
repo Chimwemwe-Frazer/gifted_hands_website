@@ -124,8 +124,9 @@
                                 </div>
                             </div>
 
-                            <a href="{{ route('home') }}#book-appointment" class="mt-6 inline-flex rounded-full bg-mustGreen px-5 py-3 font-semibold text-white hover:bg-mustOrangeDark">
-                                Request appointment for this service
+                            <a href="{{ route('home') }}#book-appointment" class="mt-6 inline-flex items-center justify-center rounded-full bg-mustGreen px-4 py-2.5 text-sm font-semibold text-white hover:bg-mustOrangeDark md:px-5 md:py-3 md:text-base">
+                                <span class="md:hidden">Request Appointment</span>
+                                <span class="hidden md:inline">Request appointment for this service</span>
                             </a>
                         </div>
                     </div>
