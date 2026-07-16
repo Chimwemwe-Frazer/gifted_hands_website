@@ -37,13 +37,13 @@
         @include('public.partials.nav')
 
         <div class="relative z-10 mx-auto flex max-w-7xl flex-col justify-center px-4 pb-20 pt-10 text-white md:pt-16">
-            <div class="max-w-3xl">
+            <div class="max-w-3xl md:max-w-[31rem] lg:max-w-3xl">
                 <p class="mb-4 text-sm font-semibold tracking-[.12em] text-mustOrange">Our confidence is our capability</p>
-                <h1 class="text-4xl font-medium leading-tight text-white md:text-6xl">
+                <h1 class="text-4xl font-medium leading-tight text-white md:text-5xl lg:text-6xl">
                     Gifted Hands <span class="text-mustOrange">Pvt</span><br>
                     Clinic
                 </h1>
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/70 md:max-w-[25rem] xl:max-w-[29rem]">
+                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/70 md:max-w-[23rem] lg:max-w-[25rem] xl:max-w-[29rem]">
                     Professional outpatient care, health consultations, and appointment-based clinical services <span class="block xl:inline">delivered with privacy, respect, and timely attention.</span>
                 </p>
                 <div class="mt-8 flex flex-wrap gap-3">

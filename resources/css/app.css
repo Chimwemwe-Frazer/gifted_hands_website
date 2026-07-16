@@ -227,6 +227,36 @@
         }
     }
 
+    @media (min-width: 768px) and (max-width: 1023px) {
+        .home-hero {
+            min-height: min(900px, 100svh);
+        }
+
+        .home-hero-slide {
+            background-position: calc(100% + 24rem) bottom;
+            background-size: auto 88%;
+        }
+
+        .home-hero::before {
+            width: 54%;
+        }
+
+        .home-hero::after {
+            height: 6.75rem;
+        }
+    }
+
+    @media (min-width: 900px) and (max-width: 1023px) {
+        .home-hero-slide {
+            background-position: calc(100% + 14rem) bottom;
+            background-size: auto 86%;
+        }
+
+        .home-hero::before {
+            width: 50%;
+        }
+    }
+
     @screen lg {
         .home-hero-slide {
             background-size: 68% auto;
