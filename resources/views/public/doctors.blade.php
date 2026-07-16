@@ -30,7 +30,7 @@
             </p>
         </section>
 
-        <div class="mt-10 grid gap-6 lg:grid-cols-3">
+        <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             @foreach ([
                 [
                     'name' => 'Dr. Mercy Banda',
@@ -39,7 +39,6 @@
                     'image' => 'imgs/doctors/mercy-banda.png',
                     'experience' => 'Years of experience: To be confirmed',
                     'bio' => 'Dr. Banda provides first-contact care for patients with everyday health concerns, routine reviews, and ongoing follow-up needs.',
-                    'interests' => ['Family medicine', 'General consultation', 'Preventive health', 'Chronic condition follow-up'],
                     'languages' => ['English', 'Chichewa'],
                 ],
                 [
@@ -49,7 +48,6 @@
                     'image' => 'imgs/doctors/thoko-phiri.png',
                     'experience' => 'Years of experience: To be confirmed',
                     'bio' => 'Dr. Phiri supports women with antenatal care, reproductive health guidance, family planning, and routine gynaecological reviews.',
-                    'interests' => ['Antenatal care', 'Family planning', 'Women\'s health reviews', 'Reproductive health'],
                     'languages' => ['English', 'Chichewa'],
                 ],
                 [
@@ -59,26 +57,18 @@
                     'image' => 'imgs/doctors/daniel-kamanga.png',
                     'experience' => 'Years of experience: To be confirmed',
                     'bio' => 'Dr. Kamanga helps patients improve movement, manage pain, and recover strength through practical rehabilitation plans.',
-                    'interests' => ['Mobility support', 'Pain management', 'Post-injury recovery', 'Functional rehabilitation'],
                     'languages' => ['English', 'Chichewa', 'Tumbuka'],
                 ],
             ] as $doctor)
                 <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <img src="{{ asset($doctor['image']) }}" alt="{{ $doctor['name'] }}" class="h-96 w-full bg-[#EAF4F9] object-contain object-bottom">
+                    <div class="aspect-[4/5] overflow-hidden bg-[#EAF4F9]">
+                        <img src="{{ asset($doctor['image']) }}" alt="{{ $doctor['name'] }}" class="h-full w-full object-cover object-[50%_28%]">
+                    </div>
                     <div class="p-6">
                         <h2 class="text-xl font-bold text-mustBlue">{{ $doctor['name'] }}</h2>
                         <p class="mt-1 text-sm font-semibold text-mustGreen">{{ $doctor['specialization'] }}</p>
                         <p class="mt-3 text-sm leading-7 text-gray-600">{{ $doctor['qualification'] }}</p>
                         <p class="mt-3 text-sm leading-7 text-gray-600">{{ $doctor['bio'] }}</p>
-
-                        <div class="mt-5 border-t border-gray-200 pt-5">
-                            <h3 class="font-bold text-mustBlue">Areas of interest</h3>
-                            <ul class="mt-3 space-y-2 text-sm leading-6 text-gray-600">
-                                @foreach ($doctor['interests'] as $interest)
-                                    <li class="flex gap-2"><span class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-mustGreen"></span><span>{{ $interest }}</span></li>
-                                @endforeach
-                            </ul>
-                        </div>
 
                         <div class="mt-5 grid gap-4 border-t border-gray-200 pt-5 text-sm leading-6 text-gray-600">
                             <p><strong class="text-mustBlue">Experience:</strong> {{ $doctor['experience'] }}</p>
