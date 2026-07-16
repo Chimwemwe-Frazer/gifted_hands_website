@@ -11,10 +11,11 @@
 </head>
 
 <body class="bg-white text-gray-800">
-    <header class="bg-mustBlue text-white">
+    <header class="relative overflow-visible bg-[#DCC8B0] bg-[length:auto_100%] bg-center bg-no-repeat text-white md:overflow-hidden md:bg-right" style="background-image: url('{{ asset('imgs/contactus-bg.jpg') }}?v={{ filemtime(public_path('imgs/contactus-bg.jpg')) }}');">
+        <div class="absolute inset-y-0 left-0 w-full bg-mustBlue/90 md:w-[calc(32%_+_5px)] md:[clip-path:polygon(0_0,86%_0,100%_100%,0_100%)] lg:w-[28%]" aria-hidden="true"></div>
         @include('public.partials.nav')
 
-        <div class="mx-auto flex h-56 max-w-7xl flex-col justify-center px-4 md:h-64 lg:h-56">
+        <div class="relative z-10 mx-auto flex h-56 max-w-7xl flex-col justify-center px-4 md:h-64 lg:h-56">
             <p class="text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">Get in touch</p>
             <h1 class="mt-3 text-4xl font-medium leading-tight md:text-5xl">Contact Us</h1>
             <p class="mt-4 max-w-2xl text-gray-200">Reach the clinic directly for directions, service availability, appointment coordination, and general enquiries.</p>
