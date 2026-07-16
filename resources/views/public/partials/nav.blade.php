@@ -1,5 +1,5 @@
 @php
-    $tabletNavPage = request()->routeIs('schedule', 'announcements', 'gallery', 'faqs') ? 1 : 0;
+    $tabletNavPage = request()->routeIs('schedule', 'announcements', 'faqs') ? 1 : 0;
 @endphp
 
 <nav class="relative z-50 px-4 pt-5" x-data="{ page: {{ $tabletNavPage }} }">
@@ -27,12 +27,12 @@
                     <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">About Us</a>
                     <a href="{{ route('services') }}" class="{{ request()->routeIs('services') ? 'active' : '' }}">Services</a>
                     <a href="{{ route('doctors') }}" class="{{ request()->routeIs('doctors') ? 'active' : '' }}">Doctors</a>
+                    <a href="{{ route('gallery') }}" class="{{ request()->routeIs('gallery') ? 'active' : '' }}">Gallery</a>
                 </div>
 
                 <div class="public-nav-page" x-show="page === 1" x-transition.opacity.duration.150ms @if ($tabletNavPage !== 1) x-cloak @endif>
                     <a href="{{ route('schedule') }}" class="{{ request()->routeIs('schedule') ? 'active' : '' }}">Clinic Schedule</a>
                     <a href="{{ route('announcements') }}" class="{{ request()->routeIs('announcements') ? 'active' : '' }}">Announcements</a>
-                    <a href="{{ route('gallery') }}" class="{{ request()->routeIs('gallery') ? 'active' : '' }}">Gallery</a>
                     <a href="{{ route('faqs') }}" class="{{ request()->routeIs('faqs') ? 'active' : '' }}">FAQs</a>
                 </div>
             </div>
