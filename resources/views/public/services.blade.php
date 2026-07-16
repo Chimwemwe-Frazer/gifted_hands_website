@@ -79,14 +79,20 @@
                 ],
             ] as $service)
                 <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <div class="grid gap-0 md:grid-cols-[0.72fr_1.28fr] lg:grid-cols-[0.95fr_1.05fr]">
-                        <img src="{{ asset($service['image']) }}" alt="{{ $service['title'] }}" class="h-72 w-full object-cover md:h-full md:min-h-[34rem] lg:min-h-0 {{ $loop->even ? 'lg:order-2' : '' }}">
+                    <div class="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
+                        <img src="{{ asset($service['image']) }}" alt="{{ $service['title'] }}" class="h-72 w-full object-cover md:hidden lg:block lg:h-full {{ $loop->even ? 'lg:order-2' : '' }}">
 
                         <div class="p-6 md:p-7 lg:p-8 {{ $loop->even ? 'lg:order-1' : '' }}">
-                            <h2 class="text-2xl font-bold text-mustBlue">{{ $service['title'] }}</h2>
-                            <p class="mt-3 leading-8 text-gray-600">{{ $service['summary'] }}</p>
+                            <div class="grid gap-5 md:grid-cols-[minmax(0,1fr)_18rem] md:items-start lg:block">
+                                <div>
+                                    <h2 class="text-2xl font-bold text-mustBlue">{{ $service['title'] }}</h2>
+                                    <p class="mt-3 leading-8 text-gray-600">{{ $service['summary'] }}</p>
+                                </div>
 
-                            <div class="mt-6 grid gap-5 lg:grid-cols-2">
+                                <img src="{{ asset($service['image']) }}" alt="{{ $service['title'] }}" class="hidden h-48 w-full rounded-lg object-cover md:block lg:hidden">
+                            </div>
+
+                            <div class="mt-6 grid gap-5 md:grid-cols-2">
                                 <div>
                                     <h3 class="text-sm font-bold uppercase tracking-[.14em] text-mustGreen">What is included</h3>
                                     <ul class="mt-3 space-y-2 text-sm leading-6 text-gray-600">
@@ -102,7 +108,7 @@
                                 </div>
                             </div>
 
-                            <div class="mt-6 grid gap-5 border-t border-gray-200 pt-5 lg:grid-cols-2">
+                            <div class="mt-6 grid gap-5 border-t border-gray-200 pt-5 md:grid-cols-2">
                                 <div>
                                     <h3 class="font-bold text-mustBlue">What to bring</h3>
                                     <ul class="mt-3 space-y-2 text-sm leading-6 text-gray-600">
