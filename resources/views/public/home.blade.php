@@ -216,7 +216,7 @@
 
                 <div class="mt-8 grid gap-5 md:grid-cols-3">
                     <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                        <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Dr. Mercy Banda" class="h-64 w-full object-cover">
+                        <img src="{{ asset('imgs/doctors/mercy-banda.png') }}" alt="Dr. Mercy Banda" class="h-64 w-full object-cover object-[50%_22%]">
                         <div class="p-5">
                             <h3 class="text-lg font-bold text-mustBlue">Dr. Mercy Banda</h3>
                             <p class="mt-1 text-sm font-semibold text-mustGreen">General Practitioner</p>
@@ -225,7 +225,7 @@
                     </article>
 
                 <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Dr. Thoko Phiri" class="h-64 w-full object-cover">
+                    <img src="{{ asset('imgs/doctors/thoko-phiri.png') }}" alt="Dr. Thoko Phiri" class="h-64 w-full object-cover object-[50%_22%]">
                     <div class="p-5">
                         <h3 class="text-lg font-bold text-mustBlue">Dr. Thoko Phiri</h3>
                         <p class="mt-1 text-sm font-semibold text-mustGreen">Obstetrics &amp; Gynaecology</p>
@@ -234,7 +234,7 @@
                 </article>
 
                 <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Dr. Daniel Kamanga" class="h-64 w-full object-cover">
+                    <img src="{{ asset('imgs/doctors/daniel-kamanga.png') }}" alt="Dr. Daniel Kamanga" class="h-64 w-full object-cover object-[50%_22%]">
                     <div class="p-5">
                         <h3 class="text-lg font-bold text-mustBlue">Dr. Daniel Kamanga</h3>
                         <p class="mt-1 text-sm font-semibold text-mustGreen">Physiotherapy &amp; Rehabilitation</p>
