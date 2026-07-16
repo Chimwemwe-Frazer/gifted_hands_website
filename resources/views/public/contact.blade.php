@@ -14,7 +14,7 @@
     <header class="bg-mustBlue text-white">
         @include('public.partials.nav')
 
-        <div class="mx-auto max-w-7xl px-4 py-16">
+        <div class="mx-auto flex h-56 max-w-7xl flex-col justify-center px-4 md:h-64 lg:h-56">
             <p class="text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">Get in touch</p>
             <h1 class="mt-3 text-4xl font-medium leading-tight md:text-5xl">Contact Us</h1>
             <p class="mt-4 max-w-2xl text-gray-200">Reach the clinic directly for directions, service availability, appointment coordination, and general enquiries.</p>

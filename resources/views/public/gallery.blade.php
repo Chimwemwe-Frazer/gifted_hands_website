@@ -14,7 +14,7 @@
     <header class="bg-mustBlue text-white">
         @include('public.partials.nav')
 
-        <div class="mx-auto max-w-7xl px-4 py-16">
+        <div class="mx-auto flex h-56 max-w-7xl flex-col justify-center px-4 md:h-64 lg:h-56">
             <p class="text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">Clinic moments</p>
             <h1 class="mt-3 text-4xl font-medium leading-tight md:text-5xl">Gallery</h1>
         </div>
