@@ -83,7 +83,7 @@
                         <img src="{{ asset($service['image']) }}" alt="{{ $service['title'] }}" class="h-72 w-full object-cover md:hidden lg:block lg:h-full {{ $loop->even ? 'lg:order-2' : '' }}">
 
                         <div class="p-6 md:p-7 lg:p-8 {{ $loop->even ? 'lg:order-1' : '' }}">
-                            <div class="grid gap-5 md:grid-cols-[minmax(0,1fr)_18rem] md:items-start lg:block">
+                            <div class="grid gap-5 md:grid-cols-2 md:items-start lg:block">
                                 <div>
                                     <h2 class="text-2xl font-bold text-mustBlue">{{ $service['title'] }}</h2>
                                     <p class="mt-3 leading-8 text-gray-600">{{ $service['summary'] }}</p>
