@@ -343,23 +343,23 @@
             padding-top: .75rem;
         }
 
-        .home-page .public-nav-shell {
+        .public-nav-shell {
             position: relative;
             gap: .75rem;
             border-radius: 1.25rem;
             padding: .25rem .5rem .25rem .75rem;
         }
 
-        .home-page .public-nav-links--desktop,
-        .home-page .public-nav-pager {
+        .public-nav-links--desktop,
+        .public-nav-pager {
             display: none;
         }
 
-        .home-page .public-nav-mobile-toggle {
+        .public-nav-mobile-toggle {
             display: flex;
         }
 
-        .home-page .public-nav-mobile-panel {
+        .public-nav-mobile-panel {
             position: absolute;
             top: calc(100% + .625rem);
             right: 0;
@@ -377,7 +377,7 @@
             box-shadow: 0 18px 45px rgb(0 0 0 / .2);
         }
 
-        .home-page .public-nav-mobile-panel > a {
+        .public-nav-mobile-panel > a {
             display: flex;
             min-height: 2.75rem;
             align-items: center;
@@ -389,26 +389,26 @@
             transition: background-color 150ms ease, color 150ms ease;
         }
 
-        .home-page .public-nav-mobile-panel > a:hover {
+        .public-nav-mobile-panel > a:hover {
             background: rgb(241 132 47 / .12);
             color: rgb(0 90 146);
         }
 
-        .home-page .public-nav-mobile-panel > a.active {
-            background: rgb(241 132 47);
-            color: rgb(0 90 146);
-        }
-
-        .home-page .public-nav-mobile-panel > .public-nav-mobile-action {
+        .public-nav-mobile-panel > .public-nav-mobile-action {
             justify-content: center;
             background: rgb(0 90 146);
             color: #fff;
             font-weight: 600;
         }
 
-        .home-page .public-nav-mobile-panel > .public-nav-mobile-action:hover {
+        .public-nav-mobile-panel > .public-nav-mobile-action:hover {
             background: rgb(216 111 34);
             color: #fff;
+        }
+
+        .public-nav-mobile-panel > a.active {
+            background: rgb(241 132 47);
+            color: rgb(0 90 146);
         }
 
         .home-hero-slide {

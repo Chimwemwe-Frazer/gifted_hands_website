@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-white text-gray-800">
-    <header class="relative overflow-hidden bg-mustBlue bg-cover text-white" style="background-image: url('{{ asset('imgs/image.png') }}'); background-position: center 38%;">
+    <header class="relative overflow-visible bg-mustBlue bg-cover text-white md:overflow-hidden" style="background-image: url('{{ asset('imgs/image.png') }}'); background-position: center 38%;">
         <div class="absolute inset-y-0 left-0 w-full bg-mustBlue/90 md:w-[calc(32%_+_5px)] md:[clip-path:polygon(0_0,86%_0,100%_100%,0_100%)] lg:w-[28%]" aria-hidden="true"></div>
         @include('public.partials.nav')
 

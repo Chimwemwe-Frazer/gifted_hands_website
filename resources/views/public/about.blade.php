@@ -13,7 +13,7 @@
 </head>
 
 <body class="bg-white text-gray-800">
-    <header class="relative overflow-hidden bg-mustBlue bg-cover bg-center text-white md:bg-right lg:bg-center" style="background-image: url('{{ asset('imgs/about-us-bg.jpg') }}');">
+    <header class="relative overflow-visible bg-mustBlue bg-cover bg-center text-white md:overflow-hidden md:bg-right lg:bg-center" style="background-image: url('{{ asset('imgs/about-us-bg.jpg') }}');">
         <div class="absolute inset-y-0 left-0 w-full bg-mustBlue/90 md:w-[calc(32%_+_5px)] md:[clip-path:polygon(0_0,86%_0,100%_100%,0_100%)] lg:w-[28%]" aria-hidden="true"></div>
         @include('public.partials.nav')
 
