@@ -13,18 +13,18 @@
 </head>
 
 <body class="bg-white text-gray-800">
-    <header class="relative overflow-hidden bg-mustBlue bg-cover bg-center text-white" style="background-image: url('{{ asset('imgs/about-us-bg.jpg') }}');">
-        <div class="absolute inset-y-0 left-0 w-full bg-mustBlue/90 md:w-[32%] md:[clip-path:polygon(0_0,86%_0,100%_100%,0_100%)] lg:w-[28%]" aria-hidden="true"></div>
+    <header class="relative overflow-hidden bg-mustBlue bg-cover bg-center text-white md:bg-right lg:bg-center" style="background-image: url('{{ asset('imgs/about-us-bg.jpg') }}');">
+        <div class="absolute inset-y-0 left-0 w-full bg-mustBlue/90 md:w-[45%] md:[clip-path:polygon(0_0,86%_0,100%_100%,0_100%)] lg:w-[28%]" aria-hidden="true"></div>
         @include('public.partials.nav')
 
-        <div class="relative z-10 mx-auto max-w-7xl px-4 py-16">
+        <div class="relative z-10 mx-auto max-w-7xl px-4 py-16 md:py-20 lg:py-16">
             <p class="text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">About the clinic</p>
             <h1 class="mt-3 text-4xl font-medium leading-tight md:text-5xl">About Us</h1>
         </div>
     </header>
 
     <main>
-        <section class="mx-auto grid max-w-7xl gap-10 px-4 py-16 lg:grid-cols-[1fr_0.8fr] lg:items-start">
+        <section class="mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-[1fr_0.72fr] md:items-start md:gap-8 lg:grid-cols-[1fr_0.8fr] lg:gap-10">
             <div>
                 <p class="text-sm font-semibold uppercase tracking-[.18em] text-mustGreen">Who we are</p>
                 <h2 class="mt-3 text-3xl font-bold text-mustBlue">Patient-Centered Private Healthcare</h2>
@@ -50,7 +50,7 @@
         </section>
 
         <section class="bg-[#EFEFEF] px-4 py-16">
-            <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-start md:gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
                 <div>
                     <p class="text-sm font-semibold uppercase tracking-[.18em] text-mustGreen">Our story</p>
                     <h2 class="mt-3 text-3xl font-bold text-mustBlue">Clinic History</h2>
@@ -62,7 +62,7 @@
                     </p>
                 </div>
 
-                <div class="grid gap-4 sm:grid-cols-3">
+                <div class="grid gap-4 sm:grid-cols-3 md:grid-cols-1 lg:grid-cols-3">
                     <div class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
                         <p class="text-sm font-semibold uppercase tracking-[.16em] text-mustGreen">Opened</p>
                         <p class="mt-3 text-lg font-bold text-mustBlue">Add founding year</p>
@@ -83,7 +83,7 @@
         </section>
 
         <section class="mx-auto max-w-7xl px-4 py-16">
-            <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <div class="grid gap-10 md:grid-cols-[0.78fr_1.22fr] md:items-start md:gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
                 <div>
                     <p class="text-sm font-semibold uppercase tracking-[.18em] text-mustGreen">Why visit us</p>
                     <h2 class="mt-3 text-3xl font-bold text-mustBlue">Why Visit Gifted Hands</h2>
@@ -155,7 +155,7 @@
                         ['Physiotherapy Space', 'Room for rehabilitation, mobility support, and guided recovery sessions.', 'imgs/facilities/physiotherapy-space.png'],
                     ] as [$title, $description, $image])
                         <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                            <img src="{{ asset($image) }}" alt="{{ $title }}" class="h-44 w-full object-cover">
+                            <img src="{{ asset($image) }}" alt="{{ $title }}" class="h-44 w-full object-cover md:h-52 lg:h-44">
                             <div class="p-5">
                                 <h3 class="text-lg font-bold text-mustBlue">{{ $title }}</h3>
                                 <p class="mt-3 text-sm leading-7 text-gray-600">{{ $description }}</p>

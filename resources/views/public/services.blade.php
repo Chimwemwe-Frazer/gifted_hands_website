@@ -11,18 +11,18 @@
 </head>
 
 <body class="bg-white text-gray-800">
-    <header class="relative overflow-hidden bg-mustBlue bg-cover bg-center text-white" style="background-image: url('{{ asset('imgs/stethoscope.jpg') }}');">
-        <div class="absolute inset-y-0 left-0 w-full bg-mustBlue/90 md:w-[32%] md:[clip-path:polygon(0_0,86%_0,100%_100%,0_100%)] lg:w-[28%]" aria-hidden="true"></div>
+    <header class="relative overflow-hidden bg-mustBlue bg-cover bg-center text-white md:bg-right lg:bg-center" style="background-image: url('{{ asset('imgs/stethoscope.jpg') }}');">
+        <div class="absolute inset-y-0 left-0 w-full bg-mustBlue/90 md:w-[45%] md:[clip-path:polygon(0_0,86%_0,100%_100%,0_100%)] lg:w-[28%]" aria-hidden="true"></div>
         @include('public.partials.nav')
 
-        <div class="relative z-10 mx-auto max-w-7xl px-4 py-16">
+        <div class="relative z-10 mx-auto max-w-7xl px-4 py-16 md:py-20 lg:py-16">
             <p class="text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">What we offer</p>
             <h1 class="mt-3 text-4xl font-medium leading-tight md:text-5xl">Clinic Services</h1>
         </div>
     </header>
 
     <main class="mx-auto max-w-7xl px-4 py-16">
-        <section class="max-w-3xl">
+        <section class="max-w-3xl md:max-w-[36rem] lg:max-w-3xl">
             <p class="text-sm font-semibold uppercase tracking-[.18em] text-mustGreen">Patient services</p>
             <h2 class="mt-3 text-3xl font-bold text-mustBlue">Care That Supports Everyday Health Needs</h2>
             <p class="mt-4 leading-8 text-gray-600">
@@ -79,14 +79,14 @@
                 ],
             ] as $service)
                 <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <div class="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
-                        <img src="{{ asset($service['image']) }}" alt="{{ $service['title'] }}" class="h-72 w-full object-cover lg:h-full {{ $loop->even ? 'lg:order-2' : '' }}">
+                    <div class="grid gap-0 md:grid-cols-[0.72fr_1.28fr] lg:grid-cols-[0.95fr_1.05fr]">
+                        <img src="{{ asset($service['image']) }}" alt="{{ $service['title'] }}" class="h-72 w-full object-cover md:h-full md:min-h-[34rem] lg:min-h-0 {{ $loop->even ? 'lg:order-2' : '' }}">
 
-                        <div class="p-6 md:p-8 {{ $loop->even ? 'lg:order-1' : '' }}">
+                        <div class="p-6 md:p-7 lg:p-8 {{ $loop->even ? 'lg:order-1' : '' }}">
                             <h2 class="text-2xl font-bold text-mustBlue">{{ $service['title'] }}</h2>
                             <p class="mt-3 leading-8 text-gray-600">{{ $service['summary'] }}</p>
 
-                            <div class="mt-6 grid gap-5 md:grid-cols-2">
+                            <div class="mt-6 grid gap-5 lg:grid-cols-2">
                                 <div>
                                     <h3 class="text-sm font-bold uppercase tracking-[.14em] text-mustGreen">What is included</h3>
                                     <ul class="mt-3 space-y-2 text-sm leading-6 text-gray-600">
@@ -102,7 +102,7 @@
                                 </div>
                             </div>
 
-                            <div class="mt-6 grid gap-5 border-t border-gray-200 pt-5 md:grid-cols-2">
+                            <div class="mt-6 grid gap-5 border-t border-gray-200 pt-5 lg:grid-cols-2">
                                 <div>
                                     <h3 class="font-bold text-mustBlue">What to bring</h3>
                                     <ul class="mt-3 space-y-2 text-sm leading-6 text-gray-600">
