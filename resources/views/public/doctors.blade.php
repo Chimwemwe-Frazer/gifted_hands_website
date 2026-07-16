@@ -61,8 +61,8 @@
                 ],
             ] as $doctor)
                 <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <div class="aspect-[4/5] overflow-hidden bg-[#EAF4F9]">
-                        <img src="{{ asset($doctor['image']) }}" alt="{{ $doctor['name'] }}" class="h-full w-full object-cover object-[50%_28%]">
+                    <div class="aspect-[4/4.05] overflow-hidden bg-[#EAF4F9]">
+                        <img src="{{ asset($doctor['image']) }}" alt="{{ $doctor['name'] }}" class="h-full w-full object-cover object-[50%_22%]">
                     </div>
                     <div class="p-6">
                         <h2 class="text-xl font-bold text-mustBlue">{{ $doctor['name'] }}</h2>
