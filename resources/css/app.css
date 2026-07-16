@@ -389,9 +389,13 @@
             transition: background-color 150ms ease, color 150ms ease;
         }
 
-        .home-page .public-nav-mobile-panel > a:hover,
-        .home-page .public-nav-mobile-panel > a.active {
+        .home-page .public-nav-mobile-panel > a:hover {
             background: rgb(241 132 47 / .12);
+            color: rgb(0 90 146);
+        }
+
+        .home-page .public-nav-mobile-panel > a.active {
+            background: rgb(241 132 47);
             color: rgb(0 90 146);
         }
 
