@@ -21,12 +21,6 @@
         </div>
 
         <div class="public-nav-pager" aria-label="Tablet primary navigation">
-            <button type="button" class="public-nav-arrow" aria-label="Show previous navigation links" @click="page = page === 0 ? 1 : 0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M12.78 4.22a.75.75 0 0 1 0 1.06L8.06 10l4.72 4.72a.75.75 0 1 1-1.06 1.06l-5.25-5.25a.75.75 0 0 1 0-1.06l5.25-5.25a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
-                </svg>
-            </button>
-
             <div class="public-nav-page-frame">
                 <div class="public-nav-page" x-show="page === 0" x-transition.opacity.duration.150ms @if ($tabletNavPage !== 0) x-cloak @endif>
                     <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
@@ -43,8 +37,8 @@
                 </div>
             </div>
 
-            <button type="button" class="public-nav-arrow" aria-label="Show next navigation links" @click="page = page === 0 ? 1 : 0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <button type="button" class="public-nav-arrow" :aria-label="page === 0 ? 'Show next navigation links' : 'Show previous navigation links'" @click="page = page === 0 ? 1 : 0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-200" :class="page === 1 ? 'rotate-180' : ''" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fill-rule="evenodd" d="M7.22 4.22a.75.75 0 0 1 1.06 0l5.25 5.25a.75.75 0 0 1 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06L11.94 10 7.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
                 </svg>
             </button>
