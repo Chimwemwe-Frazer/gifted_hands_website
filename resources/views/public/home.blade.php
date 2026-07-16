@@ -135,12 +135,12 @@
 
         <section id="services" class="bg-[#EFEFEF]">
             <div class="mx-auto max-w-7xl px-4 py-16">
-                <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-                    <div class="max-w-3xl">
+                <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end md:gap-8 lg:gap-10">
+                    <div class="max-w-3xl md:max-w-[32rem] lg:max-w-3xl">
                         <h2 class="section-heading">Clinic Services</h2>
                         <p class="mt-4 text-gray-600">Explore the core healthcare services available at the clinic for individuals, women, children, and families.</p>
                     </div>
-                    <a href="{{ route('services') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
+                    <a href="{{ route('services') }}" class="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
                         View More <span class="ml-2">&rarr;</span>
                     </a>
                 </div>
@@ -204,12 +204,12 @@
 
         <section id="doctors" class="bg-[#EFEFEF]">
             <div class="mx-auto max-w-7xl px-4 py-16">
-                <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-                    <div class="max-w-3xl">
+                <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end md:gap-8 lg:gap-10">
+                    <div class="max-w-3xl md:max-w-[32rem] lg:max-w-3xl">
                         <h2 class="section-heading">Doctors</h2>
                         <p class="mt-4 text-gray-600">Meet the experienced medical professionals supporting patient-centered care at the clinic.</p>
                     </div>
-                    <a href="{{ route('doctors') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
+                    <a href="{{ route('doctors') }}" class="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
                         View More <span class="ml-2">&rarr;</span>
                     </a>
                 </div>
@@ -311,12 +311,12 @@
 
         <section id="announcements" class="bg-white" style="background-color: #FFFFFF;">
             <div class="mx-auto max-w-7xl px-4 py-16">
-                <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-                    <div class="max-w-3xl">
+                <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end md:gap-8 lg:gap-10">
+                    <div class="max-w-3xl md:max-w-[32rem] lg:max-w-3xl">
                         <h2 class="section-heading">Announcements</h2>
                         <p class="mt-4 text-gray-600">Latest clinic updates, service notices, and important visitor information.</p>
                     </div>
-                    <a href="{{ route('announcements') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
+                    <a href="{{ route('announcements') }}" class="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
                         View More <span class="ml-2">&rarr;</span>
                     </a>
                 </div>
@@ -342,12 +342,12 @@
 
         <section id="gallery" class="bg-[#EFEFEF]">
             <div class="mx-auto max-w-7xl px-4 py-16">
-                <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-                    <div class="max-w-3xl">
+                <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end md:gap-8 lg:gap-10">
+                    <div class="max-w-3xl md:max-w-[32rem] lg:max-w-3xl">
                         <h2 class="section-heading">Gallery</h2>
                         <p class="mt-4 text-gray-600">A place to show clinic rooms, reception areas, equipment, and team moments for visitor confidence.</p>
                     </div>
-                    <a href="{{ route('gallery') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
+                    <a href="{{ route('gallery') }}" class="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
                         View More <span class="ml-2">&rarr;</span>
                     </a>
                 </div>
@@ -371,12 +371,12 @@
 
         <section id="faqs" class="bg-[#EFEFEF]">
             <div class="mx-auto max-w-7xl px-4 py-16">
-                <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-                    <div class="max-w-3xl">
+                <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end md:gap-8 lg:gap-10">
+                    <div class="max-w-3xl md:max-w-[32rem] lg:max-w-3xl">
                         <h2 class="section-heading">FAQs</h2>
                         <p class="mt-4 text-gray-600">Answers to common visitor questions before they book or visit.</p>
                     </div>
-                    <a href="{{ route('faqs') }}" class="inline-flex items-center rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
+                    <a href="{{ route('faqs') }}" class="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white">
                         View More <span class="ml-2">&rarr;</span>
                     </a>
                 </div>
