@@ -206,8 +206,8 @@
             <div class="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-mustGreen/15 blur-3xl" aria-hidden="true"></div>
             <div class="absolute -bottom-32 left-1/3 -z-10 h-80 w-80 rounded-full bg-mustBlue/5 blur-3xl" aria-hidden="true"></div>
 
-            <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:py-16 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-                <div>
+            <div class="mx-auto grid max-w-7xl gap-6 px-4 py-12 md:py-16 lg:grid-cols-2 lg:items-stretch">
+                <div class="flex h-full flex-col rounded-xl border border-gray-200 bg-[#EFEFEF] p-6 shadow-sm sm:p-8">
                     <div class="inline-flex items-center gap-2 rounded-full border border-mustGreen/40 bg-mustGreen/10 px-4 py-2 text-sm font-semibold text-mustOrange">
                         <span class="relative flex h-2.5 w-2.5" aria-hidden="true">
                             <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-mustGreen opacity-75"></span>
@@ -248,7 +248,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-8 rounded-lg border border-gray-200 bg-[#EFEFEF] p-5">
+                    <div class="mt-8 rounded-lg border border-gray-200 bg-white p-5 lg:mt-auto lg:pt-5">
                         <p class="text-sm font-semibold text-mustBlue">Need ambulance assistance now?</p>
                         <p class="mt-1 text-sm leading-6 text-gray-600">Call directly and share your location and contact details with our team.</p>
                         <div class="mt-4">
@@ -262,16 +262,10 @@
                     </div>
                 </div>
 
-                <div class="grid gap-3 sm:grid-cols-[1.35fr_.65fr]">
-                    <figure class="group relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl">
-                        <img src="{{ asset('imgs/ambulance/ambulance-response-vehicle.png') }}" alt="Ambulance response vehicle ready outside a clinic" class="h-72 w-full object-cover transition duration-500 group-hover:scale-[1.02] sm:h-[28rem]">
-                        <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-mustBlue/90 to-transparent px-5 pb-4 pt-14 text-sm font-semibold text-white">Response vehicle</figcaption>
-                    </figure>
-                    <figure class="group relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl">
-                        <img src="{{ asset('imgs/ambulance/ambulance-patient-care-interior.png') }}" alt="Clean and equipped ambulance patient-care interior" class="h-64 w-full object-cover transition duration-500 group-hover:scale-[1.02] sm:h-[28rem]">
-                        <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-mustBlue/90 to-transparent px-5 pb-4 pt-14 text-sm font-semibold text-white">Patient-care interior</figcaption>
-                    </figure>
-                </div>
+                <figure class="group relative h-full min-h-72 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl lg:min-h-[34rem]">
+                    <img src="{{ asset('imgs/ambulance/ambulance-response-vehicle.png') }}" alt="Ambulance response vehicle ready outside a clinic" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]">
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-mustBlue/90 to-transparent px-5 pb-4 pt-14 text-sm font-semibold text-white">Response vehicle</figcaption>
+                </figure>
             </div>
         </section>
 
