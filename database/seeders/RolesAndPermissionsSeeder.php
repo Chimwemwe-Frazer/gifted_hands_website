@@ -37,6 +37,10 @@ class RolesAndPermissionsSeeder extends Seeder
             'add user permissions',
             'update user role',
             'update settings',
+            'add announcement',
+            'list announcements',
+            'update announcement',
+            'delete announcement',
         ];
 
         foreach ($permissions as $permission) {

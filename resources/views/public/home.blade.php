@@ -387,22 +387,37 @@
                         View More <span class="ml-2">&rarr;</span>
                     </a>
                 </div>
-                <div class="mt-8 grid gap-4 md:grid-cols-3">
-                    <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-                        <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">Clinic hours</p>
-                        <h3 class="mt-3 font-bold text-mustBlue">Weekend Schedule Update</h3>
-                        <p class="mt-2 text-sm leading-6 text-gray-600">Saturday services are available from 08:00 AM to 01:00 PM. Please call ahead for availability.</p>
-                    </article>
-                    <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-                        <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">Services</p>
-                        <h3 class="mt-3 font-bold text-mustBlue">Laboratory Services Available</h3>
-                        <p class="mt-2 text-sm leading-6 text-gray-600">Reliable diagnostic and laboratory testing services are available during normal clinic hours.</p>
-                    </article>
-                    <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-                        <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">Appointments</p>
-                        <h3 class="mt-3 font-bold text-mustBlue">Book Before Your Visit</h3>
-                        <p class="mt-2 text-sm leading-6 text-gray-600">Visitors are encouraged to request appointments in advance so the team can confirm service availability.</p>
-                    </article>
+                <div class="mt-8 grid grid-flow-row-dense gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    @forelse ($announcements as $announcement)
+                        @if ($announcement->image_path)
+                            <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm md:col-span-2">
+                                <div class="grid h-full md:grid-cols-2">
+                                    <div class="{{ $announcement->image_position === 'right' ? 'md:order-2' : '' }}">
+                                        <img
+                                            src="{{ $announcement->image_url }}"
+                                            alt="{{ $announcement->image_alt ?: $announcement->title }}"
+                                            class="h-52 w-full object-cover md:h-full md:min-h-56"
+                                        >
+                                    </div>
+                                    <div class="flex flex-col justify-center p-5">
+                                        <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
+                                        <h3 class="mt-3 font-bold text-mustBlue">{{ $announcement->title }}</h3>
+                                        <p class="mt-2 whitespace-pre-line text-sm leading-6 text-gray-600">{{ Str::limit($announcement->message, 240) }}</p>
+                                    </div>
+                                </div>
+                            </article>
+                        @else
+                            <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+                                <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
+                                <h3 class="mt-3 font-bold text-mustBlue">{{ $announcement->title }}</h3>
+                                <p class="mt-2 whitespace-pre-line text-sm leading-6 text-gray-600">{{ Str::limit($announcement->message, 180) }}</p>
+                            </article>
+                        @endif
+                    @empty
+                        <div class="rounded-lg border border-gray-200 bg-white p-5 text-center text-sm text-gray-500 shadow-sm md:col-span-2 lg:col-span-3">
+                            No announcements are available right now.
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </section>

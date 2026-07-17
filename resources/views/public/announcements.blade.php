@@ -26,20 +26,41 @@
         <section>
             <h2 class="section-heading">All Announcements</h2>
             <div class="mt-8 space-y-5">
-                @foreach ([
-                    ['Clinic hours', 'Weekend Schedule Update', 'Saturday services are available from 08:00 AM to 01:00 PM. Please call ahead for availability.'],
-                    ['Services', 'Laboratory Services Available', 'Reliable diagnostic and laboratory testing services are available during normal clinic hours.'],
-                    ['Appointments', 'Book Before Your Visit', 'Visitors are encouraged to request appointments in advance so the team can confirm service availability.'],
-                    ['Under-5 Clinic', 'Child Wellness Services', 'Growth monitoring, immunizations, and routine child wellness checks are available for young children.'],
-                    ['Women\'s Health', 'Obstetrics & Gynaecology Care', 'Pregnancy care, reproductive health, and family planning support are available at the clinic.'],
-                ] as [$category, $title, $body])
-                    <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-                        <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $category }}</p>
-                        <h3 class="mt-3 text-xl font-bold text-mustBlue">{{ $title }}</h3>
-                        <p class="mt-2 text-sm leading-7 text-gray-600">{{ $body }}</p>
-                    </article>
-                @endforeach
+                @forelse ($announcements as $announcement)
+                    @if ($announcement->image_path)
+                        <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                            <div class="grid md:grid-cols-[minmax(220px,.8fr)_minmax(0,1.2fr)]">
+                                <div class="{{ $announcement->image_position === 'right' ? 'md:order-2' : '' }}">
+                                    <img
+                                        src="{{ $announcement->image_url }}"
+                                        alt="{{ $announcement->image_alt ?: $announcement->title }}"
+                                        class="h-64 w-full object-cover md:h-full md:min-h-72"
+                                    >
+                                </div>
+                                <div class="flex flex-col justify-center p-5 sm:p-6">
+                                    <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
+                                    <h3 class="mt-3 text-xl font-bold text-mustBlue">{{ $announcement->title }}</h3>
+                                    <p class="mt-3 whitespace-pre-line text-sm leading-7 text-gray-600">{{ $announcement->message }}</p>
+                                </div>
+                            </div>
+                        </article>
+                    @else
+                        <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+                            <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
+                            <h3 class="mt-3 text-xl font-bold text-mustBlue">{{ $announcement->title }}</h3>
+                            <p class="mt-2 whitespace-pre-line text-sm leading-7 text-gray-600">{{ $announcement->message }}</p>
+                        </article>
+                    @endif
+                @empty
+                    <div class="rounded-lg border border-gray-200 bg-white p-6 text-center text-gray-500 shadow-sm">
+                        No announcements are available right now.
+                    </div>
+                @endforelse
             </div>
+
+            @if ($announcements->hasPages())
+                <div class="mt-8">{{ $announcements->links() }}</div>
+            @endif
         </section>
 
         <aside class="h-fit rounded-lg bg-mustBlue p-6 text-white">
