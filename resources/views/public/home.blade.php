@@ -263,8 +263,7 @@
                 </div>
 
                 <figure class="group relative h-full min-h-72 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl lg:min-h-[34rem]">
-                    <img src="{{ asset('imgs/ambulance/ambulance-response-vehicle.png') }}" alt="Ambulance response vehicle ready outside a clinic" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]">
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-mustBlue/90 to-transparent px-5 pb-4 pt-14 text-sm font-semibold text-white">Response vehicle</figcaption>
+                    <img src="{{ asset('imgs/Gifted-hands-ambulance-enhanced.png') }}" alt="Gifted Hands Private Clinic ambulance" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]">
                 </figure>
             </div>
         </section>
