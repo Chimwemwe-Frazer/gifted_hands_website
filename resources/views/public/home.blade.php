@@ -202,6 +202,79 @@
             </div>
         </section>
 
+        <section id="ambulance" class="relative isolate overflow-hidden bg-white text-gray-800">
+            <div class="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-mustGreen/15 blur-3xl" aria-hidden="true"></div>
+            <div class="absolute -bottom-32 left-1/3 -z-10 h-80 w-80 rounded-full bg-mustBlue/5 blur-3xl" aria-hidden="true"></div>
+
+            <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:py-16 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 rounded-full border border-mustGreen/40 bg-mustGreen/10 px-4 py-2 text-sm font-semibold text-mustOrange">
+                        <span class="relative flex h-2.5 w-2.5" aria-hidden="true">
+                            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-mustGreen opacity-75"></span>
+                            <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-mustGreen"></span>
+                        </span>
+                        Available 24 hours, 7 days a week
+                    </div>
+
+                    <p class="mt-6 text-sm font-semibold uppercase tracking-[.2em] text-mustOrange">Help when you need it</p>
+                    <h2 class="mt-3 text-3xl font-semibold text-mustBlue md:text-4xl">24/7 Ambulance Service</h2>
+                    <p class="mt-5 max-w-xl text-base leading-7 text-gray-600 md:text-lg md:leading-8">
+                        Our ambulance service is available around the clock to coordinate urgent pickups and safe patient transfers. Call us at any hour and share your location so our team can assist.
+                    </p>
+
+                    <div class="mt-7 grid gap-4 sm:grid-cols-2">
+                        <div class="flex gap-3">
+                            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mustGreen/10 text-mustOrange">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2m5-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-mustBlue">Day &amp; night availability</h3>
+                                <p class="mt-1 text-sm leading-6 text-gray-600">Ambulance assistance is available every day, including nights and weekends.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mustGreen/10 text-mustOrange">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m9 12.75 2.25 2.25L15 9.75m6 2.25a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-mustBlue">Coordinated patient transport</h3>
+                                <p class="mt-1 text-sm leading-6 text-gray-600">We help arrange safe transport for patients who need timely medical attention.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 rounded-lg border border-gray-200 bg-[#EFEFEF] p-5">
+                        <p class="text-sm font-semibold text-mustBlue">Need ambulance assistance now?</p>
+                        <p class="mt-1 text-sm leading-6 text-gray-600">Call directly and share your location and contact details with our team.</p>
+                        <div class="mt-4">
+                            <a href="tel:+265995767137" class="inline-flex items-center justify-center gap-2 rounded-full bg-mustGreen px-5 py-3 text-sm font-semibold text-white transition hover:bg-mustOrangeDark">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.362-.271.527-.734.417-1.173L6.963 3.102A1.125 1.125 0 0 0 5.872 2.25H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                                </svg>
+                                Call +265 995 76 71 37
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid gap-3 sm:grid-cols-[1.35fr_.65fr]">
+                    <figure class="group relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl">
+                        <img src="{{ asset('imgs/ambulance/ambulance-response-vehicle.png') }}" alt="Ambulance response vehicle ready outside a clinic" class="h-72 w-full object-cover transition duration-500 group-hover:scale-[1.02] sm:h-[28rem]">
+                        <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-mustBlue/90 to-transparent px-5 pb-4 pt-14 text-sm font-semibold text-white">Response vehicle</figcaption>
+                    </figure>
+                    <figure class="group relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl">
+                        <img src="{{ asset('imgs/ambulance/ambulance-patient-care-interior.png') }}" alt="Clean and equipped ambulance patient-care interior" class="h-64 w-full object-cover transition duration-500 group-hover:scale-[1.02] sm:h-[28rem]">
+                        <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-mustBlue/90 to-transparent px-5 pb-4 pt-14 text-sm font-semibold text-white">Patient-care interior</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
         <section id="doctors" class="bg-[#EFEFEF]">
             <div class="mx-auto max-w-7xl px-4 py-12 md:py-16">
                 <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end md:gap-8 lg:gap-10">
