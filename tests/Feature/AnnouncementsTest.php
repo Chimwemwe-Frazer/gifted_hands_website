@@ -30,6 +30,7 @@ class AnnouncementsTest extends TestCase
             '2026_07_11_000002_create_services_table.php',
             '2026_07_17_000006_create_announcements_table.php',
             '2026_07_17_000007_add_announcement_permissions.php',
+            '2026_07_17_000008_simplify_announcements.php',
         ] as $migrationFile) {
             $migration = require database_path('migrations/'.$migrationFile);
             $migration->up();
@@ -43,9 +44,6 @@ class AnnouncementsTest extends TestCase
             'title' => 'New Outreach Programme',
             'message' => 'Join our community health outreach programme this month.',
             'image_path' => 'announcements/outreach.jpg',
-            'image_alt' => 'Clinic staff preparing for community outreach',
-            'image_position' => 'right',
-            'status' => 'Published',
             'published_at' => now(),
         ]);
 
@@ -55,7 +53,8 @@ class AnnouncementsTest extends TestCase
             ->assertSee('New Outreach Programme')
             ->assertSee('Join our community health outreach programme this month.')
             ->assertSee('storage/announcements/outreach.jpg', false)
-            ->assertSee('md:order-2', false);
+            ->assertSee('alt="New Outreach Programme"', false)
+            ->assertSee('Posted today');
 
         $this->get(route('home'))
             ->assertOk()
@@ -63,38 +62,55 @@ class AnnouncementsTest extends TestCase
             ->assertSee('storage/announcements/outreach.jpg', false);
     }
 
-    public function test_it_does_not_display_draft_or_future_announcements_publicly(): void
+    public function test_it_does_not_display_future_announcements_publicly(): void
     {
-        Announcement::create([
-            'category' => 'Internal',
-            'title' => 'Unpublished Draft',
-            'message' => 'This message is not ready for visitors.',
-            'image_position' => 'left',
-            'status' => 'Draft',
-        ]);
-
         Announcement::create([
             'category' => 'Scheduled',
             'title' => 'Future Announcement',
             'message' => 'This message should appear tomorrow.',
-            'image_position' => 'left',
-            'status' => 'Published',
             'published_at' => now()->addDay(),
         ]);
 
         $this->get(route('announcements'))
             ->assertOk()
-            ->assertDontSee('Unpublished Draft')
             ->assertDontSee('Future Announcement');
     }
 
-    public function test_an_authorised_staff_member_can_publish_an_announcement_with_an_image(): void
+    public function test_public_announcements_show_relative_posted_days(): void
+    {
+        $this->travelTo(now()->startOfDay()->addHours(12));
+
+        foreach ([
+            ['Posted Today Notice', now()],
+            ['Posted Yesterday Notice', now()->subDay()],
+            ['Posted Five Days Ago Notice', now()->subDays(5)],
+        ] as [$title, $publishedAt]) {
+            Announcement::create([
+                'category' => 'Updates',
+                'title' => $title,
+                'message' => 'Relative date label test.',
+                'published_at' => $publishedAt,
+            ]);
+        }
+
+        $this->get(route('announcements'))
+            ->assertOk()
+            ->assertSee('Posted today')
+            ->assertSee('Posted yesterday')
+            ->assertSee('Posted 5 days ago');
+
+        $this->travelBack();
+    }
+
+    public function test_an_authorised_staff_member_can_publish_an_announcement_with_an_image_at_the_current_time(): void
     {
         Storage::fake('public');
+        $this->travelTo(now()->startOfSecond());
 
         $user = User::factory()->create();
         $permission = Permission::findOrCreate('add announcement');
         $user->givePermissionTo($permission);
+        $expectedCreationTime = now();
 
         $response = $this
             ->actingAs($user)
@@ -103,18 +119,18 @@ class AnnouncementsTest extends TestCase
                 'title' => 'New Service Available',
                 'message' => 'A new clinic service is now available to visitors.',
                 'image' => UploadedFile::fake()->image('service.jpg', 800, 500),
-                'image_alt' => 'The new clinic service area',
-                'image_position' => 'right',
-                'status' => 'Published',
+                'published_at' => now()->subYear()->toDateTimeString(),
+                'status' => 'Draft',
             ]);
 
         $response->assertRedirect(route('admin.announcements.index'));
 
         $announcement = Announcement::where('title', 'New Service Available')->firstOrFail();
 
-        $this->assertSame('right', $announcement->image_position);
         $this->assertNotNull($announcement->published_at);
+        $this->assertSame($expectedCreationTime->toDateTimeString(), $announcement->published_at->toDateTimeString());
         $this->assertNotNull($announcement->image_path);
         Storage::disk('public')->assertExists($announcement->image_path);
+        $this->travelBack();
     }
 }

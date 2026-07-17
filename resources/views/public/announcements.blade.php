@@ -30,15 +30,18 @@
                     @if ($announcement->image_path)
                         <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
                             <div class="grid md:grid-cols-[minmax(220px,.8fr)_minmax(0,1.2fr)]">
-                                <div class="{{ $announcement->image_position === 'right' ? 'md:order-2' : '' }}">
+                                <div>
                                     <img
                                         src="{{ $announcement->image_url }}"
-                                        alt="{{ $announcement->image_alt ?: $announcement->title }}"
+                                        alt="{{ $announcement->title }}"
                                         class="h-64 w-full object-cover md:h-full md:min-h-72"
                                     >
                                 </div>
                                 <div class="flex flex-col justify-center p-5 sm:p-6">
-                                    <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
+                                    <div class="flex flex-wrap items-center justify-between gap-2">
+                                        <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
+                                        <p class="text-xs font-medium text-gray-400">{{ $announcement->posted_label }}</p>
+                                    </div>
                                     <h3 class="mt-3 text-xl font-bold text-mustBlue">{{ $announcement->title }}</h3>
                                     <p class="mt-3 whitespace-pre-line text-sm leading-7 text-gray-600">{{ $announcement->message }}</p>
                                 </div>
@@ -46,7 +49,10 @@
                         </article>
                     @else
                         <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-                            <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
+                                <p class="text-xs font-medium text-gray-400">{{ $announcement->posted_label }}</p>
+                            </div>
                             <h3 class="mt-3 text-xl font-bold text-mustBlue">{{ $announcement->title }}</h3>
                             <p class="mt-2 whitespace-pre-line text-sm leading-7 text-gray-600">{{ $announcement->message }}</p>
                         </article>

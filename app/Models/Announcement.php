@@ -17,9 +17,6 @@ class Announcement extends Model
         'title',
         'message',
         'image_path',
-        'image_alt',
-        'image_position',
-        'status',
         'published_at',
     ];
 
@@ -38,7 +35,6 @@ class Announcement extends Model
     public function scopePublished(Builder $query): Builder
     {
         return $query
-            ->where('status', 'Published')
             ->whereNotNull('published_at')
             ->where('published_at', '<=', now());
     }
@@ -48,5 +44,27 @@ class Announcement extends Model
         return $this->image_path
             ? asset('storage/'.$this->image_path)
             : null;
+    }
+
+    public function getPostedLabelAttribute(): string
+    {
+        if (! $this->published_at) {
+            return 'Posted today';
+        }
+
+        $publishedDate = $this->published_at->copy()->startOfDay();
+        $today = today();
+
+        if ($publishedDate->equalTo($today)) {
+            return 'Posted today';
+        }
+
+        if ($publishedDate->equalTo($today->copy()->subDay())) {
+            return 'Posted yesterday';
+        }
+
+        $days = (int) abs($publishedDate->diffInDays($today));
+
+        return "Posted {$days} days ago";
     }
 }
