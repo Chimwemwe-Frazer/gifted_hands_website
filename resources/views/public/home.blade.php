@@ -125,7 +125,7 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="mb-1 text-3xl font-bold leading-none opacity-75 sm:text-4xl md:text-5xl" x-data="countUp(1000, '+')" x-text="value">1,000+</p>
+                        <p class="mb-1 text-3xl font-bold leading-none opacity-75 sm:text-4xl md:text-5xl" x-data="countUp(500, '+')" x-text="value">500+</p>
                         <p class="mt-2 text-sm font-medium text-gray-600 sm:mt-3 sm:text-base md:text-lg">Appointments Served</p>
                     </div>
                 </article>
