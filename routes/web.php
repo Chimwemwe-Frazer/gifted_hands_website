@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicAnnouncementsController;
 use App\Http\Controllers\PublicAnnouncementSubscriptionController;
 use App\Http\Controllers\PublicAppointmentController;
+use App\Http\Controllers\PublicServicesController;
 use App\Http\Controllers\PublicSiteController;
 use App\Http\Controllers\RolesAndPermissionsController;
 use App\Http\Controllers\ServicesController;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', PublicSiteController::class)->name('home');
 Route::view('/about-us', 'public.about')->name('about');
-Route::view('/services', 'public.services')->name('services');
+Route::get('/services', PublicServicesController::class)->name('services');
 Route::view('/doctors', 'public.doctors')->name('doctors');
 Route::view('/clinic-schedule', 'public.schedule')->name('schedule');
 Route::get('/announcements', PublicAnnouncementsController::class)->name('announcements');

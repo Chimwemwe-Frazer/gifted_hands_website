@@ -31,6 +31,7 @@ class AnnouncementsTest extends TestCase
             '2026_07_17_000006_create_announcements_table.php',
             '2026_07_17_000007_add_announcement_permissions.php',
             '2026_07_17_000008_simplify_announcements.php',
+            '2026_07_18_000009_add_frontend_details_to_services_table.php',
         ] as $migrationFile) {
             $migration = require database_path('migrations/'.$migrationFile);
             $migration->up();

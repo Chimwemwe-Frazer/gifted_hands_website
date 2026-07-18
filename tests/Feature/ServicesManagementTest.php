@@ -1,0 +1,157 @@
+<?php
+
+namespace Tests\Feature;
+
+use App\Models\Service;
+use App\Models\User;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Permission;
+use Tests\TestCase;
+
+class ServicesManagementTest extends TestCase
+{
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        config([
+            'database.default' => 'sqlite',
+            'database.connections.sqlite.database' => ':memory:',
+        ]);
+
+        DB::purge();
+        DB::reconnect();
+
+        foreach ([
+            '0001_01_01_000000_create_users_table.php',
+            '2025_04_02_065725_create_permission_tables.php',
+            '2026_07_11_000002_create_services_table.php',
+            '2026_07_11_000003_create_appointments_table.php',
+            '2026_07_17_000006_create_announcements_table.php',
+            '2026_07_17_000007_add_announcement_permissions.php',
+            '2026_07_17_000008_simplify_announcements.php',
+            '2026_07_18_000009_add_frontend_details_to_services_table.php',
+        ] as $migrationFile) {
+            $migration = require database_path('migrations/'.$migrationFile);
+            $migration->up();
+        }
+    }
+
+    public function test_active_services_and_the_no_image_placeholder_are_rendered_from_the_database(): void
+    {
+        Service::create([
+            'name' => 'Nutrition Therapy',
+            'description' => 'Personalized nutrition support for patients and families.',
+            'included_items' => ['Nutrition assessment', 'Personalized meal guidance'],
+            'needs_treated' => 'Diet-related health concerns and nutrition support.',
+            'items_to_bring' => ['Recent test results', 'Current medicine list'],
+            'appointment_details' => 'Appointments are preferred.',
+            'duration_minutes' => 45,
+            'fee' => 15000,
+            'display_order' => 6,
+            'status' => 'Active',
+        ]);
+
+        Service::create([
+            'name' => 'Hidden Internal Service',
+            'description' => 'This service must not be public.',
+            'included_items' => ['Internal item'],
+            'needs_treated' => 'Internal needs.',
+            'items_to_bring' => ['Internal item'],
+            'appointment_details' => 'Internal appointment information.',
+            'duration_minutes' => 30,
+            'fee' => 0,
+            'display_order' => 7,
+            'status' => 'Inactive',
+        ]);
+
+        $this->get(route('services'))
+            ->assertOk()
+            ->assertSee('Nutrition Therapy')
+            ->assertSee('Nutrition assessment')
+            ->assertSee('No Image Uploaded')
+            ->assertDontSee('Hidden Internal Service');
+
+        $this->get(route('home'))
+            ->assertOk()
+            ->assertSee('Nutrition Therapy')
+            ->assertSee('Personalized nutrition support for patients and families.')
+            ->assertSee('No Image Uploaded')
+            ->assertDontSee('Hidden Internal Service');
+    }
+
+    public function test_authorised_staff_can_add_edit_remove_an_image_and_delete_a_service(): void
+    {
+        Storage::fake('public');
+
+        $user = User::factory()->create();
+
+        foreach (['add service', 'list services', 'update service', 'delete service'] as $permissionName) {
+            $user->givePermissionTo(Permission::findOrCreate($permissionName));
+        }
+
+        $response = $this
+            ->actingAs($user)
+            ->post(route('admin.services.store'), $this->servicePayload());
+
+        $response->assertRedirect(route('admin.services.index'));
+
+        $service = Service::where('name', 'Diet and Nutrition')->firstOrFail();
+
+        $this->assertNull($service->image_path);
+        $this->assertSame(
+            ['Nutrition assessment', 'Meal planning support'],
+            $service->included_items
+        );
+
+        $imagePayload = $this->servicePayload([
+            'image' => UploadedFile::fake()->image('nutrition.jpg', 900, 600),
+        ]);
+
+        $this
+            ->put(route('admin.services.update', $service), $imagePayload)
+            ->assertRedirect(route('admin.services.index'));
+
+        $service->refresh();
+
+        $this->assertNotNull($service->image_path);
+        Storage::disk('public')->assertExists($service->image_path);
+
+        $oldImagePath = $service->image_path;
+
+        $this
+            ->put(route('admin.services.update', $service), $this->servicePayload([
+                'remove_image' => '1',
+            ]))
+            ->assertRedirect(route('admin.services.index'));
+
+        $service->refresh();
+
+        $this->assertNull($service->image_path);
+        Storage::disk('public')->assertMissing($oldImagePath);
+
+        $this
+            ->delete(route('admin.services.destroy', $service))
+            ->assertRedirect(route('admin.services.index'));
+
+        $this->assertDatabaseMissing('services', ['id' => $service->id]);
+    }
+
+    private function servicePayload(array $overrides = []): array
+    {
+        return array_merge([
+            'name' => 'Diet and Nutrition',
+            'description' => 'Professional nutrition assessment and practical dietary guidance.',
+            'included_items' => "Nutrition assessment\nMeal planning support",
+            'needs_treated' => 'Diet-related concerns, weight support, and nutrition planning.',
+            'items_to_bring' => "Recent test results\nCurrent medicine list",
+            'appointment_details' => 'Appointments are preferred so enough consultation time can be reserved.',
+            'duration_minutes' => 45,
+            'fee' => 15000,
+            'display_order' => 6,
+            'status' => 'Active',
+        ], $overrides);
+    }
+}

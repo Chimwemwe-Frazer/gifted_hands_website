@@ -11,8 +11,8 @@ class PublicSiteController extends Controller
     public function __invoke(): View
     {
         return view('public.home', [
-            'services' => Service::where('status', 'Active')
-                ->orderBy('name')
+            'services' => Service::active()
+                ->displayOrder()
                 ->get(),
             'announcements' => Announcement::published()
                 ->latest('published_at')
