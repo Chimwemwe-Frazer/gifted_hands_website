@@ -28,7 +28,9 @@ Route::get('/announcements', PublicAnnouncementsController::class)->name('announ
 Route::view('/gallery', 'public.gallery')->name('gallery');
 Route::get('/faqs', PublicFaqsController::class)->name('faqs');
 Route::view('/contact-us', 'public.contact')->name('contact');
-Route::post('/appointments/request', PublicAppointmentController::class)->name('appointments.request');
+Route::post('/appointments/request', PublicAppointmentController::class)
+    ->middleware('throttle:5,1')
+    ->name('appointments.request');
 Route::post('/announcements/subscribe', PublicAnnouncementSubscriptionController::class)->name('announcements.subscribe');
 
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
@@ -37,6 +39,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::resource('services', ServicesController::class);
     Route::resource('doctors', DoctorsController::class)->except('show');
     Route::resource('faqs', FaqsController::class)->except('show');
+    Route::patch('appointments/{appointment}/decision', [AppointmentsController::class, 'decision'])
+        ->name('appointments.decision');
     Route::resource('appointments', AppointmentsController::class);
     Route::resource('announcements', AnnouncementsController::class)->except('show');
 

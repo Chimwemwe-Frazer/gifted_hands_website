@@ -188,6 +188,10 @@
         @apply border border-gray-300 bg-white text-mustBlue hover:border-mustGreen hover:text-mustGreen;
     }
 
+    .service-action-button--success {
+        @apply bg-green-700 text-white hover:bg-green-800;
+    }
+
     .service-action-button--danger {
         @apply bg-red-600 text-white hover:bg-red-700;
     }
@@ -468,8 +472,52 @@
         @apply placeholder:text-gray-300 placeholder:italic block mt-1 w-full py-1 rounded-md border-gray-300  text-gray-600 shadow-sm focus:ring-mustGreen focus:border-mustGreen;
     }
 
+    .input-invalid {
+        @apply border-red-500 focus:border-red-500 focus:ring-red-500;
+    }
+
     .label {
         @apply block text-sm font-medium text-gray-700;
+    }
+
+    .field-help {
+        @apply mt-1 text-xs leading-5 text-gray-500;
+    }
+
+    .field-error {
+        @apply mt-1 text-xs font-medium leading-5 text-red-600;
+    }
+
+    .appointment-status {
+        @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-bold leading-none ring-1 ring-inset;
+    }
+
+    .appointment-status--pending {
+        @apply bg-amber-100 text-amber-800 ring-amber-600/20;
+    }
+
+    .appointment-status--approved {
+        @apply bg-green-100 text-green-800 ring-green-600/20;
+    }
+
+    .appointment-status--rejected {
+        @apply bg-red-100 text-red-800 ring-red-600/20;
+    }
+
+    .appointment-filter-tab {
+        @apply inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-600 transition hover:border-mustGreen hover:text-mustBlue;
+    }
+
+    .appointment-filter-tab--active {
+        @apply border-mustBlue bg-mustBlue text-white hover:border-mustBlue hover:text-white;
+    }
+
+    .appointment-filter-count {
+        @apply inline-flex min-w-6 items-center justify-center rounded-full bg-gray-100 px-1.5 py-0.5 text-xs text-gray-600;
+    }
+
+    .appointment-filter-tab--active .appointment-filter-count {
+        @apply bg-white/20 text-white;
     }
 
     .page-heading {

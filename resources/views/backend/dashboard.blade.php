@@ -10,7 +10,7 @@
             <div class="flex items-center justify-between p-4 md:p-6">
                 <div class="space-y-1">
                     <div class="text-4xl md:text-5xl font-bold text-mustBlue">{{ $newAppointmentRequestsCount }}</div>
-                    <span class="text-gray-600 text-lg">New Requests</span>
+                    <span class="text-gray-600 text-lg">Pending Requests</span>
                 </div>
                 <div class="bg-mustGreen opacity-80 rounded-full p-3 flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -26,7 +26,7 @@
             <div class="flex items-center justify-between p-4 md:p-6">
                 <div class="space-y-1">
                     <div class="text-4xl md:text-5xl font-bold text-mustBlue">{{ $appointmentsTodayCount }}</div>
-                    <span class="text-gray-600 text-lg">Today</span>
+                    <span class="text-gray-600 text-lg">Approved Today</span>
                 </div>
                 <div class="bg-mustGreen opacity-80 rounded-full p-3 flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -72,38 +72,55 @@
     </div>
 
     <div class="page-content-container mt-4">
-        <div class="flex items-center justify-between mb-3">
-            <h2 class="page-heading mb-0">Appointment Requests</h2>
-            @can('add appointment')
-                <a href="{{ route('admin.appointments.create') }}" class="service-action-button service-action-button--primary">Add Request</a>
-            @endcan
+        <div class="mb-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+                <h2 class="page-heading mb-0">Upcoming Approved Appointments</h2>
+                <p class="mt-1 text-sm leading-6 text-gray-600">The next confirmed clinic appointments by scheduled time.</p>
+            </div>
+            <a href="{{ route('admin.appointments.index') }}" class="service-action-button service-action-button--secondary self-start sm:self-auto">View all requests</a>
         </div>
 
         <div class="overflow-x-auto">
             <table class="min-w-full text-sm">
                 <thead class="bg-gray-50 text-gray-700">
                     <tr>
-                        <th class="text-left px-4 py-3">Requested Time</th>
-                        <th class="text-left px-4 py-3">Name</th>
-                        <th class="text-left px-4 py-3">Contact</th>
-                        <th class="text-left px-4 py-3">Service</th>
-                        <th class="text-left px-4 py-3">Practitioner</th>
-                        <th class="text-left px-4 py-3">Status</th>
+                        <th class="whitespace-nowrap px-4 py-3 text-left">Scheduled for</th>
+                        <th class="px-4 py-3 text-left">Requester</th>
+                        <th class="px-4 py-3 text-left">Contact</th>
+                        <th class="px-4 py-3 text-left">Service</th>
+                        <th class="px-4 py-3 text-left">Practitioner</th>
+                        <th class="px-4 py-3 text-left">Status</th>
+                        <th class="px-4 py-3 text-right">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($upcomingAppointments as $appointment)
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="px-4 py-3">{{ $appointment->appointment_at?->format('M d, Y H:i') ?? 'Flexible' }}</td>
+                        <tr class="border-b align-top hover:bg-gray-50">
+                            <td class="whitespace-nowrap px-4 py-3">
+                                <span class="block font-semibold text-gray-800">{{ $appointment->appointment_at->format('M d, Y') }}</span>
+                                <span class="mt-1 block text-xs text-gray-500">{{ $appointment->appointment_at->format('H:i') }}</span>
+                            </td>
                             <td class="px-4 py-3 font-semibold">{{ $appointment->client_name }}</td>
-                            <td class="px-4 py-3">{{ $appointment->client_phone }}</td>
+                            <td class="min-w-44 px-4 py-3">
+                                @if ($appointment->client_email)
+                                    <a href="mailto:{{ $appointment->client_email }}" class="block break-all text-mustBlue hover:text-mustGreen">{{ $appointment->client_email }}</a>
+                                @else
+                                    <span class="block text-red-600">Email not recorded</span>
+                                @endif
+                                <a href="tel:{{ $appointment->client_phone }}" class="mt-1 block text-xs text-gray-500 hover:text-mustGreen">{{ $appointment->client_phone }}</a>
+                            </td>
                             <td class="px-4 py-3">{{ $appointment->service->name }}</td>
-                            <td class="px-4 py-3">{{ $appointment->practitioner?->name ?? 'Unassigned' }}</td>
-                            <td class="px-4 py-3">{{ $appointment->status }}</td>
+                            <td class="px-4 py-3">{{ $appointment->practitioner?->name ?? 'Not assigned' }}</td>
+                            <td class="px-4 py-3">
+                                <span class="appointment-status appointment-status--approved">{{ $appointment->status }}</span>
+                            </td>
+                            <td class="px-4 py-3 text-right">
+                                <a href="{{ route('admin.appointments.show', $appointment) }}" class="service-action-button service-action-button--secondary">View</a>
+                            </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="px-4 py-6 text-center text-gray-500">No appointment requests yet.</td>
+                            <td colspan="7" class="px-4 py-8 text-center text-gray-500">No approved upcoming appointments.</td>
                         </tr>
                     @endforelse
                 </tbody>

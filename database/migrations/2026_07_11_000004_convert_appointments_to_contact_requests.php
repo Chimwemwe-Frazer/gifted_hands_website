@@ -27,7 +27,10 @@ return new class extends Migration
             }
         });
 
-        if (Schema::hasColumn('appointments', 'appointment_at')) {
+        if (
+            Schema::hasColumn('appointments', 'appointment_at')
+            && DB::getDriverName() === 'mysql'
+        ) {
             DB::statement('ALTER TABLE appointments MODIFY appointment_at DATETIME NULL');
         }
 

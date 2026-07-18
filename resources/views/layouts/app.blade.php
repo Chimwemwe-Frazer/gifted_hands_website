@@ -12,7 +12,6 @@
     @yield('styles')
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
         [x-cloak] {
@@ -135,7 +134,7 @@
         <script>
             Swal.fire({
                 title: 'Success',
-                text: '{{ session('success') }}',
+                text: @js(session('success')),
                 icon: 'success',
                 toast: true,
                 position: 'top-end',
@@ -143,15 +142,13 @@
                 showConfirmButton: false,
             });
         </script>
-
-        @php Session::forget('success'); @endphp
     @endif
 
     @if (session('error'))
         <script>
             Swal.fire({
-                title: 'error',
-                text: '{{ session('error') }}',
+                title: 'Error',
+                text: @js(session('error')),
                 icon: 'error',
                 toast: true,
                 position: 'top-end',
@@ -159,13 +156,12 @@
                 showConfirmButton: false,
             });
         </script>
-        @php session()->forget('error') @endphp
     @endif
 
-    @if (session('errors'))
+    @if ($errors->any())
         <script>
             Swal.fire({
-                title: 'error',
+                title: 'Please check your inputs',
                 text: 'Please check your inputs',
                 icon: 'error',
                 toast: true,
@@ -174,7 +170,6 @@
                 showConfirmButton: false,
             });
         </script>
-        @php session()->forget('errors') @endphp
     @endif
 
     @yield('scripts')

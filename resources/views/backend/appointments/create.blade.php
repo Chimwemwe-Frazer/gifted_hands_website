@@ -5,12 +5,39 @@
 @endsection
 
 @section('content')
-    <div class="flex items-center justify-between">
-        <h1 class="page-heading">{{ isset($appointment) ? 'Edit Appointment Request' : 'Add Appointment Request' }}</h1>
-        <a href="{{ route('admin.appointments.index') }}" class="service-action-button service-action-button--secondary">Back</a>
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+            <h1 class="page-heading mb-1">{{ isset($appointment) ? 'Edit Appointment Request' : 'Add Appointment Request' }}</h1>
+            <p class="text-sm leading-6 text-gray-600">
+                {{ isset($appointment) ? 'Update the information supplied with this request.' : 'Record a request received by phone, email, or in person.' }}
+            </p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+            @isset($appointment)
+                <a href="{{ route('admin.appointments.show', $appointment) }}" class="service-action-button service-action-button--secondary">View and decide</a>
+            @endisset
+            <a href="{{ route('admin.appointments.index') }}" class="service-action-button service-action-button--secondary">Back</a>
+        </div>
     </div>
 
-    <div class="page-content-container">
+    @isset($appointment)
+        <div class="mt-4 flex flex-wrap items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+            <span class="text-sm font-semibold text-gray-700">Current status</span>
+            <span @class([
+                'appointment-status',
+                'appointment-status--pending' => $appointment->status === 'Pending',
+                'appointment-status--approved' => $appointment->status === 'Approved',
+                'appointment-status--rejected' => $appointment->status === 'Rejected',
+            ])>
+                {{ $appointment->status }}
+            </span>
+            <p class="w-full text-sm leading-6 text-gray-600 sm:w-auto">
+                Status, confirmed scheduling, and rejection details are managed from the appointment review page.
+            </p>
+        </div>
+    @endisset
+
+    <div class="page-content-container mt-4">
         <form action="{{ isset($appointment) ? route('admin.appointments.update', $appointment) : route('admin.appointments.store') }}"
             method="POST">
             @csrf
@@ -18,25 +45,87 @@
                 @method('PUT')
             @endisset
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="space-y-2">
-                    <label class="label">Name <span class="text-red-500">*</span></label>
-                    <input name="client_name" class="input" required value="{{ old('client_name', $appointment->client_name ?? '') }}">
-                    <span class="text-red-500">{{ $errors->first('client_name') }}</span>
+            <div class="mb-5">
+                <h2 class="text-lg font-bold text-mustBlue">Requester details</h2>
+                <p class="mt-1 text-sm leading-6 text-gray-600">
+                    Fields marked <span class="font-semibold text-red-600">*</span> are required. The email address is used for all appointment notifications.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div>
+                    <label for="client-name" class="label">
+                        Full name <span class="text-red-600" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                        id="client-name"
+                        type="text"
+                        name="client_name"
+                        class="input @error('client_name') input-invalid @enderror"
+                        required
+                        aria-required="true"
+                        autocomplete="name"
+                        value="{{ old('client_name', $appointment->client_name ?? '') }}"
+                        @error('client_name') aria-invalid="true" aria-describedby="client-name-error" @enderror
+                    >
+                    @error('client_name')
+                        <p id="client-name-error" class="field-error">{{ $message }}</p>
+                    @enderror
                 </div>
-                <div class="space-y-2">
-                    <label class="label">Phone <span class="text-red-500">*</span></label>
-                    <input name="client_phone" class="input" required value="{{ old('client_phone', $appointment->client_phone ?? '') }}">
-                    <span class="text-red-500">{{ $errors->first('client_phone') }}</span>
+
+                <div>
+                    <label for="client-phone" class="label">
+                        Phone number <span class="text-red-600" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                        id="client-phone"
+                        type="tel"
+                        name="client_phone"
+                        class="input @error('client_phone') input-invalid @enderror"
+                        required
+                        aria-required="true"
+                        autocomplete="tel"
+                        inputmode="tel"
+                        value="{{ old('client_phone', $appointment->client_phone ?? '') }}"
+                        @error('client_phone') aria-invalid="true" aria-describedby="client-phone-error" @enderror
+                    >
+                    @error('client_phone')
+                        <p id="client-phone-error" class="field-error">{{ $message }}</p>
+                    @enderror
                 </div>
-                <div class="space-y-2">
-                    <label class="label">Email</label>
-                    <input type="email" name="client_email" class="input" value="{{ old('client_email', $appointment->client_email ?? '') }}">
-                    <span class="text-red-500">{{ $errors->first('client_email') }}</span>
+
+                <div>
+                    <label for="client-email" class="label">
+                        Email address <span class="text-red-600" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                        id="client-email"
+                        type="email"
+                        name="client_email"
+                        class="input @error('client_email') input-invalid @enderror"
+                        required
+                        aria-required="true"
+                        autocomplete="email"
+                        value="{{ old('client_email', $appointment->client_email ?? '') }}"
+                        @error('client_email') aria-invalid="true" aria-describedby="client-email-error" @enderror
+                    >
+                    @error('client_email')
+                        <p id="client-email-error" class="field-error">{{ $message }}</p>
+                    @enderror
                 </div>
-                <div class="space-y-2">
-                    <label class="label">Service <span class="text-red-500">*</span></label>
-                    <select name="service_id" class="input" required>
+
+                <div>
+                    <label for="service-id" class="label">
+                        Service <span class="text-red-600" aria-hidden="true">*</span>
+                    </label>
+                    <select
+                        id="service-id"
+                        name="service_id"
+                        class="input @error('service_id') input-invalid @enderror"
+                        required
+                        aria-required="true"
+                        @error('service_id') aria-invalid="true" aria-describedby="service-id-error" @enderror
+                    >
                         <option value="">Select Service</option>
                         @foreach ($services as $service)
                             <option value="{{ $service->id }}" @selected((int) old('service_id', $appointment->service_id ?? 0) === $service->id)>
@@ -44,49 +133,65 @@
                             </option>
                         @endforeach
                     </select>
-                    <span class="text-red-500">{{ $errors->first('service_id') }}</span>
+                    @error('service_id')
+                        <p id="service-id-error" class="field-error">{{ $message }}</p>
+                    @enderror
                 </div>
-                <div class="space-y-2">
-                    <label class="label">Practitioner</label>
-                    <select name="practitioner_id" class="input">
-                        <option value="">Unassigned</option>
-                        @foreach ($practitioners as $practitioner)
-                            <option value="{{ $practitioner->id }}" @selected((int) old('practitioner_id', $appointment->practitioner_id ?? 0) === $practitioner->id)>
-                                {{ $practitioner->name }}
-                            </option>
-                        @endforeach
-                    </select>
-                    <span class="text-red-500">{{ $errors->first('practitioner_id') }}</span>
+
+                <div class="md:col-span-2">
+                    <label for="preferred-at" class="label">Preferred date and time <span class="font-normal text-gray-500">(optional)</span></label>
+                    <input
+                        id="preferred-at"
+                        type="datetime-local"
+                        name="preferred_at"
+                        class="input @error('preferred_at') input-invalid @enderror"
+                        value="{{ old('preferred_at', isset($appointment) && $appointment->preferred_at ? $appointment->preferred_at->format('Y-m-d\TH:i') : '') }}"
+                        aria-describedby="preferred-at-help @error('preferred_at') preferred-at-error @enderror"
+                        @error('preferred_at') aria-invalid="true" @enderror
+                    >
+                    <p id="preferred-at-help" class="field-help">This is the requester’s preference, not the clinic-confirmed appointment time.</p>
+                    @error('preferred_at')
+                        <p id="preferred-at-error" class="field-error">{{ $message }}</p>
+                    @enderror
                 </div>
-                <div class="space-y-2">
-                    <label class="label">Preferred Date and Time</label>
-                    <input type="datetime-local" name="appointment_at" class="input"
-                        value="{{ old('appointment_at', isset($appointment) && $appointment->appointment_at ? $appointment->appointment_at->format('Y-m-d\TH:i') : '') }}">
-                    <span class="text-red-500">{{ $errors->first('appointment_at') }}</span>
-                </div>
-                <div class="space-y-2">
-                    <label class="label">Status</label>
-                    <select name="status" class="input">
-                        @foreach ($statuses as $status)
-                            <option value="{{ $status }}" @selected(old('status', $appointment->status ?? 'Scheduled') === $status)>{{ $status }}</option>
-                        @endforeach
-                    </select>
-                    <span class="text-red-500">{{ $errors->first('status') }}</span>
-                </div>
-                <div class="space-y-2">
-                    <label class="label">Reason or Message</label>
-                    <input name="reason" class="input" value="{{ old('reason', $appointment->reason ?? '') }}">
-                    <span class="text-red-500">{{ $errors->first('reason') }}</span>
-                </div>
+
                 <div class="space-y-2 md:col-span-2">
-                    <label class="label">Notes</label>
-                    <textarea name="notes" rows="4" class="input">{{ old('notes', $appointment->notes ?? '') }}</textarea>
-                    <span class="text-red-500">{{ $errors->first('notes') }}</span>
+                    <label for="request-message" class="label">Requester message <span class="font-normal text-gray-500">(optional)</span></label>
+                    <textarea
+                        id="request-message"
+                        name="request_message"
+                        rows="4"
+                        class="input @error('request_message') input-invalid @enderror"
+                        placeholder="Information supplied by the requester."
+                        @error('request_message') aria-invalid="true" aria-describedby="request-message-error" @enderror
+                    >{{ old('request_message', $appointment->request_message ?? '') }}</textarea>
+                    @error('request_message')
+                        <p id="request-message-error" class="field-error">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="space-y-2 md:col-span-2">
+                    <label for="notes" class="label">Internal notes <span class="font-normal text-gray-500">(optional)</span></label>
+                    <textarea
+                        id="notes"
+                        name="notes"
+                        rows="4"
+                        class="input @error('notes') input-invalid @enderror"
+                        placeholder="Staff-only coordination notes. These are not included in requester emails."
+                        aria-describedby="notes-help @error('notes') notes-error @enderror"
+                        @error('notes') aria-invalid="true" @enderror
+                    >{{ old('notes', $appointment->notes ?? '') }}</textarea>
+                    <p id="notes-help" class="field-help">Visible only to clinic staff.</p>
+                    @error('notes')
+                        <p id="notes-error" class="field-error">{{ $message }}</p>
+                    @enderror
                 </div>
             </div>
 
-            <div class="flex justify-end mt-4">
-                <button type="submit" class="service-action-button service-action-button--primary">{{ isset($appointment) ? 'Update' : 'Save Request' }}</button>
+            <div class="mt-5 flex justify-end">
+                <button type="submit" class="service-action-button service-action-button--primary">
+                    {{ isset($appointment) ? 'Update request details' : 'Save pending request' }}
+                </button>
             </div>
         </form>
     </div>
