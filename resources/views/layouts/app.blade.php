@@ -43,7 +43,7 @@
             }">
 
             <a href="/" class="py-2 px-4  font-bold text-lg  flex items-center">
-                <img src="{{ asset('imgs/logo/gifted-hands-logo.png') }}" alt="Logo" class="w-[37.5px]">
+                <img src="{{ asset('imgs/logo/gifted-hands-logo-nav.png') }}" alt="{{ config('app.name') }} logo" class="w-[37.5px]">
                 <span class="ml-2 text-gray-100">{{ config('app.name') }}</span>
             </a>
             @include('layouts.navigation')
