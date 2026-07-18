@@ -363,7 +363,7 @@
                                     <div class="flex flex-col justify-center p-5">
                                         <div class="flex flex-wrap items-center justify-between gap-2">
                                             <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
-                                            <p class="text-xs font-medium text-gray-400">{{ $announcement->posted_label }}</p>
+                                            @include('public.partials.announcement-posted-label', ['announcement' => $announcement])
                                         </div>
                                         <h3 class="mt-3 font-bold text-mustBlue">{{ $announcement->title }}</h3>
                                         <p class="mt-2 whitespace-pre-line text-sm leading-6 text-gray-600">{{ Str::limit($announcement->message, 240) }}</p>
@@ -374,7 +374,7 @@
                             <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
                                 <div class="flex flex-wrap items-center justify-between gap-2">
                                     <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
-                                    <p class="text-xs font-medium text-gray-400">{{ $announcement->posted_label }}</p>
+                                    @include('public.partials.announcement-posted-label', ['announcement' => $announcement])
                                 </div>
                                 <h3 class="mt-3 font-bold text-mustBlue">{{ $announcement->title }}</h3>
                                 <p class="mt-2 whitespace-pre-line text-sm leading-6 text-gray-600">{{ Str::limit($announcement->message, 180) }}</p>

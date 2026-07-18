@@ -49,22 +49,35 @@ class Announcement extends Model
     public function getPostedLabelAttribute(): string
     {
         if (! $this->published_at) {
-            return 'Posted today';
+            return 'Posted Today';
         }
 
         $publishedDate = $this->published_at->copy()->startOfDay();
         $today = today();
 
         if ($publishedDate->equalTo($today)) {
-            return 'Posted today';
+            return 'Posted Today';
         }
 
         if ($publishedDate->equalTo($today->copy()->subDay())) {
-            return 'Posted yesterday';
+            return 'Posted Yesterday';
         }
 
         $days = (int) abs($publishedDate->diffInDays($today));
 
         return "Posted {$days} days ago";
+    }
+
+    public function getIsRecentlyPostedAttribute(): bool
+    {
+        if (! $this->published_at) {
+            return true;
+        }
+
+        $publishedDate = $this->published_at->copy()->startOfDay();
+        $today = today();
+
+        return $publishedDate->equalTo($today)
+            || $publishedDate->equalTo($today->copy()->subDay());
     }
 }

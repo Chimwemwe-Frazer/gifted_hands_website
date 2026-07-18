@@ -56,7 +56,7 @@ class AnnouncementsTest extends TestCase
             ->assertSee('Join our community health outreach programme this month.')
             ->assertSee('storage/announcements/outreach.jpg', false)
             ->assertSee('alt="New Outreach Programme"', false)
-            ->assertSee('Posted today');
+            ->assertSee('Posted Today');
 
         $this->get(route('home'))
             ->assertOk()
@@ -97,9 +97,15 @@ class AnnouncementsTest extends TestCase
 
         $this->get(route('announcements'))
             ->assertOk()
-            ->assertSee('Posted today')
-            ->assertSee('Posted yesterday')
-            ->assertSee('Posted 5 days ago');
+            ->assertSee('class="text-xs font-medium text-green-600">Posted Today', false)
+            ->assertSee('class="text-xs font-medium text-green-600">Posted Yesterday', false)
+            ->assertSee('class="text-xs font-medium text-gray-400">Posted 5 days ago', false);
+
+        $this->get(route('home'))
+            ->assertOk()
+            ->assertSee('class="text-xs font-medium text-green-600">Posted Today', false)
+            ->assertSee('class="text-xs font-medium text-green-600">Posted Yesterday', false)
+            ->assertSee('class="text-xs font-medium text-gray-400">Posted 5 days ago', false);
 
         $this->travelBack();
     }
