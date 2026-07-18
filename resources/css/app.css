@@ -176,6 +176,22 @@
         @apply bg-gray-300 text-gray-500 hover:text-gray-700 font-medium rounded-full hover:bg-gray-400 px-4 py-1;
     }
 
+    .service-action-button {
+        @apply inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-semibold leading-none transition duration-300;
+    }
+
+    .service-action-button--primary {
+        @apply bg-mustGreen text-white hover:bg-mustOrangeDark;
+    }
+
+    .service-action-button--secondary {
+        @apply border border-gray-300 bg-white text-mustBlue hover:border-mustGreen hover:text-mustGreen;
+    }
+
+    .service-action-button--danger {
+        @apply bg-red-600 text-white hover:bg-red-700;
+    }
+
     /* Home page */
     .home-hero {
         @apply relative min-h-[92vh] overflow-hidden bg-mustBlue;

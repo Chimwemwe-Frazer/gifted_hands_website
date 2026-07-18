@@ -9,9 +9,9 @@
         <h1 class="page-heading">{{ $service->name }}</h1>
         <div class="flex items-center gap-4">
             @can('update service')
-                <a href="{{ route('admin.services.edit', $service) }}" class="text-mustBlue">Edit</a>
+                <a href="{{ route('admin.services.edit', $service) }}" class="service-action-button service-action-button--secondary">Edit</a>
             @endcan
-            <a href="{{ route('admin.services.index') }}" class="text-mustGreen">Back</a>
+            <a href="{{ route('admin.services.index') }}" class="service-action-button service-action-button--secondary">Back</a>
         </div>
     </div>
 

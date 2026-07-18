@@ -11,7 +11,7 @@
             <p class="mt-1 text-sm text-gray-600">Manage the services displayed on the public website.</p>
         </div>
         @can('add service')
-            <a href="{{ route('admin.services.create') }}" class="btn-primary shrink-0">Add Service</a>
+            <a href="{{ route('admin.services.create') }}" class="service-action-button service-action-button--primary shrink-0">Add Service</a>
         @endcan
     </div>
 
@@ -53,13 +53,13 @@
 
                     <div class="mt-4 flex justify-end gap-3">
                         @can('update service')
-                            <a href="{{ route('admin.services.edit', $service) }}" class="text-mustBlue hover:text-mustGreen">Edit</a>
+                            <a href="{{ route('admin.services.edit', $service) }}" class="service-action-button service-action-button--secondary">Edit</a>
                         @endcan
                         @can('delete service')
                             <form action="{{ route('admin.services.destroy', $service) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="delete_item text-red-500 hover:text-red-700">Delete</button>
+                                <button type="submit" class="delete_item service-action-button service-action-button--danger">Delete</button>
                             </form>
                         @endcan
                     </div>
