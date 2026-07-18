@@ -39,6 +39,34 @@
         </li>
     @endcan
 
+    @can('list doctors')
+        <li>
+            <a href="{{ route('admin.doctors.index') }}"
+                class="flex items-center py-2 rounded-md px-3 space-x-3 {{ Str::startsWith(Route::currentRouteName(), 'admin.doctors') ? ' bg-mustGreen ' : 'hover:bg-gray-400' }}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.118a7.5 7.5 0 0 1 15 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.5-1.632Z" />
+                </svg>
+                <span>Doctors</span>
+            </a>
+        </li>
+    @endcan
+
+    @can('list faqs')
+        <li>
+            <a href="{{ route('admin.faqs.index') }}"
+                class="flex items-center py-2 rounded-md px-3 space-x-3 {{ Str::startsWith(Route::currentRouteName(), 'admin.faqs') ? ' bg-mustGreen ' : 'hover:bg-gray-400' }}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M8.625 9.75a3.375 3.375 0 1 1 5.889 2.259c-.805.84-1.764 1.33-2.514 2.241M12 18h.008v.008H12V18Zm9-6a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <span>FAQs</span>
+            </a>
+        </li>
+    @endcan
+
     @can('list announcements')
         <li>
             <a href="{{ route('admin.announcements.index') }}"

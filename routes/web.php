@@ -3,10 +3,14 @@
 use App\Http\Controllers\AnnouncementsController;
 use App\Http\Controllers\AppointmentsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DoctorsController;
+use App\Http\Controllers\FaqsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicAnnouncementsController;
 use App\Http\Controllers\PublicAnnouncementSubscriptionController;
 use App\Http\Controllers\PublicAppointmentController;
+use App\Http\Controllers\PublicDoctorsController;
+use App\Http\Controllers\PublicFaqsController;
 use App\Http\Controllers\PublicServicesController;
 use App\Http\Controllers\PublicSiteController;
 use App\Http\Controllers\RolesAndPermissionsController;
@@ -18,11 +22,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', PublicSiteController::class)->name('home');
 Route::view('/about-us', 'public.about')->name('about');
 Route::get('/services', PublicServicesController::class)->name('services');
-Route::view('/doctors', 'public.doctors')->name('doctors');
+Route::get('/doctors', PublicDoctorsController::class)->name('doctors');
 Route::view('/clinic-schedule', 'public.schedule')->name('schedule');
 Route::get('/announcements', PublicAnnouncementsController::class)->name('announcements');
 Route::view('/gallery', 'public.gallery')->name('gallery');
-Route::view('/faqs', 'public.faqs')->name('faqs');
+Route::get('/faqs', PublicFaqsController::class)->name('faqs');
 Route::view('/contact-us', 'public.contact')->name('contact');
 Route::post('/appointments/request', PublicAppointmentController::class)->name('appointments.request');
 Route::post('/announcements/subscribe', PublicAnnouncementSubscriptionController::class)->name('announcements.subscribe');
@@ -31,6 +35,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
     Route::resource('services', ServicesController::class);
+    Route::resource('doctors', DoctorsController::class)->except('show');
+    Route::resource('faqs', FaqsController::class)->except('show');
     Route::resource('appointments', AppointmentsController::class);
     Route::resource('announcements', AnnouncementsController::class)->except('show');
 

@@ -249,32 +249,26 @@
                 </div>
 
                 <div class="mt-8 grid gap-5 md:grid-cols-3">
-                    <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                        <img src="{{ asset('imgs/doctors/mercy-banda.png') }}" alt="Dr. Mercy Banda" class="h-56 w-full object-cover object-[50%_22%] sm:h-64">
-                        <div class="p-5">
-                            <h3 class="text-lg font-bold text-mustBlue">Dr. Mercy Banda</h3>
-                            <p class="mt-1 text-sm font-semibold text-mustGreen">General Practitioner</p>
-                            <p class="mt-3 text-sm leading-6 text-gray-600">MBBS, Diploma in Family Medicine</p>
+                    @forelse ($doctors as $doctor)
+                        <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                            @if ($doctor->image_url)
+                                <img src="{{ $doctor->image_url }}" alt="{{ $doctor->name }}" class="h-56 w-full object-cover object-[50%_22%] sm:h-64">
+                            @else
+                                <div class="flex h-56 w-full items-center justify-center bg-gray-100 px-4 text-center text-sm font-semibold text-gray-500 sm:h-64">
+                                    No Image Uploaded
+                                </div>
+                            @endif
+                            <div class="p-5">
+                                <h3 class="text-lg font-bold text-mustBlue">{{ $doctor->name }}</h3>
+                                <p class="mt-1 text-sm font-semibold text-mustGreen">{{ $doctor->specialization }}</p>
+                                <p class="mt-3 whitespace-pre-line text-sm leading-6 text-gray-600">{{ $doctor->qualification }}</p>
+                            </div>
+                        </article>
+                    @empty
+                        <div class="rounded-lg border border-gray-200 bg-white p-6 text-center text-gray-600 shadow-sm md:col-span-3">
+                            No doctor profiles are available right now.
                         </div>
-                    </article>
-
-                <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <img src="{{ asset('imgs/doctors/thoko-phiri.png') }}" alt="Dr. Thoko Phiri" class="h-56 w-full object-cover object-[50%_22%] sm:h-64">
-                    <div class="p-5">
-                        <h3 class="text-lg font-bold text-mustBlue">Dr. Thoko Phiri</h3>
-                        <p class="mt-1 text-sm font-semibold text-mustGreen">Obstetrics &amp; Gynaecology</p>
-                        <p class="mt-3 text-sm leading-6 text-gray-600">MBBS, MMED Obstetrics &amp; Gynaecology</p>
-                    </div>
-                </article>
-
-                <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <img src="{{ asset('imgs/doctors/daniel-kamanga.png') }}" alt="Dr. Daniel Kamanga" class="h-56 w-full object-cover object-[50%_22%] sm:h-64">
-                    <div class="p-5">
-                        <h3 class="text-lg font-bold text-mustBlue">Dr. Daniel Kamanga</h3>
-                        <p class="mt-1 text-sm font-semibold text-mustGreen">Physiotherapy &amp; Rehabilitation</p>
-                        <p class="mt-3 text-sm leading-6 text-gray-600">BSc Physiotherapy, Certified Rehabilitation Specialist</p>
-                    </div>
-                </article>
+                    @endforelse
                 </div>
             </div>
         </section>
@@ -436,14 +430,16 @@
                     </a>
                 </div>
                 <div class="mt-8 grid gap-4 md:grid-cols-2">
-                    <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-                        <h3 class="font-bold text-mustBlue">Do I need an appointment?</h3>
-                        <p class="mt-2 text-sm leading-6 text-gray-600">Appointments are recommended so the clinic can confirm availability before you visit.</p>
-                    </article>
-                    <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-                        <h3 class="font-bold text-mustBlue">Can I request a specific service?</h3>
-                        <p class="mt-2 text-sm leading-6 text-gray-600">Yes. Select a service in the booking form and the appointments officer will follow up.</p>
-                    </article>
+                    @forelse ($faqs as $faq)
+                        <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+                            <h3 class="font-bold text-mustBlue">{{ $faq->question }}</h3>
+                            <p class="mt-2 whitespace-pre-line text-sm leading-6 text-gray-600">{{ $faq->brief_answer }}</p>
+                        </article>
+                    @empty
+                        <div class="rounded-lg border border-gray-200 bg-white p-6 text-center text-gray-600 shadow-sm md:col-span-2">
+                            No featured FAQs are available right now.
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </section>
