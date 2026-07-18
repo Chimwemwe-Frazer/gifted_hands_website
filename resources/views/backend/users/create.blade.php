@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('title')
-    {{ isset($user->name) ? 'Edit ' . $user->name : 'Add User' }}
+    {{ isset($user->name) ? 'Edit ' . $user->name : 'Add Receptionist' }}
 @endsection
 
 @section('content')
     <div class="flex items-center justify-between">
-        <h1 class="page-heading">{{ isset($user->name) ? 'Edit ' . $user->name : 'Add User' }}</h1>
+        <h1 class="page-heading">{{ isset($user->name) ? 'Edit ' . $user->name : 'Add Receptionist' }}</h1>
         <a href="{{ route('admin.users.index') }}" class="text-mustGreen flex gap-2 items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                 class="size-6">
@@ -37,22 +37,13 @@
                 </div>
 
                 <div class="flex flex-col  space-y-2">
-                    <label for="" class="label">Role <span class="text-red-500">*</span></label>
-                    <select name="role" id="" class="input">
-                        <option value="">Select Role</option>
-                        @foreach ($roles as $role)
-                            <option value="{{ $role }}"
-                                {{ isset($user) && $user->roles->first()->name == $role ? 'selected' : '' }}>
-                                {{ $role }}
-                            </option>
-                        @endforeach
-                    </select>
-                    <span class=" text-red-500">{{ $errors->first('role') }}</span>
+                    <label for="role" class="label">Role</label>
+                    <input id="role" type="text" value="{{ $roleName }}" class="input bg-gray-100" disabled>
                 </div>
             </div>
             <div class="flex justify-end mt-4">
                 <div class=" space-y-2">
-                    <button type="submit" class=" btn-primary">{{ isset($user) ? 'Update' : 'Add' }}</button>
+                    <button type="submit" class=" btn-primary">{{ isset($user) ? 'Update' : 'Add Receptionist' }}</button>
                 </div>
             </div>
         </form>

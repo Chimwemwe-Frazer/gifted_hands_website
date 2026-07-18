@@ -23,9 +23,8 @@ class CreateUsersRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string|required',
-            'email' => ['required','email', 'unique:' . User::class],
-            'role' => 'required|exists:roles,name',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', 'unique:'.User::class],
         ];
     }
 }

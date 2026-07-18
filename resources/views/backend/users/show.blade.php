@@ -36,7 +36,7 @@
                         d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                 </svg>
 
-                <span class="text-gray-900 font-medium">{{ $user->roles()->first()->name }}</span>
+                <span class="text-gray-900 font-medium">{{ $user->roles->first()?->name ?? 'Role assignment required' }}</span>
             </div>
 
             <!-- Status -->
@@ -55,29 +55,24 @@
 
 
         <div class="mt-4">
-            <h5 class="text-gray-600 font-medium mb-2 md:mb-3 text-lg">Permissions</h5>
+            <h5 class="text-gray-600 font-medium mb-2 md:mb-3 text-lg">Effective Permissions</h5>
             <div class="flex flex-wrap gap-2">
-                @foreach ($user_permissions as $permission)
+                @forelse ($user_permissions as $permission)
                     <span class="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-md">
                         {{ $permission }}
                     </span>
-                @endforeach
+                @empty
+                    <span class="text-gray-500 text-sm">No permissions assigned</span>
+                @endforelse
             </div>
         </div>
 
         <div class="mt-6 flex flex-wrap justify-end items-center gap-2">
 
-            @if (auth()->user()->can('update user role'))
-                <button x-on:click.prevent="$dispatch('open-modal', 'roleModal')"
-                    class="btn-primary-big">
-                    Update Role
-                </button>
-            @endif
-
             @if (auth()->user()->can('add user permissions'))
                 <button x-on:click.prevent="$dispatch('open-modal', 'permissionModal')"
                     class="btn-primary-big">
-                    Update Permissions
+                    Manage Additional Permissions
                 </button>
             @endif
 
@@ -99,38 +94,10 @@
     </div>
 
 
-    <x-modal name="roleModal" :maxWidth="'lg'" :canCloseByClick="false" >
-        <div class="bg-white p-6 rounded-lg shadow-lg ">
-            <div class="flex items-center justify-between">
-                <h3 class="text-lg font-semibold text-mustBlue">Change User Role</h3>
-                <svg xmlns="http://www.w3.org/2000/svg" @click.prevent="$dispatch('close-modal', 'roleModal')" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 cursor-pointer text-gray-500 hover:text-mustGreen">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />>
-                </svg>
-            </div>
-            <form method="POST" action="{{ route('admin.user.update-role', $user->id) }}" class="mt-4">
-                @csrf
-                @method('PUT')
-                <select name="role" class="input">
-                    <option value="">Select Role</option>
-                    @foreach ($roles as $role)
-                        <option value="{{ $role }}" {{ $user->roles->first()->name == $role ? 'selected' : '' }}>
-                            {{ $role }}
-                        </option>
-                    @endforeach
-                </select>
-                <div class="mt-4 flex justify-end space-x-2">
-                    <button type="button" x-on:click.prevent="$dispatch('close-modal', 'roleModal')"
-                        class="btn-secondary">Close</button>
-                    <button type="submit" class="btn-primary-big">Save</button>
-                </div>
-            </form>
-        </div>
-    </x-modal>
-
     <x-modal name="permissionModal" :maxWidth="'3xl'" :canCloseByClick="false" >
         <div x-data="{ search: '' }" class="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl">
             <div class="flex items-center justify-between">
-                <h3 class="text-lg font-semibold text-mustBlue">Change User Permissions</h3>
+                <h3 class="text-lg font-semibold text-mustBlue">Manage Additional Permissions</h3>
                 <svg xmlns="http://www.w3.org/2000/svg" @click.prevent="$dispatch('close-modal', 'permissionModal')" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 cursor-pointer text-gray-500 hover:text-mustGreen">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />>
                 </svg>
@@ -138,6 +105,9 @@
 
             <!-- Search Input -->
             <div class="mt-3">
+                <p class="mb-3 text-sm text-gray-500">
+                    Checked permissions are added specifically for this user on top of the permissions inherited from the {{ $user->roles->first()?->name }} role.
+                </p>
                 <input
                     type="text"
                     x-model="search"
@@ -158,7 +128,7 @@
                         >
                             <input type="checkbox" name="permissions[]" value="{{ $permission }}"
                                 class="rounded border-mustGreen appearance-none checked:bg-mustGreen checked:border-mustGreen focus:ring-mustGreen"
-                                {{ $user_permissions->contains($permission) ? 'checked' : '' }}>
+                                {{ $direct_permissions->contains($permission) ? 'checked' : '' }}>
                             <span class="text-gray-500">{{ $permission }}</span>
                         </label>
                     @endforeach

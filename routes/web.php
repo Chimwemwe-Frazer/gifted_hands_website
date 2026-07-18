@@ -44,9 +44,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::put('users/activate/{id}', [UsersController::class, 'activate'])->name('users.activate');
     Route::put('users/deactivate/{id}', [UsersController::class, 'deactivate'])->name('users.deactivate');
 
-    Route::resource('roles', RolesAndPermissionsController::class);
-    Route::put('user/{user}/update-role', [UserRolesAndPermissionsController::class, 'changeRole'])
-        ->name('user.update-role');
+    Route::resource('roles', RolesAndPermissionsController::class)->only(['index', 'show']);
     Route::put('user/{user}/update-permissions', [UserRolesAndPermissionsController::class, 'changePermissions'])
         ->name('user.update-permissions');
 

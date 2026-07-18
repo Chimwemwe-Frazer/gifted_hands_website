@@ -43,7 +43,7 @@
 @section('content')
     <div class="flex items-center justify-between">
         <h1 class="page-heading">All Users</h1>
-        <a href="{{ route('admin.users.create') }}" class="btn-primary">Add User</a>
+        <a href="{{ route('admin.users.create') }}" class="btn-primary">Add Receptionist</a>
     </div>
 
     <div class="bg-gray-100 text-gray-600 tracking-wider leading-normal rounded-lg overflow-y-auto" id="staffModalContainer">
@@ -62,7 +62,7 @@
                         <tr class="border-b hover:bg-gray-100">
                             <td class="px-4 py-3 font-semibold">{{ $s->name }}</td>
                             <td class="px-4 py-3">{{ $s->email }}</td>
-                            <td class="px-4 py-3">{{ $s->roles->first()->name }}</td>
+                            <td class="px-4 py-3">{{ $s->roles->first()?->name ?? 'Role assignment required' }}</td>
                             <td class="px-4 py-3 text-right">
                                 <div class="flex gap-3 justify-end">
                                     <a href="{{ route('admin.users.show', $s->id) }}" class="text-mustBlue hover:text-mustBlue transition duration-300">

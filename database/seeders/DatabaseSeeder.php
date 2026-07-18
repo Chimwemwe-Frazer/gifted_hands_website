@@ -15,14 +15,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::updateOrCreate([
-            'email'=> 'promisemphoola2@gmail.com',
+            'email' => 'promisemphoola2@gmail.com',
         ], [
             'name' => 'Test User',
             'password' => Hash::make('1234567890'),
         ]);
 
-        User::factory(5)->create();
-
-        (new RolesAndPermissionsSeeder())->run();
+        (new RolesAndPermissionsSeeder)->run();
     }
 }

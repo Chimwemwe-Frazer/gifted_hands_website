@@ -10,12 +10,11 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
-
 
 class UsersController extends Controller implements HasMiddleware
 {
@@ -25,15 +24,17 @@ class UsersController extends Controller implements HasMiddleware
             new Middleware('permission:list users', only: ['index', 'show']),
             new Middleware('permission:add user', only: ['create', 'store']),
             new Middleware('permission:update user', only: ['edit', 'update']),
-            new Middleware('permission:suspend user', only: ['activate', 'deactivate'])
+            new Middleware('permission:suspend user', only: ['activate', 'deactivate']),
         ];
     }
+
     /**
      * Display a listing of the resource.
      */
     public function index(): View
     {
         $users = User::with('roles')->get();
+
         return view('backend.users.index', compact('users'));
     }
 
@@ -42,9 +43,9 @@ class UsersController extends Controller implements HasMiddleware
      */
     public function create(): View
     {
-        $roles = Role::all()->pluck('name');
-
-        return view('backend.users.create', compact('roles'));
+        return view('backend.users.create', [
+            'roleName' => User::ROLE_RECEPTIONIST,
+        ]);
     }
 
     /**
@@ -54,13 +55,17 @@ class UsersController extends Controller implements HasMiddleware
     {
         $password = Str::password(16);
 
-        $user = User::create([
-            'name' => $request->validated()['name'],
-            'email' => $request->validated()['email'],
-            'password' => Hash::make($password)
-        ]);
+        $user = DB::transaction(function () use ($request, $password): User {
+            $user = User::create([
+                'name' => $request->validated()['name'],
+                'email' => $request->validated()['email'],
+                'password' => Hash::make($password),
+            ]);
 
-        $user->assignRole($request->validated()['role']);
+            $user->assignRole(User::ROLE_RECEPTIONIST);
+
+            return $user;
+        });
 
         $user->notify(new UserCreatedPasswordNotification($password));
 
@@ -72,14 +77,19 @@ class UsersController extends Controller implements HasMiddleware
      */
     public function show(User $user): View
     {
-        $roles = Role::all()->pluck('name');
         $all_permissions = Permission::all()->pluck('name');
 
         $user->load('roles');
 
         $user_permissions = $user->getAllPermissions()->pluck('name');
+        $direct_permissions = $user->getDirectPermissions()->pluck('name');
 
-        return view('backend.users.show', compact('user', 'all_permissions', 'roles', 'user_permissions'));
+        return view('backend.users.show', compact(
+            'user',
+            'all_permissions',
+            'user_permissions',
+            'direct_permissions',
+        ));
     }
 
     /**
@@ -87,11 +97,12 @@ class UsersController extends Controller implements HasMiddleware
      */
     public function edit(User $user): View
     {
-        $roles = Role::all()->pluck('name');
-
         $user->load('roles');
 
-        return view('backend.users.create', compact('user', 'roles'));
+        return view('backend.users.create', [
+            'user' => $user,
+            'roleName' => $user->roles->first()?->name,
+        ]);
     }
 
     /**
@@ -99,11 +110,13 @@ class UsersController extends Controller implements HasMiddleware
      */
     public function update(Request $request, User $user): RedirectResponse
     {
-        $user->update([
-            'name' => $request->name,
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
         ]);
 
-        $user->syncRoles($request->role);
+        $user->update([
+            'name' => $validated['name'],
+        ]);
 
         return redirect()->route('admin.users.index')->with('success', 'User Successfully Updated');
     }
@@ -112,6 +125,7 @@ class UsersController extends Controller implements HasMiddleware
     {
         $user = User::findOrFail($id);
         $user->deactivate();
+
         return redirect()->back()->with('success', 'User has been Deactivated');
     }
 
@@ -119,6 +133,7 @@ class UsersController extends Controller implements HasMiddleware
     {
         $user = User::findOrFail($id);
         $user->activate();
+
         return redirect()->back()->with('success', 'User has been Activated');
     }
 
@@ -138,7 +153,7 @@ class UsersController extends Controller implements HasMiddleware
         $user->{'has_changed_password'} = true;
         $user->save();
 
-        $user->notify(new PasswordChangedNotification());
+        $user->notify(new PasswordChangedNotification);
 
         return redirect()->route('admin.dashboard')->with('success', 'password updated successfully');
     }

@@ -37,10 +37,10 @@ class UserCreatedPasswordNotification extends Notification implements ShouldQueu
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->greeting('Hello!, ' . $notifiable->name)
-            ->line('You have been registered on ADDA Website as ' . $notifiable->roles->first()->name)
-            ->line('Your email is: ' . $notifiable->email)
-            ->line('Your password is: ' . $this->password)
+            ->greeting('Hello!, '.$notifiable->name)
+            ->line('You have been registered on '.config('app.name').' as a '.$notifiable->roles->first()?->name)
+            ->line('Your email is: '.$notifiable->email)
+            ->line('Your password is: '.$this->password)
             ->line('Please change your password after logging in')
             ->action('Login', route('login'))
             ->line('Thank you for using our application!');
