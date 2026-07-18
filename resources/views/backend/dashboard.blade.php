@@ -75,7 +75,7 @@
         <div class="flex items-center justify-between mb-3">
             <h2 class="page-heading mb-0">Appointment Requests</h2>
             @can('add appointment')
-                <a href="{{ route('admin.appointments.create') }}" class="btn-primary">Add Request</a>
+                <a href="{{ route('admin.appointments.create') }}" class="service-action-button service-action-button--primary">Add Request</a>
             @endcan
         </div>
 

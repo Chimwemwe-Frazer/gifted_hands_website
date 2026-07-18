@@ -49,7 +49,7 @@
                         </p>
 
                         <a href="{{ route('admin.roles.show', $role->id) }}"
-                            class="text-mustBlue hover:text-mustGreen transition duration-300">
+                            class="service-action-button service-action-button--secondary">
                             View details
                         </a>
                     </div>

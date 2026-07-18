@@ -8,7 +8,7 @@
     <div class="flex items-center justify-between">
         <h1 class="page-heading">Announcements</h1>
         @can('add announcement')
-            <a href="{{ route('admin.announcements.create') }}" class="btn-primary">Add Announcement</a>
+            <a href="{{ route('admin.announcements.create') }}" class="service-action-button service-action-button--primary">Add Announcement</a>
         @endcan
     </div>
 
@@ -31,15 +31,15 @@
                             <p class="mt-1">{{ $announcement->published_at?->format('M d, Y H:i') }}</p>
                         </div>
 
-                        <div class="flex gap-3 text-sm">
+                        <div class="flex gap-3">
                             @can('update announcement')
-                                <a href="{{ route('admin.announcements.edit', $announcement) }}" class="text-mustBlue hover:text-mustGreen">Edit</a>
+                                <a href="{{ route('admin.announcements.edit', $announcement) }}" class="service-action-button service-action-button--secondary">Edit</a>
                             @endcan
                             @can('delete announcement')
                                 <form action="{{ route('admin.announcements.destroy', $announcement) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="delete_item text-red-500 hover:text-red-700">Delete</button>
+                                    <button type="submit" class="delete_item service-action-button service-action-button--danger">Delete</button>
                                 </form>
                             @endcan
                         </div>

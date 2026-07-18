@@ -6,13 +6,7 @@
 @section('content')
     <div class="flex items-center justify-between">
         <h1 class="page-heading">{{ isset($user->name) ? 'Edit ' . $user->name : 'Add Receptionist' }}</h1>
-        <a href="{{ route('admin.users.index') }}" class="text-mustGreen flex gap-2 items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
-            </svg>
-            <span>Back</span>
-        </a>
+        <a href="{{ route('admin.users.index') }}" class="service-action-button service-action-button--secondary">Back</a>
     </div>
 
     <div class="page-content-container">
@@ -43,7 +37,7 @@
             </div>
             <div class="flex justify-end mt-4">
                 <div class=" space-y-2">
-                    <button type="submit" class=" btn-primary">{{ isset($user) ? 'Update' : 'Add Receptionist' }}</button>
+                    <button type="submit" class="service-action-button service-action-button--primary">{{ isset($user) ? 'Update' : 'Add Receptionist' }}</button>
                 </div>
             </div>
         </form>

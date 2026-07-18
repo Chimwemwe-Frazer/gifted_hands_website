@@ -8,7 +8,7 @@
     <div class="flex items-center justify-between">
         <h1 class="page-heading">Appointments</h1>
         @can('add appointment')
-            <a href="{{ route('admin.appointments.create') }}" class="btn-primary">Add Request</a>
+            <a href="{{ route('admin.appointments.create') }}" class="service-action-button service-action-button--primary">Add Request</a>
         @endcan
     </div>
 
@@ -36,15 +36,15 @@
                         <td class="px-4 py-3">{{ $appointment->status }}</td>
                         <td class="px-4 py-3">
                             <div class="flex justify-end gap-3">
-                                <a href="{{ route('admin.appointments.show', $appointment) }}" class="text-mustBlue hover:text-mustBlue">View</a>
+                                <a href="{{ route('admin.appointments.show', $appointment) }}" class="service-action-button service-action-button--secondary">View</a>
                                 @can('update appointment')
-                                    <a href="{{ route('admin.appointments.edit', $appointment) }}" class="text-mustBlue hover:text-mustBlue">Edit</a>
+                                    <a href="{{ route('admin.appointments.edit', $appointment) }}" class="service-action-button service-action-button--secondary">Edit</a>
                                 @endcan
                                 @can('delete appointment')
                                     <form action="{{ route('admin.appointments.destroy', $appointment) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-red-500 hover:text-red-700 delete_item">Delete</button>
+                                        <button type="submit" class="delete_item service-action-button service-action-button--danger">Delete</button>
                                     </form>
                                 @endcan
                             </div>

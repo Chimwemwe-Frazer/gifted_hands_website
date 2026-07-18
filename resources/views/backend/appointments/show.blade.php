@@ -7,7 +7,7 @@
 @section('content')
     <div class="flex items-center justify-between">
         <h1 class="page-heading">Appointment Details</h1>
-        <a href="{{ route('admin.appointments.index') }}" class="text-mustGreen">Back</a>
+        <a href="{{ route('admin.appointments.index') }}" class="service-action-button service-action-button--secondary">Back</a>
     </div>
 
     <div class="page-content-container">

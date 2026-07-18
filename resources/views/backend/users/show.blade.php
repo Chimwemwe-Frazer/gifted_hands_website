@@ -6,13 +6,7 @@
 @section('content')
     <div class="flex items-center justify-between">
         <h1 class="page-heading">User Details : {{ $user->name }}</h1>
-        <a href="{{ route('admin.users.index') }}" class="text-mustGreen flex gap-2 items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
-            </svg>
-            <span>Back</span>
-        </a>
+        <a href="{{ route('admin.users.index') }}" class="service-action-button service-action-button--secondary">Back</a>
     </div>
 
     <div class="page-content-container">
@@ -71,7 +65,7 @@
 
             @if (auth()->user()->can('add user permissions'))
                 <button x-on:click.prevent="$dispatch('open-modal', 'permissionModal')"
-                    class="btn-primary-big">
+                    class="service-action-button service-action-button--primary">
                     Manage Additional Permissions
                 </button>
             @endif
@@ -83,8 +77,8 @@
                     @method('PUT')
                     @csrf
                     <button type="submit"
-                        class="px-4 py-2 rounded-md text-white font-medium transition duration-300 delete_item
-                        {{ $user->status == 'Active' ? 'bg-red-600 hover:bg-red-700' : 'bg-mustBlue hover:bg-mustOrangeDark' }}">
+                        class="delete_item service-action-button
+                        {{ $user->status == 'Active' ? 'service-action-button--danger' : 'service-action-button--primary' }}">
                         {{ $user->status == 'Active' ? 'Deactivate' : 'Activate' }}
                     </button>
                 </form>
@@ -137,9 +131,9 @@
                 <!-- Action Buttons -->
                 <div class="mt-4 flex justify-end space-x-2">
                     <button type="button" x-on:click.prevent="$dispatch('close-modal', 'permissionModal')"
-                        class="btn-secondary">Close</button>
+                        class="service-action-button service-action-button--secondary">Close</button>
                     <button type="submit"
-                        class="btn-primary-big">Save</button>
+                        class="service-action-button service-action-button--primary">Save</button>
                 </div>
             </form>
         </div>

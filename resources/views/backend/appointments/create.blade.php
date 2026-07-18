@@ -7,7 +7,7 @@
 @section('content')
     <div class="flex items-center justify-between">
         <h1 class="page-heading">{{ isset($appointment) ? 'Edit Appointment Request' : 'Add Appointment Request' }}</h1>
-        <a href="{{ route('admin.appointments.index') }}" class="text-mustGreen">Back</a>
+        <a href="{{ route('admin.appointments.index') }}" class="service-action-button service-action-button--secondary">Back</a>
     </div>
 
     <div class="page-content-container">
@@ -86,7 +86,7 @@
             </div>
 
             <div class="flex justify-end mt-4">
-                <button type="submit" class="btn-primary">{{ isset($appointment) ? 'Update' : 'Save Request' }}</button>
+                <button type="submit" class="service-action-button service-action-button--primary">{{ isset($appointment) ? 'Update' : 'Save Request' }}</button>
             </div>
         </form>
     </div>
