@@ -50,6 +50,10 @@
                     <span class="block font-semibold text-white">Location</span>
                     Barron Avenue, Lilongwe, Malawi
                 </p>
+                <p>
+                    <span class="block font-semibold text-white">Postal Address</span>
+                    P.O. Box 1535, Lilongwe, Malawi
+                </p>
             </div>
         </div>
     </div>

@@ -40,6 +40,10 @@
                         Open in Google Maps
                     </a>
                 </div>
+                <div class="rounded-lg border border-gray-200 p-5 shadow-sm">
+                    <h2 class="font-bold text-mustBlue">Postal Address</h2>
+                    <p class="mt-2 text-sm text-gray-600">P.O. Box 1535, Lilongwe, Malawi</p>
+                </div>
             </section>
 
             <section class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
