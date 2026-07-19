@@ -31,10 +31,10 @@
                 <p class="mt-4 text-lg leading-9 text-gray-700">
                     For many years, we have proudly served our community with professional, patient-centered healthcare. Our experienced doctors and dedicated medical team provide a comprehensive range of quality healthcare services designed to meet the diverse needs of individuals and families.
                 </p>
-                <p class="mt-6 leading-8 text-gray-600">
+                <p class="mt-6 text-lg leading-9 text-gray-700">
                     Our work is guided by compassion, privacy, and reliable clinical attention. We aim to make every visit clear and comfortable, from the first appointment request to the care and guidance provided by our medical team.
                 </p>
-                <p class="mt-6 leading-8 text-gray-600">
+                <p class="mt-6 text-lg leading-9 text-gray-700">
                     The clinic continues to grow as a trusted place for families and individuals seeking accessible private healthcare, practical advice, and timely support.
                 </p>
             </div>
