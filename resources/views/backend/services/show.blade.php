@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-    <div class="flex items-center justify-between gap-4">
+    <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h1 class="page-heading">{{ $service->name }}</h1>
-        <div class="flex items-center gap-4">
+        <div class="flex w-full flex-wrap gap-2 sm:w-auto sm:justify-end">
             @can('update service')
                 <a href="{{ route('admin.services.edit', $service) }}" class="service-action-button service-action-button--secondary">Edit</a>
             @endcan
@@ -27,7 +27,7 @@
         <div class="p-5 md:p-6">
             <p class="leading-7 text-gray-600">{{ $service->description }}</p>
 
-            <div class="mt-6 grid grid-cols-2 gap-4 text-sm md:grid-cols-4">
+            <div class="mt-6 grid grid-cols-1 gap-4 text-sm sm:grid-cols-2 md:grid-cols-4">
                 <div>
                     <p class="font-semibold text-gray-700">Duration</p>
                     <p>{{ $service->duration_minutes }} minutes</p>

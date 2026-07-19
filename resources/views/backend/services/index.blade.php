@@ -5,13 +5,13 @@
 @endsection
 
 @section('content')
-    <div class="flex items-center justify-between gap-4">
+    <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
             <h1 class="page-heading">Services</h1>
             <p class="mt-1 text-sm text-gray-600">Manage the services displayed on the public website.</p>
         </div>
         @can('add service')
-            <a href="{{ route('admin.services.create') }}" class="service-action-button service-action-button--primary shrink-0">Add Service</a>
+            <a href="{{ route('admin.services.create') }}" class="service-action-button service-action-button--primary self-start sm:self-auto">Add Service</a>
         @endcan
     </div>
 
@@ -36,7 +36,7 @@
 
                     <p class="mt-2 text-sm leading-6 text-gray-600">{{ Str::limit($service->description, 150) }}</p>
 
-                    <div class="mt-4 grid grid-cols-3 gap-2 border-t border-gray-100 pt-4 text-sm">
+                    <div class="mt-4 grid grid-cols-2 gap-2 border-t border-gray-100 pt-4 text-sm sm:grid-cols-3">
                         <div>
                             <p class="font-semibold text-gray-700">Duration</p>
                             <p>{{ $service->duration_minutes }} min</p>
@@ -51,7 +51,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-4 flex justify-end gap-3">
+                    <div class="mt-4 flex flex-wrap justify-end gap-3">
                         @can('update service')
                             <a href="{{ route('admin.services.edit', $service) }}" class="service-action-button service-action-button--secondary">Edit</a>
                         @endcan

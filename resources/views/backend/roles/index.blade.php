@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h1 class="page-heading">Staff Roles</h1>
         <span class="text-sm text-gray-500">Roles are fixed; additional access is granted per receptionist.</span>
     </div>
@@ -39,7 +39,7 @@
                         @endif
                     </div>
 
-                    <div class="flex items-center justify-between mt-4">
+                    <div class="mt-4 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <p class="text-gray-600 text-sm">
                             @if ($role->users->count() > 0)
                                 <span class="font-medium text-gray-900">{{ $role->users->count() }}</span> users assigned

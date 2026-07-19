@@ -4,7 +4,7 @@
 @section('title', 'User Details')
 
 @section('content')
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h1 class="page-heading">User Details : {{ $user->name }}</h1>
         <a href="{{ route('admin.users.index') }}" class="service-action-button service-action-button--secondary">Back</a>
     </div>
@@ -12,14 +12,14 @@
     <div class="page-content-container">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             <!-- Email -->
-            <div class="flex items-center gap-3 p-3 bg-gray-100 rounded-lg">
+            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-gray-100 p-3">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-5 text-gray-600">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                 </svg>
 
-                <span class="text-gray-900 font-medium">{{ $user->email }}</span>
+                <span class="break-all text-gray-900 font-medium">{{ $user->email }}</span>
             </div>
 
             <!-- Role -->
@@ -89,9 +89,9 @@
 
 
     <x-modal name="permissionModal" :maxWidth="'3xl'" :canCloseByClick="false" >
-        <div x-data="{ search: '' }" class="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl">
-            <div class="flex items-center justify-between">
-                <h3 class="text-lg font-semibold text-mustBlue">Manage Additional Permissions</h3>
+        <div x-data="{ search: '' }" class="w-full max-w-3xl rounded-lg bg-white p-4 shadow-lg sm:p-6">
+            <div class="flex items-start justify-between gap-3">
+                <h3 class="break-words text-lg font-semibold text-mustBlue">Manage Additional Permissions</h3>
                 <svg xmlns="http://www.w3.org/2000/svg" @click.prevent="$dispatch('close-modal', 'permissionModal')" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 cursor-pointer text-gray-500 hover:text-mustGreen">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />>
                 </svg>
@@ -114,7 +114,7 @@
             <form method="POST" action="{{ route('admin.user.update-permissions', $user->id) }}" class="mt-4">
                 @csrf
                 @method('PUT')
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-60 overflow-y-auto p-2 border rounded-md">
+                <div class="grid max-h-60 grid-cols-1 gap-3 overflow-y-auto rounded-md border p-2 sm:grid-cols-2 md:grid-cols-3">
                     @foreach ($all_permissions as $permission)
                         <label
                             class="flex items-center space-x-2 p-2 rounded-md cursor-pointer hover:bg-gray-100"
@@ -129,7 +129,7 @@
                 </div>
 
                 <!-- Action Buttons -->
-                <div class="mt-4 flex justify-end space-x-2">
+                <div class="mt-4 flex flex-wrap justify-end gap-2">
                     <button type="button" x-on:click.prevent="$dispatch('close-modal', 'permissionModal')"
                         class="service-action-button service-action-button--secondary">Close</button>
                     <button type="submit"

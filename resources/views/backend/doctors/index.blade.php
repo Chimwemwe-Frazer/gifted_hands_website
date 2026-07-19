@@ -5,13 +5,13 @@
 @endsection
 
 @section('content')
-    <div class="flex items-center justify-between gap-4">
+    <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
             <h1 class="page-heading">Doctors</h1>
             <p class="mt-1 text-sm text-gray-600">Manage the doctors and clinicians displayed on the public website.</p>
         </div>
         @can('add doctor')
-            <a href="{{ route('admin.doctors.create') }}" class="service-action-button service-action-button--primary shrink-0">Add Doctor</a>
+            <a href="{{ route('admin.doctors.create') }}" class="service-action-button service-action-button--primary self-start sm:self-auto">Add Doctor</a>
         @endcan
     </div>
 
@@ -28,8 +28,8 @@
 
                 <div class="p-5">
                     <div class="flex items-start justify-between gap-3">
-                        <div>
-                            <h2 class="text-xl font-bold text-mustBlue">{{ $doctor->name }}</h2>
+                        <div class="min-w-0">
+                            <h2 class="break-words text-xl font-bold text-mustBlue">{{ $doctor->name }}</h2>
                             <p class="mt-1 text-sm font-semibold text-mustGreen">{{ $doctor->specialization }}</p>
                         </div>
                         <span class="rounded-full px-2.5 py-1 text-xs font-semibold {{ $doctor->status === 'Active' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600' }}">
@@ -40,7 +40,7 @@
                     <p class="mt-3 text-sm leading-6 text-gray-600">{{ Str::limit($doctor->qualification, 100) }}</p>
                     <p class="mt-2 text-xs text-gray-500">Display order: {{ $doctor->display_order }}</p>
 
-                    <div class="mt-4 flex justify-end gap-3 border-t border-gray-100 pt-4">
+                    <div class="mt-4 flex flex-wrap justify-end gap-3 border-t border-gray-100 pt-4">
                         @can('update doctor')
                             <a href="{{ route('admin.doctors.edit', $doctor) }}" class="service-action-button service-action-button--secondary">Edit</a>
                         @endcan

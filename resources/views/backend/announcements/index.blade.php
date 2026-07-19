@@ -5,10 +5,10 @@
 @endsection
 
 @section('content')
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h1 class="page-heading">Announcements</h1>
         @can('add announcement')
-            <a href="{{ route('admin.announcements.create') }}" class="service-action-button service-action-button--primary">Add Announcement</a>
+            <a href="{{ route('admin.announcements.create') }}" class="service-action-button service-action-button--primary self-start sm:self-auto">Add Announcement</a>
         @endcan
     </div>
 
@@ -22,7 +22,7 @@
                 <div class="p-5">
                     <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
 
-                    <h2 class="mt-3 text-xl font-bold text-mustBlue">{{ $announcement->title }}</h2>
+                    <h2 class="mt-3 break-words text-xl font-bold text-mustBlue">{{ $announcement->title }}</h2>
                     <p class="mt-2 whitespace-pre-line text-sm leading-6 text-gray-600">{{ Str::limit($announcement->message, 180) }}</p>
 
                     <div class="mt-4 flex flex-wrap items-end justify-between gap-3 border-t border-gray-100 pt-4 text-xs text-gray-500">
@@ -31,7 +31,7 @@
                             <p class="mt-1">{{ $announcement->published_at?->format('M d, Y H:i') }}</p>
                         </div>
 
-                        <div class="flex gap-3">
+                        <div class="flex flex-wrap gap-3">
                             @can('update announcement')
                                 <a href="{{ route('admin.announcements.edit', $announcement) }}" class="service-action-button service-action-button--secondary">Edit</a>
                             @endcan

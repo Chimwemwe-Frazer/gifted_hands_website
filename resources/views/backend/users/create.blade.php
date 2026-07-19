@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h1 class="page-heading">{{ isset($user->name) ? 'Edit ' . $user->name : 'Add Receptionist' }}</h1>
         <a href="{{ route('admin.users.index') }}" class="service-action-button service-action-button--secondary">Back</a>
     </div>
@@ -35,9 +35,9 @@
                     <input id="role" type="text" value="{{ $roleName }}" class="input bg-gray-100" disabled>
                 </div>
             </div>
-            <div class="flex justify-end mt-4">
+            <div class="mt-4 flex justify-stretch sm:justify-end">
                 <div class=" space-y-2">
-                    <button type="submit" class="service-action-button service-action-button--primary">{{ isset($user) ? 'Update' : 'Add Receptionist' }}</button>
+                    <button type="submit" class="service-action-button service-action-button--primary w-full sm:w-auto">{{ isset($user) ? 'Update' : 'Add Receptionist' }}</button>
                 </div>
             </div>
         </form>

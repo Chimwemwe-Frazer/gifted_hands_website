@@ -58,8 +58,8 @@
     </nav>
 
     <div class="page-content-container mt-3">
-        <div class="overflow-x-auto">
-            <table class="min-w-full text-sm">
+        <div class="admin-table-scroll">
+            <table class="min-w-[900px] text-sm">
                 <thead class="bg-gray-50 text-gray-700">
                     <tr>
                         <th class="whitespace-nowrap px-4 py-3 text-left">Received</th>

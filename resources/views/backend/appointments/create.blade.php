@@ -188,8 +188,8 @@
                 </div>
             </div>
 
-            <div class="mt-5 flex justify-end">
-                <button type="submit" class="service-action-button service-action-button--primary">
+            <div class="mt-5 flex justify-stretch sm:justify-end">
+                <button type="submit" class="service-action-button service-action-button--primary w-full sm:w-auto">
                     {{ isset($appointment) ? 'Update request details' : 'Save pending request' }}
                 </button>
             </div>

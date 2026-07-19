@@ -21,13 +21,13 @@
 
 </head>
 
-<body class="bg-gray-100 h-screen font-sans antialiased leading-none" x-data="{ sidebarOpen: true, mobileNavOpen: false, isMobile: window.innerWidth < 768 }"
+<body class="min-h-screen bg-gray-100 font-sans leading-normal antialiased" x-data="{ sidebarOpen: window.innerWidth >= 768, mobileNavOpen: false, isMobile: window.innerWidth < 768 }"
     @resize.window="
         isMobile = window.innerWidth < 768;
         if (!isMobile) { mobileNavOpen = false; }
       ">
 
-    <div class="flex h-full">
+    <div class="flex min-h-screen w-full">
 
         <!-- Mobile Sidebar Background Overlay -->
         <div x-show="mobileNavOpen" x-transition.opacity @click="mobileNavOpen = false"
@@ -49,10 +49,10 @@
         </div>
 
         <!-- Main Content -->
-        <div x-cloak class="flex flex-col flex-1 transition-all duration-300"
+        <div x-cloak class="flex min-w-0 flex-1 flex-col transition-all duration-300"
             :class="{ 'ml-64': sidebarOpen && !isMobile, 'ml-0': !sidebarOpen || isMobile }">
             <!-- Top navigation bar -->
-            <header class="bg-gray-100 shadow-lg py-1 px-6 flex justify-between items-center">
+            <header class="flex min-h-14 items-center justify-between gap-3 bg-gray-100 px-4 py-2 shadow-lg sm:px-6">
                 <div class="text-lg font-semibold flex items-center space-x-2">
 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -122,8 +122,8 @@
             </header>
 
             <!-- Content area -->
-            <main class="flex-1  p-6 space-y-2 md:space-y-4 bg-gray-200 ">
-                <div class="max-w-7xl mx-auto overflow-x-auto">
+            <main class="w-full min-w-0 flex-1 space-y-4 bg-gray-200 p-4 sm:p-6">
+                <div class="mx-auto w-full max-w-7xl min-w-0">
                     @yield('content')
                 </div>
             </main>

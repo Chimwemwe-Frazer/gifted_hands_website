@@ -4,7 +4,7 @@
 @section('title', 'Role Details')
 
 @section('content')
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h1 class="page-heading">Role Details : {{ $role->name }}</h1>
         <a href="{{ route('admin.roles.index') }}" class="service-action-button service-action-button--secondary">Back</a>
     </div>

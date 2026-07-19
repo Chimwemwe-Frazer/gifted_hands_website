@@ -170,6 +170,35 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
     color: #4a5568;  /* Label text color */
 }
 
+@media (max-width: 640px) {
+    .dataTables_wrapper .dataTables_length,
+    .dataTables_wrapper .dataTables_filter,
+    .dataTables_wrapper .dataTables_info,
+    .dataTables_wrapper .dataTables_paginate {
+        float: none;
+        text-align: left;
+    }
+
+    .dataTables_wrapper .dataTables_filter {
+        margin-top: 0.75rem;
+    }
+
+    .dataTables_wrapper .dataTables_filter label {
+        display: block;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0 0;
+    }
+
+    .dataTables_wrapper .dataTables_paginate {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+    }
+}
 
 
 

@@ -53,8 +53,8 @@
             </div>
         </div>
 
-        <div class="flex items-center gap-2">
-            <button type="submit" class="service-action-button service-action-button--primary">{{ __('Save') }}</button>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="submit" class="service-action-button service-action-button--primary w-full sm:w-auto">{{ __('Save') }}</button>
 
             @if (session('status') === 'password-updated')
                 <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"

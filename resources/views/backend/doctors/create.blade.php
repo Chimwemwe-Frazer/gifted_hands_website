@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="flex items-center justify-between gap-4">
+    <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h1 class="page-heading">{{ isset($doctor) ? 'Edit Doctor' : 'Add Doctor' }}</h1>
         <a href="{{ route('admin.doctors.index') }}" class="service-action-button service-action-button--secondary">Back</a>
     </div>
@@ -106,8 +106,8 @@
                 </div>
             </div>
 
-            <div class="mt-6 flex justify-end">
-                <button type="submit" class="service-action-button service-action-button--primary">{{ isset($doctor) ? 'Update Doctor' : 'Save Doctor' }}</button>
+            <div class="mt-6 flex justify-stretch sm:justify-end">
+                <button type="submit" class="service-action-button service-action-button--primary w-full sm:w-auto">{{ isset($doctor) ? 'Update Doctor' : 'Save Doctor' }}</button>
             </div>
         </form>
     </div>

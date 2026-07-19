@@ -41,9 +41,9 @@
 @endsection
 
 @section('content')
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h1 class="page-heading">All Users</h1>
-        <a href="{{ route('admin.users.create') }}" class="service-action-button service-action-button--primary">Add Receptionist</a>
+        <a href="{{ route('admin.users.create') }}" class="service-action-button service-action-button--primary self-start sm:self-auto">Add Receptionist</a>
     </div>
 
     <div class="bg-gray-100 text-gray-600 tracking-wider leading-normal rounded-lg overflow-y-auto" id="staffModalContainer">
@@ -64,7 +64,7 @@
                             <td class="px-4 py-3">{{ $s->email }}</td>
                             <td class="px-4 py-3">{{ $s->roles->first()?->name ?? 'Role assignment required' }}</td>
                             <td class="px-4 py-3 text-right">
-                                <div class="flex gap-3 justify-end">
+                                <div class="flex flex-wrap justify-end gap-3">
                                     <a href="{{ route('admin.users.show', $s->id) }}" class="service-action-button service-action-button--secondary">View</a>
                                     <a href="{{ route('admin.users.edit', $s->id) }}"
                                         class="service-action-button service-action-button--secondary">Edit</a>

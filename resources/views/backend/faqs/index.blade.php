@@ -5,13 +5,13 @@
 @endsection
 
 @section('content')
-    <div class="flex items-center justify-between gap-4">
+    <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
             <h1 class="page-heading">FAQs</h1>
             <p class="mt-1 text-sm text-gray-600">Manage frequently asked questions displayed on the public website.</p>
         </div>
         @can('add faq')
-            <a href="{{ route('admin.faqs.create') }}" class="service-action-button service-action-button--primary shrink-0">Add FAQ</a>
+            <a href="{{ route('admin.faqs.create') }}" class="service-action-button service-action-button--primary self-start sm:self-auto">Add FAQ</a>
         @endcan
     </div>
 
@@ -21,7 +21,7 @@
                 <div class="flex flex-col justify-between gap-4 md:flex-row md:items-start">
                     <div class="min-w-0">
                         <div class="flex flex-wrap items-center gap-2">
-                            <h2 class="text-lg font-bold text-mustBlue">{{ $faq->question }}</h2>
+                            <h2 class="break-words text-lg font-bold text-mustBlue">{{ $faq->question }}</h2>
                             <span class="rounded-full px-2.5 py-1 text-xs font-semibold {{ $faq->status === 'Active' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600' }}">
                                 {{ $faq->status }}
                             </span>
@@ -33,7 +33,7 @@
                         <p class="mt-3 text-xs text-gray-500">Display order: {{ $faq->display_order }}</p>
                     </div>
 
-                    <div class="flex shrink-0 gap-3">
+                    <div class="flex flex-wrap gap-3">
                         @can('update faq')
                             <a href="{{ route('admin.faqs.edit', $faq) }}" class="service-action-button service-action-button--secondary">Edit</a>
                         @endcan
