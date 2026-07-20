@@ -535,7 +535,7 @@
                         </article>
                     @empty
                         <div class="rounded-lg border border-gray-200 bg-white p-6 text-center text-gray-600 shadow-sm md:col-span-2">
-                            No featured FAQs are available right now.
+                            No FAQs are available right now.
                         </div>
                     @endforelse
                 </div>

@@ -144,6 +144,45 @@ class DoctorsAndFaqsManagementTest extends TestCase
         $this->assertDatabaseMissing('faqs', ['id' => $faq->id]);
     }
 
+    public function test_homepage_displays_only_the_four_most_recent_active_faqs(): void
+    {
+        $recentFaqs = collect();
+
+        foreach (range(1, 5) as $index) {
+            $faq = Faq::create([
+                'question' => "Recently added FAQ {$index}",
+                'brief_answer' => "Brief answer {$index}",
+                'full_answer' => "Full answer {$index}",
+                'show_on_home' => $index === 1,
+                'status' => 'Active',
+                'display_order' => 100 + $index,
+            ]);
+
+            $faq->forceFill([
+                'created_at' => now()->addMinutes($index),
+            ])->saveQuietly();
+
+            $recentFaqs->push($faq);
+        }
+
+        $expectedHomepageIds = $recentFaqs
+            ->sortByDesc('created_at')
+            ->take(4)
+            ->pluck('id')
+            ->values()
+            ->all();
+
+        $this->get(route('home'))
+            ->assertOk()
+            ->assertViewHas('faqs', fn ($faqs) => $faqs->pluck('id')->all() === $expectedHomepageIds)
+            ->assertDontSee('Recently added FAQ 1');
+
+        $this->get(route('faqs'))
+            ->assertOk()
+            ->assertViewHas('faqs', fn ($faqs) => $recentFaqs->pluck('id')->diff($faqs->pluck('id'))->isEmpty())
+            ->assertSee('Recently added FAQ 1');
+    }
+
     private function authorisedUser(array $permissions): User
     {
         $user = User::factory()->create();
