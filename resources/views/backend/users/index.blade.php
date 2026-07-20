@@ -7,8 +7,6 @@
 @section('styles')
     <!--Regular Datatables CSS-->
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!--Responsive Extension Datatables CSS-->
-    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('css/datatables.css') }}">
 @endsection
@@ -19,23 +17,23 @@
 
     <!--Datatables -->
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script>
         $(document).ready(function() {
             var table = $('#example').DataTable({
-                    responsive: true,
-                    language: {
-                        search: "_INPUT_",
-                        searchPlaceholder: "Search user...",
-                    },
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search user...",
+                },
 
-                    "columnDefs": [{
-                        "orderable": false,
-                        "targets": 3
-                    }]
-                })
-                .columns.adjust()
-                .responsive.recalc();
+                "columnDefs": [{
+                    "orderable": false,
+                    "targets": 3
+                }]
+            });
+
+            $(window).on('resize', function() {
+                table.columns.adjust();
+            });
         });
     </script>
 @endsection
@@ -46,9 +44,37 @@
         <a href="{{ route('admin.users.create') }}" class="service-action-button service-action-button--primary self-start sm:self-auto">Add Receptionist</a>
     </div>
 
-    <div class="bg-gray-100 text-gray-600 tracking-wider leading-normal rounded-lg overflow-y-auto" id="staffModalContainer">
-        <div id='recipients' class="page-content-container overflow-x-auto">
-            <table id="example" class="stripe hover">
+    <div id="staffModalContainer">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:hidden">
+            @forelse ($users as $s)
+                <article data-mobile-user-card class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+                    <div class="border-b border-gray-100 pb-4">
+                        <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">Staff member</p>
+                        <h2 class="mt-1 break-words text-lg font-bold text-mustBlue">{{ $s->name }}</h2>
+                        <a href="mailto:{{ $s->email }}" class="mt-1 block break-all text-sm leading-6 text-mustBlue hover:text-mustGreen">
+                            {{ $s->email }}
+                        </a>
+                    </div>
+
+                    <dl class="py-4 text-sm">
+                        <dt class="font-semibold text-gray-500">Role</dt>
+                        <dd class="mt-1 break-words text-gray-800">{{ $s->roles->first()?->name ?? 'Role assignment required' }}</dd>
+                    </dl>
+
+                    <div class="grid grid-cols-2 gap-3 border-t border-gray-100 pt-4">
+                        <a href="{{ route('admin.users.show', $s->id) }}" class="service-action-button service-action-button--secondary w-full">View</a>
+                        <a href="{{ route('admin.users.edit', $s->id) }}" class="service-action-button service-action-button--secondary w-full">Edit</a>
+                    </div>
+                </article>
+            @empty
+                <div class="page-content-container text-center text-gray-500 md:col-span-2">
+                    No staff users have been created yet.
+                </div>
+            @endforelse
+        </div>
+
+        <div id="recipients" class="page-content-container hidden xl:block">
+            <table id="example" class="stripe hover w-full table-fixed">
                 <thead class="bg-gray-50 text-gray-700">
                     <tr>
                         <th class="text-left px-4 py-3">Name</th>
@@ -58,11 +84,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($users as $s)
+                    @forelse ($users as $s)
                         <tr class="border-b hover:bg-gray-100">
-                            <td class="px-4 py-3 font-semibold">{{ $s->name }}</td>
-                            <td class="px-4 py-3">{{ $s->email }}</td>
-                            <td class="px-4 py-3">{{ $s->roles->first()?->name ?? 'Role assignment required' }}</td>
+                            <td class="break-words px-4 py-3 font-semibold">{{ $s->name }}</td>
+                            <td class="break-all px-4 py-3">{{ $s->email }}</td>
+                            <td class="break-words px-4 py-3">{{ $s->roles->first()?->name ?? 'Role assignment required' }}</td>
                             <td class="px-4 py-3 text-right">
                                 <div class="flex flex-wrap justify-end gap-3">
                                     <a href="{{ route('admin.users.show', $s->id) }}" class="service-action-button service-action-button--secondary">View</a>
@@ -71,7 +97,11 @@
                                 </div>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="4" class="px-4 py-10 text-center text-gray-500">No staff users have been created yet.</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

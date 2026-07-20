@@ -80,8 +80,51 @@
             <a href="{{ route('admin.appointments.index') }}" class="service-action-button service-action-button--secondary self-start sm:self-auto">View all requests</a>
         </div>
 
-        <div class="admin-table-scroll">
-            <table class="min-w-[860px] text-sm">
+        @if ($upcomingAppointments->isEmpty())
+            <div class="rounded-lg border border-gray-200 bg-gray-50 px-4 py-8 text-center text-gray-500">
+                No approved upcoming appointments.
+            </div>
+        @else
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:hidden">
+                @foreach ($upcomingAppointments as $appointment)
+                    <article data-mobile-upcoming-appointment-card class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+                        <div class="flex items-start justify-between gap-3 border-b border-gray-200 pb-3">
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">Scheduled for</p>
+                                <p class="mt-1 font-semibold text-gray-800">{{ $appointment->appointment_at->format('M d, Y') }}</p>
+                                <p class="text-xs text-gray-500">{{ $appointment->appointment_at->format('H:i') }}</p>
+                            </div>
+                            <span class="appointment-status appointment-status--approved">{{ $appointment->status }}</span>
+                        </div>
+
+                        <div class="py-4">
+                            <h3 class="break-words text-lg font-bold text-mustBlue">{{ $appointment->client_name }}</h3>
+                            @if ($appointment->client_email)
+                                <a href="mailto:{{ $appointment->client_email }}" class="mt-1 block break-all text-sm leading-6 text-mustBlue hover:text-mustGreen">{{ $appointment->client_email }}</a>
+                            @else
+                                <p class="mt-1 text-sm leading-6 text-red-600">Email not recorded</p>
+                            @endif
+                            <a href="tel:{{ $appointment->client_phone }}" class="block break-words text-sm leading-6 text-gray-600 hover:text-mustGreen">{{ $appointment->client_phone }}</a>
+                        </div>
+
+                        <dl class="grid grid-cols-1 gap-4 border-t border-gray-200 pt-4 text-sm sm:grid-cols-2">
+                            <div>
+                                <dt class="font-semibold text-gray-500">Service</dt>
+                                <dd class="mt-1 break-words text-gray-800">{{ $appointment->service->name }}</dd>
+                            </div>
+                            <div>
+                                <dt class="font-semibold text-gray-500">Practitioner</dt>
+                                <dd class="mt-1 break-words text-gray-800">{{ $appointment->practitioner?->name ?? 'Not assigned' }}</dd>
+                            </div>
+                        </dl>
+
+                        <a href="{{ route('admin.appointments.show', $appointment) }}" class="service-action-button service-action-button--secondary mt-4 w-full">View</a>
+                    </article>
+                @endforeach
+            </div>
+
+            <div class="hidden xl:block">
+                <table class="w-full table-fixed text-sm">
                 <thead class="bg-gray-50 text-gray-700">
                     <tr>
                         <th class="whitespace-nowrap px-4 py-3 text-left">Scheduled for</th>
@@ -94,14 +137,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($upcomingAppointments as $appointment)
+                    @foreach ($upcomingAppointments as $appointment)
                         <tr class="border-b align-top hover:bg-gray-50">
                             <td class="whitespace-nowrap px-4 py-3">
                                 <span class="block font-semibold text-gray-800">{{ $appointment->appointment_at->format('M d, Y') }}</span>
                                 <span class="mt-1 block text-xs text-gray-500">{{ $appointment->appointment_at->format('H:i') }}</span>
                             </td>
                             <td class="px-4 py-3 font-semibold">{{ $appointment->client_name }}</td>
-                            <td class="min-w-44 px-4 py-3">
+                            <td class="px-4 py-3">
                                 @if ($appointment->client_email)
                                     <a href="mailto:{{ $appointment->client_email }}" class="block break-all text-mustBlue hover:text-mustGreen">{{ $appointment->client_email }}</a>
                                 @else
@@ -118,13 +161,10 @@
                                 <a href="{{ route('admin.appointments.show', $appointment) }}" class="service-action-button service-action-button--secondary">View</a>
                             </td>
                         </tr>
-                    @empty
-                        <tr>
-                            <td colspan="7" class="px-4 py-8 text-center text-gray-500">No approved upcoming appointments.</td>
-                        </tr>
-                    @endforelse
+                    @endforeach
                 </tbody>
-            </table>
-        </div>
+                </table>
+            </div>
+        @endif
     </div>
 @endsection

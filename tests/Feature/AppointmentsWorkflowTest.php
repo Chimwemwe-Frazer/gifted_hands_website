@@ -206,10 +206,31 @@ class AppointmentsWorkflowTest extends TestCase
             ->actingAs($staff)
             ->get(route('admin.appointments.index'))
             ->assertOk()
+            ->assertSee('data-mobile-appointment-card', false)
+            ->assertDontSee('admin-table-scroll', false)
             ->assertSee($appointment->client_name)
             ->assertSee($appointment->client_email)
             ->assertSee($service->name)
             ->assertSee(Appointment::STATUS_PENDING);
+    }
+
+    public function test_staff_dashboard_renders_upcoming_appointments_as_responsive_cards(): void
+    {
+        $service = $this->service();
+        $appointment = $this->pendingAppointment($service, [
+            'status' => Appointment::STATUS_APPROVED,
+            'appointment_at' => now()->addDays(3)->setTime(10, 30),
+        ]);
+        $staff = User::factory()->create();
+
+        $this
+            ->actingAs($staff)
+            ->get(route('admin.dashboard'))
+            ->assertOk()
+            ->assertSee('data-mobile-upcoming-appointment-card', false)
+            ->assertDontSee('admin-table-scroll', false)
+            ->assertSee($appointment->client_name)
+            ->assertSee($service->name);
     }
 
     public function test_an_authorised_staff_member_can_approve_a_pending_request_and_notify_the_requester(): void

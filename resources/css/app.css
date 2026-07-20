@@ -532,8 +532,4 @@
         @apply mx-auto w-full min-w-0 max-w-7xl rounded-lg bg-white p-4 shadow md:p-6;
     }
 
-    .admin-table-scroll {
-        @apply -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0;
-    }
-
 }

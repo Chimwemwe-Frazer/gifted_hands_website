@@ -60,6 +60,7 @@ class UsersManagementTest extends TestCase
             ->actingAs($administrator->fresh())
             ->get(route('admin.users.index'))
             ->assertOk()
+            ->assertSee('data-mobile-user-card', false)
             ->assertSee($rolelessUser->name)
             ->assertSee(User::ROLE_RECEPTIONIST);
 
