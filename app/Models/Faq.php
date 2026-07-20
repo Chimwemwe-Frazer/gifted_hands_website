@@ -10,6 +10,8 @@ class Faq extends Model
 {
     use HasFactory;
 
+    public const HOMEPAGE_LIMIT = 4;
+
     protected $fillable = [
         'question',
         'brief_answer',

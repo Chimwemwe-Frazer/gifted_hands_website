@@ -144,8 +144,10 @@ class DoctorsAndFaqsManagementTest extends TestCase
         $this->assertDatabaseMissing('faqs', ['id' => $faq->id]);
     }
 
-    public function test_homepage_displays_only_the_four_most_recent_active_faqs(): void
+    public function test_homepage_displays_only_the_four_most_recent_pinned_active_faqs(): void
     {
+        Faq::query()->update(['show_on_home' => false]);
+
         $recentFaqs = collect();
 
         foreach (range(1, 5) as $index) {
@@ -153,7 +155,7 @@ class DoctorsAndFaqsManagementTest extends TestCase
                 'question' => "Recently added FAQ {$index}",
                 'brief_answer' => "Brief answer {$index}",
                 'full_answer' => "Full answer {$index}",
-                'show_on_home' => $index === 1,
+                'show_on_home' => $index <= Faq::HOMEPAGE_LIMIT,
                 'status' => 'Active',
                 'display_order' => 100 + $index,
             ]);
@@ -166,8 +168,8 @@ class DoctorsAndFaqsManagementTest extends TestCase
         }
 
         $expectedHomepageIds = $recentFaqs
+            ->where('show_on_home', true)
             ->sortByDesc('created_at')
-            ->take(4)
             ->pluck('id')
             ->values()
             ->all();
@@ -175,12 +177,34 @@ class DoctorsAndFaqsManagementTest extends TestCase
         $this->get(route('home'))
             ->assertOk()
             ->assertViewHas('faqs', fn ($faqs) => $faqs->pluck('id')->all() === $expectedHomepageIds)
-            ->assertDontSee('Recently added FAQ 1');
+            ->assertDontSee('Recently added FAQ 5');
 
         $this->get(route('faqs'))
             ->assertOk()
             ->assertViewHas('faqs', fn ($faqs) => $recentFaqs->pluck('id')->diff($faqs->pluck('id'))->isEmpty())
-            ->assertSee('Recently added FAQ 1');
+            ->assertSee('Recently added FAQ 5');
+    }
+
+    public function test_admin_cannot_pin_more_than_four_faqs_to_the_homepage(): void
+    {
+        $user = $this->authorisedUser(['add faq']);
+
+        Faq::query()->update(['show_on_home' => false]);
+        Faq::query()
+            ->orderBy('id')
+            ->take(Faq::HOMEPAGE_LIMIT)
+            ->update(['show_on_home' => true]);
+
+        $this
+            ->actingAs($user)
+            ->post(route('admin.faqs.store'), $this->faqPayload([
+                'question' => 'Can a fifth FAQ be pinned?',
+            ]))
+            ->assertSessionHasErrors('show_on_home');
+
+        $this->assertDatabaseMissing('faqs', [
+            'question' => 'Can a fifth FAQ be pinned?',
+        ]);
     }
 
     private function authorisedUser(array $permissions): User

@@ -24,9 +24,10 @@ class PublicSiteController extends Controller
                 ->take(3)
                 ->get(),
             'faqs' => Faq::active()
+                ->where('show_on_home', true)
                 ->latest('created_at')
                 ->latest('id')
-                ->take(4)
+                ->take(Faq::HOMEPAGE_LIMIT)
                 ->get(),
             'announcements' => Announcement::published()
                 ->latest('published_at')

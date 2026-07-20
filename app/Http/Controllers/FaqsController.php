@@ -33,6 +33,8 @@ class FaqsController extends Controller implements HasMiddleware
     {
         return view('backend.faqs.create', [
             'nextDisplayOrder' => (int) Faq::max('display_order') + 1,
+            'homepageFaqCount' => Faq::where('show_on_home', true)->count(),
+            'homepageFaqLimit' => Faq::HOMEPAGE_LIMIT,
         ]);
     }
 
@@ -47,7 +49,11 @@ class FaqsController extends Controller implements HasMiddleware
 
     public function edit(Faq $faq): View
     {
-        return view('backend.faqs.create', compact('faq'));
+        return view('backend.faqs.create', [
+            'faq' => $faq,
+            'homepageFaqCount' => Faq::where('show_on_home', true)->count(),
+            'homepageFaqLimit' => Faq::HOMEPAGE_LIMIT,
+        ]);
     }
 
     public function update(Request $request, Faq $faq): RedirectResponse
@@ -79,7 +85,25 @@ class FaqsController extends Controller implements HasMiddleware
             ],
             'brief_answer' => ['required', 'string', 'max:1000'],
             'full_answer' => ['required', 'string', 'max:10000'],
-            'show_on_home' => ['nullable', 'boolean'],
+            'show_on_home' => [
+                'nullable',
+                'boolean',
+                function (string $attribute, mixed $value, \Closure $fail) use ($request, $faq): void {
+                    if (! $request->boolean($attribute)) {
+                        return;
+                    }
+
+                    $pinnedFaqs = Faq::where('show_on_home', true);
+
+                    if ($faq?->exists) {
+                        $pinnedFaqs->where($faq->getKeyName(), '!=', $faq->getKey());
+                    }
+
+                    if ($pinnedFaqs->count() >= Faq::HOMEPAGE_LIMIT) {
+                        $fail('Only '.Faq::HOMEPAGE_LIMIT.' FAQs can be pinned to the homepage.');
+                    }
+                },
+            ],
             'status' => ['required', Rule::in(['Active', 'Inactive'])],
             'display_order' => ['required', 'integer', 'min:1', 'max:9999'],
         ]);

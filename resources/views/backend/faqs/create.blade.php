@@ -5,6 +5,11 @@
 @endsection
 
 @section('content')
+    @php
+        $isCurrentlyPinned = isset($faq) && $faq->show_on_home;
+        $homepageLimitReached = $homepageFaqCount >= $homepageFaqLimit && ! $isCurrentlyPinned;
+    @endphp
+
     <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h1 class="page-heading">{{ isset($faq) ? 'Edit FAQ' : 'Add FAQ' }}</h1>
         <a href="{{ route('admin.faqs.index') }}" class="service-action-button service-action-button--secondary">Back</a>
@@ -18,7 +23,8 @@
             @endisset
 
             <div class="mb-6 rounded-lg border border-blue-100 bg-blue-50 p-4 text-sm leading-6 text-blue-800">
-                Active FAQs appear on the public FAQs page. Select “Show on homepage” for questions that should also appear in the homepage preview.
+                Active FAQs appear on the public FAQs page. You can pin up to {{ $homepageFaqLimit }} FAQs to the homepage.
+                {{ $homepageFaqCount }} of {{ $homepageFaqLimit }} homepage slots are currently in use.
             </div>
 
             <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -60,9 +66,15 @@
 
                 <div class="md:col-span-2">
                     <label class="inline-flex items-center gap-3 text-sm font-semibold text-gray-700">
-                        <input type="checkbox" name="show_on_home" value="1" class="rounded border-gray-300 text-mustGreen focus:ring-mustGreen" @checked(old('show_on_home', $faq->show_on_home ?? false))>
+                        <input type="hidden" name="show_on_home" value="0">
+                        <input type="checkbox" name="show_on_home" value="1" class="rounded border-gray-300 text-mustGreen focus:ring-mustGreen disabled:cursor-not-allowed disabled:opacity-50" @checked(! $homepageLimitReached && old('show_on_home', $faq->show_on_home ?? false)) @disabled($homepageLimitReached)>
                         Show this FAQ on the homepage
                     </label>
+                    @if ($homepageLimitReached)
+                        <p class="mt-2 text-xs text-amber-700">All homepage slots are in use. Unpin another FAQ before pinning this one.</p>
+                    @else
+                        <p class="mt-2 text-xs text-gray-500">Pinned active FAQs appear on the homepage, with the newest shown first.</p>
+                    @endif
                     <span class="mt-2 block text-sm text-red-500">{{ $errors->first('show_on_home') }}</span>
                 </div>
             </div>
