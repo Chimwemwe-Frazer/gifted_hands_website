@@ -12,10 +12,13 @@ class PublicSiteController extends Controller
 {
     public function __invoke(): View
     {
+        $services = Service::active()
+            ->displayOrder()
+            ->get();
+
         return view('public.home', [
-            'services' => Service::active()
-                ->displayOrder()
-                ->get(),
+            'services' => $services,
+            'featuredServices' => $services->take(5),
             'doctors' => Doctor::active()
                 ->displayOrder()
                 ->take(3)

@@ -40,7 +40,7 @@ class ServicesManagementTest extends TestCase
         }
     }
 
-    public function test_active_services_and_the_no_image_placeholder_are_rendered_from_the_database(): void
+    public function test_active_services_are_limited_on_the_homepage_and_all_render_on_the_services_page(): void
     {
         Service::create([
             'name' => 'Nutrition Therapy',
@@ -77,9 +77,10 @@ class ServicesManagementTest extends TestCase
 
         $this->get(route('home'))
             ->assertOk()
+            ->assertViewHas('featuredServices', fn ($services) => $services->count() === 5)
+            ->assertViewHas('services', fn ($services) => $services->count() === 6)
             ->assertSee('Nutrition Therapy')
-            ->assertSee('Personalized nutrition support for patients and families.')
-            ->assertSee('No Image Uploaded')
+            ->assertDontSee('Personalized nutrition support for patients and families.')
             ->assertDontSee('Hidden Internal Service');
     }
 

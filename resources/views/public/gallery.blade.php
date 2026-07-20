@@ -24,7 +24,7 @@
     <main class="mx-auto max-w-7xl px-4 py-16">
         <div class="grid gap-5 md:grid-cols-3">
             @foreach (['Reception Area', 'Consultation Room', 'Laboratory', 'Care Team', 'Clinic Exterior', 'Treatment Area'] as $caption)
-                <figure class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                <figure data-gallery-item class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
                     <img src="{{ asset('imgs/optimixed.jpg') }}" alt="{{ $caption }}" class="h-64 w-full object-cover">
                     <figcaption class="p-4 text-sm font-semibold text-mustBlue">{{ $caption }}</figcaption>
                 </figure>

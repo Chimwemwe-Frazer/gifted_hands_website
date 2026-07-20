@@ -1,0 +1,49 @@
+<?php
+
+namespace Tests\Feature;
+
+use Illuminate\Support\Facades\DB;
+use Tests\TestCase;
+
+class PublicGalleryTest extends TestCase
+{
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        config([
+            'database.default' => 'sqlite',
+            'database.connections.sqlite.database' => ':memory:',
+        ]);
+
+        DB::purge();
+        DB::reconnect();
+
+        foreach ([
+            '0001_01_01_000000_create_users_table.php',
+            '2025_04_02_065725_create_permission_tables.php',
+            '2026_07_11_000002_create_services_table.php',
+            '2026_07_17_000006_create_announcements_table.php',
+            '2026_07_17_000007_add_announcement_permissions.php',
+            '2026_07_17_000008_simplify_announcements.php',
+            '2026_07_18_000009_add_frontend_details_to_services_table.php',
+            '2026_07_18_000010_create_doctors_and_faqs_tables.php',
+        ] as $migrationFile) {
+            $migration = require database_path('migrations/'.$migrationFile);
+            $migration->up();
+        }
+    }
+
+    public function test_homepage_shows_three_gallery_items_and_gallery_page_shows_all_items(): void
+    {
+        $homepage = $this->get(route('home'));
+
+        $homepage->assertOk();
+        $this->assertSame(3, substr_count($homepage->getContent(), 'data-gallery-item'));
+
+        $galleryPage = $this->get(route('gallery'));
+
+        $galleryPage->assertOk();
+        $this->assertSame(6, substr_count($galleryPage->getContent(), 'data-gallery-item'));
+    }
+}

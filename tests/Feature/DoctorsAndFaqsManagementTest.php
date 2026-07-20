@@ -63,12 +63,16 @@ class DoctorsAndFaqsManagementTest extends TestCase
 
         $this->get(route('doctors'))
             ->assertOk()
+            ->assertViewHas('doctors', fn ($doctors) => $doctors->count() === 4)
             ->assertSee('Dr. Alice Tembo')
+            ->assertSee('Dr. Daniel Kamanga')
             ->assertSee('No Image Uploaded');
 
         $this->get(route('home'))
             ->assertOk()
-            ->assertSee('Dr. Alice Tembo');
+            ->assertViewHas('doctors', fn ($doctors) => $doctors->count() === 3)
+            ->assertSee('Dr. Alice Tembo')
+            ->assertDontSee('Dr. Daniel Kamanga');
 
         $this
             ->actingAs($user)

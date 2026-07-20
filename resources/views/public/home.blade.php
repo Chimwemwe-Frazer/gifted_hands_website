@@ -146,7 +146,7 @@
                 </div>
 
                 <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                    @forelse ($services as $service)
+                    @forelse ($featuredServices as $service)
                         <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                             @if ($service->image_url)
                                 <img src="{{ $service->image_url }}" alt="{{ $service->name }}" class="h-44 w-full object-cover">
@@ -500,15 +500,15 @@
                 </div>
 
                 <div class="mt-8 grid gap-4 md:grid-cols-3">
-                    <figure class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                    <figure data-gallery-item class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
                         <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic reception area" class="h-48 w-full object-cover">
                         <figcaption class="p-4 text-sm font-semibold text-mustBlue">Reception Area</figcaption>
                     </figure>
-                    <figure class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                    <figure data-gallery-item class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
                         <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic consultation room" class="h-48 w-full object-cover">
                         <figcaption class="p-4 text-sm font-semibold text-mustBlue">Consultation Room</figcaption>
                     </figure>
-                    <figure class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                    <figure data-gallery-item class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
                         <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic laboratory services" class="h-48 w-full object-cover">
                         <figcaption class="p-4 text-sm font-semibold text-mustBlue">Laboratory</figcaption>
                     </figure>
