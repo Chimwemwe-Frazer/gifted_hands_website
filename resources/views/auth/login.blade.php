@@ -8,14 +8,14 @@
             {{ session('error') }}
         </div>
     @endif
-    <form method="POST" action="{{ route('login') }}">
+    <form id="login-form" method="POST" action="{{ route('login') }}">
         @csrf
 
         <!-- Email Address -->
         <div>
             <label class="label" for="email">Email</label>
             <input id="email" class="input" type="email" name="email" value="{{ old('email') }}"
-                required autofocus autocomplete="username" />
+                required autofocus autocomplete="email" />
             <ul class="text-sm text-red-600 dark:text-red-400 space-y-1">
                 @foreach ($errors->get('email') as $message)
                     <li>{{ $message }}</li>
