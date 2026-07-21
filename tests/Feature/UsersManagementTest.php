@@ -99,6 +99,39 @@ class UsersManagementTest extends TestCase
         Notification::assertSentTo($receptionist, UserCreatedPasswordNotification::class);
     }
 
+    public function test_a_receptionist_cannot_create_staff_even_with_direct_user_permissions(): void
+    {
+        foreach (['add user', 'list users'] as $permission) {
+            Permission::findOrCreate($permission);
+        }
+
+        $receptionistRole = Role::findOrCreate(User::ROLE_RECEPTIONIST);
+        $receptionist = User::factory()->create();
+        $receptionist->assignRole($receptionistRole);
+        $receptionist->givePermissionTo(['add user', 'list users']);
+
+        $this
+            ->actingAs($receptionist)
+            ->get(route('admin.users.index'))
+            ->assertOk()
+            ->assertDontSee('Add Receptionist');
+
+        $this
+            ->get(route('admin.users.create'))
+            ->assertForbidden();
+
+        $this
+            ->post(route('admin.users.store'), [
+                'name' => 'Unauthorised Staff',
+                'email' => 'unauthorised@example.com',
+            ])
+            ->assertForbidden();
+
+        $this->assertDatabaseMissing('users', [
+            'email' => 'unauthorised@example.com',
+        ]);
+    }
+
     public function test_an_administrator_can_add_and_remove_receptionist_privileges(): void
     {
         foreach (['add user permissions', 'list services'] as $permission) {

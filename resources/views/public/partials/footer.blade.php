@@ -1,4 +1,4 @@
-<footer class="bg-mustBlue text-white">
+<footer id="site-footer" class="bg-mustBlue text-white">
     <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-2 lg:grid-cols-[1.25fr_0.8fr_0.9fr_1.05fr]">
         <div>
             <a href="{{ route('home') }}" class="flex items-center gap-4">

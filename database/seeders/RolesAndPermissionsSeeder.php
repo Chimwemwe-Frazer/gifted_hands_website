@@ -79,12 +79,6 @@ class RolesAndPermissionsSeeder extends Seeder
                 $role->delete();
             });
 
-        $adminUser = User::where('email', 'promisemphoola2@gmail.com')->first();
-
-        if ($adminUser) {
-            $adminUser->syncRoles($administrator);
-        }
-
         User::with('roles')->get()->each(function (User $user) use ($administrator, $receptionist): void {
             if ($user->roles->contains('name', User::ROLE_ADMINISTRATOR)) {
                 $user->syncRoles($administrator);

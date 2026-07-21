@@ -22,7 +22,7 @@ class UsersController extends Controller implements HasMiddleware
     {
         return [
             new Middleware('permission:list users', only: ['index', 'show']),
-            new Middleware('permission:add user', only: ['create', 'store']),
+            new Middleware('role:'.User::ROLE_ADMINISTRATOR, only: ['create', 'store']),
             new Middleware('permission:update user', only: ['edit', 'update']),
             new Middleware('permission:suspend user', only: ['activate', 'deactivate']),
         ];
