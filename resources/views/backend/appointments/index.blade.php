@@ -20,7 +20,7 @@
         );
     @endphp
 
-    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div class="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between md:mb-0">
         <div>
             <h1 class="page-heading mb-1">Appointments</h1>
             <p class="text-sm leading-6 text-gray-600">Review new requests and track every appointment decision.</p>

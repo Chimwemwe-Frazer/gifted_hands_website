@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div class="mb-5 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between md:mb-0">
         <div>
             <h1 class="page-heading">Services</h1>
             <p class="mt-1 text-sm text-gray-600">Manage the services displayed on the public website.</p>

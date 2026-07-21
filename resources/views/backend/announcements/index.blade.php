@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div class="mb-5 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between md:mb-0">
         <h1 class="page-heading">Announcements</h1>
         @can('add announcement')
             <a href="{{ route('admin.announcements.create') }}" class="service-action-button service-action-button--primary self-start sm:self-auto">Add Announcement</a>
