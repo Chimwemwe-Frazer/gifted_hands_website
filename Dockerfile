@@ -24,6 +24,8 @@ WORKDIR /var/www/html
 
 COPY . .
 
+RUN docker-php-ext-install exif
+
 RUN composer install \
     --no-dev \
     --optimize-autoloader \
