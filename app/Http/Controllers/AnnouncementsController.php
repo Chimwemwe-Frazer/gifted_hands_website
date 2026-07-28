@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Announcement;
+use App\Services\UploadedImageStorage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class AnnouncementsController extends Controller implements HasMiddleware
 {
+    public function __construct(
+        private readonly UploadedImageStorage $images,
+    ) {}
+
     public static function middleware(): array
     {
         return [
@@ -46,7 +50,10 @@ class AnnouncementsController extends Controller implements HasMiddleware
         $data['published_at'] = now();
 
         if ($request->hasFile('image')) {
-            $data['image_path'] = $request->file('image')->store('announcements', 'public');
+            $data['image_path'] = $this->images->store(
+                $request->file('image'),
+                'announcements',
+            );
         }
 
         Announcement::create($data);
@@ -69,7 +76,10 @@ class AnnouncementsController extends Controller implements HasMiddleware
         $oldImagePath = $announcement->image_path;
 
         if ($request->hasFile('image')) {
-            $data['image_path'] = $request->file('image')->store('announcements', 'public');
+            $data['image_path'] = $this->images->store(
+                $request->file('image'),
+                'announcements',
+            );
         } elseif ($request->boolean('remove_image')) {
             $data['image_path'] = null;
         }
@@ -81,7 +91,7 @@ class AnnouncementsController extends Controller implements HasMiddleware
             && array_key_exists('image_path', $data)
             && $oldImagePath !== $data['image_path']
         ) {
-            Storage::disk('public')->delete($oldImagePath);
+            $this->images->delete($oldImagePath);
         }
 
         return redirect()
@@ -91,11 +101,9 @@ class AnnouncementsController extends Controller implements HasMiddleware
 
     public function destroy(Announcement $announcement): RedirectResponse
     {
-        if ($announcement->image_path) {
-            Storage::disk('public')->delete($announcement->image_path);
-        }
-
+        $imagePath = $announcement->image_path;
         $announcement->delete();
+        $this->images->delete($imagePath);
 
         return redirect()
             ->route('admin.announcements.index')

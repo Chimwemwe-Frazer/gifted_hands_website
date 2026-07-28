@@ -3,16 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Services\UploadedImageStorage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class ServicesController extends Controller implements HasMiddleware
 {
+    public function __construct(
+        private readonly UploadedImageStorage $images,
+    ) {}
+
     public static function middleware(): array
     {
         return [
@@ -43,7 +47,10 @@ class ServicesController extends Controller implements HasMiddleware
         unset($data['image'], $data['remove_image']);
 
         if ($request->hasFile('image')) {
-            $data['image_path'] = $request->file('image')->store('services', 'public');
+            $data['image_path'] = $this->images->store(
+                $request->file('image'),
+                'services',
+            );
         }
 
         Service::create($data);
@@ -71,7 +78,10 @@ class ServicesController extends Controller implements HasMiddleware
         $oldImagePath = $service->image_path;
 
         if ($request->hasFile('image')) {
-            $data['image_path'] = $request->file('image')->store('services', 'public');
+            $data['image_path'] = $this->images->store(
+                $request->file('image'),
+                'services',
+            );
         } elseif ($request->boolean('remove_image')) {
             $data['image_path'] = null;
         }
@@ -83,7 +93,7 @@ class ServicesController extends Controller implements HasMiddleware
             && array_key_exists('image_path', $data)
             && $oldImagePath !== $data['image_path']
         ) {
-            $this->deleteManagedImage($oldImagePath);
+            $this->images->delete($oldImagePath);
         }
 
         return redirect()->route('admin.services.index')->with('success', 'Service successfully updated');
@@ -97,7 +107,7 @@ class ServicesController extends Controller implements HasMiddleware
 
         $imagePath = $service->image_path;
         $service->delete();
-        $this->deleteManagedImage($imagePath);
+        $this->images->delete($imagePath);
 
         return redirect()->route('admin.services.index')->with('success', 'Service successfully deleted');
     }
@@ -136,12 +146,5 @@ class ServicesController extends Controller implements HasMiddleware
             preg_split('/\r\n|\r|\n/', trim($value)) ?: [],
             fn (string $item): bool => trim($item) !== ''
         ));
-    }
-
-    private function deleteManagedImage(?string $imagePath): void
-    {
-        if ($imagePath && ! str_starts_with($imagePath, 'imgs/')) {
-            Storage::disk('public')->delete($imagePath);
-        }
     }
 }

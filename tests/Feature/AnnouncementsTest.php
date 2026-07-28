@@ -33,6 +33,7 @@ class AnnouncementsTest extends TestCase
             '2026_07_17_000008_simplify_announcements.php',
             '2026_07_18_000009_add_frontend_details_to_services_table.php',
             '2026_07_18_000010_create_doctors_and_faqs_tables.php',
+            '2026_07_28_000014_create_uploaded_images_table.php',
         ] as $migrationFile) {
             $migration = require database_path('migrations/'.$migrationFile);
             $migration->up();
@@ -49,7 +50,7 @@ class AnnouncementsTest extends TestCase
             'published_at' => now(),
         ]);
 
-        $expectedImageUrl = route('public.media', ['path' => 'announcements/outreach.jpg']);
+        $expectedImageUrl = route('public.media', ['path' => 'announcements/outreach.jpg'], false);
 
         $this->get(route('announcements'))
             ->assertOk()
@@ -140,7 +141,27 @@ class AnnouncementsTest extends TestCase
         $this->assertNotNull($announcement->published_at);
         $this->assertSame($expectedCreationTime->toDateTimeString(), $announcement->published_at->toDateTimeString());
         $this->assertNotNull($announcement->image_path);
-        Storage::disk('public')->assertExists($announcement->image_path);
+
+        $imageUrl = route('public.media', ['path' => $announcement->image_path], false);
+
+        $this->assertDatabaseHas('uploaded_images', [
+            'path' => $announcement->image_path,
+            'mime_type' => 'image/jpeg',
+        ]);
+        Storage::disk('public')->assertMissing($announcement->image_path);
+
+        $this->get(route('announcements'))
+            ->assertOk()
+            ->assertSee($imageUrl, false);
+
+        $this->get(route('home'))
+            ->assertOk()
+            ->assertSee($imageUrl, false);
+
+        $this->get($imageUrl)
+            ->assertOk()
+            ->assertHeader('Content-Type', 'image/jpeg');
+
         $this->travelBack();
     }
 }

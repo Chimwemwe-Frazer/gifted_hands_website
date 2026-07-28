@@ -3,16 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Services\UploadedImageStorage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class DoctorsController extends Controller implements HasMiddleware
 {
+    public function __construct(
+        private readonly UploadedImageStorage $images,
+    ) {}
+
     public static function middleware(): array
     {
         return [
@@ -43,7 +47,10 @@ class DoctorsController extends Controller implements HasMiddleware
         unset($data['image'], $data['remove_image']);
 
         if ($request->hasFile('image')) {
-            $data['image_path'] = $request->file('image')->store('doctors', 'public');
+            $data['image_path'] = $this->images->store(
+                $request->file('image'),
+                'doctors',
+            );
         }
 
         Doctor::create($data);
@@ -66,7 +73,10 @@ class DoctorsController extends Controller implements HasMiddleware
         $oldImagePath = $doctor->image_path;
 
         if ($request->hasFile('image')) {
-            $data['image_path'] = $request->file('image')->store('doctors', 'public');
+            $data['image_path'] = $this->images->store(
+                $request->file('image'),
+                'doctors',
+            );
         } elseif ($request->boolean('remove_image')) {
             $data['image_path'] = null;
         }
@@ -78,7 +88,7 @@ class DoctorsController extends Controller implements HasMiddleware
             && array_key_exists('image_path', $data)
             && $oldImagePath !== $data['image_path']
         ) {
-            $this->deleteManagedImage($oldImagePath);
+            $this->images->delete($oldImagePath);
         }
 
         return redirect()
@@ -90,7 +100,7 @@ class DoctorsController extends Controller implements HasMiddleware
     {
         $imagePath = $doctor->image_path;
         $doctor->delete();
-        $this->deleteManagedImage($imagePath);
+        $this->images->delete($imagePath);
 
         return redirect()
             ->route('admin.doctors.index')
@@ -125,12 +135,5 @@ class DoctorsController extends Controller implements HasMiddleware
         ));
 
         return $data;
-    }
-
-    private function deleteManagedImage(?string $imagePath): void
-    {
-        if ($imagePath && ! str_starts_with($imagePath, 'imgs/')) {
-            Storage::disk('public')->delete($imagePath);
-        }
     }
 }

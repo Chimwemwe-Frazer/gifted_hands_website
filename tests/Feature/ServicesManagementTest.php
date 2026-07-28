@@ -34,6 +34,7 @@ class ServicesManagementTest extends TestCase
             '2026_07_17_000008_simplify_announcements.php',
             '2026_07_18_000009_add_frontend_details_to_services_table.php',
             '2026_07_18_000010_create_doctors_and_faqs_tables.php',
+            '2026_07_28_000014_create_uploaded_images_table.php',
         ] as $migrationFile) {
             $migration = require database_path('migrations/'.$migrationFile);
             $migration->up();
@@ -110,6 +111,7 @@ class ServicesManagementTest extends TestCase
 
         $imagePayload = $this->servicePayload([
             'image' => UploadedFile::fake()->image('nutrition.jpg', 900, 600),
+            'display_order' => 1,
         ]);
 
         $this
@@ -119,9 +121,26 @@ class ServicesManagementTest extends TestCase
         $service->refresh();
 
         $this->assertNotNull($service->image_path);
-        Storage::disk('public')->assertExists($service->image_path);
+        $this->assertDatabaseHas('uploaded_images', [
+            'path' => $service->image_path,
+            'mime_type' => 'image/jpeg',
+        ]);
+        Storage::disk('public')->assertMissing($service->image_path);
 
         $oldImagePath = $service->image_path;
+        $imageUrl = route('public.media', ['path' => $oldImagePath], false);
+
+        $this->get(route('services'))
+            ->assertOk()
+            ->assertSee($imageUrl, false);
+
+        $this->get(route('home'))
+            ->assertOk()
+            ->assertSee($imageUrl, false);
+
+        $this->get($imageUrl)
+            ->assertOk()
+            ->assertHeader('Content-Type', 'image/jpeg');
 
         $this
             ->put(route('admin.services.update', $service), $this->servicePayload([
@@ -132,6 +151,7 @@ class ServicesManagementTest extends TestCase
         $service->refresh();
 
         $this->assertNull($service->image_path);
+        $this->assertDatabaseMissing('uploaded_images', ['path' => $oldImagePath]);
         Storage::disk('public')->assertMissing($oldImagePath);
 
         $this

@@ -14,6 +14,6 @@ trait HasPublicImageUrl
 
         return str_starts_with($imagePath, 'imgs/')
             ? asset($imagePath)
-            : route('public.media', ['path' => $imagePath]);
+            : route('public.media', ['path' => $imagePath], false);
     }
 }

@@ -35,6 +35,7 @@ class DoctorsAndFaqsManagementTest extends TestCase
             '2026_07_18_000009_add_frontend_details_to_services_table.php',
             '2026_07_18_000010_create_doctors_and_faqs_tables.php',
             '2026_07_18_000011_add_doctor_and_faq_permissions.php',
+            '2026_07_28_000014_create_uploaded_images_table.php',
         ] as $migrationFile) {
             $migration = require database_path('migrations/'.$migrationFile);
             $migration->up();
@@ -83,9 +84,26 @@ class DoctorsAndFaqsManagementTest extends TestCase
 
         $doctor->refresh();
         $this->assertNotNull($doctor->image_path);
-        Storage::disk('public')->assertExists($doctor->image_path);
+        $this->assertDatabaseHas('uploaded_images', [
+            'path' => $doctor->image_path,
+            'mime_type' => 'image/jpeg',
+        ]);
+        Storage::disk('public')->assertMissing($doctor->image_path);
 
         $imagePath = $doctor->image_path;
+        $imageUrl = route('public.media', ['path' => $imagePath], false);
+
+        $this->get(route('doctors'))
+            ->assertOk()
+            ->assertSee($imageUrl, false);
+
+        $this->get(route('home'))
+            ->assertOk()
+            ->assertSee($imageUrl, false);
+
+        $this->get($imageUrl)
+            ->assertOk()
+            ->assertHeader('Content-Type', 'image/jpeg');
 
         $this
             ->actingAs($user)
@@ -93,6 +111,7 @@ class DoctorsAndFaqsManagementTest extends TestCase
             ->assertRedirect(route('admin.doctors.index'));
 
         $this->assertDatabaseMissing('doctors', ['id' => $doctor->id]);
+        $this->assertDatabaseMissing('uploaded_images', ['path' => $imagePath]);
         Storage::disk('public')->assertMissing($imagePath);
     }
 
