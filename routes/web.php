@@ -11,6 +11,7 @@ use App\Http\Controllers\PublicAnnouncementSubscriptionController;
 use App\Http\Controllers\PublicAppointmentController;
 use App\Http\Controllers\PublicDoctorsController;
 use App\Http\Controllers\PublicFaqsController;
+use App\Http\Controllers\PublicMediaController;
 use App\Http\Controllers\PublicServicesController;
 use App\Http\Controllers\PublicSiteController;
 use App\Http\Controllers\RolesAndPermissionsController;
@@ -28,6 +29,9 @@ Route::get('/announcements', PublicAnnouncementsController::class)->name('announ
 Route::view('/gallery', 'public.gallery')->name('gallery');
 Route::get('/faqs', PublicFaqsController::class)->name('faqs');
 Route::view('/contact-us', 'public.contact')->name('contact');
+Route::get('/media/{path}', PublicMediaController::class)
+    ->where('path', '.*')
+    ->name('public.media');
 Route::post('/appointments/request', PublicAppointmentController::class)
     ->middleware('throttle:5,1')
     ->name('appointments.request');

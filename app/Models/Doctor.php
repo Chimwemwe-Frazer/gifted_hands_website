@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasPublicImageUrl;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Doctor extends Model
 {
     use HasFactory;
+    use HasPublicImageUrl;
 
     protected $fillable = [
         'name',
@@ -44,12 +46,6 @@ class Doctor extends Model
 
     public function getImageUrlAttribute(): ?string
     {
-        if (! $this->image_path) {
-            return null;
-        }
-
-        return str_starts_with($this->image_path, 'imgs/')
-            ? asset($this->image_path)
-            : asset('storage/'.$this->image_path);
+        return $this->publicImageUrl($this->image_path);
     }
 }

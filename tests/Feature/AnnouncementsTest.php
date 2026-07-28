@@ -49,19 +49,21 @@ class AnnouncementsTest extends TestCase
             'published_at' => now(),
         ]);
 
+        $expectedImageUrl = route('public.media', ['path' => 'announcements/outreach.jpg']);
+
         $this->get(route('announcements'))
             ->assertOk()
             ->assertSee('Weekend Schedule Update')
             ->assertSee('New Outreach Programme')
             ->assertSee('Join our community health outreach programme this month.')
-            ->assertSee('storage/announcements/outreach.jpg', false)
+            ->assertSee($expectedImageUrl, false)
             ->assertSee('alt="New Outreach Programme"', false)
             ->assertSee('Posted Today');
 
         $this->get(route('home'))
             ->assertOk()
             ->assertSee('New Outreach Programme')
-            ->assertSee('storage/announcements/outreach.jpg', false);
+            ->assertSee($expectedImageUrl, false);
     }
 
     public function test_it_does_not_display_future_announcements_publicly(): void

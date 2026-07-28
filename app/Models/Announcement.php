@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasPublicImageUrl;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Announcement extends Model
 {
     use HasFactory;
+    use HasPublicImageUrl;
 
     protected $fillable = [
         'user_id',
@@ -41,9 +43,7 @@ class Announcement extends Model
 
     public function getImageUrlAttribute(): ?string
     {
-        return $this->image_path
-            ? asset('storage/'.$this->image_path)
-            : null;
+        return $this->publicImageUrl($this->image_path);
     }
 
     public function getPostedLabelAttribute(): string
