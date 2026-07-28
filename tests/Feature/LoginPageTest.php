@@ -13,9 +13,11 @@ class LoginPageTest extends TestCase
     {
         $response = $this->get(route('login'));
 
-        $response->assertOk();
+        $response
+            ->assertOk()
+            ->assertSee('<title>Login | Staff</title>', false);
 
-        $document = new DOMDocument();
+        $document = new DOMDocument;
         $previousErrorSetting = libxml_use_internal_errors(true);
         $document->loadHTML($response->getContent());
         libxml_clear_errors();

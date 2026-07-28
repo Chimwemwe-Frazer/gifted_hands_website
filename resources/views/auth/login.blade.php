@@ -1,7 +1,5 @@
 @extends('layouts.guest')
-@section('title')
-    Login
-@endsection
+@section('title', 'Login')
 @section('content')
     @if (session('error'))
         <div class="text-red-500">
