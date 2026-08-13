@@ -378,9 +378,11 @@
                                 id="appointment-preferred-at"
                                 type="datetime-local"
                                 name="preferred_at"
-                                class="input @error('preferred_at') input-invalid @enderror"
+                                class="input datetime-no-placeholder {{ old('preferred_at') ? 'has-value' : '' }} @error('preferred_at') input-invalid @enderror"
                                 value="{{ old('preferred_at') }}"
                                 min="{{ now()->format('Y-m-d\TH:i') }}"
+                                onchange="this.classList.toggle('has-value', this.value !== '')"
+                                oninput="this.classList.toggle('has-value', this.value !== '')"
                                 aria-describedby="appointment-preferred-at-help @error('preferred_at') appointment-preferred-at-error @enderror"
                                 @error('preferred_at') aria-invalid="true" @enderror
                             >
@@ -419,7 +421,6 @@
                                 name="request_message"
                                 rows="4"
                                 class="input @error('request_message') input-invalid @enderror"
-                                placeholder="Share anything that will help the clinic review your request."
                                 @error('request_message') aria-invalid="true" aria-describedby="appointment-request-message-error" @enderror
                             >{{ old('request_message') }}</textarea>
                             @error('request_message')

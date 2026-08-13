@@ -472,6 +472,10 @@
         @apply placeholder:text-gray-300 placeholder:italic block min-w-0 mt-1 w-full py-1 rounded-md border-gray-300 text-gray-600 shadow-sm focus:border-mustGreen focus:ring-mustGreen;
     }
 
+    .datetime-no-placeholder:not(:focus):not(.has-value)::-webkit-datetime-edit {
+        color: transparent;
+    }
+
     .input-invalid {
         @apply border-red-500 focus:border-red-500 focus:ring-red-500;
     }
