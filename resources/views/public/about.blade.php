@@ -58,15 +58,15 @@
                         {{ config('app.name', 'Gifted Hands Private Clinic') }} was established to provide accessible, respectful, and reliable private healthcare for patients and families in Lilongwe. The clinic exists to make everyday healthcare easier to reach, easier to understand, and more responsive to the needs of the community.
                     </p>
                     <p class="mt-4 leading-8 text-gray-600">
-                        Since opening, the clinic has focused on serving individuals, children, mothers, families, and workers who need timely medical attention, practical advice, and coordinated follow-up care. Exact founding details can be added here once confirmed.
+                        Since opening in 2019, the clinic has focused on serving individuals, children, mothers, families, and workers who need timely medical attention, practical advice, and coordinated follow-up care.
                     </p>
                 </div>
 
                 <div class="grid gap-4 sm:grid-cols-3 md:grid-cols-1 lg:grid-cols-3">
                     <div class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
                         <p class="text-sm font-semibold uppercase tracking-[.16em] text-mustGreen">Opened</p>
-                        <p class="mt-3 text-lg font-bold text-mustBlue">Add founding year</p>
-                        <p class="mt-2 text-sm leading-6 text-gray-600">Placeholder for the year the clinic officially opened.</p>
+                        <p class="mt-3 text-lg font-bold text-mustBlue">2019</p>
+                        <p class="mt-2 text-sm leading-6 text-gray-600">The year the clinic officially opened.</p>
                     </div>
                     <div class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
                         <p class="text-sm font-semibold uppercase tracking-[.16em] text-mustGreen">Purpose</p>
