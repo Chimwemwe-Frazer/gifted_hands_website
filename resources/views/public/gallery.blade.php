@@ -22,11 +22,22 @@
     </header>
 
     <main class="mx-auto max-w-7xl px-4 py-16">
+        @php
+            $galleryItems = [
+                ['caption' => 'Reception Area', 'image' => 'imgs/_MG_2080.jpg'],
+                ['caption' => 'Consultation Room', 'image' => 'imgs/consultation room.jpeg'],
+                ['caption' => 'Laboratory', 'image' => 'imgs/facilities/laboratory.png'],
+                ['caption' => 'Care Team', 'image' => 'imgs/Medical team home page.jpeg'],
+                ['caption' => 'Clinic Exterior', 'image' => 'imgs/Gifted-hands-ambulance.jpg'],
+                ['caption' => 'Treatment Area', 'image' => 'imgs/services/physiotherapy picture.jpeg'],
+            ];
+        @endphp
+
         <div class="grid gap-5 md:grid-cols-3">
-            @foreach (['Reception Area', 'Consultation Room', 'Laboratory', 'Care Team', 'Clinic Exterior', 'Treatment Area'] as $caption)
+            @foreach ($galleryItems as $item)
                 <figure data-gallery-item class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                    <img src="{{ asset('imgs/optimixed.jpg') }}" alt="{{ $caption }}" class="h-64 w-full object-cover">
-                    <figcaption class="p-4 text-sm font-semibold text-mustBlue">{{ $caption }}</figcaption>
+                    <img src="{{ asset($item['image']) }}" alt="{{ $item['caption'] }}" class="h-64 w-full object-cover">
+                    <figcaption class="p-4 text-sm font-semibold text-mustBlue">{{ $item['caption'] }}</figcaption>
                 </figure>
             @endforeach
         </div>
