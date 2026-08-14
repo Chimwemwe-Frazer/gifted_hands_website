@@ -35,6 +35,7 @@ class ServicesManagementTest extends TestCase
             '2026_07_18_000009_add_frontend_details_to_services_table.php',
             '2026_07_18_000010_create_doctors_and_faqs_tables.php',
             '2026_07_28_000014_create_uploaded_images_table.php',
+            '2026_08_14_000015_add_scanning_service.php',
         ] as $migrationFile) {
             $migration = require database_path('migrations/'.$migrationFile);
             $migration->up();
@@ -52,7 +53,7 @@ class ServicesManagementTest extends TestCase
             'appointment_details' => 'Appointments are preferred.',
             'duration_minutes' => 45,
             'fee' => 15000,
-            'display_order' => 6,
+            'display_order' => 7,
             'status' => 'Active',
         ]);
 
@@ -72,14 +73,17 @@ class ServicesManagementTest extends TestCase
         $this->get(route('services'))
             ->assertOk()
             ->assertSee('Nutrition Therapy')
+            ->assertSee('Scanning')
+            ->assertSee('imgs/services/_MG_2068.jpg', false)
             ->assertSee('Nutrition assessment')
             ->assertSee('No Image Uploaded')
             ->assertDontSee('Hidden Internal Service');
 
         $this->get(route('home'))
             ->assertOk()
-            ->assertViewHas('featuredServices', fn ($services) => $services->count() === 5)
-            ->assertViewHas('services', fn ($services) => $services->count() === 6)
+            ->assertViewHas('featuredServices', fn ($services) => $services->count() === 6)
+            ->assertViewHas('services', fn ($services) => $services->count() === 7)
+            ->assertSee('Scanning')
             ->assertSee('Nutrition Therapy')
             ->assertDontSee('Personalized nutrition support for patients and families.')
             ->assertDontSee('Hidden Internal Service');
@@ -172,7 +176,7 @@ class ServicesManagementTest extends TestCase
             'appointment_details' => 'Appointments are preferred so enough consultation time can be reserved.',
             'duration_minutes' => 45,
             'fee' => 15000,
-            'display_order' => 6,
+            'display_order' => 7,
             'status' => 'Active',
         ], $overrides);
     }

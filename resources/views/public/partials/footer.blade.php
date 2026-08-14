@@ -32,6 +32,7 @@
                 <a href="{{ route('services') }}" class="hover:text-white">Under-5 Clinic</a>
                 <a href="{{ route('services') }}" class="hover:text-white">Physiotherapy</a>
                 <a href="{{ route('services') }}" class="hover:text-white">Laboratory Services</a>
+                <a href="{{ route('services') }}" class="hover:text-white">Scanning</a>
             </nav>
         </div>
 

@@ -18,7 +18,7 @@ class PublicSiteController extends Controller
 
         return view('public.home', [
             'services' => $services,
-            'featuredServices' => $services->take(5),
+            'featuredServices' => $services->take(6),
             'doctors' => Doctor::active()
                 ->displayOrder()
                 ->take(3)
