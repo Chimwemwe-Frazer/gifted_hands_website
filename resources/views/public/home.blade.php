@@ -15,7 +15,7 @@
 <body class="home-page bg-white text-gray-800">
     @php
         $heroSlides = [
-            ['image' => 'imgs/hero section image.png'],
+            ['image' => 'imgs/Medical team home page.jpeg'],
         ];
 
         if (file_exists(public_path('imgs/stethoscope.jpg'))) {
@@ -502,16 +502,16 @@
 
                 <div class="mt-8 grid gap-4 md:grid-cols-3">
                     <figure data-gallery-item class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                        <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic reception area" class="h-48 w-full object-cover">
+                        <img src="{{ asset('imgs/_MG_2080.jpg') }}" alt="Clinic reception area" class="h-48 w-full object-cover">
                         <figcaption class="p-4 text-sm font-semibold text-mustBlue">Reception Area</figcaption>
                     </figure>
                     <figure data-gallery-item class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                        <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic consultation room" class="h-48 w-full object-cover">
+                        <img src="{{ asset('imgs/consultation room.jpeg') }}" alt="Clinic consultation room" class="h-48 w-full object-cover">
                         <figcaption class="p-4 text-sm font-semibold text-mustBlue">Consultation Room</figcaption>
                     </figure>
                     <figure data-gallery-item class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                        <img src="{{ asset('imgs/optimixed.jpg') }}" alt="Clinic laboratory services" class="h-48 w-full object-cover">
-                        <figcaption class="p-4 text-sm font-semibold text-mustBlue">Laboratory</figcaption>
+                        <img src="{{ asset('imgs/services/physiotherapy picture.jpeg') }}" alt="Clinic physiotherapy space" class="h-48 w-full object-cover">
+                        <figcaption class="p-4 text-sm font-semibold text-mustBlue">Physiotherapy</figcaption>
                     </figure>
                 </div>
             </div>

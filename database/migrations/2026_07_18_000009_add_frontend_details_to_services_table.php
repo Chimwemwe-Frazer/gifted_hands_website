@@ -52,7 +52,7 @@ return new class extends Migration
             [
                 'name' => 'Physiotherapy',
                 'description' => 'Rehabilitation support to improve mobility, reduce pain, restore function, and guide recovery after injury or illness.',
-                'image_path' => 'imgs/services/physiotherapy.png',
+                'image_path' => 'imgs/services/physiotherapy picture.jpeg',
                 'included_items' => ['Movement and functional assessment', 'Personalized exercise guidance', 'Pain and mobility support', 'Recovery planning and progress reviews'],
                 'needs_treated' => 'Back pain, joint pain, muscle strain, post-injury recovery, mobility limitations, weakness, and rehabilitation after medical events',
                 'items_to_bring' => ['Referral notes if available', 'Previous scans or reports', 'Comfortable clothing for movement assessment'],
