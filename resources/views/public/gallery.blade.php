@@ -29,10 +29,10 @@
                 ['caption' => 'Laboratory', 'image' => 'imgs/services/_MG_2134.jpg'],
                 ['caption' => 'Pharmacy', 'image' => 'imgs/_MG_2125_2.jpg'],
                 ['caption' => 'Care Team', 'image' => 'imgs/Medical team home page.jpeg'],
-                ['caption' => 'Care Team One', 'image' => 'imgs/medical team one.jpeg'],
-                ['caption' => 'Care Team Two', 'image' => 'imgs/medical team two.jpeg'],
-                ['caption' => 'Care Team Three', 'image' => 'imgs/medical team three.jpeg'],
-                ['caption' => 'Care Team Four', 'image' => 'imgs/medical team four.jpeg'],
+                ['caption' => 'Care Team', 'image' => 'imgs/medical team one.jpeg'],
+                ['caption' => 'Care Team', 'image' => 'imgs/medical team two.jpeg'],
+                ['caption' => 'Care Team', 'image' => 'imgs/medical team three.jpeg'],
+                ['caption' => 'Care Team', 'image' => 'imgs/medical team four.jpeg'],
             ];
         @endphp
 
