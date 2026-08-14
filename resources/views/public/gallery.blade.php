@@ -27,12 +27,12 @@
                 ['caption' => 'Reception Area', 'image' => 'imgs/_MG_2080.jpg'],
                 ['caption' => 'Consultation Room', 'image' => 'imgs/consultation room.jpeg'],
                 ['caption' => 'Laboratory', 'image' => 'imgs/services/_MG_2134.jpg'],
+                ['caption' => 'Pharmacy', 'image' => 'imgs/_MG_2125_2.jpg'],
                 ['caption' => 'Care Team', 'image' => 'imgs/Medical team home page.jpeg'],
-                ['caption' => 'Medical Team One', 'image' => 'imgs/medical team one.jpeg'],
-                ['caption' => 'Medical Team Two', 'image' => 'imgs/medical team two.jpeg'],
-                ['caption' => 'Medical Team Three', 'image' => 'imgs/medical team three.jpeg'],
-                ['caption' => 'Medical Team Four', 'image' => 'imgs/medical team four.jpeg'],
-                ['caption' => 'Treatment Area', 'image' => 'imgs/services/physiotherapy picture.jpeg'],
+                ['caption' => 'Care Team One', 'image' => 'imgs/medical team one.jpeg'],
+                ['caption' => 'Care Team Two', 'image' => 'imgs/medical team two.jpeg'],
+                ['caption' => 'Care Team Three', 'image' => 'imgs/medical team three.jpeg'],
+                ['caption' => 'Care Team Four', 'image' => 'imgs/medical team four.jpeg'],
             ];
         @endphp
 

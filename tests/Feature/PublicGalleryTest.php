@@ -51,6 +51,12 @@ class PublicGalleryTest extends TestCase
         $this->assertSame(9, substr_count($galleryPage->getContent(), 'data-gallery-item'));
         $galleryPage
             ->assertSee('Clinic moments gallery')
+            ->assertSee('Pharmacy')
+            ->assertSee('imgs/_MG_2125_2.jpg', false)
+            ->assertSee('Care Team One')
+            ->assertSee('Care Team Two')
+            ->assertSee('Care Team Three')
+            ->assertSee('Care Team Four')
             ->assertSee('imgs/medical team one.jpeg', false)
             ->assertSee('imgs/_MG_2080.jpg', false)
             ->assertSee('imgs/consultation room.jpeg', false)
@@ -59,7 +65,12 @@ class PublicGalleryTest extends TestCase
             ->assertSee('imgs/medical team two.jpeg', false)
             ->assertSee('imgs/medical team three.jpeg', false)
             ->assertSee('imgs/medical team four.jpeg', false)
-            ->assertSee('imgs/services/physiotherapy picture.jpeg', false)
+            ->assertDontSee('Medical Team One')
+            ->assertDontSee('Medical Team Two')
+            ->assertDontSee('Medical Team Three')
+            ->assertDontSee('Medical Team Four')
+            ->assertDontSee('Treatment Area')
+            ->assertDontSee('imgs/services/physiotherapy picture.jpeg', false)
             ->assertDontSee('Clinic Exterior');
     }
 }
