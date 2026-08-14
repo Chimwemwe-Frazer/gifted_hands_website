@@ -22,7 +22,7 @@ return new class extends Migration
             [
                 'name' => 'General Consultation',
                 'description' => 'Comprehensive medical assessment for everyday illness, new symptoms, ongoing concerns, and follow-up care.',
-                'image_path' => 'imgs/services/general-consultation.png',
+                'image_path' => 'imgs/services/_MG_2064.jpg',
                 'included_items' => ['Clinical history and examination', 'Diagnosis and treatment plan', 'Prescriptions where appropriate', 'Referral guidance when specialist care is needed'],
                 'needs_treated' => 'Fever, cough, headache, stomach pain, infections, fatigue, minor injuries, blood pressure concerns, and general wellness checks',
                 'items_to_bring' => ['National ID or clinic card if available', 'Current medicines or prescriptions', 'Previous test results or referral notes'],
