@@ -48,12 +48,17 @@ class PublicGalleryTest extends TestCase
         $galleryPage = $this->get(route('gallery'));
 
         $galleryPage->assertOk();
-        $this->assertSame(5, substr_count($galleryPage->getContent(), 'data-gallery-item'));
+        $this->assertSame(9, substr_count($galleryPage->getContent(), 'data-gallery-item'));
         $galleryPage
+            ->assertSee('Clinic moments gallery')
+            ->assertSee('imgs/medical team one.jpeg', false)
             ->assertSee('imgs/_MG_2080.jpg', false)
             ->assertSee('imgs/consultation room.jpeg', false)
             ->assertSee('imgs/services/_MG_2134.jpg', false)
             ->assertSee('imgs/Medical team home page.jpeg', false)
+            ->assertSee('imgs/medical team two.jpeg', false)
+            ->assertSee('imgs/medical team three.jpeg', false)
+            ->assertSee('imgs/medical team four.jpeg', false)
             ->assertSee('imgs/services/physiotherapy picture.jpeg', false)
             ->assertDontSee('Clinic Exterior');
     }
