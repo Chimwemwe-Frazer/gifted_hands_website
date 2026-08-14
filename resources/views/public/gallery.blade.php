@@ -26,9 +26,8 @@
             $galleryItems = [
                 ['caption' => 'Reception Area', 'image' => 'imgs/_MG_2080.jpg'],
                 ['caption' => 'Consultation Room', 'image' => 'imgs/consultation room.jpeg'],
-                ['caption' => 'Laboratory', 'image' => 'imgs/facilities/laboratory.png'],
+                ['caption' => 'Laboratory', 'image' => 'imgs/services/_MG_2134.jpg'],
                 ['caption' => 'Care Team', 'image' => 'imgs/Medical team home page.jpeg'],
-                ['caption' => 'Clinic Exterior', 'image' => 'imgs/Gifted-hands-ambulance.jpg'],
                 ['caption' => 'Treatment Area', 'image' => 'imgs/services/physiotherapy picture.jpeg'],
             ];
         @endphp

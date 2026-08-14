@@ -62,7 +62,7 @@ return new class extends Migration
             [
                 'name' => 'Laboratory Services',
                 'description' => 'Diagnostic testing support for accurate assessment, treatment decisions, and follow-up care.',
-                'image_path' => 'imgs/services/laboratory-services.png',
+                'image_path' => 'imgs/services/_MG_2134.jpg',
                 'included_items' => ['Sample collection and handling', 'Common tests such as malaria screening, pregnancy testing, urinalysis, blood sugar checks, and other requested tests where available', 'Results support for clinical decision-making', 'Guidance on when results may be ready'],
                 'needs_treated' => 'Routine tests, infection checks, pregnancy-related tests, follow-up monitoring, and tests requested during consultation',
                 'items_to_bring' => ['Test request form if referred', 'Clinic notes or doctor request', 'Any preparation instructions already given, such as fasting guidance'],

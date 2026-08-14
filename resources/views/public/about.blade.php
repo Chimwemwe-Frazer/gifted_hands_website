@@ -150,7 +150,7 @@
                 <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
                     @foreach ([
                         ['Consultation Rooms', 'Private spaces for assessment, diagnosis, counselling, and follow-up care.', 'imgs/facilities/consultation-room.png'],
-                        ['Laboratory', 'A dedicated area for diagnostic testing and sample handling.', 'imgs/facilities/laboratory.png'],
+                        ['Laboratory', 'A dedicated area for diagnostic testing and sample handling.', 'imgs/services/_MG_2134.jpg'],
                         ['Under-5 Area', 'Child-focused care space for growth monitoring, wellness checks, and immunization support.', 'imgs/facilities/under-5-area.png'],
                         ['Physiotherapy Space', 'Room for rehabilitation, mobility support, and guided recovery sessions.', 'imgs/facilities/physiotherapy-space.png'],
                     ] as [$title, $description, $image])
