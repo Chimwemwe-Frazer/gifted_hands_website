@@ -261,7 +261,7 @@
                             <div class="p-5">
                                 <h3 class="text-lg font-bold text-mustBlue">{{ $doctor->name }}</h3>
                                 <p class="mt-1 text-sm font-semibold text-mustGreen">{{ $doctor->specialization }}</p>
-                                <p class="mt-3 whitespace-pre-line text-sm leading-6 text-gray-600">{{ $doctor->qualification }}</p>
+                                <p class="mt-3 text-sm leading-6 text-gray-600"><strong class="text-mustBlue">Languages:</strong> {{ implode(', ', $doctor->languages ?? []) }}</p>
                             </div>
                         </article>
                     @empty

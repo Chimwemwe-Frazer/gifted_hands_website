@@ -45,11 +45,7 @@
                     <div class="p-6">
                         <h2 class="text-xl font-bold text-mustBlue">{{ $doctor->name }}</h2>
                         <p class="mt-1 text-sm font-semibold text-mustGreen">{{ $doctor->specialization }}</p>
-                        <p class="mt-3 whitespace-pre-line text-sm leading-7 text-gray-600">{{ $doctor->qualification }}</p>
-                        <p class="mt-3 whitespace-pre-line text-sm leading-7 text-gray-600">{{ $doctor->bio }}</p>
-
-                        <div class="mt-5 grid gap-4 border-t border-gray-200 pt-5 text-sm leading-6 text-gray-600">
-                            <p><strong class="text-mustBlue">Experience:</strong> {{ $doctor->experience }}</p>
+                        <div class="mt-4 border-t border-gray-200 pt-4 text-sm leading-6 text-gray-600">
                             <p><strong class="text-mustBlue">Languages:</strong> {{ implode(', ', $doctor->languages ?? []) }}</p>
                         </div>
                     </div>

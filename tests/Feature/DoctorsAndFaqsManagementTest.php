@@ -36,6 +36,7 @@ class DoctorsAndFaqsManagementTest extends TestCase
             '2026_07_18_000010_create_doctors_and_faqs_tables.php',
             '2026_07_18_000011_add_doctor_and_faq_permissions.php',
             '2026_07_28_000014_create_uploaded_images_table.php',
+            '2026_08_15_000020_replace_obstetrics_doctor_with_allan_faiti.php',
         ] as $migrationFile) {
             $migration = require database_path('migrations/'.$migrationFile);
             $migration->up();
@@ -66,13 +67,20 @@ class DoctorsAndFaqsManagementTest extends TestCase
             ->assertOk()
             ->assertViewHas('doctors', fn ($doctors) => $doctors->count() === 4)
             ->assertSee('Dr. Alice Tembo')
+            ->assertSee('Dr Allan Faiti')
+            ->assertSee('Clinical Associate Obstetrics and Gynaecology')
             ->assertSee('Dr. Daniel Kamanga')
+            ->assertSee('Languages:')
+            ->assertDontSee('MBBS, MMED Obstetrics &amp; Gynaecology', false)
+            ->assertDontSee('Dr. Phiri supports women')
             ->assertSee('No Image Uploaded');
 
         $this->get(route('home'))
             ->assertOk()
             ->assertViewHas('doctors', fn ($doctors) => $doctors->count() === 3)
             ->assertSee('Dr. Alice Tembo')
+            ->assertSee('Languages:')
+            ->assertDontSee('MBBS, Diploma in Family Medicine')
             ->assertDontSee('Dr. Daniel Kamanga');
 
         $this
