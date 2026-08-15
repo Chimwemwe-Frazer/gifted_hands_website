@@ -38,6 +38,7 @@ class DoctorsAndFaqsManagementTest extends TestCase
             '2026_07_28_000014_create_uploaded_images_table.php',
             '2026_08_15_000020_replace_obstetrics_doctor_with_allan_faiti.php',
             '2026_08_15_000021_update_allan_faiti_image.php',
+            '2026_08_15_000022_move_allan_faiti_to_first_doctor.php',
         ] as $migrationFile) {
             $migration = require database_path('migrations/'.$migrationFile);
             $migration->up();
@@ -63,10 +64,23 @@ class DoctorsAndFaqsManagementTest extends TestCase
 
         $this->assertNull($doctor->image_path);
         $this->assertSame(['English', 'Chichewa'], $doctor->languages);
+        $this->assertSame('Family Medicine', $doctor->qualification);
+        $this->assertSame('Not displayed publicly', $doctor->experience);
+        $this->assertSame('Family Medicine', $doctor->bio);
+
+        $this->get(route('admin.doctors.create'))
+            ->assertOk()
+            ->assertSee('Doctor name')
+            ->assertSee('Role')
+            ->assertSee('Languages')
+            ->assertDontSee('Qualification')
+            ->assertDontSee('Experience')
+            ->assertDontSee('Biography');
 
         $this->get(route('doctors'))
             ->assertOk()
             ->assertViewHas('doctors', fn ($doctors) => $doctors->count() === 4)
+            ->assertViewHas('doctors', fn ($doctors) => $doctors->first()->name === 'Dr Allan Faiti')
             ->assertSee('Dr. Alice Tembo')
             ->assertSee('Dr Allan Faiti')
             ->assertSee('Clinical Associate Obstetrics and Gynaecology')
@@ -81,6 +95,7 @@ class DoctorsAndFaqsManagementTest extends TestCase
         $this->get(route('home'))
             ->assertOk()
             ->assertViewHas('doctors', fn ($doctors) => $doctors->count() === 3)
+            ->assertViewHas('doctors', fn ($doctors) => $doctors->first()->name === 'Dr Allan Faiti')
             ->assertSee('Dr. Alice Tembo')
             ->assertSee('Languages:')
             ->assertDontSee('MBBS, Diploma in Family Medicine')
@@ -253,9 +268,6 @@ class DoctorsAndFaqsManagementTest extends TestCase
         return array_merge([
             'name' => 'Dr. Alice Tembo',
             'specialization' => 'Family Medicine',
-            'qualification' => 'MBBS, Diploma in Family Medicine',
-            'experience' => '8 years',
-            'bio' => 'Dr. Tembo provides family-focused consultations and ongoing care.',
             'languages' => "English\nChichewa",
             'status' => 'Active',
             'display_order' => 1,

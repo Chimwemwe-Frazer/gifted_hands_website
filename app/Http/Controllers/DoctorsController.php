@@ -45,6 +45,7 @@ class DoctorsController extends Controller implements HasMiddleware
     {
         $data = $this->validatedData($request);
         unset($data['image'], $data['remove_image']);
+        $this->fillHiddenProfileDetails($data);
 
         if ($request->hasFile('image')) {
             $data['image_path'] = $this->images->store(
@@ -69,6 +70,7 @@ class DoctorsController extends Controller implements HasMiddleware
     {
         $data = $this->validatedData($request, $doctor);
         unset($data['image'], $data['remove_image']);
+        $this->fillHiddenProfileDetails($data);
 
         $oldImagePath = $doctor->image_path;
 
@@ -117,9 +119,6 @@ class DoctorsController extends Controller implements HasMiddleware
                 Rule::unique('doctors', 'name')->ignore($doctor),
             ],
             'specialization' => ['required', 'string', 'max:255'],
-            'qualification' => ['required', 'string', 'max:2000'],
-            'experience' => ['required', 'string', 'max:255'],
-            'bio' => ['required', 'string', 'max:5000'],
             'languages' => ['required', 'string', 'max:2000'],
             'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
             'remove_image' => ['nullable', 'boolean'],
@@ -135,5 +134,12 @@ class DoctorsController extends Controller implements HasMiddleware
         ));
 
         return $data;
+    }
+
+    private function fillHiddenProfileDetails(array &$data): void
+    {
+        $data['qualification'] = $data['specialization'];
+        $data['experience'] = 'Not displayed publicly';
+        $data['bio'] = $data['specialization'];
     }
 }

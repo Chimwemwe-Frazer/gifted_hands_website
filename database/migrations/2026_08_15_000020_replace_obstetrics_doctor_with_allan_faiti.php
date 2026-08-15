@@ -16,7 +16,7 @@ return new class extends Migration
             'languages' => json_encode(['English', 'Chichewa'], JSON_THROW_ON_ERROR),
             'image_path' => 'imgs/doctors/Allan Faiti.jpg',
             'status' => 'Active',
-            'display_order' => 2,
+            'display_order' => 1,
             'updated_at' => now(),
         ];
 

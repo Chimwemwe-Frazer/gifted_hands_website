@@ -37,7 +37,7 @@
                         </span>
                     </div>
 
-                    <p class="mt-3 text-sm leading-6 text-gray-600">{{ Str::limit($doctor->qualification, 100) }}</p>
+                    <p class="mt-3 text-sm leading-6 text-gray-600"><strong class="text-mustBlue">Languages:</strong> {{ implode(', ', $doctor->languages ?? []) }}</p>
                     <p class="mt-2 text-xs text-gray-500">Display order: {{ $doctor->display_order }}</p>
 
                     <div class="mt-4 flex flex-wrap justify-end gap-3 border-t border-gray-100 pt-4">

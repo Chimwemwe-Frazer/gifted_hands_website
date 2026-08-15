@@ -33,27 +33,9 @@
                 </div>
 
                 <div class="space-y-2">
-                    <label class="label">Specialization <span class="text-red-500">*</span></label>
-                    <input name="specialization" class="input" required maxlength="255" value="{{ old('specialization', $doctor->specialization ?? '') }}" placeholder="For example: General Practitioner">
+                    <label class="label">Role <span class="text-red-500">*</span></label>
+                    <input name="specialization" class="input" required maxlength="255" value="{{ old('specialization', $doctor->specialization ?? '') }}" placeholder="For example: Clinical Associate Obstetrics and Gynaecology">
                     <span class="text-sm text-red-500">{{ $errors->first('specialization') }}</span>
-                </div>
-
-                <div class="space-y-2">
-                    <label class="label">Qualification <span class="text-red-500">*</span></label>
-                    <textarea name="qualification" rows="4" class="input" required maxlength="2000" placeholder="Degrees, diplomas, and professional qualifications.">{{ old('qualification', $doctor->qualification ?? '') }}</textarea>
-                    <span class="text-sm text-red-500">{{ $errors->first('qualification') }}</span>
-                </div>
-
-                <div class="space-y-2">
-                    <label class="label">Experience <span class="text-red-500">*</span></label>
-                    <input name="experience" class="input" required maxlength="255" value="{{ old('experience', $doctor->experience ?? '') }}" placeholder="For example: 10 years">
-                    <span class="text-sm text-red-500">{{ $errors->first('experience') }}</span>
-                </div>
-
-                <div class="space-y-2 md:col-span-2">
-                    <label class="label">Biography <span class="text-red-500">*</span></label>
-                    <textarea name="bio" rows="5" class="input" required maxlength="5000" placeholder="Describe the clinician’s role, care focus, and patient support.">{{ old('bio', $doctor->bio ?? '') }}</textarea>
-                    <span class="text-sm text-red-500">{{ $errors->first('bio') }}</span>
                 </div>
 
                 <div class="space-y-2">
@@ -66,7 +48,7 @@
                 <div class="space-y-2">
                     <label class="label">Optional profile image</label>
                     <input type="file" name="image" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" class="input">
-                    <p class="text-xs text-gray-500">JPG, PNG, or WebP up to 5 MB. Without an image, the profile displays “No Image Uploaded”.</p>
+                    <p class="text-xs text-gray-500">JPG, PNG, or WebP up to 5 MB. Without an image, the profile displays "No Image Uploaded".</p>
                     <span class="text-sm text-red-500">{{ $errors->first('image') }}</span>
                 </div>
 
