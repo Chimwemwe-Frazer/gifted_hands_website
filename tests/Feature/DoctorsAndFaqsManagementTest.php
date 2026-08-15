@@ -39,6 +39,7 @@ class DoctorsAndFaqsManagementTest extends TestCase
             '2026_08_15_000020_replace_obstetrics_doctor_with_allan_faiti.php',
             '2026_08_15_000021_update_allan_faiti_image.php',
             '2026_08_15_000022_move_allan_faiti_to_first_doctor.php',
+            '2026_08_15_000023_add_mcdonald_kuleti_doctor_profile.php',
         ] as $migrationFile) {
             $migration = require database_path('migrations/'.$migrationFile);
             $migration->up();
@@ -79,12 +80,15 @@ class DoctorsAndFaqsManagementTest extends TestCase
 
         $this->get(route('doctors'))
             ->assertOk()
-            ->assertViewHas('doctors', fn ($doctors) => $doctors->count() === 4)
+            ->assertViewHas('doctors', fn ($doctors) => $doctors->count() === 5)
             ->assertViewHas('doctors', fn ($doctors) => $doctors->first()->name === 'Dr Allan Faiti')
             ->assertSee('Dr. Alice Tembo')
             ->assertSee('Dr Allan Faiti')
             ->assertSee('Clinical Associate Obstetrics and Gynaecology')
-            ->assertSee('imgs/doctors/Allan Faiti.jpg', false)
+            ->assertSee('imgs/doctors/allan-faiti.jpg', false)
+            ->assertSee('McDonald Kuleti')
+            ->assertSee('Lab Manager')
+            ->assertSee('imgs/doctors/mcdonald-kuleti.jpg', false)
             ->assertDontSee('imgs/doctors/thoko-phiri.png', false)
             ->assertSee('Dr. Daniel Kamanga')
             ->assertSee('Languages:')
@@ -97,6 +101,7 @@ class DoctorsAndFaqsManagementTest extends TestCase
             ->assertViewHas('doctors', fn ($doctors) => $doctors->count() === 3)
             ->assertViewHas('doctors', fn ($doctors) => $doctors->first()->name === 'Dr Allan Faiti')
             ->assertSee('Dr. Alice Tembo')
+            ->assertSee('McDonald Kuleti')
             ->assertSee('Languages:')
             ->assertDontSee('MBBS, Diploma in Family Medicine')
             ->assertDontSee('Dr. Daniel Kamanga');
