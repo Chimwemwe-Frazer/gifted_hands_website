@@ -21,7 +21,7 @@ return new class extends Migration
             ->where('name', 'Obstetrics & Gynaecology')
             ->where('image_path', 'imgs/services/obstetrics&gynaecology.jpg')
             ->update([
-                'image_path' => 'imgs/services/obstetrics-gynaecology.png',
+                'image_path' => null,
                 'updated_at' => now(),
             ]);
     }

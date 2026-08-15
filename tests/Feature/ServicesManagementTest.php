@@ -82,6 +82,7 @@ class ServicesManagementTest extends TestCase
             ->assertSee('imgs/services/_MG_2068.jpg', false)
             ->assertSee('imgs/services/_MG_2134.jpg', false)
             ->assertSee('imgs/services/obstetrics&amp;gynaecology.jpg', false)
+            ->assertDontSee('imgs/services/obstetrics-gynaecology.png', false)
             ->assertSee('imgs/services/physiotherapy picture.jpeg', false)
             ->assertSee('Nutrition assessment')
             ->assertSee('No Image Uploaded')
