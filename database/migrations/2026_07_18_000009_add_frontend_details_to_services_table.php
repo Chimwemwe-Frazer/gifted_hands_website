@@ -32,7 +32,7 @@ return new class extends Migration
             [
                 'name' => 'Obstetrics & Gynaecology',
                 'description' => 'Respectful women\'s health support, maternity care, reproductive health guidance, and routine gynaecological reviews.',
-                'image_path' => 'imgs/services/obstetrics-gynaecology.png',
+                'image_path' => 'imgs/services/obstetrics&gynaecology.jpg',
                 'included_items' => ['Antenatal care and pregnancy reviews', 'Family planning counselling', 'Reproductive health consultations', 'Routine gynaecological assessment and follow-up'],
                 'needs_treated' => 'Pregnancy care, menstrual concerns, pelvic discomfort, fertility questions, contraception needs, postnatal reviews, and women\'s wellness checks',
                 'items_to_bring' => ['Health passport or antenatal records', 'Previous scan or laboratory results', 'Current medicines and any referral notes'],

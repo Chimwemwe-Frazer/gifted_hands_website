@@ -39,6 +39,7 @@ class ServicesManagementTest extends TestCase
             '2026_08_14_000016_update_general_consultation_image.php',
             '2026_08_14_000017_update_physiotherapy_image.php',
             '2026_08_14_000018_update_laboratory_image.php',
+            '2026_08_15_000019_update_obstetrics_gynaecology_image.php',
         ] as $migrationFile) {
             $migration = require database_path('migrations/'.$migrationFile);
             $migration->up();
@@ -80,6 +81,7 @@ class ServicesManagementTest extends TestCase
             ->assertSee('imgs/services/_MG_2064.jpg', false)
             ->assertSee('imgs/services/_MG_2068.jpg', false)
             ->assertSee('imgs/services/_MG_2134.jpg', false)
+            ->assertSee('imgs/services/obstetrics&amp;gynaecology.jpg', false)
             ->assertSee('imgs/services/physiotherapy picture.jpeg', false)
             ->assertSee('Nutrition assessment')
             ->assertSee('No Image Uploaded')
