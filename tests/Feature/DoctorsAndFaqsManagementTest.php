@@ -37,6 +37,7 @@ class DoctorsAndFaqsManagementTest extends TestCase
             '2026_07_18_000011_add_doctor_and_faq_permissions.php',
             '2026_07_28_000014_create_uploaded_images_table.php',
             '2026_08_15_000020_replace_obstetrics_doctor_with_allan_faiti.php',
+            '2026_08_15_000021_update_allan_faiti_image.php',
         ] as $migrationFile) {
             $migration = require database_path('migrations/'.$migrationFile);
             $migration->up();
@@ -69,6 +70,8 @@ class DoctorsAndFaqsManagementTest extends TestCase
             ->assertSee('Dr. Alice Tembo')
             ->assertSee('Dr Allan Faiti')
             ->assertSee('Clinical Associate Obstetrics and Gynaecology')
+            ->assertSee('imgs/doctors/Allan Faiti.jpg', false)
+            ->assertDontSee('imgs/doctors/thoko-phiri.png', false)
             ->assertSee('Dr. Daniel Kamanga')
             ->assertSee('Languages:')
             ->assertDontSee('MBBS, MMED Obstetrics &amp; Gynaecology', false)

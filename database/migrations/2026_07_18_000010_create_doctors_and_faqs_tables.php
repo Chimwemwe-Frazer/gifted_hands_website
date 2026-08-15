@@ -57,7 +57,7 @@ return new class extends Migration
                 'experience' => 'Years of experience: To be confirmed',
                 'bio' => 'Clinical Associate Obstetrics and Gynaecology.',
                 'languages' => json_encode(['English', 'Chichewa'], JSON_THROW_ON_ERROR),
-                'image_path' => 'imgs/doctors/thoko-phiri.png',
+                'image_path' => 'imgs/doctors/Allan Faiti.jpg',
                 'status' => 'Active',
                 'display_order' => 2,
                 'created_at' => $now,
