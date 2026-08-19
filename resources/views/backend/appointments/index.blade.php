@@ -141,8 +141,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                 </svg>
                             </a>
-                            @can('delete appointment')
-                                @if ($appointment->status === 'Approved' && $appointment->appointment_at?->isPast())
+                            @role(\App\Models\User::ROLE_ADMINISTRATOR)
+                                @if ($appointment->status !== 'Pending')
                                     <form action="{{ route('admin.appointments.destroy', $appointment) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -158,7 +158,7 @@
                                         </button>
                                     </form>
                                 @endif
-                            @endcan
+                            @endrole
                         </div>
                     </article>
                 @endforeach
@@ -237,8 +237,8 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                         </svg>
                                     </a>
-                                    @can('delete appointment')
-                                        @if ($appointment->status === 'Approved' && $appointment->appointment_at?->isPast())
+                                    @role(\App\Models\User::ROLE_ADMINISTRATOR)
+                                        @if ($appointment->status !== 'Pending')
                                             <form action="{{ route('admin.appointments.destroy', $appointment) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
@@ -254,7 +254,7 @@
                                                 </button>
                                             </form>
                                         @endif
-                                    @endcan
+                                    @endrole
                                 </div>
                             </td>
                         </tr>

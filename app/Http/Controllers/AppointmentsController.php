@@ -28,6 +28,7 @@ class AppointmentsController extends Controller implements HasMiddleware
             new Middleware('permission:add appointment', only: ['create', 'store']),
             new Middleware('permission:update appointment', only: ['edit', 'update', 'decision']),
             new Middleware('permission:delete appointment', only: ['destroy']),
+            new Middleware('role:'.User::ROLE_ADMINISTRATOR, only: ['destroy']),
         ];
     }
 
