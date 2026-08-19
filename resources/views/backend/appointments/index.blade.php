@@ -98,9 +98,6 @@
                             @else
                                 <p class="mt-1 text-sm leading-6 text-red-600">Email not recorded</p>
                             @endif
-                            <a href="tel:{{ $appointment->client_phone }}" class="block break-words text-sm leading-6 text-gray-600 hover:text-mustGreen">
-                                {{ $appointment->client_phone }}
-                            </a>
                         </div>
 
                         <dl class="grid grid-cols-2 gap-4 border-t border-gray-200 pt-4 text-sm">
@@ -132,13 +129,26 @@
                             </div>
                         </dl>
 
-                        <a href="{{ route('admin.appointments.show', $appointment) }}" class="service-action-button service-action-button--secondary mt-4 w-full">
-                            @can('update appointment')
-                                {{ $appointment->status === 'Pending' ? 'Review' : 'View' }}
-                            @else
-                                View
+                        <div class="mt-4 flex flex-col gap-2 sm:flex-row">
+                            <a href="{{ route('admin.appointments.show', $appointment) }}" class="service-action-button service-action-button--secondary w-full">
+                                @can('update appointment')
+                                    {{ $appointment->status === 'Pending' ? 'Review' : 'View' }}
+                                @else
+                                    View
+                                @endcan
+                            </a>
+                            @can('delete appointment')
+                                @if ($appointment->status === 'Approved' && $appointment->appointment_at?->isPast())
+                                    <form action="{{ route('admin.appointments.destroy', $appointment) }}" method="POST" class="w-full">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="delete_item service-action-button service-action-button--danger w-full">
+                                            Delete
+                                        </button>
+                                    </form>
+                                @endif
                             @endcan
-                        </a>
+                        </div>
                     </article>
                 @endforeach
             </div>
@@ -175,9 +185,6 @@
                                 @else
                                     <span class="mt-1 block text-xs leading-5 text-red-600">Email not recorded</span>
                                 @endif
-                                <a href="tel:{{ $appointment->client_phone }}" class="block text-xs leading-5 text-gray-500 hover:text-mustGreen">
-                                    {{ $appointment->client_phone }}
-                                </a>
                             </td>
                             <td class="break-words px-4 py-3 leading-6">{{ $appointment->service->name }}</td>
                             <td class="whitespace-nowrap px-4 py-3">
@@ -206,14 +213,27 @@
                                     {{ $appointment->status }}
                                 </span>
                             </td>
-                            <td class="px-4 py-3 text-right">
-                                <a href="{{ route('admin.appointments.show', $appointment) }}" class="service-action-button service-action-button--secondary whitespace-nowrap">
-                                    @can('update appointment')
-                                        {{ $appointment->status === 'Pending' ? 'Review' : 'View' }}
-                                    @else
-                                        View
+                            <td class="px-4 py-3">
+                                <div class="flex justify-end gap-2">
+                                    <a href="{{ route('admin.appointments.show', $appointment) }}" class="service-action-button service-action-button--secondary whitespace-nowrap">
+                                        @can('update appointment')
+                                            {{ $appointment->status === 'Pending' ? 'Review' : 'View' }}
+                                        @else
+                                            View
+                                        @endcan
+                                    </a>
+                                    @can('delete appointment')
+                                        @if ($appointment->status === 'Approved' && $appointment->appointment_at?->isPast())
+                                            <form action="{{ route('admin.appointments.destroy', $appointment) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="delete_item service-action-button service-action-button--danger whitespace-nowrap">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        @endif
                                     @endcan
-                                </a>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
