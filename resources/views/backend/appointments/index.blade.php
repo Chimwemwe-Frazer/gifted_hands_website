@@ -129,21 +129,32 @@
                             </div>
                         </dl>
 
-                        <div class="mt-4 flex flex-col gap-2 sm:flex-row">
-                            <a href="{{ route('admin.appointments.show', $appointment) }}" class="service-action-button service-action-button--secondary w-full">
-                                @can('update appointment')
-                                    {{ $appointment->status === 'Pending' ? 'Review' : 'View' }}
-                                @else
-                                    View
-                                @endcan
+                        <div class="mt-4 flex gap-2">
+                            <a
+                                href="{{ route('admin.appointments.show', $appointment) }}"
+                                class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-mustBlue/20 bg-white text-mustBlue transition hover:bg-mustBlue hover:text-white"
+                                aria-label="{{ $appointment->status === 'Pending' ? 'Review appointment' : 'View appointment' }}"
+                                title="{{ $appointment->status === 'Pending' ? 'Review' : 'View' }}"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12 18 18.75 12 18.75 2.25 12 2.25 12Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                </svg>
                             </a>
                             @can('delete appointment')
                                 @if ($appointment->status === 'Approved' && $appointment->appointment_at?->isPast())
-                                    <form action="{{ route('admin.appointments.destroy', $appointment) }}" method="POST" class="w-full">
+                                    <form action="{{ route('admin.appointments.destroy', $appointment) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="delete_item service-action-button service-action-button--danger w-full">
-                                            Delete
+                                        <button
+                                            type="submit"
+                                            class="delete_item inline-flex h-10 w-10 items-center justify-center rounded-md border border-red-200 bg-white text-red-700 transition hover:bg-red-600 hover:text-white"
+                                            aria-label="Delete appointment"
+                                            title="Delete"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.68.107 1.022.166m-1.022-.165L18.16 19.673A2.25 2.25 0 0 1 15.916 21.75H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.342-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a49.06 49.06 0 0 0-7.5 0" />
+                                            </svg>
                                         </button>
                                     </form>
                                 @endif
@@ -215,20 +226,31 @@
                             </td>
                             <td class="px-4 py-3">
                                 <div class="flex justify-end gap-2">
-                                    <a href="{{ route('admin.appointments.show', $appointment) }}" class="service-action-button service-action-button--secondary whitespace-nowrap">
-                                        @can('update appointment')
-                                            {{ $appointment->status === 'Pending' ? 'Review' : 'View' }}
-                                        @else
-                                            View
-                                        @endcan
+                                    <a
+                                        href="{{ route('admin.appointments.show', $appointment) }}"
+                                        class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-mustBlue/20 bg-white text-mustBlue transition hover:bg-mustBlue hover:text-white"
+                                        aria-label="{{ $appointment->status === 'Pending' ? 'Review appointment' : 'View appointment' }}"
+                                        title="{{ $appointment->status === 'Pending' ? 'Review' : 'View' }}"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12 18 18.75 12 18.75 2.25 12 2.25 12Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
                                     </a>
                                     @can('delete appointment')
                                         @if ($appointment->status === 'Approved' && $appointment->appointment_at?->isPast())
                                             <form action="{{ route('admin.appointments.destroy', $appointment) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="delete_item service-action-button service-action-button--danger whitespace-nowrap">
-                                                    Delete
+                                                <button
+                                                    type="submit"
+                                                    class="delete_item inline-flex h-9 w-9 items-center justify-center rounded-md border border-red-200 bg-white text-red-700 transition hover:bg-red-600 hover:text-white"
+                                                    aria-label="Delete appointment"
+                                                    title="Delete"
+                                                >
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.68.107 1.022.166m-1.022-.165L18.16 19.673A2.25 2.25 0 0 1 15.916 21.75H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.342-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a49.06 49.06 0 0 0-7.5 0" />
+                                                    </svg>
                                                 </button>
                                             </form>
                                         @endif
