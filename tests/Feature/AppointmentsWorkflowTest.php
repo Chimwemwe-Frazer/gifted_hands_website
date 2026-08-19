@@ -13,6 +13,7 @@ use Illuminate\Notifications\AnonymousNotifiable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Notification;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
 use Tests\TestCase;
 
@@ -212,6 +213,44 @@ class AppointmentsWorkflowTest extends TestCase
             ->assertSee($appointment->client_email)
             ->assertSee($service->name)
             ->assertSee(Appointment::STATUS_PENDING);
+    }
+
+    public function test_only_administrators_can_delete_reviewed_requests(): void
+    {
+        $service = $this->service();
+        $approvedAppointment = $this->pendingAppointment($service, [
+            'status' => Appointment::STATUS_APPROVED,
+            'appointment_at' => now()->addDays(3),
+        ]);
+        $rejectedAppointment = $this->pendingAppointment($service, [
+            'client_email' => 'rejected@example.com',
+            'status' => Appointment::STATUS_REJECTED,
+            'rejection_reason' => 'The requested time is unavailable.',
+            'reviewed_at' => now(),
+        ]);
+        $administrator = User::factory()->create();
+        $administratorRole = Role::findOrCreate(User::ROLE_ADMINISTRATOR);
+        $administratorRole->givePermissionTo(Permission::findOrCreate('delete appointment'));
+        $administrator->assignRole($administratorRole);
+        $staffWithDeletePermission = $this->staffWithPermission('delete appointment');
+
+        $this
+            ->actingAs($administrator)
+            ->get(route('admin.appointments.index'))
+            ->assertSee('aria-label="Delete appointment"', false);
+
+        $this
+            ->actingAs($staffWithDeletePermission)
+            ->delete(route('admin.appointments.destroy', $approvedAppointment))
+            ->assertForbidden();
+
+        $this
+            ->actingAs($administrator)
+            ->delete(route('admin.appointments.destroy', $rejectedAppointment))
+            ->assertRedirect(route('admin.appointments.index'));
+
+        $this->assertDatabaseMissing('appointments', ['id' => $rejectedAppointment->id]);
+        $this->assertDatabaseHas('appointments', ['id' => $approvedAppointment->id]);
     }
 
     public function test_staff_dashboard_renders_upcoming_appointments_as_responsive_cards(): void
