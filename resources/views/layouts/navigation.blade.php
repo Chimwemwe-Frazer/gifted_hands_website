@@ -20,7 +20,14 @@
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M6.75 3v2.25M17.25 3v2.25M3.75 8.25h16.5M4.5 6.75h15A1.5 1.5 0 0 1 21 8.25v10.5A2.25 2.25 0 0 1 18.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25a1.5 1.5 0 0 1 1.5-1.5Z" />
                 </svg>
-                <span>Appointments</span>
+                <span class="flex min-w-0 flex-1 items-center justify-between gap-2">
+                    <span>Appointments</span>
+                    @if (($pendingAppointmentsCount ?? 0) > 0)
+                        <span class="inline-flex min-w-6 items-center justify-center rounded-full bg-green-600 px-2 py-0.5 text-xs font-bold leading-5 text-white">
+                            {{ $pendingAppointmentsCount }}
+                        </span>
+                    @endif
+                </span>
             </a>
         </li>
     @endcan
