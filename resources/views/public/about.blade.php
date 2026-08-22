@@ -143,7 +143,7 @@
                     <p class="text-sm font-semibold uppercase tracking-[.18em] text-mustGreen">Our facility</p>
                     <h2 class="mt-3 text-3xl font-bold text-mustBlue">Facility Highlights</h2>
                     <p class="mt-4 leading-8 text-gray-600">
-                        The clinic is organized to support essential outpatient care, family health services, diagnostics, and rehabilitation. Specific room photos and equipment details can be added as they become available.
+                        Our facilities are arranged to provide a clean, comfortable, and supportive environment for consultations, diagnostics, family health services, and recovery care.
                     </p>
                 </div>
 
