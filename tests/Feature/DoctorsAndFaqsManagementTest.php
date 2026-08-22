@@ -41,6 +41,7 @@ class DoctorsAndFaqsManagementTest extends TestCase
             '2026_08_15_000022_move_allan_faiti_to_first_doctor.php',
             '2026_08_15_000023_add_mcdonald_kuleti_doctor_profile.php',
             '2026_08_15_000024_lower_mcdonald_kuleti_doctor_image.php',
+            '2026_08_22_000025_replace_mercy_banda_with_glory_kamanga.php',
         ] as $migrationFile) {
             $migration = require database_path('migrations/'.$migrationFile);
             $migration->up();
@@ -90,6 +91,11 @@ class DoctorsAndFaqsManagementTest extends TestCase
             ->assertSee('McDonald Kuleti')
             ->assertSee('Lab Manager')
             ->assertSee('imgs/doctors/mcdonald-kuleti-lowered.jpg', false)
+            ->assertSee('Glory Kamanga')
+            ->assertSee('Pharmacist')
+            ->assertSee('imgs/doctors/glory-kamanga-pharmacist.jpg', false)
+            ->assertDontSee('Dr. Mercy Banda')
+            ->assertDontSee('imgs/doctors/mercy-banda.png', false)
             ->assertDontSee('imgs/doctors/thoko-phiri.png', false)
             ->assertSee('Dr. Daniel Kamanga')
             ->assertSee('Languages:')
