@@ -130,7 +130,7 @@
                             </p>
                             <p>
                                 <span class="block font-semibold text-mustBlue">Phone</span>
-                                <a href="tel:+265888467878" class="hover:text-mustGreen">+265 (0) 888 467 878</a>
+                                <a href="tel:+265995767137" class="hover:text-mustGreen">+265 (0) 995 767 137</a>
                             </p>
                         </div>
                     </section>
