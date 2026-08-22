@@ -29,22 +29,20 @@
                 @forelse ($announcements as $announcement)
                     @if ($announcement->image_path)
                         <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-                            <div class="grid md:grid-cols-[minmax(220px,.8fr)_minmax(0,1.2fr)]">
-                                <div>
-                                    <img
-                                        src="{{ $announcement->image_url }}"
-                                        alt="{{ $announcement->title }}"
-                                        class="h-64 w-full object-cover md:h-full md:min-h-72"
-                                    >
+                            <div class="aspect-[16/9] overflow-hidden bg-[#EAF4F9]">
+                                <img
+                                    src="{{ $announcement->image_url }}"
+                                    alt="{{ $announcement->title }}"
+                                    class="h-full w-full object-cover"
+                                >
+                            </div>
+                            <div class="p-5 sm:p-6">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
+                                    @include('public.partials.announcement-posted-label', ['announcement' => $announcement])
                                 </div>
-                                <div class="flex flex-col justify-center p-5 sm:p-6">
-                                    <div class="flex flex-wrap items-center justify-between gap-2">
-                                        <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
-                                        @include('public.partials.announcement-posted-label', ['announcement' => $announcement])
-                                    </div>
-                                    <h3 class="mt-3 text-xl font-bold text-mustBlue">{{ $announcement->title }}</h3>
-                                    <p class="mt-3 whitespace-pre-line text-sm leading-7 text-gray-600">{{ $announcement->message }}</p>
-                                </div>
+                                <h3 class="mt-3 text-xl font-bold text-mustBlue">{{ $announcement->title }}</h3>
+                                <p class="mt-3 whitespace-pre-line text-sm leading-7 text-gray-600">{{ $announcement->message }}</p>
                             </div>
                         </article>
                     @else

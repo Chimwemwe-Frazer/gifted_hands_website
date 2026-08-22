@@ -450,23 +450,21 @@
                 <div class="mt-8 grid grid-flow-row-dense gap-4 md:grid-cols-2 lg:grid-cols-3">
                     @forelse ($announcements as $announcement)
                         @if ($announcement->image_path)
-                            <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm md:col-span-2">
-                                <div class="grid h-full md:grid-cols-2">
-                                    <div>
-                                        <img
-                                            src="{{ $announcement->image_url }}"
-                                            alt="{{ $announcement->title }}"
-                                            class="h-52 w-full object-cover md:h-full md:min-h-56"
-                                        >
+                            <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                                <div class="aspect-[16/9] overflow-hidden bg-[#EAF4F9]">
+                                    <img
+                                        src="{{ $announcement->image_url }}"
+                                        alt="{{ $announcement->title }}"
+                                        class="h-full w-full object-cover"
+                                    >
+                                </div>
+                                <div class="p-5">
+                                    <div class="flex flex-wrap items-center justify-between gap-2">
+                                        <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
+                                        @include('public.partials.announcement-posted-label', ['announcement' => $announcement])
                                     </div>
-                                    <div class="flex flex-col justify-center p-5">
-                                        <div class="flex flex-wrap items-center justify-between gap-2">
-                                            <p class="text-xs font-semibold uppercase tracking-[.16em] text-mustGreen">{{ $announcement->category }}</p>
-                                            @include('public.partials.announcement-posted-label', ['announcement' => $announcement])
-                                        </div>
-                                        <h3 class="mt-3 font-bold text-mustBlue">{{ $announcement->title }}</h3>
-                                        <p class="mt-2 whitespace-pre-line text-sm leading-6 text-gray-600">{{ Str::limit($announcement->message, 240) }}</p>
-                                    </div>
+                                    <h3 class="mt-3 font-bold text-mustBlue">{{ $announcement->title }}</h3>
+                                    <p class="mt-2 whitespace-pre-line text-sm leading-6 text-gray-600">{{ Str::limit($announcement->message, 180) }}</p>
                                 </div>
                             </article>
                         @else
