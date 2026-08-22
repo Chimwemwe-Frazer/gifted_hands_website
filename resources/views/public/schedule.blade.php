@@ -18,7 +18,7 @@
         <div class="relative z-10 mx-auto flex h-56 max-w-7xl flex-col justify-center px-4 md:h-64 lg:h-56">
             <p class="text-sm font-semibold uppercase tracking-[.2em] text-mustGreen">Effective 1 May 2026</p>
             <h1 class="mt-3 text-4xl font-medium leading-tight md:text-5xl">Clinic Schedule</h1>
-            <p class="mt-4 max-w-md text-gray-200">Plan your visit using the updated clinic timetable, service availability, and booking notes.</p>
+            <p class="mt-4 max-w-md text-gray-200">Plan your visit using the updated clinic timetable, service availability, and booking options.</p>
         </div>
     </header>
 
@@ -29,7 +29,7 @@
                 <h2 class="mt-2 text-2xl font-bold text-mustBlue md:text-3xl">Our valued clients, clinics will be as follows</h2>
                 <p class="mt-3 max-w-3xl text-sm leading-7 text-gray-600">
                     The timetable below reflects the clinic schedule displayed in the latest Gifted Hands Private Clinic notice.
-                    Appointment requests are recommended so the clinic team can confirm provider availability before your visit.
+                    Patients are welcome to visit directly during clinic hours. Appointment requests or calls are also available when you want to confirm provider availability ahead of time.
                 </p>
             </div>
 
@@ -112,7 +112,7 @@
                     <section class="rounded-lg bg-mustBlue p-6 text-white shadow-sm">
                         <h2 class="text-2xl font-bold">Book or Confirm</h2>
                         <div class="mt-5 space-y-4 text-sm leading-7 text-gray-200">
-                            <p>Use the appointment form or contact the clinic directly before visiting for time-sensitive services.</p>
+                            <p>You may visit directly, use the appointment form, or call the clinic when you need to confirm timing for a specific service.</p>
                             <p><strong class="text-white">Sunday:</strong> Emergency and special bookings only.</p>
                             <p><strong class="text-white">Physiotherapy:</strong> Available on booking.</p>
                         </div>

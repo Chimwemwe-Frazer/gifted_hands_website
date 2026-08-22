@@ -89,8 +89,8 @@
                                 </div>
 
                                 <div>
-                                    <h3 class="font-bold text-mustBlue">Appointments</h3>
-                                    <p class="mt-3 whitespace-pre-line text-sm leading-7 text-gray-600">{{ $service->appointment_details ?: 'Contact the clinic to confirm availability and appointment requirements.' }}</p>
+                                    <h3 class="font-bold text-mustBlue">Visits and appointments</h3>
+                                    <p class="mt-3 whitespace-pre-line text-sm leading-7 text-gray-600">{{ $service->appointment_details ?: 'You may visit the clinic directly during service hours, request an appointment, or contact the clinic to confirm availability for this service.' }}</p>
                                 </div>
                             </div>
 

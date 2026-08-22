@@ -32,7 +32,7 @@
                     For many years, we have proudly served our community with professional, patient-centered healthcare. Our experienced doctors and dedicated medical team provide a comprehensive range of quality healthcare services designed to meet the diverse needs of individuals and families.
                 </p>
                 <p class="mt-6 text-lg leading-9 text-gray-700">
-                    Our work is guided by compassion, privacy, and reliable clinical attention. We aim to make every visit clear and comfortable, from the first appointment request to the care and guidance provided by our medical team.
+                    Our work is guided by compassion, privacy, and reliable clinical attention. We aim to make every visit clear and comfortable, whether patients request an appointment, call ahead, or come directly to the clinic.
                 </p>
                 <p class="mt-6 text-lg leading-9 text-gray-700">
                     The clinic continues to grow as a trusted place for families and individuals seeking accessible private healthcare, practical advice, and timely support.
@@ -100,7 +100,7 @@
                         ['Comprehensive care', 'General consultation, women\'s health, child wellness, laboratory services, and physiotherapy support in one clinic.'],
                         ['Patient-centered service', 'Care is organized around clear communication, respect, and the needs of each patient.'],
                         ['Convenient Lilongwe location', 'The clinic is located on Barron Avenue for easier access by patients in and around the city.'],
-                        ['Responsive appointment support', 'Patients can request appointments online and receive follow-up from the clinic team.'],
+                        ['Flexible access', 'Patients can request appointments online, call ahead, or visit the clinic directly during service hours.'],
                     ] as [$title, $description])
                         <article class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
                             <h3 class="text-lg font-bold text-mustBlue">{{ $title }}</h3>

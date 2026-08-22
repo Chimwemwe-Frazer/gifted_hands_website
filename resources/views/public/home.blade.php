@@ -44,7 +44,7 @@
                     Clinic
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-7 text-white/75 sm:mt-6 sm:text-lg sm:leading-8 md:max-w-[23rem] lg:max-w-[25rem] xl:max-w-[29rem]">
-                    Professional outpatient care, health consultations, and appointment-based clinical services <span class="block xl:inline">delivered with privacy, respect, and timely attention.</span>
+                    Professional outpatient care, health consultations, appointments, and direct clinic visits <span class="block xl:inline">delivered with privacy, respect, and timely attention.</span>
                 </p>
                 <div class="mt-7 grid gap-3 sm:mt-8 sm:flex sm:flex-wrap">
                     <a href="#book-appointment" class="inline-flex justify-center rounded-full bg-mustGreen px-5 py-3 text-center font-semibold text-white hover:bg-mustOrangeDark">Request appointment</a>
@@ -278,7 +278,7 @@
                 <div>
                     <h2 class="section-heading">Request An Appointment</h2>
                     <p class="mt-4 leading-7 text-gray-600">
-                        Tell us how to reach you and which service you need. Your request will remain pending until our team reviews it and emails you with a decision.
+                        Tell us how to reach you and which service you need. You can request an appointment here, call ahead, or visit the clinic directly during service hours.
                     </p>
                     <div class="mt-5 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-900">
                         Submitting this form does not confirm an appointment. Any date and time you provide is a preference; the clinic will send the confirmed schedule by email after approval.
