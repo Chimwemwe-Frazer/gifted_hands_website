@@ -284,7 +284,7 @@
                         Submitting this form does not confirm an appointment. Any date and time you provide is a preference; the clinic will send the confirmed schedule by email after approval.
                     </div>
                     <div class="mt-6 space-y-2 text-sm text-gray-700">
-                        <p><strong class="text-mustBlue">Phone:</strong> <a href="tel:+265995767137" class="hover:text-mustGreen">+265 995 76 71 37</a></p>
+                        <p><strong class="text-mustBlue">Phones:</strong> <a href="tel:+265995767137" class="hover:text-mustGreen">+265 995 76 71 37</a> / <a href="tel:+265888467878" class="hover:text-mustGreen">+265 888 467 878</a></p>
                         <p><strong class="text-mustBlue">Email:</strong> <a href="mailto:giftedhandspvtclinic@gmail.com" class="break-words hover:text-mustGreen">giftedhandspvtclinic@gmail.com</a></p>
                         <p><strong class="text-mustBlue">Location:</strong> Barron Avenue, Lilongwe, Malawi</p>
                     </div>
