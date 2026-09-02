@@ -30,12 +30,15 @@ Route::get('/announcements', PublicAnnouncementsController::class)->name('announ
 Route::view('/gallery', 'public.gallery')->name('gallery');
 Route::get('/faqs', PublicFaqsController::class)->name('faqs');
 Route::view('/contact-us', 'public.contact')->name('contact');
+
 Route::get('/media/{path}', PublicMediaController::class)
     ->where('path', '.*')
     ->name('public.media');
+
 Route::post('/appointments/request', PublicAppointmentController::class)
     ->middleware('throttle:5,1')
     ->name('appointments.request');
+
 Route::post('/announcements/subscribe', PublicAnnouncementSubscriptionController::class)
     ->name('announcements.subscribe');
 
@@ -43,12 +46,10 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
 
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
-    // TEMPORARY: Clear Spatie permission cache
-    Route::get('/clear-permission-cache', function () {
-        app()->make(PermissionRegistrar::class)->forgetCachedPermissions();
-
-        return 'Permission cache cleared successfully.';
-    })->name('clear-permission-cache');
+    // TEMPORARY: Test whether new routes are being deployed
+    Route::get('/test-deployment', function () {
+        return 'NEW CODE IS LIVE';
+    })->name('test-deployment');
 
     Route::resource('services', ServicesController::class);
     Route::resource('doctors', DoctorsController::class)->except('show');
@@ -62,17 +63,27 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::resource('announcements', AnnouncementsController::class)->except('show');
 
     Route::resource('users', UsersController::class);
-    Route::put('users/activate/{id}', [UsersController::class, 'activate'])->name('users.activate');
-    Route::put('users/deactivate/{id}', [UsersController::class, 'deactivate'])->name('users.deactivate');
 
-    Route::resource('roles', RolesAndPermissionsController::class)->only(['index', 'show']);
+    Route::put('users/activate/{id}', [UsersController::class, 'activate'])
+        ->name('users.activate');
+
+    Route::put('users/deactivate/{id}', [UsersController::class, 'deactivate'])
+        ->name('users.deactivate');
+
+    Route::resource('roles', RolesAndPermissionsController::class)
+        ->only(['index', 'show']);
 
     Route::put('user/{user}/update-permissions', [UserRolesAndPermissionsController::class, 'changePermissions'])
         ->name('user.update-permissions');
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', [ProfileController::class, 'edit'])
+        ->name('profile.edit');
+
+    Route::patch('/profile', [ProfileController::class, 'update'])
+        ->name('profile.update');
+
+    Route::delete('/profile', [ProfileController::class, 'destroy'])
+        ->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
