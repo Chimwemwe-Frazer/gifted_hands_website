@@ -19,6 +19,7 @@ use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\UserRolesAndPermissionsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\PermissionRegistrar;
 
 Route::get('/', PublicSiteController::class)->name('home');
 Route::view('/about-us', 'public.about')->name('about');
@@ -35,17 +36,29 @@ Route::get('/media/{path}', PublicMediaController::class)
 Route::post('/appointments/request', PublicAppointmentController::class)
     ->middleware('throttle:5,1')
     ->name('appointments.request');
-Route::post('/announcements/subscribe', PublicAnnouncementSubscriptionController::class)->name('announcements.subscribe');
+Route::post('/announcements/subscribe', PublicAnnouncementSubscriptionController::class)
+    ->name('announcements.subscribe');
 
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
+
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
+
+    // TEMPORARY: Clear Spatie permission cache
+    Route::get('/clear-permission-cache', function () {
+        app()->make(PermissionRegistrar::class)->forgetCachedPermissions();
+
+        return 'Permission cache cleared successfully.';
+    })->name('clear-permission-cache');
 
     Route::resource('services', ServicesController::class);
     Route::resource('doctors', DoctorsController::class)->except('show');
     Route::resource('faqs', FaqsController::class)->except('show');
+
     Route::patch('appointments/{appointment}/decision', [AppointmentsController::class, 'decision'])
         ->name('appointments.decision');
+
     Route::resource('appointments', AppointmentsController::class);
+
     Route::resource('announcements', AnnouncementsController::class)->except('show');
 
     Route::resource('users', UsersController::class);
@@ -53,6 +66,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::put('users/deactivate/{id}', [UsersController::class, 'deactivate'])->name('users.deactivate');
 
     Route::resource('roles', RolesAndPermissionsController::class)->only(['index', 'show']);
+
     Route::put('user/{user}/update-permissions', [UserRolesAndPermissionsController::class, 'changePermissions'])
         ->name('user.update-permissions');
 
