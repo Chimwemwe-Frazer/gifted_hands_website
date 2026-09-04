@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Gifted Hands Private Clinic') }}</title>
+    @include('public.partials.seo', [
+    'seoTitle' => 'Gifted Hands Private Clinic | Private Healthcare in Lilongwe, Malawi',
+    'seoDescription' => 'Gifted Hands Private Clinic provides patient-centered private healthcare in Lilongwe, Malawi, including general consultation, women’s health, Under-5 care, physiotherapy, laboratory services, scanning, appointments, and ambulance services.',
+    'seoCanonical' => url('/'),
+    ])
+
+    @include('public.partials.structured-data')
 
     <link rel="icon" href="{{ asset('imgs/logo/gifted-hands-logo-favicon.png') }}" type="image/png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])

@@ -5,7 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Announcements | {{ config('app.name', 'Gifted Hands Private Clinic') }}</title>
+    @include('public.partials.seo', [
+    'seoTitle' => 'Clinic Announcements | Gifted Hands Private Clinic',
+    'seoDescription' => 'Read the latest announcements, clinic updates, service information, schedules, and visitor notices from Gifted Hands Private Clinic in Lilongwe.',
+    'seoCanonical' => url('/announcements'),
+    ])
     <link rel="icon" href="{{ asset('imgs/logo/gifted-hands-logo-favicon.png') }}" type="image/png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
