@@ -18,17 +18,53 @@ use App\Http\Controllers\RolesAndPermissionsController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\UserRolesAndPermissionsController;
 use App\Http\Controllers\UsersController;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
-use Spatie\Permission\PermissionRegistrar;
+
+Route::get('/sitemap.xml', function () {
+    $urls = [
+        url('/'),
+        url('/about-us'),
+        url('/services'),
+        url('/doctors'),
+        url('/clinic-schedule'),
+        url('/announcements'),
+        url('/gallery'),
+        url('/faqs'),
+        url('/contact-us'),
+    ];
+
+    $xml = '<?xml version="1.0" encoding="UTF-8"?>';
+    $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+    foreach ($urls as $url) {
+        $xml .= '<url>';
+        $xml .= '<loc>' . htmlspecialchars($url, ENT_XML1, 'UTF-8') . '</loc>';
+        $xml .= '</url>';
+    }
+
+    $xml .= '</urlset>';
+
+    return Response::make($xml, 200)
+        ->header('Content-Type', 'application/xml');
+});
 
 Route::get('/', PublicSiteController::class)->name('home');
+
 Route::view('/about-us', 'public.about')->name('about');
+
 Route::get('/services', PublicServicesController::class)->name('services');
+
 Route::get('/doctors', PublicDoctorsController::class)->name('doctors');
+
 Route::view('/clinic-schedule', 'public.schedule')->name('schedule');
+
 Route::get('/announcements', PublicAnnouncementsController::class)->name('announcements');
+
 Route::view('/gallery', 'public.gallery')->name('gallery');
+
 Route::get('/faqs', PublicFaqsController::class)->name('faqs');
+
 Route::view('/contact-us', 'public.contact')->name('contact');
 
 Route::get('/media/{path}', PublicMediaController::class)
@@ -43,16 +79,12 @@ Route::post('/announcements/subscribe', PublicAnnouncementSubscriptionController
     ->name('announcements.subscribe');
 
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
-
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
-    // TEMPORARY: Test whether new routes are being deployed
-    Route::get('/test-deployment', function () {
-        return 'NEW CODE IS LIVE';
-    })->name('test-deployment');
-
     Route::resource('services', ServicesController::class);
+
     Route::resource('doctors', DoctorsController::class)->except('show');
+
     Route::resource('faqs', FaqsController::class)->except('show');
 
     Route::patch('appointments/{appointment}/decision', [AppointmentsController::class, 'decision'])
