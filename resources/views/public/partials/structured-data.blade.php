@@ -64,7 +64,7 @@
     ],
 
     "sameAs": [
-    "https://www.facebook.com/p/Gifted-Hands-Private-Clinic-Limited-100068548624393/"
+        "https://www.facebook.com/p/Gifted-Hands-Private-Clinic-Limited-100068548624393/"
     ]
 }
 </script>
