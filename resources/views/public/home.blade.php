@@ -551,5 +551,8 @@
 
     @include('public.partials.footer')
 </body>
+<div style="background: red; color: white; padding: 15px; text-align: center; font-weight: bold;">
+    DEPLOYMENT TEST — NEW VERSION
+</div>
 
 </html>
