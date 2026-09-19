@@ -46,7 +46,7 @@
             <div class="max-w-3xl md:max-w-[31rem] lg:max-w-3xl">
                 <p class="mb-3 text-xs font-semibold tracking-[.1em] text-mustOrange sm:mb-4 sm:text-sm sm:tracking-[.12em]">Our confidence is our capability</p>
                 <h1 class="text-[2rem] font-medium leading-[1.15] text-white sm:text-4xl sm:leading-tight md:text-5xl lg:text-6xl">
-                    Gifted Hands <span class="text-mustOrange">Pvt</span><br>
+                    Gifted Hands <span class="text-mustOrange">Private</span><br>
                     Clinic
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-7 text-white/75 sm:mt-6 sm:text-lg sm:leading-8 md:max-w-[23rem] lg:max-w-[25rem] xl:max-w-[29rem]">
