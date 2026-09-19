@@ -525,7 +525,7 @@
             <div class="mx-auto max-w-7xl px-4 py-12 md:py-16">
                 <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end md:gap-8 lg:gap-10">
                     <div class="max-w-3xl md:max-w-[32rem] lg:max-w-3xl">
-                        <h2 class="section-heading">FAQs</h2>
+                        <h2 class="section-heading">FAQssssssss</h2>
                         <p class="mt-4 text-gray-600">Answers to common visitor questions before they book or visit.</p>
                     </div>
                     <a href="{{ route('faqs') }}" class="inline-flex shrink-0 items-center self-start whitespace-nowrap rounded-full border border-mustOrange px-5 py-3 text-sm font-semibold text-mustGreen hover:bg-mustOrangeDark hover:text-white md:self-auto">
@@ -551,8 +551,5 @@
 
     @include('public.partials.footer')
 </body>
-<div style="background: red; color: white; padding: 15px; text-align: center; font-weight: bold;">
-    DEPLOYMENT TEST — NEW VERSION
-</div>
 
 </html>
